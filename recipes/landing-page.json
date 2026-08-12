@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "id": "landing-page",
+  "label": "Landing page",
+  "purpose": "Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.",
+  "platforms": ["react", "claude-artifact"],
+  "components": ["navigation", "marketing", "typography", "layout", "button", "form", "feedback"],
+  "structure": ["SiteHeader", "Hero", "Proof or LogoCloud", "Problem", "Offer", "Method", "Evidence", "CTA", "Footer"],
+  "guidance": ["Use uma única ação primária por seção.", "Comece pela dor do negócio e termine no impacto esperado.", "Alterne canvas branco e superfícies quentes para separar narrativas."],
+  "antiPatterns": ["Gradientes decorativos sem função.", "Mais de duas famílias tipográficas.", "Laranja puro com texto branco em controles.", "Claims sem fonte ou contexto."]
+}

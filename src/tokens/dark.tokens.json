@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "color": {
+    "canvas": { "$type": "color", "$value": "{color.neutral.1000}" },
+    "surface": { "$type": "color", "$value": "{color.neutral.900}" },
+    "surface-raised": { "$type": "color", "$value": "{color.neutral.800}" },
+    "surface-hover": { "$type": "color", "$value": "{color.neutral.700}" },
+    "text": { "$type": "color", "$value": "{color.neutral.0}" },
+    "text-muted": { "$type": "color", "$value": "{color.neutral.300}" },
+    "text-subtle": { "$type": "color", "$value": "{color.neutral.400}" },
+    "text-inverse": { "$type": "color", "$value": "{color.neutral.1000}" },
+    "border": { "$type": "color", "$value": "{color.neutral.700}" },
+    "border-strong": { "$type": "color", "$value": "{color.neutral.500}" },
+    "action-text": { "$type": "color", "$value": "{color.orange.300}" },
+    "focus": { "$type": "color", "$value": "{color.orange.300}" }
+  }
+}

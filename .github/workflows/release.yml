@@ -1,0 +1,33 @@
+name: GitHub Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - name: Build release assets
+        run: |
+          mkdir release-assets
+          cp design-system.manifest.json llms.txt llms-full.txt release-assets/
+          tar -czf release-assets/improve-design-system-skill.tar.gz skills/improve-design-system
+          tar -czf release-assets/improve-artifact-starters.tar.gz packages/artifact-kit/starters recipes
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" release-assets/* --generate-notes

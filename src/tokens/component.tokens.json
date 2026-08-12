@@ -1,0 +1,55 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "button": {
+    "background": { "$type": "color", "$value": "{color.text}" },
+    "background-primary": { "$type": "color", "$value": "{color.action-primary}" },
+    "background-primary-hover": { "$type": "color", "$value": "{color.action-primary-hover}" },
+    "background-primary-active": { "$type": "color", "$value": "{color.action-primary-active}" },
+    "text-primary": { "$type": "color", "$value": "{color.action-primary-text}" },
+    "background-brand": { "$type": "color", "$value": "{color.action-primary}" },
+    "height": { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+    "radius": { "$type": "dimension", "$value": "{radius.pill}" }
+  },
+  "card": {
+    "background": { "$type": "color", "$value": "{color.canvas}" },
+    "background-warm": { "$type": "color", "$value": "{color.surface}" },
+    "radius": { "$type": "dimension", "$value": "{radius.card}" }
+  },
+  "input": {
+    "background": { "$type": "color", "$value": "{color.canvas}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "height": { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+    "radius": { "$type": "dimension", "$value": "{radius.control}" }
+  },
+  "dialog": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "radius": { "$type": "dimension", "$value": "{radius.xl}" },
+    "shadow": { "$type": "string", "$value": "{shadow.lg}" }
+  },
+  "badge": {
+    "radius": { "$type": "dimension", "$value": "{radius.pill}" },
+    "height": { "$type": "dimension", "$value": { "value": 28, "unit": "px" } }
+  },
+  "agent-status": {
+    "thinking": { "$type": "color", "$value": "{color.agent-thinking}" },
+    "running": { "$type": "color", "$value": "{color.agent-running}" },
+    "awaiting": { "$type": "color", "$value": "{color.agent-awaiting}" },
+    "success": { "$type": "color", "$value": "{color.agent-success}" },
+    "failed": { "$type": "color", "$value": "{color.agent-failed}" }
+  },
+  "tool-call": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "approval": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "border": { "$type": "color", "$value": "{color.agent-awaiting}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "artifact": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  }
+}

@@ -1,0 +1,57 @@
+# Improve Design System
+
+React/TypeScript design system for Improve Business. Canonical contract: design-system.manifest.json plus DTCG token files.
+
+## Non-negotiable brand rules
+- Use Inter for body copy, controls and product UI.
+- Use Clash Display Bold for titles and selected highlights; fall back to Inter when the licensed font file is unavailable.
+- Reserve Castledown Cursive Dots for rare expressive accents and Montserrat Medium for occasional supporting labels.
+- Use white canvas, warm #F5F2F0 surfaces, warm black #1D1D1F text and orange #FF5A00 as brand accent.
+- Use #B93800 with white text for primary actions; never use raw brand orange as a small control background with white text.
+- Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
+- Use existing components and semantic tokens before inventing new values.
+
+## Entry points
+- Human guide: README.md
+- Machine manifest: design-system.manifest.json
+- Tokens: src/tokens/*.tokens.json
+- Recipes: recipes/*.json
+- Agent skill: skills/improve-design-system/SKILL.md
+- Source-owned CLI: packages/cli/improve.mjs
+
+## Components
+- Button (button, stable): Ação principal, secundária ou textual com ícones opcionais.
+- Layout primitives (layout, stable): Container, Stack, Cluster, Grid e Section para composição responsiva.
+- Typography (typography, stable): Inter na interface, Clash Display em títulos, Castledown em acentos raros e Montserrat Medium em labels pontuais.
+- Improve Logo (logo, stable): Marca vetorial responsiva para interfaces e Artifacts.
+- Card (card, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
+- Data display (data-display, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
+- Form controls (form, stable): Campos, escolhas e switches com descrição e erro associados.
+- Feedback (feedback, stable): Badge, Alert, Skeleton, Spinner e Progress.
+- Dialog (dialog, stable): Modal acessível com título, descrição, conteúdo e ação.
+- Overlays and disclosure (overlays, stable): Accordion, Tabs, Tooltip e menus acessíveis.
+- Navigation (navigation, stable): Header e Footer institucionais.
+- Marketing patterns (marketing, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
+- Presentation (slides, stable): Primitivas 16:9 para apresentações React.
+- AgentStatus (agent-status, beta): Estado resumido e acessível de uma execução agentic.
+- StreamingMessage (streaming-message, beta): Conteúdo progressivo sem anunciar cada token.
+- ToolCallCard (tool-call-card, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ApprovalCard (approval-card, beta): Aprovação informada para ações externas ou sensíveis.
+- RunTimeline (run-timeline, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- AgentError (agent-error, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- PlanSteps (plan-steps, beta): Plano visível com estado por etapa.
+- ArtifactCard (artifact-card, beta): Resultado versionado com tipo, autoria e ação de abertura.
+- CitationList (citation-list, beta): Fontes verificáveis associadas ao resultado.
+- PermissionScope (permission-scope, beta): Escopo, duração e revogação de uma permissão.
+- AgentHandoff (agent-handoff, beta): Transferência explícita de responsabilidade e contexto.
+- GeneratedUIBoundary (generated-ui-boundary, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
+- McpAppFrame (mcp-app-frame, experimental): Shell visual para recursos interativos MCP.
+- TraceViewer (trace-viewer, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
+
+## Recipes
+- Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.
+- Dashboard (dashboard): Ajudar equipes a perceber estado, exceções e próximos passos rapidamente.
+- Product app (app): Construir fluxos operacionais claros e responsivos.
+- Slides (slides): Transformar diagnóstico e recomendação em uma narrativa executiva 16:9.
+- Agent workspace (agent-workspace): Tornar uma execução agentic observável, controlável, retomável e auditável.
+- Claude Artifact (artifact): Criar um protótipo React autocontido e fiel à Improve dentro do Claude.

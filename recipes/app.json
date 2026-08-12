@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "id": "app",
+  "label": "Product app",
+  "purpose": "Construir fluxos operacionais claros e responsivos.",
+  "platforms": ["react", "claude-artifact"],
+  "components": ["layout", "typography", "navigation", "button", "form", "feedback", "data-display", "overlays"],
+  "structure": ["App shell", "Context header", "Primary task", "Supporting detail", "Feedback", "Recovery"],
+  "guidance": ["Preserve contexto após falhas.", "Use rótulos de ação com verbo e objeto.", "Faça estados vazios explicarem como começar."],
+  "antiPatterns": ["Modal para toda interação.", "Ícones sem rótulo acessível.", "Formulários sem validação junto ao campo.", "Navegação que depende somente de cor."]
+}

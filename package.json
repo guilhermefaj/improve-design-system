@@ -1,0 +1,72 @@
+{
+  "name": "@improve-business/design-system",
+  "version": "0.2.0",
+  "description": "Design system oficial da Improve Business para produtos, landing pages e apresentações em React.",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@11.16.0",
+  "type": "module",
+  "bin": {
+    "improve-ds": "./packages/cli/improve.mjs"
+  },
+  "sideEffects": ["**/*.css"],
+  "main": "./dist/improve.umd.cjs",
+  "module": "./dist/improve.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/improve.js",
+      "require": "./dist/improve.umd.cjs"
+    },
+    "./styles.css": "./dist/improve.css",
+    "./tokens": "./src/tokens/semantic.tokens.json",
+    "./tokens/primitive": "./src/tokens/primitive.tokens.json",
+    "./tokens/component": "./src/tokens/component.tokens.json"
+  },
+  "files": ["assets", "dist", "src", "packages", "recipes", "schemas", "skills", "AGENTS.md", "CLAUDE.md", "design-system.manifest.json", "llms.txt", "llms-full.txt", "README.md"],
+  "scripts": {
+    "generate": "node scripts/generate-contracts.mjs",
+    "generate:check": "node scripts/generate-contracts.mjs --check",
+    "validate:contracts": "node scripts/validate-contracts.mjs",
+    "dev": "vite",
+    "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:visual": "playwright test",
+    "check": "npm run generate:check && npm run validate:contracts && npm run test && npm run build && npm run build:lib && npm run storybook:build"
+  },
+  "peerDependencies": {
+    "react": ">=18 <21",
+    "react-dom": ">=18 <21"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/montserrat": "^5.3.0",
+    "lucide-react": "^1.31.0",
+    "radix-ui": "^1.6.7"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.5.7",
+    "@storybook/react-vite": "^10.5.7",
+    "@playwright/test": "^1.55.0",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "ajv": "^8.17.1",
+    "axe-core": "^4.10.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "jsdom": "^28.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "storybook": "^10.5.7",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.0.18"
+  }
+}

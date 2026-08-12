@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "id": "slides",
+  "label": "Slides",
+  "purpose": "Transformar diagnóstico e recomendação em uma narrativa executiva 16:9.",
+  "platforms": ["react", "slides"],
+  "components": ["slides", "logo", "typography", "layout"],
+  "structure": ["Context", "Tension", "Evidence", "Recommendation", "Roadmap", "Decision"],
+  "guidance": ["Uma ideia principal por slide.", "Use números grandes somente quando houver unidade e fonte.", "Reserve o laranja para transformação e decisão."],
+  "antiPatterns": ["Parágrafos longos.", "Tabela ilegível.", "Título genérico.", "Elementos fora da área segura de 7%."]
+}

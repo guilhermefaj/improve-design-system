@@ -1,0 +1,157 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "color": {
+    "orange": {
+      "$type": "color",
+      "50": { "$value": "#fff4ed" },
+      "100": { "$value": "#ffe4d2" },
+      "200": { "$value": "#ffc5a3" },
+      "300": { "$value": "#ff9e6a" },
+      "400": { "$value": "#ff7335" },
+      "500": { "$value": "#ff5a00" },
+      "600": { "$value": "#e84d00" },
+      "700": { "$value": "#b93800" },
+      "800": { "$value": "#932f08" },
+      "900": { "$value": "#77290d" }
+    },
+    "neutral": {
+      "$type": "color",
+      "0": { "$value": "#ffffff" },
+      "50": { "$value": "#faf9f8" },
+      "100": { "$value": "#f5f2f0" },
+      "200": { "$value": "#e7e3e0" },
+      "300": { "$value": "#d4cfcb" },
+      "400": { "$value": "#a8a29e" },
+      "500": { "$value": "#797471" },
+      "600": { "$value": "#575350" },
+      "700": { "$value": "#3d3a38" },
+      "800": { "$value": "#292726" },
+      "900": { "$value": "#1d1d1f" },
+      "1000": { "$value": "#0d0d0e" }
+    },
+    "green": {
+      "$type": "color",
+      "100": { "$value": "#dff6ed" },
+      "600": { "$value": "#147d57" }
+    },
+    "blue": {
+      "$type": "color",
+      "100": { "$value": "#e4eef9" },
+      "700": { "$value": "#24548a" }
+    },
+    "red": {
+      "$type": "color",
+      "100": { "$value": "#fee4e2" },
+      "700": { "$value": "#b42318" }
+    },
+    "yellow": {
+      "$type": "color",
+      "100": { "$value": "#fff2cc" },
+      "800": { "$value": "#7a4d00" }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "0": { "$value": { "value": 0, "unit": "px" } },
+    "1": { "$value": { "value": 4, "unit": "px" } },
+    "2": { "$value": { "value": 8, "unit": "px" } },
+    "3": { "$value": { "value": 12, "unit": "px" } },
+    "4": { "$value": { "value": 16, "unit": "px" } },
+    "5": { "$value": { "value": 20, "unit": "px" } },
+    "6": { "$value": { "value": 24, "unit": "px" } },
+    "8": { "$value": { "value": 32, "unit": "px" } },
+    "10": { "$value": { "value": 40, "unit": "px" } },
+    "12": { "$value": { "value": 48, "unit": "px" } },
+    "16": { "$value": { "value": 64, "unit": "px" } },
+    "20": { "$value": { "value": 80, "unit": "px" } },
+    "24": { "$value": { "value": 96, "unit": "px" } },
+    "32": { "$value": { "value": 128, "unit": "px" } }
+  },
+  "font": {
+    "$type": "string",
+    "sans": { "$value": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
+    "display": { "$value": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
+    "accent": { "$value": "'Castledown Cursive Dots No Guide', 'Clash Display', 'Inter Variable', Inter, cursive" },
+    "montserrat": { "$value": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
+    "mono": { "$value": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace" }
+  },
+  "font-weight": {
+    "$type": "number",
+    "regular": { "$value": 400 },
+    "medium": { "$value": 500 },
+    "semibold": { "$value": 650 },
+    "bold": { "$value": 750 },
+    "black": { "$value": 850 }
+  },
+  "text": {
+    "$type": "string",
+    "xs": { "$value": "0.75rem" },
+    "sm": { "$value": "0.875rem" },
+    "md": { "$value": "1rem" },
+    "lg": { "$value": "1.125rem" },
+    "xl": { "$value": "1.375rem" },
+    "2xl": { "$value": "clamp(1.75rem, 3vw, 2.5rem)" },
+    "3xl": { "$value": "clamp(2.25rem, 5vw, 4rem)" },
+    "display": { "$value": "clamp(3rem, 7vw, 6.75rem)" }
+  },
+  "leading": {
+    "$type": "number",
+    "tight": { "$value": 0.98 },
+    "heading": { "$value": 1.08 },
+    "body": { "$value": 1.58 }
+  },
+  "control": {
+    "$type": "dimension",
+    "sm": { "$value": { "value": 36, "unit": "px" } },
+    "md": { "$value": { "value": 44, "unit": "px" } },
+    "lg": { "$value": { "value": 52, "unit": "px" } }
+  },
+  "layout": {
+    "$type": "string",
+    "container": { "$value": "90rem" },
+    "content": { "$value": "48rem" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "xs": { "$value": { "value": 4, "unit": "px" } },
+    "sm": { "$value": { "value": 8, "unit": "px" } },
+    "md": { "$value": { "value": 12, "unit": "px" } },
+    "lg": { "$value": { "value": 16, "unit": "px" } },
+    "xl": { "$value": { "value": 24, "unit": "px" } },
+    "control": { "$value": { "value": 10, "unit": "px" } },
+    "card": { "$value": { "value": 16, "unit": "px" } },
+    "pill": { "$value": { "value": 999, "unit": "px" } }
+  },
+  "shadow": {
+    "$type": "string",
+    "sm": { "$value": "0 1px 2px rgb(29 29 31 / 6%)" },
+    "md": { "$value": "0 12px 34px rgb(29 29 31 / 10%)" },
+    "lg": { "$value": "0 24px 70px rgb(29 29 31 / 16%)" }
+  },
+  "duration": {
+    "$type": "duration",
+    "fast": { "$value": { "value": 120, "unit": "ms" } },
+    "base": { "$value": { "value": 180, "unit": "ms" } },
+    "slow": { "$value": { "value": 280, "unit": "ms" } }
+  },
+  "ease": {
+    "$type": "string",
+    "standard": { "$value": "cubic-bezier(0.2, 0, 0, 1)" }
+  },
+  "z": {
+    "$type": "number",
+    "dropdown": { "$value": 30 },
+    "sticky": { "$value": 40 },
+    "modal": { "$value": 50 },
+    "toast": { "$value": 60 }
+  },
+  "accent": {
+    "$type": "color",
+    "strategy": { "$value": "#8f6cad" },
+    "ux": { "$value": "#aa2d8a" },
+    "technology": { "$value": "#244d7e" },
+    "implementation": { "$value": "#4d7fb8" },
+    "talent": { "$value": "#e75a36" },
+    "events": { "$value": "#ec7b19" }
+  }
+}

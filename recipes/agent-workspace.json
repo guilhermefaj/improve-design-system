@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/recipe.schema.json",
+  "id": "agent-workspace",
+  "label": "Agent workspace",
+  "purpose": "Tornar uma execução agentic observável, controlável, retomável e auditável.",
+  "platforms": ["react", "claude-artifact"],
+  "components": ["agent-status", "streaming-message", "tool-call-card", "approval-card", "run-timeline", "agent-error", "plan-steps", "artifact-card", "citation-list", "permission-scope", "agent-handoff", "trace-viewer"],
+  "structure": ["Intent and plan", "Current run status", "Conversation or work surface", "Tool activity", "Approval interruption", "Artifacts and sources", "Trace details"],
+  "guidance": ["Diferencie pensando, executando ferramenta e aguardando aprovação.", "Mostre consequência antes de ações externas.", "Preserve contexto em erro, cancelamento e retomada.", "Revele detalhes técnicos progressivamente."],
+  "antiPatterns": ["Spinner genérico para todo o fluxo.", "Aprovação com apenas Continuar.", "Expor raciocínio interno bruto.", "Ocultar falhas parciais ou ferramentas utilizadas."]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://improve.business/schemas/recipe.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "label", "purpose", "platforms", "components", "structure", "guidance", "antiPatterns"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "label": { "type": "string" },
+    "purpose": { "type": "string" },
+    "platforms": { "type": "array", "items": { "enum": ["react", "claude-artifact", "slides"] }, "uniqueItems": true },
+    "components": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "structure": { "type": "array", "items": { "type": "string" } },
+    "guidance": { "type": "array", "items": { "type": "string" } },
+    "antiPatterns": { "type": "array", "items": { "type": "string" } }
+  }
+}
