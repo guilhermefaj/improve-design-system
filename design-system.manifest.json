@@ -2,7 +2,7 @@
   "$schema": "./schemas/design-system-manifest.schema.json",
   "schemaVersion": 2,
   "name": "Improve Design System",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "source": {
     "repository": "https://github.com/guilhermefaj/improve-design-system",
     "distribution": "github-source-owned",
@@ -297,7 +297,7 @@
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": ["ApprovalCard", "ApprovalRisk", "ApprovalScope"],
       "dependencies": ["react", "lucide-react"],
-      "tokens": ["approval.background", "approval.border", "approval.radius", "color.risk-high"],
+      "tokens": ["approval.background", "approval.border", "approval.radius", "color.approval-accent", "color.risk-high"],
       "variants": ["low-risk", "medium-risk", "high-risk"],
       "states": ["awaiting", "approved", "edited", "rejected"],
       "accessibility": ["Título, consequência, escopo e ações devem ser explícitos.", "Aprovar e rejeitar precisam de rótulos inequívocos."],

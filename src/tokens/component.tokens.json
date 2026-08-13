@@ -44,7 +44,7 @@
   },
   "approval": {
     "background": { "$type": "color", "$value": "{color.surface-raised}" },
-    "border": { "$type": "color", "$value": "{color.agent-awaiting}" },
+    "border": { "$type": "color", "$value": "{color.approval-accent}" },
     "radius": { "$type": "dimension", "$value": "{radius.lg}" }
   },
   "artifact": {

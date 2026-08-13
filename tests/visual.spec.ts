@@ -14,6 +14,63 @@ for (const theme of ['light', 'dark'] as const) {
   });
 }
 
+test('theme control lives in the header and persists the preference', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(() => window.localStorage.removeItem('ibs-theme'));
+  await page.reload();
+  const toggle = page.locator('.ibs-header').getByRole('button', { name: 'Ativar tema escuro' });
+  await expect(toggle).toBeVisible();
+  await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+  await toggle.click();
+  await expect(page.locator('#root > [data-ibs-theme]')).toHaveAttribute('data-ibs-theme', 'dark');
+  await page.reload();
+  await expect(page.locator('#root > [data-ibs-theme]')).toHaveAttribute('data-ibs-theme', 'dark');
+  await expect(page.locator('.ibs-header').getByRole('button', { name: 'Ativar tema claro' })).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('catalog index stays below the header and adapts to the viewport', async ({ page }, testInfo) => {
+  await page.goto('/');
+  const header = page.locator('.ibs-header');
+  const index = page.locator('.showcase-catalog-index');
+  const agenticLink = index.getByRole('link', { name: /Agentic Patterns/ });
+  if (testInfo.project.name === 'mobile') {
+    await index.scrollIntoViewIfNeeded();
+    await index.evaluate((element) => { element.scrollLeft = element.scrollWidth; });
+    await agenticLink.focus();
+    await page.keyboard.press('Enter');
+  } else {
+    await agenticLink.click();
+  }
+  await expect(agenticLink).toHaveAttribute('aria-current', 'location');
+  await page.waitForTimeout(400);
+
+  const headerBox = await header.boundingBox();
+  const indexBox = await index.boundingBox();
+  expect(headerBox).not.toBeNull();
+  expect(indexBox).not.toBeNull();
+  expect(indexBox!.y).toBeGreaterThanOrEqual(headerBox!.y + headerBox!.height - 2);
+
+  if (testInfo.project.name === 'desktop') {
+    const columns = await page.locator('.showcase-catalog-layout').evaluate((element) => getComputedStyle(element).gridTemplateColumns);
+    expect(columns.split(' ').length).toBeGreaterThan(1);
+  } else {
+    const overflow = await index.locator('nav').evaluate((element) => ({ scrollWidth: element.scrollWidth, clientWidth: element.parentElement?.clientWidth ?? 0 }));
+    expect(overflow.scrollWidth).toBeGreaterThan(overflow.clientWidth);
+  }
+});
+
+test('Storybook Foundations renders visual colors and spacing', async ({ page }) => {
+  await page.goto('http://127.0.0.1:6006/iframe.html?id=01-foundations-overview--overview&viewMode=story');
+  await page.getByRole('heading', { name: 'Escalas de cor' }).waitFor();
+  await expect(page.locator('.showcase-color-ramp').first().locator('span').first()).toBeVisible();
+  await expect(page.locator('.showcase-spacing-scale span').last()).toBeVisible();
+  await expect(page.locator('#storybook-root')).toHaveScreenshot('storybook-foundations.png', {
+    animations: 'disabled',
+    caret: 'hide',
+    maxDiffPixelRatio: 0.01,
+  });
+});
+
 test('light and dark specimens have no serious accessibility violations outside the documented CTA exception', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('heading', { level: 1 }).waitFor();

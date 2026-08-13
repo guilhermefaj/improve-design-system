@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { Accordion, Button, Checkbox, Dialog, FormField, Input, Tabs } from '../components';
+import { Accordion, Button, Checkbox, Dialog, FormField, Input, SiteHeader, Tabs } from '../components';
 import { flatTokens } from '../tokens/generated';
 
 function contrastRatio(foreground: string, background: string) {
@@ -19,6 +19,12 @@ describe('Improve Design System', () => {
     render(<Button onClick={onClick}>Continuar</Button>);
     fireEvent.click(screen.getByRole('button', { name: 'Continuar' }));
     expect(onClick).toHaveBeenCalledOnce();
+  });
+
+  it('accepts accessible utilities in the site header without changing its action API', () => {
+    render(<SiteHeader items={[]} action={{ label: 'Storybook', href: '#storybook' }} utilities={<button type="button">Alternar tema</button>} />);
+    expect(screen.getByRole('button', { name: 'Alternar tema' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Storybook' })).toHaveAttribute('href', '#storybook');
   });
 
   it('exposes the semantic primary action variant', () => {

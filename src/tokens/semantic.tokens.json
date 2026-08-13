@@ -22,18 +22,19 @@
     "border": { "$type": "color", "$value": "{color.neutral.200}" },
     "border-strong": { "$type": "color", "$value": "{color.neutral.400}" },
     "focus": { "$type": "color", "$value": "{color.purple.600}" },
+    "approval-accent": { "$type": "color", "$value": "{color.purple.600}" },
     "control-selected": { "$type": "color", "$value": "{color.orange.500}" },
     "control-selected-hover": { "$type": "color", "$value": "{color.orange.400}" },
     "control-indicator": { "$type": "color", "$value": "{color.neutral.900}" },
     "overlay": { "$type": "string", "$value": "rgb(13 13 14 / 64%)" },
     "agent-thinking": { "$type": "color", "$value": "{color.purple.600}" },
     "agent-running": { "$type": "color", "$value": "{color.orange.700}" },
-    "agent-awaiting": { "$type": "color", "$value": "{color.yellow.800}" },
+    "agent-awaiting": { "$type": "color", "$value": "{color.approval-accent}" },
     "agent-success": { "$type": "color", "$value": "{color.green.600}" },
     "agent-failed": { "$type": "color", "$value": "{color.red.700}" },
     "agent-paused": { "$type": "color", "$value": "{color.neutral.600}" },
     "risk-low": { "$type": "color", "$value": "{color.green.600}" },
-    "risk-medium": { "$type": "color", "$value": "{color.yellow.800}" },
+    "risk-medium": { "$type": "color", "$value": "{color.approval-accent}" },
     "risk-high": { "$type": "color", "$value": "{color.red.700}" }
     ,"feedback-info-surface": { "$type": "color", "$value": "{color.blue.100}" }
     ,"feedback-info-foreground": { "$type": "color", "$value": "{color.blue.700}" }

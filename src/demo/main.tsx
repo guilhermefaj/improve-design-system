@@ -5,6 +5,7 @@ import '@fontsource-variable/montserrat/wght.css';
 import '../styles/tokens.css';
 import '../styles/globals.css';
 import '../styles/components.css';
+import '../showcase/showcase.css';
 import './demo.css';
 import { App } from './App';
 
