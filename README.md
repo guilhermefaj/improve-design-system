@@ -2,6 +2,8 @@
 
 Sistema de design portátil e agentic-first da Improve Business. A fonte de verdade combina tokens DTCG, manifesto JSON, recipes e um catálogo de componentes legível por máquina; React/TypeScript é a implementação principal.
 
+Documentação pública: [Specimen visual](https://guilhermefaj.github.io/improve-design-system/) e [Storybook técnico](https://guilhermefaj.github.io/improve-design-system/storybook/). Os dois consomem o mesmo registro compartilhado de showcases.
+
 ## Princípios
 
 1. **Clareza antes do efeito.** Hierarquia, espaço e texto fazem o trabalho principal.
@@ -14,9 +16,9 @@ Sistema de design portátil e agentic-first da Improve Business. A fonte de verd
 O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao projeto consumidor. Não há dependência de registry npm.
 
 ```bash
-npx github:improve-business/improve-design-system#v0.3.0 init
-npx github:improve-business/improve-design-system#v0.3.0 add app-shell sidebar data-grid
-npx github:improve-business/improve-design-system#v0.3.0 doctor
+npx github:guilhermefaj/improve-design-system#v0.4.0 init
+npx github:guilhermefaj/improve-design-system#v0.4.0 add app-shell sidebar data-grid
+npx github:guilhermefaj/improve-design-system#v0.4.0 doctor
 ```
 
 ```tsx
@@ -53,7 +55,7 @@ Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold qu
 O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
 
 ```bash
-npx github:improve-business/improve-design-system#v0.3.0 list --level atom --json
+npx github:guilhermefaj/improve-design-system#v0.4.0 list --level atom --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -69,6 +71,8 @@ npm run check
 ```
 
 `npm run check` valida schemas e geração, executa testes, compila o specimen, a biblioteca e o Storybook.
+
+O specimen é a visão editorial completa; o Storybook oferece inspeção isolada, controles e auditoria. Metadados vêm de `design-system.manifest.json`, tokens de `src/tokens` e exemplos visuais do registro compartilhado em `src/showcase`.
 
 ## Arquitetura
 
@@ -117,9 +121,9 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx github:improve-business/improve-design-system#v0.3.0 list --json
-npx github:improve-business/improve-design-system#v0.3.0 inspect data-grid --json
-npx github:improve-business/improve-design-system#v0.3.0 artifact --recipe dashboard
+npx github:guilhermefaj/improve-design-system#v0.4.0 list --json
+npx github:guilhermefaj/improve-design-system#v0.4.0 inspect data-grid --json
+npx github:guilhermefaj/improve-design-system#v0.4.0 artifact --recipe dashboard
 ```
 
 ## Temas
@@ -157,7 +161,7 @@ Sobrescreva tokens semânticos para temas de projeto; não altere valores dentro
 ## Acessibilidade
 
 - Contraste de texto usa tons escurecidos; o laranja puro fica para fundos, acentos e elementos grandes.
-- O botão primário usa o laranja oficial `#F2703E` com texto branco em negrito. Essa combinação foi escolhida pela marca e permanece documentada como exceção WCAG (`2,93:1`); foco, seleção, links e navegação ativa usam o roxo acessível `#483C8F`.
+- O botão primário usa o laranja oficial `#F2703E` com texto branco em negrito. Essa combinação foi escolhida pela marca e permanece documentada como exceção WCAG (`2,93:1`); checkbox, radio e switch marcados também usam laranja com indicador escuro, enquanto foco, links e navegação ativa usam o roxo acessível `#483C8F`.
 - Todo controle tem foco visível e tamanho-alvo mínimo de 36–44 px.
 - Dialog, Tabs, Accordion, Tooltip, menus, escolhas e switches usam primitivas Radix.
 - `prefers-reduced-motion` reduz transições e animações.

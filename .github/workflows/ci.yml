@@ -19,6 +19,14 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
+      - name: Rebuild specimen artifact
+        run: pnpm build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: visual-documentation
+          path: |
+            dist
+            storybook-static
 
   visual-regression:
     runs-on: windows-latest

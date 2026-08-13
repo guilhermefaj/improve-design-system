@@ -1,7 +1,7 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import { cx } from './utils';
 
-type Space = 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
+type Space = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
 
 export function Container({ narrow = false, className, ...props }: HTMLAttributes<HTMLDivElement> & { narrow?: boolean }) {
   return <div className={cx('ibs-container', narrow && 'ibs-container--narrow', className)} {...props} />;

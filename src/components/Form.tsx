@@ -48,7 +48,7 @@ export function Checkbox({ label, id, ...props }: React.ComponentPropsWithoutRef
   return (
     <label className="ibs-choice-row" htmlFor={inputId}>
       <CheckboxPrimitive.Root id={inputId} className="ibs-checkbox" {...props}>
-        <CheckboxPrimitive.Indicator><Check aria-hidden="true" /></CheckboxPrimitive.Indicator>
+        <CheckboxPrimitive.Indicator><Check aria-hidden="true" strokeWidth={3} /></CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       <span>{label}</span>
     </label>

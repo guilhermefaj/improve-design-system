@@ -11,16 +11,20 @@
     "brand-soft": { "$type": "color", "$value": "{color.orange.50}" },
     "action-text": { "$type": "color", "$value": "{color.purple.600}" },
     "canvas": { "$type": "color", "$value": "{color.neutral.0}" },
+    "surface-subtle": { "$type": "color", "$value": "{color.neutral.50}" },
     "surface": { "$type": "color", "$value": "{color.neutral.100}" },
     "surface-raised": { "$type": "color", "$value": "{color.neutral.0}" },
     "surface-hover": { "$type": "color", "$value": "{color.neutral.50}" },
     "text": { "$type": "color", "$value": "{color.neutral.700}" },
     "text-muted": { "$type": "color", "$value": "{color.neutral.600}" },
-    "text-subtle": { "$type": "color", "$value": "{color.neutral.500}" },
+    "text-subtle": { "$type": "color", "$value": "{color.neutral.600}" },
     "text-inverse": { "$type": "color", "$value": "{color.neutral.0}" },
     "border": { "$type": "color", "$value": "{color.neutral.200}" },
     "border-strong": { "$type": "color", "$value": "{color.neutral.400}" },
     "focus": { "$type": "color", "$value": "{color.purple.600}" },
+    "control-selected": { "$type": "color", "$value": "{color.orange.500}" },
+    "control-selected-hover": { "$type": "color", "$value": "{color.orange.400}" },
+    "control-indicator": { "$type": "color", "$value": "{color.neutral.900}" },
     "overlay": { "$type": "string", "$value": "rgb(13 13 14 / 64%)" },
     "agent-thinking": { "$type": "color", "$value": "{color.purple.600}" },
     "agent-running": { "$type": "color", "$value": "{color.orange.700}" },
@@ -31,5 +35,13 @@
     "risk-low": { "$type": "color", "$value": "{color.green.600}" },
     "risk-medium": { "$type": "color", "$value": "{color.yellow.800}" },
     "risk-high": { "$type": "color", "$value": "{color.red.700}" }
+    ,"feedback-info-surface": { "$type": "color", "$value": "{color.blue.100}" }
+    ,"feedback-info-foreground": { "$type": "color", "$value": "{color.blue.700}" }
+    ,"feedback-success-surface": { "$type": "color", "$value": "{color.green.100}" }
+    ,"feedback-success-foreground": { "$type": "color", "$value": "{color.green.600}" }
+    ,"feedback-warning-surface": { "$type": "color", "$value": "{color.yellow.100}" }
+    ,"feedback-warning-foreground": { "$type": "color", "$value": "{color.yellow.800}" }
+    ,"feedback-danger-surface": { "$type": "color", "$value": "{color.red.100}" }
+    ,"feedback-danger-foreground": { "$type": "color", "$value": "{color.red.700}" }
   }
 }

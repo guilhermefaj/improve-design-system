@@ -39,7 +39,7 @@ describe('source-owned CLI', () => {
     run(['init', '--target', target]);
     const config = JSON.parse(readFileSync(resolve(target, 'improve.config.json'), 'utf8'));
     const pkg = JSON.parse(readFileSync(resolve(target, 'package.json'), 'utf8'));
-    expect(config.designSystemVersion).toBe('0.3.0');
+    expect(config.designSystemVersion).toBe('0.4.0');
     expect(config.files.every((file: { hash: string }) => file.hash.length === 64)).toBe(true);
     expect(pkg.dependencies['@fontsource-variable/inter']).toBeDefined();
     expect(pkg.dependencies['@fontsource-variable/space-grotesk']).toBeDefined();

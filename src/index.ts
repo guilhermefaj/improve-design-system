@@ -7,8 +7,8 @@ import './styles/globals.css';
 import './styles/components.css';
 
 export * from './components';
-export { designTokens, flatTokens } from './tokens/generated';
-export type { DesignTokenPath } from './tokens/generated';
+export { designTokens, darkDesignTokens, flatTokens, darkFlatTokens, tokenCatalog } from './tokens/generated';
+export type { DesignTokenPath, ThemeName } from './tokens/generated';
 
 export const improveTokens = {
   color: {

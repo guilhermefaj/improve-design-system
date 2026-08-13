@@ -23,7 +23,7 @@ Criar interfaces limpas, consultivas e acessíveis a partir do contrato canônic
 - Usar Inter como fonte principal para texto, controles e UI de produto.
 - Usar Clash Display Bold em títulos quando carregada pela Fontshare; usar Space Grotesk como fallback open source.
 - Usar Edu NSW ACT Cursive apenas como acento expressivo raro e manter Montserrat somente para compatibilidade legada.
-- Usar branco como canvas, `#F5F2F0` para superfícies, `#4F4F51` para texto, `#F2703E` como ação de marca e `#483C8F` para foco, seleção e estados de inteligência.
+- Usar branco como canvas, `#F5F2F0` para superfícies, `#4F4F51` para texto, `#F2703E` como ação de marca e controles marcados, e `#483C8F` para foco, navegação e estados de inteligência.
 - Usar `#F2703E` com texto branco em negrito em ações primárias, registrando a exceção de contraste no contexto de acessibilidade.
 - Consultar `atomicLevel` no manifesto e compor atoms em molecules e organisms antes de criar novos componentes.
 - Preferir espaço generoso, hierarquia editorial forte, bordas discretas e elevação restrita.
