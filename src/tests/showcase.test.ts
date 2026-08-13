@@ -19,6 +19,12 @@ describe('shared showcase registry', () => {
     expect(designTokens.color.canvas).toBe('#ffffff');
     expect(darkDesignTokens.color.canvas).toBe('#2c2c2e');
     expect(tokenCatalog.find((token) => token.path === 'approval.background')).toMatchObject({ light: '#ffffff', dark: '#3d3d40' });
+    expect(tokenCatalog.find((token) => token.path === 'color.approval-accent')).toMatchObject({ light: '#483c8f', dark: '#c9c2eb' });
+    for (const path of ['color.agent-awaiting', 'color.risk-medium', 'approval.border']) {
+      const token = tokenCatalog.find((item) => item.path === path);
+      expect(token?.light).not.toBe('#7a4d00');
+      expect(token?.dark).not.toBe('#7a4d00');
+    }
   });
 
   it('preserves semantic CSS references so component tokens follow theme changes', () => {
@@ -26,5 +32,11 @@ describe('shared showcase registry', () => {
     expect(css).toContain('--ibs-approval-background: var(--ibs-color-surface-raised);');
     expect(css).toContain("[data-ibs-theme='dark']");
     expect(css).toContain('--ibs-color-feedback-warning-surface: #443921;');
+  });
+
+  it('keeps the portable agent workspace free from the legacy approval brown', () => {
+    const starter = readFileSync(resolve(process.cwd(), 'packages/artifact-kit/starters/agent-workspace.tsx'), 'utf8').toLowerCase();
+    expect(starter).not.toContain('#7a4d00');
+    expect(starter).toContain('.approval{border-color:#483c8f');
   });
 });

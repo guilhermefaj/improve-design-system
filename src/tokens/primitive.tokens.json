@@ -131,7 +131,8 @@
   "layout": {
     "$type": "string",
     "container": { "$value": "90rem" },
-    "content": { "$value": "48rem" }
+    "content": { "$value": "48rem" },
+    "header-height": { "$type": "dimension", "$value": { "value": 76, "unit": "px" } }
   },
   "radius": {
     "$type": "dimension",

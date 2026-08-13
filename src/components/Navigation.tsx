@@ -5,8 +5,8 @@ import { Container } from './Layout';
 import { ImproveLogo } from './Logo';
 
 export type NavItem = { label: string; href: string; current?: boolean };
-export function SiteHeader({ items, action = { label: 'Vamos conversar', href: '#contato' } }: { items: NavItem[]; action?: { label: string; href: string } }) {
-  return <header className="ibs-header"><Container className="ibs-header__inner"><ImproveLogo /><nav className="ibs-header__nav" aria-label="Navegação principal">{items.map((item) => <a href={item.href} key={item.label} aria-current={item.current ? 'page' : undefined}>{item.label}</a>)}</nav><ButtonLink className="ibs-no-print" href={action.href} variant="primary" size="sm" trailingIcon={<ArrowUpRight />}>{action.label}</ButtonLink></Container></header>;
+export function SiteHeader({ items, action = { label: 'Vamos conversar', href: '#contato' }, utilities }: { items: NavItem[]; action?: { label: string; href: string }; utilities?: ReactNode }) {
+  return <header className="ibs-header"><Container className="ibs-header__inner"><ImproveLogo /><nav className="ibs-header__nav" aria-label="Navegação principal">{items.map((item) => <a href={item.href} key={item.label} aria-current={item.current ? 'page' : undefined}>{item.label}</a>)}</nav><div className="ibs-header__actions">{utilities}<ButtonLink className="ibs-no-print" href={action.href} variant="primary" size="sm" trailingIcon={<ArrowUpRight />}>{action.label}</ButtonLink></div></Container></header>;
 }
 
 export function Footer({ description, links, social, children }: { description: string; links: NavItem[]; social: NavItem[]; children?: ReactNode }) {

@@ -257,8 +257,9 @@
 .ibs-pagination button[aria-current='page'] { background: var(--ibs-neutral-900); color: var(--ibs-neutral-0); border-color: var(--ibs-neutral-900); }
 
 .ibs-header { position: sticky; top: 0; z-index: var(--ibs-z-sticky); border-bottom: 1px solid color-mix(in srgb, var(--ibs-color-border) 74%, transparent); background: color-mix(in srgb, var(--ibs-color-canvas) 88%, transparent); backdrop-filter: blur(18px); }
-.ibs-header__inner { min-height: 4.75rem; display: flex; align-items: center; justify-content: space-between; gap: var(--ibs-space-6); }
+.ibs-header__inner { min-height: var(--ibs-layout-header-height); display: flex; align-items: center; justify-content: space-between; gap: var(--ibs-space-6); }
 .ibs-header__nav { display: flex; align-items: center; gap: var(--ibs-space-6); }
+.ibs-header__actions { display: flex; align-items: center; gap: var(--ibs-space-2); }
 .ibs-header__nav a { color: var(--ibs-color-text-muted); font-size: var(--ibs-text-sm); font-weight: var(--ibs-font-weight-medium); text-decoration: none; }
 .ibs-header__nav a:hover,
 .ibs-header__nav a[aria-current='page'] { color: var(--ibs-color-text); }
@@ -381,7 +382,7 @@
 .ibs-disclosure > div + div { margin-top: var(--ibs-space-3); }
 .ibs-disclosure p { margin: 0; color: var(--ibs-color-text-muted); }
 
-.ibs-approval-card { --ibs-approval-accent: var(--ibs-color-risk-medium); display: grid; gap: var(--ibs-space-5); padding: var(--ibs-space-6); border: 1px solid var(--ibs-approval-accent); border-radius: var(--ibs-approval-radius); background: var(--ibs-approval-background); box-shadow: inset 0.3rem 0 var(--ibs-approval-accent); }
+.ibs-approval-card { --ibs-approval-accent: var(--ibs-approval-border); display: grid; gap: var(--ibs-space-5); padding: var(--ibs-space-6); border: 1px solid var(--ibs-approval-accent); border-radius: var(--ibs-approval-radius); background: var(--ibs-approval-background); box-shadow: inset 0.3rem 0 var(--ibs-approval-accent); }
 .ibs-approval-card--low { --ibs-approval-accent: var(--ibs-color-risk-low); }
 .ibs-approval-card--high { --ibs-approval-accent: var(--ibs-color-risk-high); }
 .ibs-approval-card > header { display: flex; align-items: flex-start; gap: var(--ibs-space-3); }
@@ -605,7 +606,7 @@
 .ibs-toast { width: min(28rem, calc(100vw - 2rem)); display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: var(--ibs-space-3); padding: var(--ibs-space-4); border: 1px solid var(--ibs-color-border); border-left: 4px solid var(--ibs-color-secondary); border-radius: var(--ibs-radius-md); background: var(--ibs-color-surface-raised); box-shadow: var(--ibs-shadow-md); }
 .ibs-toast p { margin: var(--ibs-space-1) 0 0; color: var(--ibs-color-text-muted); font-size: var(--ibs-text-sm); }
 .ibs-toast--success { border-left-color: var(--ibs-color-agent-success); }
-.ibs-toast--warning { border-left-color: var(--ibs-color-risk-medium); }
+.ibs-toast--warning { border-left-color: var(--ibs-color-feedback-warning-foreground); }
 .ibs-toast--danger { border-left-color: var(--ibs-color-agent-failed); }
 
 /* Atomic SaaS organisms */

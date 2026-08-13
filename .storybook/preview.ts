@@ -7,6 +7,7 @@ import '@fontsource/edu-nsw-act-cursive/400.css';
 import '../src/styles/tokens.css';
 import '../src/styles/globals.css';
 import '../src/styles/components.css';
+import '../src/showcase/showcase.css';
 
 const preview: Preview = {
   globalTypes: {
@@ -21,7 +22,7 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story, context) => createElement('div', { 'data-ibs-theme': context.globals.theme, style: { minHeight: '100vh', padding: 'var(--ibs-space-6)', background: 'var(--ibs-color-canvas)', color: 'var(--ibs-color-text)' } }, createElement(Story)),
+    (Story, context) => createElement('div', { 'data-ibs-theme': context.globals.theme, style: { minHeight: '100vh', background: 'var(--ibs-color-canvas)', color: 'var(--ibs-color-text)' } }, createElement(Story)),
   ],
   parameters: {
     layout: 'padded',

@@ -15,7 +15,7 @@ O sistema mantém a síntese já presente no site: espaços generosos, títulos 
 
 O laranja puro não deve ser usado como texto pequeno sobre branco. Para links e texto de ação, use `--ibs-color-action-text`.
 
-`--ibs-color-brand` e `--ibs-color-action-primary` preservam o laranja `#F2703E`. Controles de escolha usam `--ibs-color-control-selected`; o roxo `--ibs-color-secondary` assume foco, links, navegação ativa e estados agentic. A variante recomendada é `primary`; `brand` permanece como alias compatível.
+`--ibs-color-brand` e `--ibs-color-action-primary` preservam o laranja `#F2703E`. Controles de escolha usam `--ibs-color-control-selected`; o roxo `--ibs-color-secondary` assume foco, links, navegação ativa, aprovação humana e estados agentic. Atenção funcional continua separada por tokens de feedback. A variante recomendada é `primary`; `brand` permanece como alias compatível.
 
 ## Tipografia
 

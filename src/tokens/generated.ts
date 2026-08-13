@@ -76,18 +76,19 @@ export const designTokens = {
     "border": "#e7e3e0",
     "border-strong": "#a8a29e",
     "focus": "#483c8f",
+    "approval-accent": "#483c8f",
     "control-selected": "#f2703e",
     "control-selected-hover": "#f47f59",
     "control-indicator": "#252527",
     "overlay": "rgb(13 13 14 / 64%)",
     "agent-thinking": "#483c8f",
     "agent-running": "#c94b1e",
-    "agent-awaiting": "#7a4d00",
+    "agent-awaiting": "#483c8f",
     "agent-success": "#147d57",
     "agent-failed": "#b42318",
     "agent-paused": "#69696c",
     "risk-low": "#147d57",
-    "risk-medium": "#7a4d00",
+    "risk-medium": "#483c8f",
     "risk-high": "#b42318",
     "feedback-info-surface": "#e4eef9",
     "feedback-info-foreground": "#24548a",
@@ -212,7 +213,11 @@ export const designTokens = {
   },
   "layout": {
     "container": "90rem",
-    "content": "48rem"
+    "content": "48rem",
+    "header-height": {
+      "value": 76,
+      "unit": "px"
+    }
   },
   "radius": {
     "xs": {
@@ -343,7 +348,7 @@ export const designTokens = {
   "agent-status": {
     "thinking": "#483c8f",
     "running": "#c94b1e",
-    "awaiting": "#7a4d00",
+    "awaiting": "#483c8f",
     "success": "#147d57",
     "failed": "#b42318"
   },
@@ -357,7 +362,7 @@ export const designTokens = {
   },
   "approval": {
     "background": "#ffffff",
-    "border": "#7a4d00",
+    "border": "#483c8f",
     "radius": {
       "value": 16,
       "unit": "px"
@@ -450,18 +455,19 @@ export const darkDesignTokens = {
     "border": "#555559",
     "border-strong": "#7d7d82",
     "focus": "#c9c2eb",
+    "approval-accent": "#c9c2eb",
     "control-selected": "#f2703e",
     "control-selected-hover": "#f47f59",
     "control-indicator": "#252527",
     "overlay": "rgb(13 13 14 / 64%)",
     "agent-thinking": "#c9c2eb",
     "agent-running": "#f7a487",
-    "agent-awaiting": "#f2ce80",
+    "agent-awaiting": "#c9c2eb",
     "agent-success": "#9edbbf",
     "agent-failed": "#f2aaa5",
     "agent-paused": "#d5d1ce",
     "risk-low": "#9edbbf",
-    "risk-medium": "#f2ce80",
+    "risk-medium": "#c9c2eb",
     "risk-high": "#f2aaa5",
     "feedback-info-surface": "#273849",
     "feedback-info-foreground": "#b7d5f2",
@@ -586,7 +592,11 @@ export const darkDesignTokens = {
   },
   "layout": {
     "container": "90rem",
-    "content": "48rem"
+    "content": "48rem",
+    "header-height": {
+      "value": 76,
+      "unit": "px"
+    }
   },
   "radius": {
     "xs": {
@@ -717,7 +727,7 @@ export const darkDesignTokens = {
   "agent-status": {
     "thinking": "#c9c2eb",
     "running": "#f7a487",
-    "awaiting": "#f2ce80",
+    "awaiting": "#c9c2eb",
     "success": "#9edbbf",
     "failed": "#f2aaa5"
   },
@@ -731,7 +741,7 @@ export const darkDesignTokens = {
   },
   "approval": {
     "background": "#3d3d40",
-    "border": "#f2ce80",
+    "border": "#c9c2eb",
     "radius": {
       "value": 16,
       "unit": "px"
@@ -888,6 +898,10 @@ export const flatTokens = {
   },
   "layout.container": "90rem",
   "layout.content": "48rem",
+  "layout.header-height": {
+    "value": 76,
+    "unit": "px"
+  },
   "radius.xs": {
     "value": 4,
     "unit": "px"
@@ -969,18 +983,19 @@ export const flatTokens = {
   "color.border": "#e7e3e0",
   "color.border-strong": "#a8a29e",
   "color.focus": "#483c8f",
+  "color.approval-accent": "#483c8f",
   "color.control-selected": "#f2703e",
   "color.control-selected-hover": "#f47f59",
   "color.control-indicator": "#252527",
   "color.overlay": "rgb(13 13 14 / 64%)",
   "color.agent-thinking": "#483c8f",
   "color.agent-running": "#c94b1e",
-  "color.agent-awaiting": "#7a4d00",
+  "color.agent-awaiting": "#483c8f",
   "color.agent-success": "#147d57",
   "color.agent-failed": "#b42318",
   "color.agent-paused": "#69696c",
   "color.risk-low": "#147d57",
-  "color.risk-medium": "#7a4d00",
+  "color.risk-medium": "#483c8f",
   "color.risk-high": "#b42318",
   "color.feedback-info-surface": "#e4eef9",
   "color.feedback-info-foreground": "#24548a",
@@ -1036,7 +1051,7 @@ export const flatTokens = {
   },
   "agent-status.thinking": "#483c8f",
   "agent-status.running": "#c94b1e",
-  "agent-status.awaiting": "#7a4d00",
+  "agent-status.awaiting": "#483c8f",
   "agent-status.success": "#147d57",
   "agent-status.failed": "#b42318",
   "tool-call.background": "#ffffff",
@@ -1046,7 +1061,7 @@ export const flatTokens = {
     "unit": "px"
   },
   "approval.background": "#ffffff",
-  "approval.border": "#7a4d00",
+  "approval.border": "#483c8f",
   "approval.radius": {
     "value": 16,
     "unit": "px"
@@ -1200,6 +1215,10 @@ export const darkFlatTokens = {
   },
   "layout.container": "90rem",
   "layout.content": "48rem",
+  "layout.header-height": {
+    "value": 76,
+    "unit": "px"
+  },
   "radius.xs": {
     "value": 4,
     "unit": "px"
@@ -1281,18 +1300,19 @@ export const darkFlatTokens = {
   "color.border": "#555559",
   "color.border-strong": "#7d7d82",
   "color.focus": "#c9c2eb",
+  "color.approval-accent": "#c9c2eb",
   "color.control-selected": "#f2703e",
   "color.control-selected-hover": "#f47f59",
   "color.control-indicator": "#252527",
   "color.overlay": "rgb(13 13 14 / 64%)",
   "color.agent-thinking": "#c9c2eb",
   "color.agent-running": "#f7a487",
-  "color.agent-awaiting": "#f2ce80",
+  "color.agent-awaiting": "#c9c2eb",
   "color.agent-success": "#9edbbf",
   "color.agent-failed": "#f2aaa5",
   "color.agent-paused": "#d5d1ce",
   "color.risk-low": "#9edbbf",
-  "color.risk-medium": "#f2ce80",
+  "color.risk-medium": "#c9c2eb",
   "color.risk-high": "#f2aaa5",
   "color.feedback-info-surface": "#273849",
   "color.feedback-info-foreground": "#b7d5f2",
@@ -1348,7 +1368,7 @@ export const darkFlatTokens = {
   },
   "agent-status.thinking": "#c9c2eb",
   "agent-status.running": "#f7a487",
-  "agent-status.awaiting": "#f2ce80",
+  "agent-status.awaiting": "#c9c2eb",
   "agent-status.success": "#9edbbf",
   "agent-status.failed": "#f2aaa5",
   "tool-call.background": "#3d3d40",
@@ -1358,7 +1378,7 @@ export const darkFlatTokens = {
     "unit": "px"
   },
   "approval.background": "#3d3d40",
-  "approval.border": "#f2ce80",
+  "approval.border": "#c9c2eb",
   "approval.radius": {
     "value": 16,
     "unit": "px"
@@ -2137,6 +2157,22 @@ export const tokenCatalog = [
     "dark": "48rem"
   },
   {
+    "path": "layout.header-height",
+    "type": "dimension",
+    "reference": {
+      "value": 76,
+      "unit": "px"
+    },
+    "light": {
+      "value": 76,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 76,
+      "unit": "px"
+    }
+  },
+  {
     "path": "radius.xs",
     "type": "dimension",
     "reference": {
@@ -2572,6 +2608,13 @@ export const tokenCatalog = [
     "dark": "#c9c2eb"
   },
   {
+    "path": "color.approval-accent",
+    "type": "color",
+    "reference": "{color.purple.600}",
+    "light": "#483c8f",
+    "dark": "#c9c2eb"
+  },
+  {
     "path": "color.control-selected",
     "type": "color",
     "reference": "{color.orange.500}",
@@ -2616,9 +2659,9 @@ export const tokenCatalog = [
   {
     "path": "color.agent-awaiting",
     "type": "color",
-    "reference": "{color.yellow.800}",
-    "light": "#7a4d00",
-    "dark": "#f2ce80"
+    "reference": "{color.approval-accent}",
+    "light": "#483c8f",
+    "dark": "#c9c2eb"
   },
   {
     "path": "color.agent-success",
@@ -2651,9 +2694,9 @@ export const tokenCatalog = [
   {
     "path": "color.risk-medium",
     "type": "color",
-    "reference": "{color.yellow.800}",
-    "light": "#7a4d00",
-    "dark": "#f2ce80"
+    "reference": "{color.approval-accent}",
+    "light": "#483c8f",
+    "dark": "#c9c2eb"
   },
   {
     "path": "color.risk-high",
@@ -2933,8 +2976,8 @@ export const tokenCatalog = [
     "path": "agent-status.awaiting",
     "type": "color",
     "reference": "{color.agent-awaiting}",
-    "light": "#7a4d00",
-    "dark": "#f2ce80"
+    "light": "#483c8f",
+    "dark": "#c9c2eb"
   },
   {
     "path": "agent-status.success",
@@ -2987,9 +3030,9 @@ export const tokenCatalog = [
   {
     "path": "approval.border",
     "type": "color",
-    "reference": "{color.agent-awaiting}",
-    "light": "#7a4d00",
-    "dark": "#f2ce80"
+    "reference": "{color.approval-accent}",
+    "light": "#483c8f",
+    "dark": "#c9c2eb"
   },
   {
     "path": "approval.radius",
