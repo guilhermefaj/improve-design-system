@@ -148,7 +148,7 @@ async function installAgentGuidance(config) {
   }
 
   const agentsPath = resolve(targetRoot, 'AGENTS.md');
-  const agentsBlock = `## Improve Design System\n\n- Read \`improve.config.json\` and \`src/improve/tokens/generated.ts\` before creating UI.\n- Use installed Improve components and semantic tokens; do not invent colors, spacing or radii.\n- Run \`npx github:improve-business/improve-design-system#v${manifest.version} doctor\` after changes.\n`;
+  const agentsBlock = `## Improve Design System\n\n- Read \`improve.config.json\` and \`src/improve/tokens/generated.ts\` before creating UI.\n- Use installed Improve components and semantic tokens; do not invent colors, spacing or radii.\n- Run \`npx github:guilhermefaj/improve-design-system#v${manifest.version} doctor\` after changes.\n`;
   if (!(await exists(agentsPath))) await writeFile(agentsPath, `# Agent instructions\n\n${agentsBlock}`, 'utf8');
   else {
     const current = await readFile(agentsPath, 'utf8');

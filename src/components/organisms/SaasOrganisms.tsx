@@ -24,8 +24,8 @@ export function SidebarTrigger({ label = 'Abrir navegação', onClick }: { label
   return <IconButton label={label} icon={<PanelLeft />} variant="ghost" onClick={onClick} />;
 }
 
-export function PageHeader({ eyebrow, title, description, breadcrumbs, actions, meta, className }: { eyebrow?: string; title: ReactNode; description?: ReactNode; breadcrumbs?: Array<{ label: string; href?: string }>; actions?: ReactNode; meta?: ReactNode; className?: string }) {
-  return <header className={cx('ibs-page-header', className)}>{breadcrumbs && <Breadcrumbs items={breadcrumbs} />}<div className="ibs-page-header__row"><div>{eyebrow && <span className="ibs-page-header__eyebrow">{eyebrow}</span>}<Heading level={1} size={2}>{title}</Heading>{description && <Text tone="muted">{description}</Text>}{meta && <div className="ibs-page-header__meta">{meta}</div>}</div>{actions && <div className="ibs-page-header__actions">{actions}</div>}</div></header>;
+export function PageHeader({ eyebrow, title, titleLevel = 1, description, breadcrumbs, actions, meta, className }: { eyebrow?: string; title: ReactNode; titleLevel?: 1 | 2 | 3; description?: ReactNode; breadcrumbs?: Array<{ label: string; href?: string }>; actions?: ReactNode; meta?: ReactNode; className?: string }) {
+  return <header className={cx('ibs-page-header', className)}>{breadcrumbs && <Breadcrumbs items={breadcrumbs} />}<div className="ibs-page-header__row"><div>{eyebrow && <span className="ibs-page-header__eyebrow">{eyebrow}</span>}<Heading level={titleLevel} size={2}>{title}</Heading>{description && <Text tone="muted">{description}</Text>}{meta && <div className="ibs-page-header__meta">{meta}</div>}</div>{actions && <div className="ibs-page-header__actions">{actions}</div>}</div></header>;
 }
 
 export function MetricCard({ label, value, change, changeLabel, values, icon, tone = 'secondary', className }: { label: string; value: ReactNode; change?: number; changeLabel?: string; values?: number[]; icon?: ReactNode; tone?: 'brand' | 'secondary' | 'success'; className?: string }) {

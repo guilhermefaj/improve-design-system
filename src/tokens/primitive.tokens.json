@@ -72,6 +72,7 @@
     "4": { "$value": { "value": 16, "unit": "px" } },
     "5": { "$value": { "value": 20, "unit": "px" } },
     "6": { "$value": { "value": 24, "unit": "px" } },
+    "7": { "$value": { "value": 28, "unit": "px" } },
     "8": { "$value": { "value": 32, "unit": "px" } },
     "10": { "$value": { "value": 40, "unit": "px" } },
     "12": { "$value": { "value": 48, "unit": "px" } },
@@ -112,6 +113,14 @@
     "tight": { "$value": 0.98 },
     "heading": { "$value": 1.08 },
     "body": { "$value": 1.58 }
+  },
+  "tracking": {
+    "$type": "string",
+    "display": { "$value": "-0.03em" },
+    "heading": { "$value": "-0.02em" },
+    "heading-small": { "$value": "-0.01em" },
+    "metric": { "$value": "-0.035em" },
+    "label": { "$value": "0.08em" }
   },
   "control": {
     "$type": "dimension",

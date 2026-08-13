@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
+import { createElement } from 'react';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/montserrat/wght.css';
 import '@fontsource-variable/space-grotesk';
@@ -8,6 +9,20 @@ import '../src/styles/globals.css';
 import '../src/styles/components.css';
 
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Tema visual Improve',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'paintbrush',
+        items: [{ value: 'light', title: 'Light' }, { value: 'dark', title: 'Dark' }],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => createElement('div', { 'data-ibs-theme': context.globals.theme, style: { minHeight: '100vh', padding: 'var(--ibs-space-6)', background: 'var(--ibs-color-canvas)', color: 'var(--ibs-color-text)' } }, createElement(Story)),
+  ],
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
@@ -19,7 +34,7 @@ const preview: Preview = {
       options: {
         canvas: { name: 'Canvas', value: '#ffffff' },
         warm: { name: 'Warm', value: '#f5f2f0' },
-        ink: { name: 'Ink', value: '#4f4f51' },
+        ink: { name: 'Ink', value: '#2c2c2e' },
         purple: { name: 'Purple', value: '#483c8f' },
       },
     },

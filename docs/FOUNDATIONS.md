@@ -2,7 +2,7 @@
 
 ## Assinatura
 
-O sistema mantém a síntese já presente no site: espaços generosos, títulos geométricos, superfícies quase brancas, bordas discretas e chamadas de ação concentradas. O laranja `#F2703E` é a energia da marca; o cinza `#4F4F51` entrega autoridade; `#F5F2F0` cria profundidade sem ruído; o roxo `#483C8F` organiza seleção, foco e estados de inteligência.
+O sistema mantém a síntese já presente no site: espaços generosos, títulos geométricos, superfícies quase brancas, bordas discretas e chamadas de ação concentradas. O laranja `#F2703E` é a energia da marca e identifica ações e controles marcados; o cinza `#4F4F51` entrega autoridade; `#F5F2F0` cria profundidade sem ruído; o roxo `#483C8F` organiza foco, navegação e estados de inteligência.
 
 ## Cor
 
@@ -15,7 +15,7 @@ O sistema mantém a síntese já presente no site: espaços generosos, títulos 
 
 O laranja puro não deve ser usado como texto pequeno sobre branco. Para links e texto de ação, use `--ibs-color-action-text`.
 
-`--ibs-color-brand` e `--ibs-color-action-primary` preservam o laranja `#F2703E`. O roxo `--ibs-color-secondary` assume foco, links, seleção, navegação ativa e estados agentic. A variante recomendada é `primary`; `brand` permanece como alias compatível.
+`--ibs-color-brand` e `--ibs-color-action-primary` preservam o laranja `#F2703E`. Controles de escolha usam `--ibs-color-control-selected`; o roxo `--ibs-color-secondary` assume foco, links, navegação ativa e estados agentic. A variante recomendada é `primary`; `brand` permanece como alias compatível.
 
 ## Tipografia
 

@@ -5,7 +5,7 @@ addons.setConfig({
   theme: create({
     base: 'light',
     brandTitle: 'Improve Design System',
-    brandUrl: '/',
+    brandUrl: process.env.STORYBOOK_BASE_URL ?? '/',
     colorPrimary: '#483c8f',
     colorSecondary: '#f2703e',
     appBg: '#f5f2f0',

@@ -5,8 +5,8 @@ import { ButtonLink } from './Button';
 import { Container, Stack } from './Layout';
 import { Eyebrow, Heading, Text } from './Typography';
 
-export function Hero({ eyebrow, title, description, primaryAction, secondaryAction }: { eyebrow?: string; title: ReactNode; description: ReactNode; primaryAction: { label: string; href: string }; secondaryAction?: { label: string; href: string } }) {
-  return <section className="ibs-hero"><Container className="ibs-hero__grid"><Stack gap={6}>{eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}<Heading level={1} size={1} className="ibs-hero__headline">{title}</Heading></Stack><Stack gap={6} className="ibs-hero__aside"><Text size="lg">{description}</Text><div className="ibs-cluster"><ButtonLink href={primaryAction.href} variant="primary" size="lg" trailingIcon={<ArrowUpRight />}>{primaryAction.label}</ButtonLink>{secondaryAction && <ButtonLink href={secondaryAction.href} variant="ghost" size="lg">{secondaryAction.label}</ButtonLink>}</div></Stack></Container></section>;
+export function Hero({ eyebrow, title, titleLevel = 1, description, primaryAction, secondaryAction }: { eyebrow?: string; title: ReactNode; titleLevel?: 1 | 2 | 3; description: ReactNode; primaryAction: { label: string; href: string }; secondaryAction?: { label: string; href: string } }) {
+  return <section className="ibs-hero"><Container className="ibs-hero__grid"><Stack gap={6}>{eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}<Heading level={titleLevel} size={1} className="ibs-hero__headline">{title}</Heading></Stack><Stack gap={6} className="ibs-hero__aside"><Text size="lg">{description}</Text><div className="ibs-cluster"><ButtonLink href={primaryAction.href} variant="primary" size="lg" trailingIcon={<ArrowUpRight />}>{primaryAction.label}</ButtonLink>{secondaryAction && <ButtonLink href={secondaryAction.href} variant="ghost" size="lg">{secondaryAction.label}</ButtonLink>}</div></Stack></Container></section>;
 }
 
 export function FeatureCard({ icon, title, description, href = '#', linkLabel = 'Ver mais', motion = 'subtle' }: { icon: ReactNode; title: string; description?: string; href?: string; linkLabel?: string; motion?: MotionPreset }) {
