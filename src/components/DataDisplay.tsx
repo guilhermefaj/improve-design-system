@@ -1,9 +1,10 @@
 import type { HTMLAttributes, ReactNode, TableHTMLAttributes } from 'react';
 import { ChevronRight } from 'lucide-react';
+import type { MotionPreset } from './Button';
 import { cx } from './utils';
 
-export function Card({ tone = 'canvas', interactive = false, className, children, ...props }: HTMLAttributes<HTMLDivElement> & { tone?: 'canvas' | 'warm'; interactive?: boolean }) {
-  return <article className={cx('ibs-card', tone === 'warm' && 'ibs-card--warm', interactive && 'ibs-card--interactive', className)} {...props}>{children}</article>;
+export function Card({ tone = 'canvas', interactive = false, motion = 'subtle', className, children, ...props }: HTMLAttributes<HTMLDivElement> & { tone?: 'canvas' | 'warm'; interactive?: boolean; motion?: MotionPreset }) {
+  return <article className={cx('ibs-card', tone === 'warm' && 'ibs-card--warm', interactive && 'ibs-card--interactive', interactive && `ibs-motion--${motion}`, className)} {...props}>{children}</article>;
 }
 
 export function CardBody(props: HTMLAttributes<HTMLDivElement>) {

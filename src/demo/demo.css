@@ -23,8 +23,9 @@
 .demo-swatch__color { min-height: 7rem; }
 .demo-swatch > div:last-child { display: flex; align-items: center; justify-content: space-between; gap: var(--ibs-space-4); padding: var(--ibs-space-4); font-size: var(--ibs-text-xs); }
 .demo-swatch code { color: var(--ibs-color-text-muted); font-family: var(--ibs-font-mono); }
-.demo-swatch__color--brand { background: #ff5a00; }
-.demo-swatch__color--ink { background: #1d1d1f; }
+.demo-swatch__color--brand { background: #f2703e; }
+.demo-swatch__color--purple { background: #483c8f; }
+.demo-swatch__color--ink { background: #4f4f51; }
 .demo-swatch__color--warm { background: #f5f2f0; }
 .demo-swatch__color--canvas { background: #ffffff; }
 .demo-swatch__color--strategy { background: #8f6cad; }

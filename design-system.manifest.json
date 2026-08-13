@@ -1,8 +1,8 @@
 {
   "$schema": "./schemas/design-system-manifest.schema.json",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "name": "Improve Design System",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "source": {
     "repository": "https://github.com/improve-business/improve-design-system",
     "distribution": "github-source-owned",
@@ -18,6 +18,7 @@
     {
       "id": "button",
       "name": "Button",
+      "atomicLevel": "atom",
       "category": "action",
       "status": "stable",
       "description": "Ação principal, secundária ou textual com ícones opcionais.",
@@ -34,6 +35,7 @@
     {
       "id": "layout",
       "name": "Layout primitives",
+      "atomicLevel": "foundation",
       "category": "foundation",
       "status": "stable",
       "description": "Container, Stack, Cluster, Grid e Section para composição responsiva.",
@@ -50,9 +52,10 @@
     {
       "id": "typography",
       "name": "Typography",
+      "atomicLevel": "foundation",
       "category": "foundation",
       "status": "stable",
-      "description": "Inter na interface, Clash Display em títulos, Castledown em acentos raros e Montserrat Medium em labels pontuais.",
+      "description": "Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.",
       "files": ["src/components/Typography.tsx", "src/components/utils.ts"],
       "exports": ["Heading", "Text", "Eyebrow", "AccentText", "SupportingLabel", "HeadingProps", "TextProps"],
       "dependencies": ["react"],
@@ -66,6 +69,7 @@
     {
       "id": "logo",
       "name": "Improve Logo",
+      "atomicLevel": "atom",
       "category": "foundation",
       "status": "stable",
       "description": "Marca vetorial responsiva para interfaces e Artifacts.",
@@ -82,6 +86,7 @@
     {
       "id": "card",
       "name": "Card",
+      "atomicLevel": "molecule",
       "category": "data-display",
       "status": "stable",
       "description": "Superfície de conteúdo com corpo, rodapé e modo interativo.",
@@ -98,6 +103,7 @@
     {
       "id": "data-display",
       "name": "Data display",
+      "atomicLevel": "molecule",
       "category": "data-display",
       "status": "stable",
       "description": "Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.",
@@ -114,6 +120,7 @@
     {
       "id": "form",
       "name": "Form controls",
+      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Campos, escolhas e switches com descrição e erro associados.",
@@ -130,6 +137,7 @@
     {
       "id": "feedback",
       "name": "Feedback",
+      "atomicLevel": "molecule",
       "category": "feedback",
       "status": "stable",
       "description": "Badge, Alert, Skeleton, Spinner e Progress.",
@@ -146,6 +154,7 @@
     {
       "id": "dialog",
       "name": "Dialog",
+      "atomicLevel": "organism",
       "category": "overlay",
       "status": "stable",
       "description": "Modal acessível com título, descrição, conteúdo e ação.",
@@ -162,6 +171,7 @@
     {
       "id": "overlays",
       "name": "Overlays and disclosure",
+      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Accordion, Tabs, Tooltip e menus acessíveis.",
@@ -178,6 +188,7 @@
     {
       "id": "navigation",
       "name": "Navigation",
+      "atomicLevel": "organism",
       "category": "navigation",
       "status": "stable",
       "description": "Header e Footer institucionais.",
@@ -194,6 +205,7 @@
     {
       "id": "marketing",
       "name": "Marketing patterns",
+      "atomicLevel": "organism",
       "category": "marketing",
       "status": "stable",
       "description": "Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.",
@@ -210,6 +222,7 @@
     {
       "id": "slides",
       "name": "Presentation",
+      "atomicLevel": "organism",
       "category": "presentation",
       "status": "stable",
       "description": "Primitivas 16:9 para apresentações React.",
@@ -226,6 +239,7 @@
     {
       "id": "agent-status",
       "name": "AgentStatus",
+      "atomicLevel": "molecule",
       "category": "agentic",
       "status": "beta",
       "description": "Estado resumido e acessível de uma execução agentic.",
@@ -242,6 +256,7 @@
     {
       "id": "streaming-message",
       "name": "StreamingMessage",
+      "atomicLevel": "molecule",
       "category": "agentic",
       "status": "beta",
       "description": "Conteúdo progressivo sem anunciar cada token.",
@@ -258,6 +273,7 @@
     {
       "id": "tool-call-card",
       "name": "ToolCallCard",
+      "atomicLevel": "organism",
       "category": "agentic",
       "status": "beta",
       "description": "Chamada de ferramenta inspecionável com propósito, duração e resultado.",
@@ -274,6 +290,7 @@
     {
       "id": "approval-card",
       "name": "ApprovalCard",
+      "atomicLevel": "organism",
       "category": "agentic",
       "status": "beta",
       "description": "Aprovação informada para ações externas ou sensíveis.",
@@ -290,6 +307,7 @@
     {
       "id": "run-timeline",
       "name": "RunTimeline",
+      "atomicLevel": "organism",
       "category": "agentic",
       "status": "beta",
       "description": "Linha do tempo de eventos, atores, tentativas e falhas parciais.",
@@ -306,6 +324,7 @@
     {
       "id": "agent-error",
       "name": "AgentError",
+      "atomicLevel": "molecule",
       "category": "agentic",
       "status": "beta",
       "description": "Falha recuperável com contexto e ações de repetir, editar ou cancelar.",
@@ -322,6 +341,7 @@
     {
       "id": "plan-steps",
       "name": "PlanSteps",
+      "atomicLevel": "organism",
       "category": "agentic",
       "status": "beta",
       "description": "Plano visível com estado por etapa.",
@@ -338,6 +358,7 @@
     {
       "id": "artifact-card",
       "name": "ArtifactCard",
+      "atomicLevel": "molecule",
       "category": "trust",
       "status": "beta",
       "description": "Resultado versionado com tipo, autoria e ação de abertura.",
@@ -354,6 +375,7 @@
     {
       "id": "citation-list",
       "name": "CitationList",
+      "atomicLevel": "molecule",
       "category": "trust",
       "status": "beta",
       "description": "Fontes verificáveis associadas ao resultado.",
@@ -370,6 +392,7 @@
     {
       "id": "permission-scope",
       "name": "PermissionScope",
+      "atomicLevel": "molecule",
       "category": "trust",
       "status": "beta",
       "description": "Escopo, duração e revogação de uma permissão.",
@@ -386,6 +409,7 @@
     {
       "id": "agent-handoff",
       "name": "AgentHandoff",
+      "atomicLevel": "organism",
       "category": "trust",
       "status": "beta",
       "description": "Transferência explícita de responsabilidade e contexto.",
@@ -402,6 +426,7 @@
     {
       "id": "generated-ui-boundary",
       "name": "GeneratedUIBoundary",
+      "atomicLevel": "organism",
       "category": "trust",
       "status": "experimental",
       "description": "Contêiner identificado para UI gerada e conteúdo incorporado.",
@@ -418,6 +443,7 @@
     {
       "id": "mcp-app-frame",
       "name": "McpAppFrame",
+      "atomicLevel": "organism",
       "category": "trust",
       "status": "experimental",
       "description": "Shell visual para recursos interativos MCP.",
@@ -434,6 +460,7 @@
     {
       "id": "trace-viewer",
       "name": "TraceViewer",
+      "atomicLevel": "organism",
       "category": "trust",
       "status": "beta",
       "description": "Detalhes técnicos progressivamente revelados para suporte e auditoria.",
@@ -446,6 +473,195 @@
       "accessibility": ["Detalhes usam summary descritivo e conteúdo selecionável."],
       "recipes": ["agent-workspace"],
       "maturity": 8
+    },
+    {
+      "id": "kbd", "name": "Kbd", "atomicLevel": "atom", "category": "saas", "status": "stable",
+      "description": "Representa atalhos de teclado e combinações de teclas.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["Kbd"], "dependencies": ["react", "lucide-react"], "tokens": ["font.mono", "color.border"],
+      "variants": ["key", "shortcut"], "states": [], "accessibility": ["Use texto equivalente quando o atalho não for óbvio."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "button-group", "name": "ButtonGroup", "atomicLevel": "atom", "category": "action", "status": "stable",
+      "description": "Agrupa ações relacionadas de forma solta ou anexada.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["ButtonGroup"], "dependencies": ["react", "lucide-react"], "tokens": ["space", "radius.pill"],
+      "variants": ["separated", "attached"], "states": [], "accessibility": ["O grupo usa role group; cada ação mantém nome próprio."], "recipes": ["dashboard", "app"], "maturity": 9
+    },
+    {
+      "id": "chip", "name": "Chip", "atomicLevel": "atom", "category": "saas", "status": "stable",
+      "description": "Filtro compacto selecionável e opcionalmente removível.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["Chip", "ChipProps"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.secondary-soft"],
+      "variants": ["default", "selected", "removable"], "states": ["hover", "focus-visible", "selected", "disabled"], "accessibility": ["Seleção usa aria-pressed e remoção tem nome acessível."], "recipes": ["dashboard", "app"], "maturity": 9
+    },
+    {
+      "id": "toggle", "name": "Toggle", "atomicLevel": "atom", "category": "action", "status": "stable",
+      "description": "Ativa ou desativa uma opção persistente em uma barra de ferramentas.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["Toggle", "ToggleProps"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.secondary-soft"],
+      "variants": ["text", "icon-text"], "states": ["pressed", "hover", "focus-visible", "disabled"], "accessibility": ["Estado pressionado usa aria-pressed."], "recipes": ["app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "segmented-control", "name": "SegmentedControl", "atomicLevel": "atom", "category": "form", "status": "stable",
+      "description": "Seleciona uma opção entre poucas alternativas mutuamente exclusivas.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["SegmentedControl", "SegmentedControlItem"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.surface"],
+      "variants": ["text"], "states": ["checked", "hover", "focus-visible", "disabled"], "accessibility": ["Expõe radiogroup e radio com estado selecionado."], "recipes": ["dashboard", "app"], "maturity": 9
+    },
+    {
+      "id": "slider", "name": "Slider", "atomicLevel": "atom", "category": "form", "status": "stable",
+      "description": "Seleciona um valor numérico dentro de um intervalo.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["Slider", "SliderProps"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary"],
+      "variants": ["continuous", "stepped"], "states": ["focus", "disabled"], "accessibility": ["Label e valor atual permanecem visíveis."], "recipes": ["app"], "maturity": 9
+    },
+    {
+      "id": "search-input", "name": "SearchInput", "atomicLevel": "atom", "category": "form", "status": "stable",
+      "description": "Campo de busca com ícone e limpeza opcional.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["SearchInput", "SearchInputProps"], "dependencies": ["react", "lucide-react"], "tokens": ["input.background", "input.border"],
+      "variants": ["default", "clearable"], "states": ["empty", "filled", "focus", "disabled"], "accessibility": ["Exige label visível ou aria-label."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "password-input", "name": "PasswordInput", "atomicLevel": "atom", "category": "form", "status": "stable",
+      "description": "Campo de senha com alternância acessível de visibilidade.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["PasswordInput"], "dependencies": ["react", "lucide-react"], "tokens": ["input.background", "input.border"],
+      "variants": ["hidden", "visible"], "states": ["focus", "invalid", "disabled"], "accessibility": ["Controle anuncia mostrar ou ocultar senha."], "recipes": ["app"], "maturity": 9
+    },
+    {
+      "id": "number-input", "name": "NumberInput", "atomicLevel": "atom", "category": "form", "status": "stable",
+      "description": "Entrada numérica com incremento, decremento e limites.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["NumberInput", "NumberInputProps"], "dependencies": ["react", "lucide-react"], "tokens": ["input.background", "input.border"],
+      "variants": ["controlled", "uncontrolled"], "states": ["minimum", "maximum", "disabled"], "accessibility": ["Botões descrevem a operação e respeitam limites."], "recipes": ["app"], "maturity": 9
+    },
+    {
+      "id": "sparkline", "name": "Sparkline", "atomicLevel": "atom", "category": "data-display", "status": "stable",
+      "description": "Tendência compacta em SVG para métricas.",
+      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "exports": ["Sparkline"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.brand"],
+      "variants": ["secondary", "brand", "success"], "states": [], "accessibility": ["Exige descrição textual da tendência."], "recipes": ["dashboard"], "maturity": 9
+    },
+    {
+      "id": "empty-state", "name": "EmptyState", "atomicLevel": "molecule", "category": "feedback", "status": "stable",
+      "description": "Estado vazio com contexto e próxima ação.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["EmptyState"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary-soft", "color.surface"],
+      "variants": ["default", "compact"], "states": ["empty"], "accessibility": ["Título explica o estado e a ação descreve a recuperação."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "popover", "name": "Popover", "atomicLevel": "molecule", "category": "overlay", "status": "stable",
+      "description": "Conteúdo contextual não modal ancorado a um gatilho.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["Popover"], "dependencies": ["react", "lucide-react", "radix-ui"], "tokens": ["color.surface-raised", "shadow.md"],
+      "variants": ["start", "center", "end"], "states": ["open", "closed"], "accessibility": ["Foco e fechamento seguem o comportamento Radix."], "recipes": ["app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "sheet", "name": "Sheet", "atomicLevel": "molecule", "category": "overlay", "status": "stable",
+      "description": "Painel lateral modal para edição e inspeção contextual.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["Sheet"], "dependencies": ["react", "lucide-react", "radix-ui"], "tokens": ["dialog.background", "dialog.shadow"],
+      "variants": ["left", "right"], "states": ["open", "closed"], "accessibility": ["Título é obrigatório; foco fica contido e retorna ao gatilho."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "stepper", "name": "Stepper", "atomicLevel": "molecule", "category": "navigation", "status": "stable",
+      "description": "Progresso e navegação entre etapas de um fluxo.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["Stepper", "StepperItem"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.border"],
+      "variants": ["horizontal", "vertical"], "states": ["complete", "current", "upcoming"], "accessibility": ["Etapa atual usa aria-current step e não depende somente de cor."], "recipes": ["app"], "maturity": 9
+    },
+    {
+      "id": "combobox", "name": "Combobox", "atomicLevel": "molecule", "category": "form", "status": "beta",
+      "description": "Seleção pesquisável para listas médias e grandes.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["Combobox", "ComboboxOption"], "dependencies": ["react", "lucide-react"], "tokens": ["input.background", "color.secondary"],
+      "variants": ["single"], "states": ["open", "closed", "selected", "empty", "disabled"], "accessibility": ["Implementa combobox, listbox e option; teclado será coberto por testes de interação."], "recipes": ["dashboard", "app"], "maturity": 8
+    },
+    {
+      "id": "command-palette", "name": "CommandPalette", "atomicLevel": "molecule", "category": "navigation", "status": "stable",
+      "description": "Busca global por ações com atalhos e descrições.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["CommandPalette", "CommandItem"], "dependencies": ["react", "lucide-react", "radix-ui"], "tokens": ["color.secondary", "dialog.shadow"],
+      "variants": ["dialog"], "states": ["open", "searching", "empty"], "accessibility": ["Busca recebe foco inicial; resultados são operáveis por teclado."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "date-picker", "name": "DatePicker", "atomicLevel": "molecule", "category": "form", "status": "stable",
+      "description": "Seleção de data baseada no controle nativo da plataforma.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["DatePicker"], "dependencies": ["react", "lucide-react"], "tokens": ["input.background", "input.border"],
+      "variants": ["date"], "states": ["empty", "filled", "invalid", "disabled"], "accessibility": ["Label é obrigatório e o controle preserva a semântica nativa."], "recipes": ["app"], "maturity": 9
+    },
+    {
+      "id": "file-upload", "name": "FileUpload", "atomicLevel": "molecule", "category": "form", "status": "stable",
+      "description": "Upload por seletor ou drag and drop com feedback visual.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["FileUpload"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.surface"],
+      "variants": ["single", "multiple"], "states": ["idle", "dragging", "disabled"], "accessibility": ["O input nativo permanece disponível por teclado."], "recipes": ["app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "toast", "name": "Toast", "atomicLevel": "molecule", "category": "feedback", "status": "stable",
+      "description": "Notificação temporária controlada e acionável.",
+      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/Button.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["Toast", "ToastTone"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "shadow.md"],
+      "variants": ["neutral", "success", "warning", "danger"], "states": ["visible", "dismissed"], "accessibility": ["Falhas usam alert; demais atualizações usam status."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "app-shell", "name": "AppShell", "atomicLevel": "organism", "category": "saas", "status": "stable",
+      "description": "Estrutura responsiva de produto com sidebar, header e conteúdo.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["AppShell"], "dependencies": ["react", "lucide-react"], "tokens": ["layout.container", "color.canvas", "color.border"],
+      "variants": ["with-sidebar", "without-sidebar"], "states": ["desktop", "mobile"], "accessibility": ["Conteúdo principal usa main e mantém ordem DOM previsível."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "sidebar", "name": "Sidebar", "atomicLevel": "organism", "category": "navigation", "status": "stable",
+      "description": "Navegação de produto recolhível com grupos, ícones e badges.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["Sidebar", "SidebarTrigger", "SidebarItem", "SidebarGroup"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "color.secondary-soft", "color.surface"],
+      "variants": ["expanded", "collapsed"], "states": ["active", "hover", "disabled", "mobile"], "accessibility": ["Página atual usa aria-current e o controle anuncia expansão."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "page-header", "name": "PageHeader", "atomicLevel": "organism", "category": "navigation", "status": "stable",
+      "description": "Cabeçalho de página com contexto, breadcrumbs, metadados e ações.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["PageHeader"], "dependencies": ["react", "lucide-react"], "tokens": ["text.3xl", "color.secondary"],
+      "variants": ["simple", "with-actions", "with-breadcrumbs"], "states": ["responsive"], "accessibility": ["Use um único h1 no contexto da página."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
+    },
+    {
+      "id": "metric-card", "name": "MetricCard", "atomicLevel": "organism", "category": "data-display", "status": "stable",
+      "description": "KPI com variação e tendência compacta.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["MetricCard"], "dependencies": ["react", "lucide-react"], "tokens": ["color.secondary", "card.background"],
+      "variants": ["brand", "secondary", "success"], "states": ["positive", "negative"], "accessibility": ["Variação inclui sinal, número e contexto em texto."], "recipes": ["dashboard"], "maturity": 9
+    },
+    {
+      "id": "data-grid", "name": "DataGrid", "atomicLevel": "organism", "category": "data-display", "status": "beta",
+      "description": "Tabela genérica com ordenação, seleção e estado vazio.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["DataGrid", "DataGridColumn"], "dependencies": ["react", "lucide-react"], "tokens": ["color.border", "color.secondary-soft"],
+      "variants": ["default", "selectable", "sortable"], "states": ["selected", "sorted", "empty"], "accessibility": ["Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis."], "recipes": ["dashboard", "app"], "maturity": 8
+    },
+    {
+      "id": "filter-bar", "name": "FilterBar", "atomicLevel": "organism", "category": "form", "status": "stable",
+      "description": "Busca, filtros ativos, limpeza e ações de coleção.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["FilterBar"], "dependencies": ["react", "lucide-react"], "tokens": ["input.background", "color.border"],
+      "variants": ["search-only", "with-filters", "with-actions"], "states": ["empty", "filtered"], "accessibility": ["Busca exige nome e filtros ativos podem ser removidos por teclado."], "recipes": ["dashboard", "app"], "maturity": 9
+    },
+    {
+      "id": "pricing-card", "name": "PricingCard", "atomicLevel": "organism", "category": "marketing", "status": "stable",
+      "description": "Plano de assinatura com preço, benefícios e ação.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["PricingCard"], "dependencies": ["react", "lucide-react"], "tokens": ["color.brand", "card.background"],
+      "variants": ["default", "highlighted"], "states": ["hover"], "accessibility": ["Preço, período, benefícios e ação são comunicados em texto."], "recipes": ["landing-page", "app"], "maturity": 9
+    },
+    {
+      "id": "activity-feed", "name": "ActivityFeed", "atomicLevel": "organism", "category": "data-display", "status": "stable",
+      "description": "Histórico cronológico de eventos e atores.",
+      "files": ["src/components/organisms/SaasOrganisms.tsx", "src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/DataDisplay.tsx", "src/components/Typography.tsx", "src/components/utils.ts"],
+      "exports": ["ActivityFeed", "ActivityItem"], "dependencies": ["react", "lucide-react"], "tokens": ["color.border", "color.secondary"],
+      "variants": ["default"], "states": ["chronological"], "accessibility": ["Usa lista ordenada e time com dateTime legível por máquina."], "recipes": ["dashboard", "app", "agent-workspace"], "maturity": 9
     }
   ],
   "recipes": [

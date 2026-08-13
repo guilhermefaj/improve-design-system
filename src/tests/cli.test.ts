@@ -27,6 +27,9 @@ describe('source-owned CLI', () => {
   it('lists and inspects the machine-readable catalog', () => {
     const catalog = JSON.parse(run(['list', '--json']));
     expect(catalog.some((item: { id: string }) => item.id === 'approval-card')).toBe(true);
+    const atoms = JSON.parse(run(['list', '--level', 'atom', '--json']));
+    expect(atoms.every((item: { atomicLevel: string }) => item.atomicLevel === 'atom')).toBe(true);
+    expect(atoms.some((item: { id: string }) => item.id === 'chip')).toBe(true);
     const component = JSON.parse(run(['inspect', 'approval-card', '--json']));
     expect(component.states).toContain('edited');
   });
@@ -36,9 +39,10 @@ describe('source-owned CLI', () => {
     run(['init', '--target', target]);
     const config = JSON.parse(readFileSync(resolve(target, 'improve.config.json'), 'utf8'));
     const pkg = JSON.parse(readFileSync(resolve(target, 'package.json'), 'utf8'));
-    expect(config.designSystemVersion).toBe('0.2.0');
+    expect(config.designSystemVersion).toBe('0.3.0');
     expect(config.files.every((file: { hash: string }) => file.hash.length === 64)).toBe(true);
     expect(pkg.dependencies['@fontsource-variable/inter']).toBeDefined();
+    expect(pkg.dependencies['@fontsource-variable/space-grotesk']).toBeDefined();
     expect(readFileSync(resolve(target, 'CLAUDE.md'), 'utf8')).toContain('@AGENTS.md');
     expect(run(['doctor', '--target', target])).toContain('is healthy');
   });
@@ -46,11 +50,14 @@ describe('source-owned CLI', () => {
   it('adds agentic components with transitive source files and creates an Artifact starter', () => {
     const target = fixture();
     run(['init', '--target', target]);
-    run(['add', 'approval-card', '--target', target]);
+    run(['add', 'approval-card', 'data-grid', '--target', target]);
     const config = JSON.parse(readFileSync(resolve(target, 'improve.config.json'), 'utf8'));
     expect(config.components).toContain('approval-card');
+    expect(config.components).toContain('data-grid');
     expect(readFileSync(resolve(target, 'src/improve/components/Agentic.tsx'), 'utf8')).toContain('ApprovalCard');
     expect(readFileSync(resolve(target, 'src/improve/components/Button.tsx'), 'utf8')).toContain('Button');
+    expect(readFileSync(resolve(target, 'src/improve/components/organisms/SaasOrganisms.tsx'), 'utf8')).toContain('DataGrid');
+    expect(readFileSync(resolve(target, 'src/improve/components/index.ts'), 'utf8')).toContain("./organisms/SaasOrganisms");
     run(['artifact', '--recipe', 'agent-workspace', '--target', target]);
     expect(readFileSync(resolve(target, 'improve-agent-workspace-artifact.tsx'), 'utf8')).toContain('Aprovação necessária');
   });

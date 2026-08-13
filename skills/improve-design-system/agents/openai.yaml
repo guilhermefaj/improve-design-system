@@ -4,4 +4,4 @@ interface:
   default_prompt: "Use $improve-design-system para criar uma interface React acessivel e fiel a Improve."
   icon_small: "./assets/improve-mark.svg"
   icon_large: "./assets/improve-mark.svg"
-  brand_color: "#FF5A00"
+  brand_color: "#F2703E"

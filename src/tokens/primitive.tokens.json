@@ -3,16 +3,29 @@
   "color": {
     "orange": {
       "$type": "color",
-      "50": { "$value": "#fff4ed" },
-      "100": { "$value": "#ffe4d2" },
-      "200": { "$value": "#ffc5a3" },
-      "300": { "$value": "#ff9e6a" },
-      "400": { "$value": "#ff7335" },
-      "500": { "$value": "#ff5a00" },
-      "600": { "$value": "#e84d00" },
-      "700": { "$value": "#b93800" },
-      "800": { "$value": "#932f08" },
-      "900": { "$value": "#77290d" }
+      "50": { "$value": "#fff7f3" },
+      "100": { "$value": "#fde8df" },
+      "200": { "$value": "#fac9b6" },
+      "300": { "$value": "#f7a487" },
+      "400": { "$value": "#f47f59" },
+      "500": { "$value": "#f2703e" },
+      "600": { "$value": "#e96533" },
+      "700": { "$value": "#c94b1e" },
+      "800": { "$value": "#9f3918" },
+      "900": { "$value": "#7d2d16" }
+    },
+    "purple": {
+      "$type": "color",
+      "50": { "$value": "#f6f4fc" },
+      "100": { "$value": "#ece9f8" },
+      "200": { "$value": "#d8d2f0" },
+      "300": { "$value": "#b8afe2" },
+      "400": { "$value": "#887bc5" },
+      "500": { "$value": "#6357aa" },
+      "600": { "$value": "#483c8f" },
+      "700": { "$value": "#3d337a" },
+      "800": { "$value": "#312965" },
+      "900": { "$value": "#251f4d" }
     },
     "neutral": {
       "$type": "color",
@@ -22,12 +35,12 @@
       "200": { "$value": "#e7e3e0" },
       "300": { "$value": "#d4cfcb" },
       "400": { "$value": "#a8a29e" },
-      "500": { "$value": "#797471" },
-      "600": { "$value": "#575350" },
-      "700": { "$value": "#3d3a38" },
-      "800": { "$value": "#292726" },
-      "900": { "$value": "#1d1d1f" },
-      "1000": { "$value": "#0d0d0e" }
+      "500": { "$value": "#858588" },
+      "600": { "$value": "#69696c" },
+      "700": { "$value": "#4f4f51" },
+      "800": { "$value": "#373739" },
+      "900": { "$value": "#252527" },
+      "1000": { "$value": "#151516" }
     },
     "green": {
       "$type": "color",
@@ -71,7 +84,7 @@
     "$type": "string",
     "sans": { "$value": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
     "display": { "$value": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
-    "accent": { "$value": "'Castledown Cursive Dots No Guide', 'Clash Display', 'Inter Variable', Inter, cursive" },
+    "accent": { "$value": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive" },
     "montserrat": { "$value": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
     "mono": { "$value": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace" }
   },
@@ -136,7 +149,9 @@
   },
   "ease": {
     "$type": "string",
-    "standard": { "$value": "cubic-bezier(0.2, 0, 0, 1)" }
+    "standard": { "$value": "cubic-bezier(0.2, 0, 0, 1)" },
+    "enter": { "$value": "cubic-bezier(0.16, 1, 0.3, 1)" },
+    "exit": { "$value": "cubic-bezier(0.4, 0, 1, 1)" }
   },
   "z": {
     "$type": "number",
@@ -147,8 +162,8 @@
   },
   "accent": {
     "$type": "color",
-    "strategy": { "$value": "#8f6cad" },
-    "ux": { "$value": "#aa2d8a" },
+    "strategy": { "$value": "#483c8f" },
+    "ux": { "$value": "#6357aa" },
     "technology": { "$value": "#244d7e" },
     "implementation": { "$value": "#4d7fb8" },
     "talent": { "$value": "#e75a36" },

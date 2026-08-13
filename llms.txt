@@ -4,10 +4,12 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 
 ## Non-negotiable brand rules
 - Use Inter for body copy, controls and product UI.
-- Use Clash Display Bold for titles and selected highlights; fall back to Inter when the licensed font file is unavailable.
-- Reserve Castledown Cursive Dots for rare expressive accents and Montserrat Medium for occasional supporting labels.
-- Use white canvas, warm #F5F2F0 surfaces, warm black #1D1D1F text and orange #FF5A00 as brand accent.
-- Use #B93800 with white text for primary actions; never use raw brand orange as a small control background with white text.
+- Use Clash Display Bold for H1, H2 and selected display highlights; fall back to Inter when its local file is unavailable.
+- Use Edu NSW ACT Cursive for rare expressive accents and Montserrat Medium only as a legacy supporting face.
+- Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
+- Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
+- Use purple for focus, selected navigation, links and agent-thinking states instead of darkening the orange.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.3.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -20,33 +22,60 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Source-owned CLI: packages/cli/improve.mjs
 
 ## Components
-- Button (button, stable): Ação principal, secundária ou textual com ícones opcionais.
-- Layout primitives (layout, stable): Container, Stack, Cluster, Grid e Section para composição responsiva.
-- Typography (typography, stable): Inter na interface, Clash Display em títulos, Castledown em acentos raros e Montserrat Medium em labels pontuais.
-- Improve Logo (logo, stable): Marca vetorial responsiva para interfaces e Artifacts.
-- Card (card, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
-- Data display (data-display, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
-- Form controls (form, stable): Campos, escolhas e switches com descrição e erro associados.
-- Feedback (feedback, stable): Badge, Alert, Skeleton, Spinner e Progress.
-- Dialog (dialog, stable): Modal acessível com título, descrição, conteúdo e ação.
-- Overlays and disclosure (overlays, stable): Accordion, Tabs, Tooltip e menus acessíveis.
-- Navigation (navigation, stable): Header e Footer institucionais.
-- Marketing patterns (marketing, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
-- Presentation (slides, stable): Primitivas 16:9 para apresentações React.
-- AgentStatus (agent-status, beta): Estado resumido e acessível de uma execução agentic.
-- StreamingMessage (streaming-message, beta): Conteúdo progressivo sem anunciar cada token.
-- ToolCallCard (tool-call-card, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
-- ApprovalCard (approval-card, beta): Aprovação informada para ações externas ou sensíveis.
-- RunTimeline (run-timeline, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
-- AgentError (agent-error, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
-- PlanSteps (plan-steps, beta): Plano visível com estado por etapa.
-- ArtifactCard (artifact-card, beta): Resultado versionado com tipo, autoria e ação de abertura.
-- CitationList (citation-list, beta): Fontes verificáveis associadas ao resultado.
-- PermissionScope (permission-scope, beta): Escopo, duração e revogação de uma permissão.
-- AgentHandoff (agent-handoff, beta): Transferência explícita de responsabilidade e contexto.
-- GeneratedUIBoundary (generated-ui-boundary, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
-- McpAppFrame (mcp-app-frame, experimental): Shell visual para recursos interativos MCP.
-- TraceViewer (trace-viewer, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
+- Button (button, atom, stable): Ação principal, secundária ou textual com ícones opcionais.
+- Layout primitives (layout, foundation, stable): Container, Stack, Cluster, Grid e Section para composição responsiva.
+- Typography (typography, foundation, stable): Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.
+- Improve Logo (logo, atom, stable): Marca vetorial responsiva para interfaces e Artifacts.
+- Card (card, molecule, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
+- Data display (data-display, molecule, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
+- Form controls (form, molecule, stable): Campos, escolhas e switches com descrição e erro associados.
+- Feedback (feedback, molecule, stable): Badge, Alert, Skeleton, Spinner e Progress.
+- Dialog (dialog, organism, stable): Modal acessível com título, descrição, conteúdo e ação.
+- Overlays and disclosure (overlays, molecule, stable): Accordion, Tabs, Tooltip e menus acessíveis.
+- Navigation (navigation, organism, stable): Header e Footer institucionais.
+- Marketing patterns (marketing, organism, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
+- Presentation (slides, organism, stable): Primitivas 16:9 para apresentações React.
+- AgentStatus (agent-status, molecule, beta): Estado resumido e acessível de uma execução agentic.
+- StreamingMessage (streaming-message, molecule, beta): Conteúdo progressivo sem anunciar cada token.
+- ToolCallCard (tool-call-card, organism, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ApprovalCard (approval-card, organism, beta): Aprovação informada para ações externas ou sensíveis.
+- RunTimeline (run-timeline, organism, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- AgentError (agent-error, molecule, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- PlanSteps (plan-steps, organism, beta): Plano visível com estado por etapa.
+- ArtifactCard (artifact-card, molecule, beta): Resultado versionado com tipo, autoria e ação de abertura.
+- CitationList (citation-list, molecule, beta): Fontes verificáveis associadas ao resultado.
+- PermissionScope (permission-scope, molecule, beta): Escopo, duração e revogação de uma permissão.
+- AgentHandoff (agent-handoff, organism, beta): Transferência explícita de responsabilidade e contexto.
+- GeneratedUIBoundary (generated-ui-boundary, organism, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
+- McpAppFrame (mcp-app-frame, organism, experimental): Shell visual para recursos interativos MCP.
+- TraceViewer (trace-viewer, organism, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
+- Kbd (kbd, atom, stable): Representa atalhos de teclado e combinações de teclas.
+- ButtonGroup (button-group, atom, stable): Agrupa ações relacionadas de forma solta ou anexada.
+- Chip (chip, atom, stable): Filtro compacto selecionável e opcionalmente removível.
+- Toggle (toggle, atom, stable): Ativa ou desativa uma opção persistente em uma barra de ferramentas.
+- SegmentedControl (segmented-control, atom, stable): Seleciona uma opção entre poucas alternativas mutuamente exclusivas.
+- Slider (slider, atom, stable): Seleciona um valor numérico dentro de um intervalo.
+- SearchInput (search-input, atom, stable): Campo de busca com ícone e limpeza opcional.
+- PasswordInput (password-input, atom, stable): Campo de senha com alternância acessível de visibilidade.
+- NumberInput (number-input, atom, stable): Entrada numérica com incremento, decremento e limites.
+- Sparkline (sparkline, atom, stable): Tendência compacta em SVG para métricas.
+- EmptyState (empty-state, molecule, stable): Estado vazio com contexto e próxima ação.
+- Popover (popover, molecule, stable): Conteúdo contextual não modal ancorado a um gatilho.
+- Sheet (sheet, molecule, stable): Painel lateral modal para edição e inspeção contextual.
+- Stepper (stepper, molecule, stable): Progresso e navegação entre etapas de um fluxo.
+- Combobox (combobox, molecule, beta): Seleção pesquisável para listas médias e grandes.
+- CommandPalette (command-palette, molecule, stable): Busca global por ações com atalhos e descrições.
+- DatePicker (date-picker, molecule, stable): Seleção de data baseada no controle nativo da plataforma.
+- FileUpload (file-upload, molecule, stable): Upload por seletor ou drag and drop com feedback visual.
+- Toast (toast, molecule, stable): Notificação temporária controlada e acionável.
+- AppShell (app-shell, organism, stable): Estrutura responsiva de produto com sidebar, header e conteúdo.
+- Sidebar (sidebar, organism, stable): Navegação de produto recolhível com grupos, ícones e badges.
+- PageHeader (page-header, organism, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
+- MetricCard (metric-card, organism, stable): KPI com variação e tendência compacta.
+- DataGrid (data-grid, organism, beta): Tabela genérica com ordenação, seleção e estado vazio.
+- FilterBar (filter-bar, organism, stable): Busca, filtros ativos, limpeza e ações de coleção.
+- PricingCard (pricing-card, organism, stable): Plano de assinatura com preço, benefícios e ação.
+- ActivityFeed (activity-feed, organism, stable): Histórico cronológico de eventos e atores.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

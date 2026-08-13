@@ -79,7 +79,8 @@ import {
 } from '../components';
 
 const colors = [
-  { name: 'Brand / 500', value: '#FF5A00', className: 'brand' },
+  { name: 'Orange / 500', value: '#F2703E', className: 'brand' },
+  { name: 'Purple / 600', value: '#483C8F', className: 'purple' },
   { name: 'Ink / 900', value: '#1D1D1F', className: 'ink' },
   { name: 'Warm / 100', value: '#F5F2F0', className: 'warm' },
   { name: 'Canvas / 0', value: '#FFFFFF', className: 'canvas' },
@@ -146,7 +147,7 @@ export function App() {
                 <Eyebrow>Tipografia</Eyebrow>
                 <div className="demo-type-sample">Aa</div>
                 <Heading level={3} size={2}>Inter + Clash Display</Heading>
-                <Text tone="muted">Inter estrutura texto e produto. Clash Display Bold cria títulos memoráveis; Castledown e Montserrat entram apenas como acentos controlados.</Text>
+                <Text tone="muted">Inter estrutura texto e produto. Clash Display Bold cria títulos memoráveis quando disponível; Space Grotesk mantém a personalidade offline e Edu NSW ACT Cursive entra apenas em acentos controlados.</Text>
               </Stack>
               <div className="demo-type-scale">
                 <div><span>Display</span><strong style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}>Transformar</strong></div>

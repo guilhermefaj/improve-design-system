@@ -44,8 +44,8 @@ svg {
 }
 
 ::selection {
-  background: var(--ibs-orange-200);
-  color: var(--ibs-neutral-1000);
+  background: var(--ibs-purple-200);
+  color: var(--ibs-purple-900);
 }
 
 :focus-visible {

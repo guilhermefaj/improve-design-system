@@ -21,10 +21,11 @@ Criar interfaces limpas, consultivas e acessíveis a partir do contrato canônic
 ## Regras críticas
 
 - Usar Inter como fonte principal para texto, controles e UI de produto.
-- Usar Clash Display Bold em títulos e destaques; Castledown Cursive Dots apenas como acento expressivo raro.
-- Reservar Montserrat Medium para labels pontuais, sem assumir o papel de fonte principal.
-- Usar branco como canvas, `#F5F2F0` para superfícies, `#1D1D1F` para texto e `#FF5A00` como acento de marca.
-- Usar `#B93800` com texto branco em ações primárias; preservar `#932F08` no hover.
+- Usar Clash Display Bold em títulos quando carregada pela Fontshare; usar Space Grotesk como fallback open source.
+- Usar Edu NSW ACT Cursive apenas como acento expressivo raro e manter Montserrat somente para compatibilidade legada.
+- Usar branco como canvas, `#F5F2F0` para superfícies, `#4F4F51` para texto, `#F2703E` como ação de marca e `#483C8F` para foco, seleção e estados de inteligência.
+- Usar `#F2703E` com texto branco em negrito em ações primárias, registrando a exceção de contraste no contexto de acessibilidade.
+- Consultar `atomicLevel` no manifesto e compor atoms em molecules e organisms antes de criar novos componentes.
 - Preferir espaço generoso, hierarquia editorial forte, bordas discretas e elevação restrita.
 - Não inventar claims, resultados, clientes ou fontes para preencher uma composição.
 - Não expor raciocínio interno bruto em interfaces agentic; mostrar intenção, etapa, ferramenta, consequência e resultado.

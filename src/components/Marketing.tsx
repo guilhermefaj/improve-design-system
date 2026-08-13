@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import type { MotionPreset } from './Button';
 import { ButtonLink } from './Button';
 import { Container, Stack } from './Layout';
 import { Eyebrow, Heading, Text } from './Typography';
@@ -8,13 +9,13 @@ export function Hero({ eyebrow, title, description, primaryAction, secondaryActi
   return <section className="ibs-hero"><Container className="ibs-hero__grid"><Stack gap={6}>{eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}<Heading level={1} size={1} className="ibs-hero__headline">{title}</Heading></Stack><Stack gap={6} className="ibs-hero__aside"><Text size="lg">{description}</Text><div className="ibs-cluster"><ButtonLink href={primaryAction.href} variant="primary" size="lg" trailingIcon={<ArrowUpRight />}>{primaryAction.label}</ButtonLink>{secondaryAction && <ButtonLink href={secondaryAction.href} variant="ghost" size="lg">{secondaryAction.label}</ButtonLink>}</div></Stack></Container></section>;
 }
 
-export function FeatureCard({ icon, title, description, href = '#', linkLabel = 'Ver mais' }: { icon: ReactNode; title: string; description?: string; href?: string; linkLabel?: string }) {
-  return <article className="ibs-feature-card"><Stack gap={6}>{icon}<div><Heading level={3} size={4}>{title}</Heading>{description && <Text tone="muted" style={{ marginTop: 'var(--ibs-space-3)' }}>{description}</Text>}</div></Stack><a className="ibs-feature-card__link" href={href}>{linkLabel}<ArrowUpRight aria-hidden="true" size={17} /></a></article>;
+export function FeatureCard({ icon, title, description, href = '#', linkLabel = 'Ver mais', motion = 'subtle' }: { icon: ReactNode; title: string; description?: string; href?: string; linkLabel?: string; motion?: MotionPreset }) {
+  return <article className={`ibs-feature-card ibs-motion--${motion}`}><Stack gap={6}>{icon}<div><Heading level={3} size={4}>{title}</Heading>{description && <Text tone="muted" style={{ marginTop: 'var(--ibs-space-3)' }}>{description}</Text>}</div></Stack><a className="ibs-feature-card__link" href={href}>{linkLabel}<ArrowUpRight aria-hidden="true" size={17} /></a></article>;
 }
 
-export function EcosystemCard({ accent = 'brand', title, description }: { accent?: 'brand' | 'strategy' | 'ux' | 'technology' | 'implementation' | 'talent' | 'events'; title: string; description: string }) {
+export function EcosystemCard({ accent = 'brand', title, description, motion = 'subtle' }: { accent?: 'brand' | 'strategy' | 'ux' | 'technology' | 'implementation' | 'talent' | 'events'; title: string; description: string; motion?: MotionPreset }) {
   const accentValue = accent === 'brand' ? 'var(--ibs-color-brand)' : `var(--ibs-accent-${accent})`;
-  return <article className="ibs-ecosystem-card" style={{ '--ibs-card-accent': accentValue } as CSSProperties}><div className="ibs-ecosystem-card__body"><Heading level={3} size={4}>{title}</Heading><Text tone="muted" size="sm" style={{ marginTop: 'var(--ibs-space-2)' }}>{description}</Text></div></article>;
+  return <article className={`ibs-ecosystem-card ibs-motion--${motion}`} style={{ '--ibs-card-accent': accentValue } as CSSProperties}><div className="ibs-ecosystem-card__body"><Heading level={3} size={4}>{title}</Heading><Text tone="muted" size="sm" style={{ marginTop: 'var(--ibs-space-2)' }}>{description}</Text></div></article>;
 }
 
 export function ServicePanel({ title, accent = 'var(--ibs-color-brand)', items }: { title: string; accent?: string; items: Array<{ icon: ReactNode; label: string }> }) {

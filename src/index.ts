@@ -1,5 +1,7 @@
 import '@fontsource-variable/inter';
 import '@fontsource-variable/montserrat/wght.css';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/edu-nsw-act-cursive/400.css';
 import './styles/tokens.css';
 import './styles/globals.css';
 import './styles/components.css';
@@ -10,18 +12,19 @@ export type { DesignTokenPath } from './tokens/generated';
 
 export const improveTokens = {
   color: {
-    brand: '#ff5a00',
-    actionPrimary: '#b93800',
-    actionPrimaryHover: '#932f08',
-    actionPrimaryActive: '#77290d',
+    brand: '#f2703e',
+    secondary: '#483c8f',
+    actionPrimary: '#f2703e',
+    actionPrimaryHover: '#f47f59',
+    actionPrimaryActive: '#e96533',
     actionPrimaryText: '#ffffff',
-    ink: '#1d1d1f',
+    ink: '#4f4f51',
     warm: '#f5f2f0',
     canvas: '#ffffff',
   },
   fontFamily: "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
-  displayFontFamily: "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
-  accentFontFamily: "'Castledown Cursive Dots No Guide', 'Clash Display', 'Inter Variable', Inter, cursive",
+  displayFontFamily: "'Clash Display', 'Space Grotesk Variable', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
+  accentFontFamily: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
   supportingFontFamily: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   radius: { control: 10, card: 16, pill: 999 },
 } as const;

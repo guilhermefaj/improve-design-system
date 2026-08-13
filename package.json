@@ -1,6 +1,6 @@
 {
   "name": "@improve-business/design-system",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Design system oficial da Improve Business para produtos, landing pages e apresentações em React.",
   "license": "UNLICENSED",
   "packageManager": "pnpm@11.16.0",
@@ -43,8 +43,10 @@
     "react-dom": ">=18 <21"
   },
   "dependencies": {
+    "@fontsource/edu-nsw-act-cursive": "^5.3.0",
     "@fontsource-variable/inter": "^5.2.8",
     "@fontsource-variable/montserrat": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.2.9",
     "lucide-react": "^1.31.0",
     "radix-ui": "^1.6.7"
   },

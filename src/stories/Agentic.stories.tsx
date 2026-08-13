@@ -55,7 +55,7 @@ function AgenticSpecimen() {
   );
 }
 
-const meta = { title: 'Improve DS/Agentic', component: AgenticSpecimen } satisfies Meta<typeof AgenticSpecimen>;
+const meta = { title: '05 Agentic Patterns/Overview', component: AgenticSpecimen, tags: ['autodocs'] } satisfies Meta<typeof AgenticSpecimen>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Workspace: Story = {};

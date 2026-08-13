@@ -14,9 +14,9 @@ Sistema de design portátil e agentic-first da Improve Business. A fonte de verd
 O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao projeto consumidor. Não há dependência de registry npm.
 
 ```bash
-npx github:improve-business/improve-design-system#v0.2.0 init
-npx github:improve-business/improve-design-system#v0.2.0 add approval-card tool-call-card
-npx github:improve-business/improve-design-system#v0.2.0 doctor
+npx github:improve-business/improve-design-system#v0.3.0 init
+npx github:improve-business/improve-design-system#v0.3.0 add app-shell sidebar data-grid
+npx github:improve-business/improve-design-system#v0.3.0 doctor
 ```
 
 ```tsx
@@ -48,7 +48,13 @@ export function LandingPage() {
 }
 ```
 
-Inter é importada pelo core e conduz corpo, controles e produto. `Heading` prefere Clash Display Bold, com fallback seguro para Inter enquanto o arquivo licenciado não estiver no projeto. Castledown Cursive Dots é reservado a `AccentText`; Montserrat Medium aparece em `SupportingLabel`.
+Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold quando ela é carregada pela API oficial da Fontshare e usa Space Grotesk como fallback open source e autocontido. Edu NSW ACT Cursive conduz `AccentText`; Montserrat permanece somente como compatibilidade legada.
+
+O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
+
+```bash
+npx github:improve-business/improve-design-system#v0.3.0 list --level atom --json
+```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
 
@@ -94,20 +100,13 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 
 ## Componentes incluídos
 
-| Categoria | Componentes |
+| Camada Atomic | Componentes |
 | --- | --- |
-| Foundations | `Container`, `Stack`, `Cluster`, `Grid`, `Section`, `Heading`, `Text`, `Eyebrow`, `AccentText`, `SupportingLabel` |
-| Brand | `ImproveMark`, `ImproveLogo` |
-| Actions | `Button`, `ButtonLink`, `IconButton` |
-| Forms | `FormField`, `Input`, `Textarea`, `Select`, `Checkbox`, `RadioSet`, `Switch` |
-| Feedback | `Badge`, `Alert`, `Progress`, `Spinner`, `Skeleton` |
-| Data display | `Card`, `Avatar`, `Divider`, `Stat`, `Quote`, `DataTable` |
-| Navigation | `SiteHeader`, `Footer`, `Breadcrumbs`, `Pagination` |
-| Overlays | `Accordion`, `Tabs`, `Dialog`, `Tooltip`, `ActionMenu`, `SelectMenu` |
-| Marketing | `Hero`, `FeatureCard`, `EcosystemCard`, `ServicePanel`, `LogoCloud` |
-| Presentation | `Slide`, `SlideKicker`, `SlideTitle`, `SlideMetric`, `SlideFooter` |
-| Agentic | `AgentStatus`, `StreamingMessage`, `ToolCallCard`, `ApprovalCard`, `RunTimeline`, `AgentError`, `PlanSteps` |
-| Trust | `ArtifactCard`, `ArtifactPreview`, `CitationList`, `PermissionScope`, `AgentHandoff`, `GeneratedUIBoundary`, `McpAppFrame`, `TraceViewer` |
+| Foundations | Tokens, `Container`, `Stack`, `Cluster`, `Grid`, `Section` e tipografia |
+| Atoms | `Button`, `ButtonLink`, `IconButton`, campos, escolhas, `Badge`, `Avatar`, `Kbd`, `Chip`, `Toggle`, `SegmentedControl`, `Slider`, inputs especializados e `Sparkline` |
+| Molecules | `Card`, `FormField`, feedback, disclosures, `EmptyState`, `Popover`, `Sheet`, `Stepper`, `Combobox`, `CommandPalette`, `DatePicker`, `FileUpload` e `Toast` |
+| Organisms | Marketing, navegação, componentes agentic, `AppShell`, `Sidebar`, `PageHeader`, `MetricCard`, `DataGrid`, `FilterBar`, `PricingCard` e `ActivityFeed` |
+| Reservado | `template` e `page` existem no schema, mas não possuem implementação nesta versão |
 
 ## Catálogo para agentes
 
@@ -118,9 +117,9 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx github:improve-business/improve-design-system#v0.2.0 list --json
-npx github:improve-business/improve-design-system#v0.2.0 inspect approval-card --json
-npx github:improve-business/improve-design-system#v0.2.0 artifact --recipe dashboard
+npx github:improve-business/improve-design-system#v0.3.0 list --json
+npx github:improve-business/improve-design-system#v0.3.0 inspect data-grid --json
+npx github:improve-business/improve-design-system#v0.3.0 artifact --recipe dashboard
 ```
 
 ## Temas
@@ -158,7 +157,7 @@ Sobrescreva tokens semânticos para temas de projeto; não altere valores dentro
 ## Acessibilidade
 
 - Contraste de texto usa tons escurecidos; o laranja puro fica para fundos, acentos e elementos grandes.
-- O botão primário usa laranja `#B93800` com texto branco (`5,79:1`); no hover, `#932F08` com branco (`7,92:1`). O token de marca `#FF5A00` permanece separado do token funcional de ação.
+- O botão primário usa o laranja oficial `#F2703E` com texto branco em negrito. Essa combinação foi escolhida pela marca e permanece documentada como exceção WCAG (`2,93:1`); foco, seleção, links e navegação ativa usam o roxo acessível `#483C8F`.
 - Todo controle tem foco visível e tamanho-alvo mínimo de 36–44 px.
 - Dialog, Tabs, Accordion, Tooltip, menus, escolhas e switches usam primitivas Radix.
 - `prefers-reduced-motion` reduz transições e animações.

@@ -4,10 +4,12 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 
 ## Non-negotiable brand rules
 - Use Inter for body copy, controls and product UI.
-- Use Clash Display Bold for titles and selected highlights; fall back to Inter when the licensed font file is unavailable.
-- Reserve Castledown Cursive Dots for rare expressive accents and Montserrat Medium for occasional supporting labels.
-- Use white canvas, warm #F5F2F0 surfaces, warm black #1D1D1F text and orange #FF5A00 as brand accent.
-- Use #B93800 with white text for primary actions; never use raw brand orange as a small control background with white text.
+- Use Clash Display Bold for H1, H2 and selected display highlights; fall back to Inter when its local file is unavailable.
+- Use Edu NSW ACT Cursive for rare expressive accents and Montserrat Medium only as a legacy supporting face.
+- Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
+- Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
+- Use purple for focus, selected navigation, links and agent-thinking states instead of darkening the orange.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.3.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -20,114 +22,222 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Source-owned CLI: packages/cli/improve.mjs
 
 ## Components
-- Button (button, stable): Ação principal, secundária ou textual com ícones opcionais.
+- Button (button, atom, stable): Ação principal, secundária ou textual com ícones opcionais.
   Exports: Button, ButtonLink, IconButton, ButtonProps, ButtonLinkProps, IconButtonProps
   States: default, hover, active, focus-visible, disabled
   Accessibility: Use texto descritivo. IconButton exige label. Preserve foco visível e alvo mínimo de 44 px.
-- Layout primitives (layout, stable): Container, Stack, Cluster, Grid e Section para composição responsiva.
+- Layout primitives (layout, foundation, stable): Container, Stack, Cluster, Grid e Section para composição responsiva.
   Exports: Container, Stack, Cluster, Grid, Section, SectionProps
   States: responsive
   Accessibility: Mantenha ordem DOM compatível com a ordem visual.
-- Typography (typography, stable): Inter na interface, Clash Display em títulos, Castledown em acentos raros e Montserrat Medium em labels pontuais.
+- Typography (typography, foundation, stable): Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.
   Exports: Heading, Text, Eyebrow, AccentText, SupportingLabel, HeadingProps, TextProps
   States: none
   Accessibility: Não pule níveis de heading. Use um único h1 por contexto principal.
-- Improve Logo (logo, stable): Marca vetorial responsiva para interfaces e Artifacts.
+- Improve Logo (logo, atom, stable): Marca vetorial responsiva para interfaces e Artifacts.
   Exports: ImproveMark, ImproveLogo, ImproveMarkProps, ImproveLogoProps
   States: none
   Accessibility: Wordmark vinculada exige nome acessível. Marca decorativa deve ser aria-hidden.
-- Card (card, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
+- Card (card, molecule, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
   Exports: Card, CardBody, CardFooter
   States: default, hover, focus-within
   Accessibility: Não transforme o card inteiro em botão quando houver múltiplas ações.
-- Data display (data-display, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
+- Data display (data-display, molecule, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
   Exports: Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs, Pagination
   States: responsive, current-page
   Accessibility: DataTable exige caption. Paginação expõe página atual. Avatar sem imagem anuncia o nome.
-- Form controls (form, stable): Campos, escolhas e switches com descrição e erro associados.
+- Form controls (form, molecule, stable): Campos, escolhas e switches com descrição e erro associados.
   Exports: FormField, Input, Textarea, Select, Checkbox, RadioSet, Switch
   States: default, hover, focus, invalid, disabled, checked
   Accessibility: Todo controle exige label. Erros devem usar aria-describedby e aria-invalid.
-- Feedback (feedback, stable): Badge, Alert, Skeleton, Spinner e Progress.
+- Feedback (feedback, molecule, stable): Badge, Alert, Skeleton, Spinner e Progress.
   Exports: Badge, Alert, Skeleton, Spinner, Progress
   States: loading, progress, success, warning, error
   Accessibility: Use status para atualizações não urgentes e alert somente para falhas imediatas.
-- Dialog (dialog, stable): Modal acessível com título, descrição, conteúdo e ação.
+- Dialog (dialog, organism, stable): Modal acessível com título, descrição, conteúdo e ação.
   Exports: Dialog
   States: open, closed
   Accessibility: Título é obrigatório. O foco deve entrar, ficar contido e retornar ao gatilho.
-- Overlays and disclosure (overlays, stable): Accordion, Tabs, Tooltip e menus acessíveis.
+- Overlays and disclosure (overlays, molecule, stable): Accordion, Tabs, Tooltip e menus acessíveis.
   Exports: Accordion, Tabs, Tooltip, ActionMenu, SelectMenu
   States: open, closed, active, highlighted, disabled
   Accessibility: Não use Tooltip para informação necessária. Menus precisam ser operáveis por teclado.
-- Navigation (navigation, stable): Header e Footer institucionais.
+- Navigation (navigation, organism, stable): Header e Footer institucionais.
   Exports: SiteHeader, Footer, NavItem
   States: current-page, sticky
   Accessibility: Navegações precisam de nomes distintos. Página atual usa aria-current.
-- Marketing patterns (marketing, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
+- Marketing patterns (marketing, organism, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
   Exports: Hero, FeatureCard, EcosystemCard, ServicePanel, LogoCloud
   States: responsive
   Accessibility: CTAs precisam ser descritivos. LogoCloud deve ter nome acessível.
-- Presentation (slides, stable): Primitivas 16:9 para apresentações React.
+- Presentation (slides, organism, stable): Primitivas 16:9 para apresentações React.
   Exports: Slide, SlideKicker, SlideTitle, SlideMetric, SlideFooter, SlideProps
   States: screen, print
   Accessibility: Mantenha ordem semântica e contraste ao exportar.
-- AgentStatus (agent-status, beta): Estado resumido e acessível de uma execução agentic.
+- AgentStatus (agent-status, molecule, beta): Estado resumido e acessível de uma execução agentic.
   Exports: AgentStatus, AgentRunStatus, AgentEvent, AgentActor
   States: queued, thinking, running, awaiting_approval, paused, succeeded, failed, cancelled
   Accessibility: Anuncie somente mudanças de etapa com aria-live polite.
-- StreamingMessage (streaming-message, beta): Conteúdo progressivo sem anunciar cada token.
+- StreamingMessage (streaming-message, molecule, beta): Conteúdo progressivo sem anunciar cada token.
   Exports: StreamingMessage
   States: streaming, complete
   Accessibility: Use aria-busy durante transmissão e uma atualização final em região viva.
-- ToolCallCard (tool-call-card, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ToolCallCard (tool-call-card, organism, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
   Exports: ToolCallCard, ToolCallStatus
   States: queued, running, succeeded, failed
   Accessibility: Falhas exigem descrição e ação de recuperação disponível por teclado.
-- ApprovalCard (approval-card, beta): Aprovação informada para ações externas ou sensíveis.
+- ApprovalCard (approval-card, organism, beta): Aprovação informada para ações externas ou sensíveis.
   Exports: ApprovalCard, ApprovalRisk, ApprovalScope
   States: awaiting, approved, edited, rejected
   Accessibility: Título, consequência, escopo e ações devem ser explícitos. Aprovar e rejeitar precisam de rótulos inequívocos.
-- RunTimeline (run-timeline, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- RunTimeline (run-timeline, organism, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
   Exports: RunTimeline
   States: current, complete, failed
   Accessibility: Use lista ordenada e datas legíveis por máquina.
-- AgentError (agent-error, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- AgentError (agent-error, molecule, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
   Exports: AgentError
   States: failed, retrying
   Accessibility: Use role alert apenas quando a falha exigir atenção imediata.
-- PlanSteps (plan-steps, beta): Plano visível com estado por etapa.
+- PlanSteps (plan-steps, organism, beta): Plano visível com estado por etapa.
   Exports: PlanSteps, PlanStep, PlanStepStatus
   States: pending, in_progress, completed, blocked, skipped
   Accessibility: A etapa atual deve ser identificável sem depender somente de cor.
-- ArtifactCard (artifact-card, beta): Resultado versionado com tipo, autoria e ação de abertura.
+- ArtifactCard (artifact-card, molecule, beta): Resultado versionado com tipo, autoria e ação de abertura.
   Exports: ArtifactCard, ArtifactPreview, ArtifactDescriptor
   States: ready, loading, failed
   Accessibility: Tipo, versão e ação precisam de texto visível ou nome acessível.
-- CitationList (citation-list, beta): Fontes verificáveis associadas ao resultado.
+- CitationList (citation-list, molecule, beta): Fontes verificáveis associadas ao resultado.
   Exports: CitationList, CitationItem
   States: verified, unverified
   Accessibility: Links devem indicar a origem e abrir com comportamento previsível.
-- PermissionScope (permission-scope, beta): Escopo, duração e revogação de uma permissão.
+- PermissionScope (permission-scope, molecule, beta): Escopo, duração e revogação de uma permissão.
   Exports: PermissionScope
   States: requested, granted, revoked
   Accessibility: Escopo e duração devem ser comunicados em texto.
-- AgentHandoff (agent-handoff, beta): Transferência explícita de responsabilidade e contexto.
+- AgentHandoff (agent-handoff, organism, beta): Transferência explícita de responsabilidade e contexto.
   Exports: AgentHandoff
   States: requested, accepted, completed
   Accessibility: Origem, destino e motivo devem ser anunciados em texto.
-- GeneratedUIBoundary (generated-ui-boundary, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
+- GeneratedUIBoundary (generated-ui-boundary, organism, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
   Exports: GeneratedUIBoundary
   States: loading, ready, failed
   Accessibility: Informe origem, estado e fallback do conteúdo incorporado.
-- McpAppFrame (mcp-app-frame, experimental): Shell visual para recursos interativos MCP.
+- McpAppFrame (mcp-app-frame, organism, experimental): Shell visual para recursos interativos MCP.
   Exports: McpAppFrame
   States: connecting, connected, failed, disconnected
   Accessibility: Mudanças de conexão usam status moderado e fallback operável.
-- TraceViewer (trace-viewer, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
+- TraceViewer (trace-viewer, organism, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
   Exports: TraceViewer, TraceItem
   States: collapsed, expanded
   Accessibility: Detalhes usam summary descritivo e conteúdo selecionável.
+- Kbd (kbd, atom, stable): Representa atalhos de teclado e combinações de teclas.
+  Exports: Kbd
+  States: none
+  Accessibility: Use texto equivalente quando o atalho não for óbvio.
+- ButtonGroup (button-group, atom, stable): Agrupa ações relacionadas de forma solta ou anexada.
+  Exports: ButtonGroup
+  States: none
+  Accessibility: O grupo usa role group; cada ação mantém nome próprio.
+- Chip (chip, atom, stable): Filtro compacto selecionável e opcionalmente removível.
+  Exports: Chip, ChipProps
+  States: hover, focus-visible, selected, disabled
+  Accessibility: Seleção usa aria-pressed e remoção tem nome acessível.
+- Toggle (toggle, atom, stable): Ativa ou desativa uma opção persistente em uma barra de ferramentas.
+  Exports: Toggle, ToggleProps
+  States: pressed, hover, focus-visible, disabled
+  Accessibility: Estado pressionado usa aria-pressed.
+- SegmentedControl (segmented-control, atom, stable): Seleciona uma opção entre poucas alternativas mutuamente exclusivas.
+  Exports: SegmentedControl, SegmentedControlItem
+  States: checked, hover, focus-visible, disabled
+  Accessibility: Expõe radiogroup e radio com estado selecionado.
+- Slider (slider, atom, stable): Seleciona um valor numérico dentro de um intervalo.
+  Exports: Slider, SliderProps
+  States: focus, disabled
+  Accessibility: Label e valor atual permanecem visíveis.
+- SearchInput (search-input, atom, stable): Campo de busca com ícone e limpeza opcional.
+  Exports: SearchInput, SearchInputProps
+  States: empty, filled, focus, disabled
+  Accessibility: Exige label visível ou aria-label.
+- PasswordInput (password-input, atom, stable): Campo de senha com alternância acessível de visibilidade.
+  Exports: PasswordInput
+  States: focus, invalid, disabled
+  Accessibility: Controle anuncia mostrar ou ocultar senha.
+- NumberInput (number-input, atom, stable): Entrada numérica com incremento, decremento e limites.
+  Exports: NumberInput, NumberInputProps
+  States: minimum, maximum, disabled
+  Accessibility: Botões descrevem a operação e respeitam limites.
+- Sparkline (sparkline, atom, stable): Tendência compacta em SVG para métricas.
+  Exports: Sparkline
+  States: none
+  Accessibility: Exige descrição textual da tendência.
+- EmptyState (empty-state, molecule, stable): Estado vazio com contexto e próxima ação.
+  Exports: EmptyState
+  States: empty
+  Accessibility: Título explica o estado e a ação descreve a recuperação.
+- Popover (popover, molecule, stable): Conteúdo contextual não modal ancorado a um gatilho.
+  Exports: Popover
+  States: open, closed
+  Accessibility: Foco e fechamento seguem o comportamento Radix.
+- Sheet (sheet, molecule, stable): Painel lateral modal para edição e inspeção contextual.
+  Exports: Sheet
+  States: open, closed
+  Accessibility: Título é obrigatório; foco fica contido e retorna ao gatilho.
+- Stepper (stepper, molecule, stable): Progresso e navegação entre etapas de um fluxo.
+  Exports: Stepper, StepperItem
+  States: complete, current, upcoming
+  Accessibility: Etapa atual usa aria-current step e não depende somente de cor.
+- Combobox (combobox, molecule, beta): Seleção pesquisável para listas médias e grandes.
+  Exports: Combobox, ComboboxOption
+  States: open, closed, selected, empty, disabled
+  Accessibility: Implementa combobox, listbox e option; teclado será coberto por testes de interação.
+- CommandPalette (command-palette, molecule, stable): Busca global por ações com atalhos e descrições.
+  Exports: CommandPalette, CommandItem
+  States: open, searching, empty
+  Accessibility: Busca recebe foco inicial; resultados são operáveis por teclado.
+- DatePicker (date-picker, molecule, stable): Seleção de data baseada no controle nativo da plataforma.
+  Exports: DatePicker
+  States: empty, filled, invalid, disabled
+  Accessibility: Label é obrigatório e o controle preserva a semântica nativa.
+- FileUpload (file-upload, molecule, stable): Upload por seletor ou drag and drop com feedback visual.
+  Exports: FileUpload
+  States: idle, dragging, disabled
+  Accessibility: O input nativo permanece disponível por teclado.
+- Toast (toast, molecule, stable): Notificação temporária controlada e acionável.
+  Exports: Toast, ToastTone
+  States: visible, dismissed
+  Accessibility: Falhas usam alert; demais atualizações usam status.
+- AppShell (app-shell, organism, stable): Estrutura responsiva de produto com sidebar, header e conteúdo.
+  Exports: AppShell
+  States: desktop, mobile
+  Accessibility: Conteúdo principal usa main e mantém ordem DOM previsível.
+- Sidebar (sidebar, organism, stable): Navegação de produto recolhível com grupos, ícones e badges.
+  Exports: Sidebar, SidebarTrigger, SidebarItem, SidebarGroup
+  States: active, hover, disabled, mobile
+  Accessibility: Página atual usa aria-current e o controle anuncia expansão.
+- PageHeader (page-header, organism, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
+  Exports: PageHeader
+  States: responsive
+  Accessibility: Use um único h1 no contexto da página.
+- MetricCard (metric-card, organism, stable): KPI com variação e tendência compacta.
+  Exports: MetricCard
+  States: positive, negative
+  Accessibility: Variação inclui sinal, número e contexto em texto.
+- DataGrid (data-grid, organism, beta): Tabela genérica com ordenação, seleção e estado vazio.
+  Exports: DataGrid, DataGridColumn
+  States: selected, sorted, empty
+  Accessibility: Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis.
+- FilterBar (filter-bar, organism, stable): Busca, filtros ativos, limpeza e ações de coleção.
+  Exports: FilterBar
+  States: empty, filtered
+  Accessibility: Busca exige nome e filtros ativos podem ser removidos por teclado.
+- PricingCard (pricing-card, organism, stable): Plano de assinatura com preço, benefícios e ação.
+  Exports: PricingCard
+  States: hover
+  Accessibility: Preço, período, benefícios e ação são comunicados em texto.
+- ActivityFeed (activity-feed, organism, stable): Histórico cronológico de eventos e atores.
+  Exports: ActivityFeed, ActivityItem
+  States: chronological
+  Accessibility: Usa lista ordenada e time com dateTime legível por máquina.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

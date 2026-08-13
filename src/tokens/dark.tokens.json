@@ -11,7 +11,7 @@
     "text-inverse": { "$type": "color", "$value": "{color.neutral.1000}" },
     "border": { "$type": "color", "$value": "{color.neutral.700}" },
     "border-strong": { "$type": "color", "$value": "{color.neutral.500}" },
-    "action-text": { "$type": "color", "$value": "{color.orange.300}" },
-    "focus": { "$type": "color", "$value": "{color.orange.300}" }
+    "action-text": { "$type": "color", "$value": "{color.purple.300}" },
+    "focus": { "$type": "color", "$value": "{color.purple.300}" }
   }
 }

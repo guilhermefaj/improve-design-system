@@ -49,7 +49,7 @@ function formatCssValue(value) {
 function cssName(path) {
   if (path === 'layout.container') return '--ibs-container';
   if (path === 'layout.content') return '--ibs-content';
-  if (/^color\.(orange|neutral|green|blue|red|yellow)\./.test(path)) return `--ibs-${path.replace(/^color\./, '').replaceAll('.', '-')}`;
+  if (/^color\.(orange|purple|neutral|green|blue|red|yellow)\./.test(path)) return `--ibs-${path.replace(/^color\./, '').replaceAll('.', '-')}`;
   return `--ibs-${path.replaceAll('.', '-')}`;
 }
 
@@ -89,10 +89,12 @@ function buildLlms(manifest, recipes, full = false) {
     '',
     '## Non-negotiable brand rules',
     '- Use Inter for body copy, controls and product UI.',
-    '- Use Clash Display Bold for titles and selected highlights; fall back to Inter when the licensed font file is unavailable.',
-    '- Reserve Castledown Cursive Dots for rare expressive accents and Montserrat Medium for occasional supporting labels.',
-    '- Use white canvas, warm #F5F2F0 surfaces, warm black #1D1D1F text and orange #FF5A00 as brand accent.',
-    '- Use #B93800 with white text for primary actions; never use raw brand orange as a small control background with white text.',
+    '- Use Clash Display Bold for H1, H2 and selected display highlights; fall back to Inter when its local file is unavailable.',
+    '- Use Edu NSW ACT Cursive for rare expressive accents and Montserrat Medium only as a legacy supporting face.',
+    '- Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.',
+    '- Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.',
+    '- Use purple for focus, selected navigation, links and agent-thinking states instead of darkening the orange.',
+    '- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.3.',
     '- Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.',
     '- Use existing components and semantic tokens before inventing new values.',
     '',
@@ -107,7 +109,7 @@ function buildLlms(manifest, recipes, full = false) {
     '## Components',
   ];
   for (const component of manifest.components) {
-    lines.push(`- ${component.name} (${component.id}, ${component.status}): ${component.description}`);
+    lines.push(`- ${component.name} (${component.id}, ${component.atomicLevel}, ${component.status}): ${component.description}`);
     if (full) {
       lines.push(`  Exports: ${component.exports.join(', ')}`);
       lines.push(`  States: ${component.states.join(', ') || 'none'}`);

@@ -22,7 +22,7 @@ function flag(name) {
 
 function positional(after = 1) {
   const values = [];
-  const valueOptions = new Set(['--target', '--recipe', '--output']);
+  const valueOptions = new Set(['--target', '--recipe', '--output', '--level']);
   for (let index = after; index < args.length; index += 1) {
     if (args[index].startsWith('--')) { if (valueOptions.has(args[index])) index += 1; continue; }
     values.push(args[index]);
@@ -107,7 +107,7 @@ async function writeComponentIndex(config) {
   const moduleNames = new Set();
   for (const id of config.components) {
     for (const file of componentById(id).files) {
-      if (file.startsWith('src/components/') && file.endsWith('.tsx')) moduleNames.add(basename(file, '.tsx'));
+      if (file.startsWith('src/components/') && file.endsWith('.tsx')) moduleNames.add(file.slice('src/components/'.length, -'.tsx'.length));
     }
   }
   const target = resolve(installRoot, 'components/index.ts');
@@ -126,8 +126,10 @@ async function updatePackageJson() {
   const pkg = JSON.parse(await readFile(file, 'utf8'));
   pkg.dependencies ??= {};
   const required = {
+    '@fontsource/edu-nsw-act-cursive': '^5.3.0',
     '@fontsource-variable/inter': '^5.2.8',
     '@fontsource-variable/montserrat': '^5.3.0',
+    '@fontsource-variable/space-grotesk': '^5.2.9',
     'lucide-react': '^1.31.0',
     'radix-ui': '^1.6.7',
   };
@@ -192,8 +194,10 @@ async function add() {
 }
 
 function list() {
-  if (flag('--json')) console.log(JSON.stringify(manifest.components, null, 2));
-  else for (const item of manifest.components) console.log(`${item.id.padEnd(24)} ${item.status.padEnd(12)} ${item.description}`);
+  const level = option('--level');
+  const components = level ? manifest.components.filter((item) => item.atomicLevel === level) : manifest.components;
+  if (flag('--json')) console.log(JSON.stringify(components, null, 2));
+  else for (const item of components) console.log(`${item.id.padEnd(24)} ${(item.atomicLevel ?? item.category).padEnd(12)} ${item.status.padEnd(12)} ${item.description}`);
 }
 
 function inspect() {
@@ -215,7 +219,7 @@ async function doctor() {
   const packageFile = resolve(targetRoot, 'package.json');
   if (await exists(packageFile)) {
     const pkg = JSON.parse(await readFile(packageFile, 'utf8'));
-    for (const name of ['@fontsource-variable/inter', '@fontsource-variable/montserrat', 'lucide-react', 'radix-ui']) if (!pkg.dependencies?.[name] && !pkg.devDependencies?.[name]) issues.push(`Missing dependency declaration: ${name}`);
+    for (const name of ['@fontsource/edu-nsw-act-cursive', '@fontsource-variable/inter', '@fontsource-variable/montserrat', '@fontsource-variable/space-grotesk', 'lucide-react', 'radix-ui']) if (!pkg.dependencies?.[name] && !pkg.devDependencies?.[name]) issues.push(`Missing dependency declaration: ${name}`);
   }
   if (config.designSystemVersion !== manifest.version) issues.push(`Installed ${config.designSystemVersion}; source is ${manifest.version}.`);
   if (issues.length) {
@@ -284,7 +288,7 @@ async function artifact() {
 }
 
 function help() {
-  console.log(`Improve Design System ${manifest.version}\n\nCommands:\n  init [--all] [--target path] [--force]\n  add <component...> [--target path] [--force]\n  list [--json]\n  inspect <component> [--json]\n  doctor [--target path]\n  diff [--target path]\n  upgrade [--target path] [--force]\n  artifact --recipe <dashboard|landing-page|agent-workspace|app|slides> [--output file]\n`);
+  console.log(`Improve Design System ${manifest.version}\n\nCommands:\n  init [--all] [--target path] [--force]\n  add <component...> [--target path] [--force]\n  list [--level foundation|atom|molecule|organism] [--json]\n  inspect <component> [--json]\n  doctor [--target path]\n  diff [--target path]\n  upgrade [--target path] [--force]\n  artifact --recipe <dashboard|landing-page|agent-workspace|app|slides> [--output file]\n`);
 }
 
 try {

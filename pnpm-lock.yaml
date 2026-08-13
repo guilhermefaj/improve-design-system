@@ -14,6 +14,12 @@ importers:
       '@fontsource-variable/montserrat':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource-variable/space-grotesk':
+        specifier: ^5.2.9
+        version: 5.3.0
+      '@fontsource/edu-nsw-act-cursive':
+        specifier: ^5.3.0
+        version: 5.3.0
       lucide-react:
         specifier: ^1.31.0
         version: 1.31.0(react@19.2.8)
@@ -421,6 +427,12 @@ packages:
 
   '@fontsource-variable/montserrat@5.3.0':
     resolution: {integrity: sha512-7PaZoxaxrWLAyrhO46v65An9LhUhfkTExWLhfbywYZCnZEgg/W1rEHnlNmZKjNZ3nJTVYyicqxlJt10z/26yTA==}
+
+  '@fontsource-variable/space-grotesk@5.3.0':
+    resolution: {integrity: sha512-2IxmvfB08i9vnGB3Ym/AXvhRE+8XOjWMXIyDum03c+tPwH0FUoMNQfGpU8NXPxjbws0Vvss3AH0Zqt4oJBBAdw==}
+
+  '@fontsource/edu-nsw-act-cursive@5.3.0':
+    resolution: {integrity: sha512-9b9UInFvjbMfihizm+pvc/gr1+z6bp3kt19+d2zdRKlbuqzKeHRMMtOg8CpW26SReq0ujmqsxdc4GSwLrzvcPQ==}
 
   '@joshwooding/vite-plugin-react-docgen-typescript@0.7.0':
     resolution: {integrity: sha512-qvsTEwEFefhdirGOPnu9Wp6ChfIwy2dBCRuETU3uE+4cC+PFoxMSiiEhxk4lOluA34eARHA0OxqsEUYDqRMgeQ==}
@@ -3095,6 +3107,10 @@ snapshots:
   '@fontsource-variable/inter@5.3.0': {}
 
   '@fontsource-variable/montserrat@5.3.0': {}
+
+  '@fontsource-variable/space-grotesk@5.3.0': {}
+
+  '@fontsource/edu-nsw-act-cursive@5.3.0': {}
 
   '@joshwooding/vite-plugin-react-docgen-typescript@0.7.0(typescript@5.9.3)(vite@8.2.1(@types/node@24.13.3)(esbuild@0.28.2))':
     dependencies:

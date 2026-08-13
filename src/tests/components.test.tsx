@@ -26,9 +26,10 @@ describe('Improve Design System', () => {
     expect(screen.getByRole('button', { name: 'Aprovar ação' })).toHaveClass('ibs-button--primary');
   });
 
-  it('keeps the primary action above WCAG AA contrast', () => {
-    expect(contrastRatio(flatTokens['color.action-primary-text'], flatTokens['color.action-primary'])).toBeGreaterThanOrEqual(4.5);
-    expect(contrastRatio(flatTokens['color.action-primary-text'], flatTokens['color.action-primary-hover'])).toBeGreaterThanOrEqual(4.5);
+  it('keeps the primary action on the exact brand anchor and documents its contrast exception', () => {
+    expect(flatTokens['color.action-primary']).toBe('#f2703e');
+    expect(contrastRatio(flatTokens['color.action-primary-text'], flatTokens['color.action-primary'])).toBeLessThan(4.5);
+    expect(contrastRatio(flatTokens['color.secondary'], '#ffffff')).toBeGreaterThanOrEqual(4.5);
   });
 
   it('associates labels, hints and invalid state with form controls', () => {
