@@ -13,17 +13,25 @@ Documentação pública: [Specimen visual](https://guilhermefaj.github.io/improv
 
 ## Começar
 
-O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao projeto consumidor. Não há dependência de registry npm.
+O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao projeto consumidor. Não há dependência de registry npm. O binário do CLI é `improve-ds`; `init`, `add` e `doctor` são subcomandos, não o nome do pacote.
+
+Rode o comando **dentro do app Vite/Next já criado**. As aspas são obrigatórias no zsh/bash: `#` começa comentário e o npx sem `-p … improve-ds` tenta executar um binário chamado `init`, que não existe.
 
 <!-- generated:versioned-commands:start -->
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.5.0 init
-npx github:guilhermefaj/improve-design-system#v0.5.0 add app-shell sidebar data-grid
-npx github:guilhermefaj/improve-design-system#v0.5.0 doctor
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds init
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds add app-shell sidebar data-grid
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds doctor
 ```
 
 <!-- generated:versioned-commands:end -->
+
+Se a tag da versão ainda não existir no GitHub, use o branch padrão até a release ser publicada:
+
+```bash
+npx --yes -p github:guilhermefaj/improve-design-system improve-ds init
+```
 
 ```tsx
 import { Button, Container, Heading, Hero, Section } from './improve';
@@ -53,7 +61,7 @@ Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold qu
 O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.5.0 list --level atom --json
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds list --level atom --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -119,9 +127,9 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.5.0 list --json
-npx github:guilhermefaj/improve-design-system#v0.5.0 inspect data-grid --json
-npx github:guilhermefaj/improve-design-system#v0.5.0 artifact --recipe dashboard
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds list --json
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds inspect data-grid --json
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds artifact --recipe dashboard
 ```
 
 ## Temas

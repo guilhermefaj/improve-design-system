@@ -18,7 +18,7 @@ A recomendação é manter **uma fonte de verdade** (este repositório) e três 
 
 ## O que o projeto é hoje
 
-v0.5 posiciona o Improve Design System como sistema **portátil e source-owned**. Não há registry npm. A unidade de distribuição é a tag GitHub (`npx github:guilhermefaj/improve-design-system#v0.5.0`). Os arquivos passam a pertencer ao projeto consumidor; `upgrade` preserva customizações e gera `.improve.patch`.
+v0.5 posiciona o Improve Design System como sistema **portátil e source-owned**. Não há registry npm. A unidade de distribuição é a tag GitHub. O binário é `improve-ds`; aspas no specifier são obrigatórias no zsh (`#` é comentário). Os arquivos passam a pertencer ao projeto consumidor; `upgrade` preserva customizações e gera `.improve.patch`.
 
 ### Camadas
 
@@ -54,8 +54,8 @@ Seis recipes cobrem os produtos que o time realmente gera:
 
 ### O que o CLI já faz no projeto consumidor
 
-```text
-npx github:guilhermefaj/improve-design-system#v0.5.0 init
+```bash
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds init
 ```
 
 - Copia tokens, estilos e componentes para `src/improve/`.
@@ -143,7 +143,7 @@ Falta neste repositório um `DESIGN.md` (ou recipe `claude-design`) feito para e
 Já existe caminho de primeira classe:
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.5.0 artifact --recipe slides
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds artifact --recipe slides
 ```
 
 O starter é um único TSX, CSS inline, marca SVG, sem CDN. A recipe `artifact` e `references/artifacts.md` são explícitas: protótipo, depois `init` para produção.
@@ -253,7 +253,7 @@ Não abra um repo Next “só para o deck”. `Slide` em React existe para decks
    - Marketing: `SiteHeader` + `Hero` + `FeatureCard` / `ServicePanel` + `Footer`.
    - Agentic: recipe `agent-workspace` + `init --all`.
 5. Tema: claro padrão; `data-ibs-theme="dark"` só onde o produto pedir. Não recodear laranja/roxo.
-6. Quando este DS ganhar uma tag nova: no **produto**, `npx github:…#vX.Y.Z upgrade` — não re-rodar `init`.
+6. Quando este DS ganhar uma tag nova: no **produto**, `npx --yes -p "github:…#vX.Y.Z" improve-ds upgrade` — não re-rodar `init`.
 
 ### Faixa 3 — Evoluir o próprio design system
 
@@ -291,9 +291,11 @@ O template é um atalho de `init`, não uma segunda fonte de verdade. Se o templ
 Copiar o one-liner da **release mais recente** (README da tag, não um comando decorado na wiki):
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.5.0 init
+npx --yes -p "github:guilhermefaj/improve-design-system#v0.5.0" improve-ds init
 npm install
 ```
+
+Até a tag `v0.5.0` existir no GitHub, o mesmo comando sem `#v0.5.0` usa `main`. Não use `npx github:…#v0.5.0 init`: o zsh corta o `#`, e o npx procura um binário chamado `init`.
 
 O `#v0.5.0` do README deste repo é gerado a partir de `package.json`. Quando existir `v0.6.0`, o README daquela tag passa a dizer `#v0.6.0`. Projetos antigos continuam em 0.5.0 até o `upgrade`.
 
@@ -303,7 +305,7 @@ O `#v0.5.0` do README deste repo é gerado a partir de `package.json`. Quando ex
 | --- | --- | --- |
 | Evoluir marca, componente, recipe | este repositório | `pnpm generate` + tag SemVer |
 | Começar site ou SaaS novo | repo novo ou template | `init` **na tag atual** |
-| Incorporar o DS novo num produto velho | cada produto, quando couber | `npx github:…#v0.6.0 upgrade` |
+| Incorporar o DS novo num produto velho | cada produto, quando couber | `npx --yes -p "github:…#v0.6.0" improve-ds upgrade` |
 | Ver se a cópia está íntegra / defasada | cada produto | `doctor` (idealmente no CI) |
 
 `upgrade` não é `init` de novo. Ele compara hashes, atualiza o que não foi mexido e gera `.improve.patch` no que o produto personalizou. `--force` só com autorização explícita.
@@ -312,7 +314,7 @@ Não é preciso (nem desejável) atualizar todos os produtos no mesmo dia da tag
 
 ### O que não fazer
 
-- **`npx github:guilhermefaj/improve-design-system init` sem tag** (equivale a `main`). O `main` pode estar no meio de um PR. Repo novo nasceria irreprodutível.
+- **`npx github:guilhermefaj/improve-design-system init` sem `-p` e sem `improve-ds`.** O npx tenta um binário `init`. Sem aspas, o zsh ainda come a tag (`#` é comentário). Use `-p "github:…#vX.Y.Z" improve-ds <comando>`. Sem tag publicada, omita o `#v…` e pinne `main` só como exceção temporária.
 - **Re-rodar `init` para “atualizar”.** Isso não é o fluxo. `init` instala; `upgrade` migra.
 - **Submodule / npm agora.** Source-owned + tag continua o formato que o agente lê melhor. npm privado é decisão de v1.0, quando houver muitos consumidores e RFCs.
 - **Tag móvel `latest` apontando para `main`.** Se um dia existir atalho, que seja um git tag `latest` **movido só no workflow de release**, nunca no branch de trabalho. Mesmo assim, o produto grava a versão semântica no `improve.config.json` — o atalho é só para não copiar o número errado na hora do `init`.

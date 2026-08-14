@@ -177,7 +177,7 @@ async function installAgentGuidance(config) {
   }
 
   const agentsPath = resolve(targetRoot, 'AGENTS.md');
-  const agentsBlock = `## Improve Design System\n\n- Read \`improve.config.json\` and \`src/improve/tokens/generated.ts\` before creating UI.\n- Use installed Improve components and semantic tokens; do not invent colors, spacing or radii.\n- Run \`npx github:guilhermefaj/improve-design-system#v${manifest.version} doctor\` after changes.\n`;
+  const agentsBlock = `## Improve Design System\n\n- Read \`improve.config.json\` and \`src/improve/tokens/generated.ts\` before creating UI.\n- Use installed Improve components and semantic tokens; do not invent colors, spacing or radii.\n- Run \`npx --yes -p "github:guilhermefaj/improve-design-system#v${manifest.version}" improve-ds doctor\` after changes.\n`;
   if (!(await exists(agentsPath))) await writeFile(agentsPath, `# Agent instructions\n\n${agentsBlock}`, 'utf8');
   else {
     const current = await readFile(agentsPath, 'utf8');
@@ -402,7 +402,7 @@ async function artifact() {
 
 function help() {
   console.log(
-    `Improve Design System ${manifest.version}\n\nCommands:\n  init [--all] [--target path] [--force]\n  add <component...> [--target path] [--force]\n  list [--level foundation|atom|molecule|organism] [--json]\n  inspect <component> [--json]\n  doctor [--target path]\n  diff [--target path]\n  upgrade [--target path] [--force]\n  artifact --recipe <dashboard|landing-page|agent-workspace|app|slides> [--output file]\n`,
+    `Improve Design System ${manifest.version}\n\nCommands:\n  init [--all] [--target path] [--force]\n  add <component...> [--target path] [--force]\n  list [--level foundation|atom|molecule|organism] [--json]\n  inspect <component> [--json]\n  doctor [--target path]\n  diff [--target path]\n  upgrade [--target path] [--force]\n  artifact --recipe <dashboard|landing-page|agent-workspace|app|slides> [--output file]\n\nRun with:\n  npx --yes -p "github:guilhermefaj/improve-design-system#v${manifest.version}" improve-ds <command>\n`,
   );
 }
 
@@ -415,6 +415,7 @@ try {
   else if (command === 'diff') await diff();
   else if (command === 'upgrade') await upgrade();
   else if (command === 'artifact') await artifact();
+  else if (command === 'help' || command === '--help' || command === '-h' || flag('--help')) help();
   else help();
 } catch (error) {
   console.error(`Improve DS error: ${error instanceof Error ? error.message : String(error)}`);
