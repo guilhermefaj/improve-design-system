@@ -7,6 +7,18 @@ on:
   schedule:
     - cron: '0 12 * * 1'
 
+# Least-privilege default token: these jobs only read the repo and upload
+# build artifacts, so no write scopes are needed.
+permissions:
+  contents: read
+
+# Avoid piling up redundant runs: a new push to the same PR/branch cancels the
+# previous in-progress run. Pushes to main are never cancelled so every commit
+# on the default branch is fully validated.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   contracts-and-components:
     runs-on: ubuntu-latest
