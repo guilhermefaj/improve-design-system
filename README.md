@@ -177,5 +177,6 @@ Tags SemVer são a unidade de distribuição. Cada release deve anexar manifesto
 - [Voz e conteúdo](docs/CONTENT.md)
 - [Governança e roadmap](docs/ROADMAP.md)
 - [Auditoria agentic-first](docs/AGENTIC_FIRST.md)
+- [Vibe coding e consumo por ferramenta](docs/VIBE_CODING.md)
 
 Uso interno Improve Business. Todos os direitos reservados.
