@@ -217,6 +217,14 @@ export function ArtifactPreview(input: HTMLAttributes<HTMLElement> & {
 export type ArtifactPreviewProps = Parameters<typeof ArtifactPreview>[0];
 
 // @public (undocumented)
+export function AspectRatio(input: AspectRatioProps): JSX.Element;
+
+// @public (undocumented)
+export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {
+    ratio?: number;
+};
+
+// @public (undocumented)
 export function Avatar(input: HTMLAttributes<HTMLSpanElement> & {
     name: string;
     size?: 'sm' | 'md' | 'lg';
@@ -360,6 +368,16 @@ export function Cluster(input: HTMLAttributes<HTMLDivElement> & {
 export type ClusterProps = Parameters<typeof Cluster>[0];
 
 // @public (undocumented)
+export function Collapsible(input: {
+    label: string;
+    children: ReactNode;
+    defaultOpen?: boolean;
+}): JSX.Element;
+
+// @public (undocumented)
+export type CollapsibleProps = Parameters<typeof Collapsible>[0];
+
+// @public (undocumented)
 export function Combobox(input: {
     label: string;
     options: ComboboxOption[];
@@ -411,6 +429,23 @@ export function Container(input: HTMLAttributes<HTMLDivElement> & {
 
 // @public (undocumented)
 export type ContainerProps = Parameters<typeof Container>[0];
+
+// @public (undocumented)
+export function ContextMenu(input: {
+    children: ReactNode;
+    items: ContextMenuOption[];
+    label?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type ContextMenuOption = {
+    label: string;
+    onSelect?: () => void;
+    disabled?: boolean;
+};
+
+// @public (undocumented)
+export type ContextMenuProps = Parameters<typeof ContextMenu>[0];
 
 // @public (undocumented)
 export const darkDesignTokens: {
@@ -1294,6 +1329,33 @@ export function DatePicker(input: InputHTMLAttributes<HTMLInputElement> & {
 
 // @public (undocumented)
 export type DatePickerProps = Parameters<typeof DatePicker>[0];
+
+// @public (undocumented)
+export function DateRangePicker(input: DateRangePickerProps): JSX.Element;
+
+// @public (undocumented)
+export type DateRangePickerProps = {
+    label: string;
+    startName?: string;
+    endName?: string;
+    hint?: string;
+    className?: string;
+};
+
+// @public (undocumented)
+export function DescriptionList(input: DescriptionListProps): JSX.Element;
+
+// @public (undocumented)
+export type DescriptionListItem = {
+    term: string;
+    description: ReactNode;
+};
+
+// @public (undocumented)
+export type DescriptionListProps = HTMLAttributes<HTMLDListElement> & {
+    items: DescriptionListItem[];
+    layout?: 'stacked' | 'inline';
+};
 
 // @public (undocumented)
 export type DesignTokenPath = keyof typeof flatTokens;
@@ -2301,6 +2363,16 @@ export type HeroProps = {
 };
 
 // @public (undocumented)
+export function HoverCard(input: {
+    trigger: ReactNode;
+    children: ReactNode;
+    align?: 'start' | 'center' | 'end';
+}): JSX.Element;
+
+// @public (undocumented)
+export type HoverCardProps = Parameters<typeof HoverCard>[0];
+
+// @public (undocumented)
 export const IconButton: ForwardRefExoticComponent<ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string;
     icon: ReactNode;
@@ -2418,6 +2490,20 @@ export type MetricCardProps = Parameters<typeof MetricCard>[0];
 
 // @public (undocumented)
 export type MotionPreset = 'none' | 'subtle' | 'expressive';
+
+// @public (undocumented)
+export function MultiSelect(input: MultiSelectProps): JSX.Element;
+
+// @public (undocumented)
+export type MultiSelectProps = {
+    label: string;
+    options: ComboboxOption[];
+    value: string[];
+    placeholder?: string;
+    emptyMessage?: string;
+    onValueChange?: (value: string[]) => void;
+    className?: string;
+};
 
 // @public (undocumented)
 export type NavigationAction = {
@@ -2579,6 +2665,15 @@ export function RunTimeline(input: HTMLAttributes<HTMLOListElement> & {
 
 // @public (undocumented)
 export type RunTimelineProps = Parameters<typeof RunTimeline>[0];
+
+// @public (undocumented)
+export function ScrollArea(input: ScrollAreaProps): JSX.Element;
+
+// @public (undocumented)
+export type ScrollAreaProps = HTMLAttributes<HTMLDivElement> & {
+    orientation?: 'vertical' | 'horizontal' | 'both';
+    maxBlockSize?: string;
+};
 
 // @public (undocumented)
 export const SearchInput: ForwardRefExoticComponent<Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
@@ -2878,6 +2973,15 @@ export function Tabs(input: {
 export type TabsProps = Parameters<typeof Tabs>[0];
 
 // @public (undocumented)
+export function Tag(input: TagProps): JSX.Element;
+
+// @public (undocumented)
+export type TagProps = HTMLAttributes<HTMLSpanElement> & {
+    tone?: 'neutral' | 'brand' | 'purple';
+    onRemove?: () => void;
+};
+
+// @public (undocumented)
 function Text_2(input: TextProps): JSX.Element;
 export { Text_2 as Text }
 
@@ -2896,6 +3000,15 @@ export type TextProps = HTMLAttributes<HTMLParagraphElement> & {
 
 // @public (undocumented)
 export type ThemeName = 'light' | 'dark';
+
+// @public (undocumented)
+export function TimePicker(input: TimePickerProps): JSX.Element;
+
+// @public (undocumented)
+export type TimePickerProps = InputHTMLAttributes<HTMLInputElement> & {
+    label: string;
+    hint?: string;
+};
 
 // @public (undocumented)
 export function Toast(input: {
@@ -4734,7 +4847,7 @@ export type TraceViewerProps = Parameters<typeof TraceViewer>[0];
 // Warnings were encountered during analysis:
 //
 // dist/index.d.ts:124:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:291:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:297:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/page-header",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","navigation","organism"],
   args: { componentId: "page-header", variant: "simple", state: "responsive", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

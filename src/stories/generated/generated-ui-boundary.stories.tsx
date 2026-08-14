@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/generated-ui-boundary",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","trust","organism"],
   args: { componentId: "generated-ui-boundary", variant: "generated", state: "loading", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

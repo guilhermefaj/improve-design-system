@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/artifact-card",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","trust","molecule"],
   args: { componentId: "artifact-card", variant: "card", state: "ready", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

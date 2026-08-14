@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/date-picker",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","molecule"],
   args: { componentId: "date-picker", variant: "date", state: "empty", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/segmented-control",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","atom"],
   args: { componentId: "segmented-control", variant: "text", state: "checked", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

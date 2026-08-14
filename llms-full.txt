@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.5.0.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.6.0.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -238,6 +238,46 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: ActivityFeed, ActivityItem, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: chronological
   Accessibility: Usa lista ordenada e time com dateTime legível por máquina.
+- ScrollArea (scroll-area, foundation, stable): Região com rolagem contida e limite de altura para listas e painéis.
+  Exports: ScrollArea, ScrollAreaProps
+  States: none
+  Accessibility: Garanta foco por teclado no conteúdo rolável quando necessário.
+- AspectRatio (aspect-ratio, foundation, stable): Mantém a proporção de mídia e incorporações de forma responsiva.
+  Exports: AspectRatio, AspectRatioProps
+  States: none
+  Accessibility: Mídia incorporada mantém texto alternativo ou título acessível.
+- Tag (tag, atom, stable): Rótulo semântico compacto, opcionalmente removível, para categorização.
+  Exports: Tag, TagProps
+  States: none
+  Accessibility: A remoção expõe um nome acessível com o rótulo da tag.
+- DescriptionList (description-list, molecule, stable): Lista de termos e definições para metadados e resumos chave-valor.
+  Exports: DescriptionList, DescriptionListItem, DescriptionListProps
+  States: none
+  Accessibility: Use dt para o termo e dd para a definição; não substitua por tabela.
+- HoverCard (hover-card, molecule, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
+  Exports: HoverCard, HoverCardProps
+  States: open, closed
+  Accessibility: Não coloque informação essencial apenas no hover; garanta acesso por teclado.
+- ContextMenu (context-menu, molecule, stable): Ações contextuais acionadas por clique direito sobre um alvo.
+  Exports: ContextMenu, ContextMenuOption, ContextMenuProps
+  States: open, closed
+  Accessibility: Ofereça uma alternativa acessível por teclado às ações do menu de contexto.
+- Collapsible (collapsible, molecule, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
+  Exports: Collapsible, CollapsibleProps
+  States: open, closed
+  Accessibility: O gatilho comunica o estado expandido e controla a região de conteúdo.
+- MultiSelect (multi-select, molecule, beta): Seleção pesquisável de múltiplos valores com tags removíveis.
+  Exports: MultiSelect, MultiSelectProps
+  States: open, closed, selected, empty
+  Accessibility: Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível.
+- DateRangePicker (date-range-picker, molecule, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
+  Exports: DateRangePicker, DateRangePickerProps
+  States: empty, filled, invalid, disabled
+  Accessibility: Cada campo do intervalo mantém rótulo próprio de início e fim.
+- TimePicker (time-picker, molecule, stable): Seleção de horário baseada no controle nativo da plataforma.
+  Exports: TimePicker, TimePickerProps
+  States: empty, filled, invalid, disabled
+  Accessibility: Label é obrigatório e o controle preserva a semântica nativa de horário.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/sparkline",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","data-display","atom"],
   args: { componentId: "sparkline", variant: "secondary", state: "default", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

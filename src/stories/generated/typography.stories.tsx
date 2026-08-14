@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "01 Foundations/typography",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","foundation"],
   args: { componentId: "typography", variant: "heading-1", state: "default", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/stepper",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","navigation","molecule"],
   args: { componentId: "stepper", variant: "horizontal", state: "complete", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -2,8 +2,11 @@ import type { ReactNode } from 'react';
 import { ChevronDown, Ellipsis, Plus, X } from 'lucide-react';
 import {
   Accordion as AccordionPrimitive,
+  Collapsible as CollapsiblePrimitive,
+  ContextMenu as ContextMenuPrimitive,
   Dialog as DialogPrimitive,
   DropdownMenu,
+  HoverCard as HoverCardPrimitive,
   Tabs as TabsPrimitive,
   Tooltip as TooltipPrimitive,
 } from 'radix-ui';
@@ -170,7 +173,85 @@ export function SelectMenu({
   );
 }
 
+export function HoverCard({
+  trigger,
+  children,
+  align = 'center',
+}: {
+  trigger: ReactNode;
+  children: ReactNode;
+  align?: 'start' | 'center' | 'end';
+}) {
+  return (
+    <HoverCardPrimitive.Root openDelay={200} closeDelay={120}>
+      <HoverCardPrimitive.Trigger asChild>{trigger}</HoverCardPrimitive.Trigger>
+      <HoverCardPrimitive.Portal>
+        <HoverCardPrimitive.Content className="ibs-popover" align={align} sideOffset={8}>
+          <div>{children}</div>
+          <HoverCardPrimitive.Arrow className="ibs-popover__arrow" />
+        </HoverCardPrimitive.Content>
+      </HoverCardPrimitive.Portal>
+    </HoverCardPrimitive.Root>
+  );
+}
+
+export type ContextMenuOption = { label: string; onSelect?: () => void; disabled?: boolean };
+export function ContextMenu({
+  children,
+  items,
+  label = 'Menu de contexto',
+}: {
+  children: ReactNode;
+  items: ContextMenuOption[];
+  label?: string;
+}) {
+  return (
+    <ContextMenuPrimitive.Root>
+      <ContextMenuPrimitive.Trigger asChild>{children}</ContextMenuPrimitive.Trigger>
+      <ContextMenuPrimitive.Portal>
+        <ContextMenuPrimitive.Content className="ibs-menu" aria-label={label}>
+          {items.map((item) => (
+            <ContextMenuPrimitive.Item
+              className="ibs-menu__item"
+              key={item.label}
+              onSelect={item.onSelect}
+              disabled={item.disabled}
+            >
+              {item.label}
+            </ContextMenuPrimitive.Item>
+          ))}
+        </ContextMenuPrimitive.Content>
+      </ContextMenuPrimitive.Portal>
+    </ContextMenuPrimitive.Root>
+  );
+}
+
+export function Collapsible({
+  label,
+  children,
+  defaultOpen = false,
+}: {
+  label: string;
+  children: ReactNode;
+  defaultOpen?: boolean;
+}) {
+  return (
+    <CollapsiblePrimitive.Root className="ibs-collapsible" defaultOpen={defaultOpen}>
+      <CollapsiblePrimitive.Trigger className="ibs-collapsible__trigger">
+        <span>{label}</span>
+        <ChevronDown aria-hidden="true" />
+      </CollapsiblePrimitive.Trigger>
+      <CollapsiblePrimitive.Content className="ibs-collapsible__content">
+        <div>{children}</div>
+      </CollapsiblePrimitive.Content>
+    </CollapsiblePrimitive.Root>
+  );
+}
+
 export type AccordionProps = Parameters<typeof Accordion>[0];
+export type HoverCardProps = Parameters<typeof HoverCard>[0];
+export type ContextMenuProps = Parameters<typeof ContextMenu>[0];
+export type CollapsibleProps = Parameters<typeof Collapsible>[0];
 export type TabsProps = Parameters<typeof Tabs>[0];
 export type DialogProps = Parameters<typeof Dialog>[0];
 export type TooltipProps = Parameters<typeof Tooltip>[0];

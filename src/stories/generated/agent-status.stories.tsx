@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/agent-status",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","agentic","molecule"],
   args: { componentId: "agent-status", variant: "compact", state: "queued", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

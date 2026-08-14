@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/overlays",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","overlay","molecule"],
   args: { componentId: "overlays", variant: "accordion", state: "open", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

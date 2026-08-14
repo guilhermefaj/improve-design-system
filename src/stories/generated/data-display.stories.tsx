@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/data-display",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","data-display","molecule"],
   args: { componentId: "data-display", variant: "avatar-sm", state: "responsive", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

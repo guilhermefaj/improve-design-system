@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/dialog",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","overlay","organism"],
   args: { componentId: "dialog", variant: "confirmation", state: "open", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -79,3 +79,28 @@
   font-weight: var(--ibs-font-weight-bold);
   letter-spacing: var(--ibs-tracking-heading);
 }
+
+.ibs-scroll-area {
+  max-block-size: var(--ibs-scroll-area-size, 20rem);
+  overflow: auto;
+  padding: var(--ibs-space-2);
+  border: 1px solid var(--ibs-color-border);
+  border-radius: var(--ibs-radius-md);
+}
+.ibs-scroll-area--horizontal {
+  overflow-y: hidden;
+}
+.ibs-scroll-area--vertical {
+  overflow-x: hidden;
+}
+
+.ibs-aspect-ratio {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--ibs-radius-lg);
+}
+.ibs-aspect-ratio > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

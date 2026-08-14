@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/chip",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","saas","atom"],
   args: { componentId: "chip", variant: "default", state: "hover", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

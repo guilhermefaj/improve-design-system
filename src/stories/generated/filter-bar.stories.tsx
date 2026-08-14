@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/filter-bar",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","organism"],
   args: { componentId: "filter-bar", variant: "search-only", state: "empty", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

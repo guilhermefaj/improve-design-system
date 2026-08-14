@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/button-group",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","action","atom"],
   args: { componentId: "button-group", variant: "separated", state: "default", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/search-input",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","atom"],
   args: { componentId: "search-input", variant: "default", state: "empty", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/agent-error",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","agentic","molecule"],
   args: { componentId: "agent-error", variant: "inline", state: "failed", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

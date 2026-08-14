@@ -3,24 +3,24 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentDocumentation } from '../../showcase/componentDocs';
 
 const meta = {
-  title: "03 Molecules/combobox",
+  title: "03 Molecules/multi-select",
   component: ComponentDocumentation,
   tags: ["autodocs","form","molecule"],
-  args: { componentId: "combobox", variant: "single", state: "open", theme: 'light', motion: 'subtle', disabled: false },
+  args: { componentId: "multi-select", variant: "default", state: "open", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },
-    variant: { control: 'select', options: ["single"] },
-    state: { control: 'select', options: ["open","closed","selected","empty","disabled"] },
+    variant: { control: 'select', options: ["default"] },
+    state: { control: 'select', options: ["open","closed","selected","empty"] },
     theme: { control: 'inline-radio', options: ['light', 'dark'] },
     motion: { control: 'inline-radio', options: ['none', 'subtle', 'expressive'] },
     disabled: { control: 'boolean' },
   },
-  parameters: { docs: { description: { component: "Seleção pesquisável para listas médias e grandes." } }, componentId: "combobox" },
+  parameters: { docs: { description: { component: "Seleção pesquisável de múltiplos valores com tags removíveis." } }, componentId: "multi-select" },
 } satisfies Meta<typeof ComponentDocumentation>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Playground: Story = {};
-export const Variants: Story = { args: { variant: "single" } };
-export const States: Story = { args: { state: "disabled" } };
+export const Variants: Story = { args: { variant: "default" } };
+export const States: Story = { args: { state: "empty" } };
 export const DarkMode: Story = { args: { theme: 'dark' } };
 export const ReducedMotion: Story = { args: { motion: 'none' }, parameters: { reducedMotion: true } };

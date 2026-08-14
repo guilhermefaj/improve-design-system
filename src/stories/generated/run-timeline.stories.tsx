@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/run-timeline",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","agentic","organism"],
   args: { componentId: "run-timeline", variant: "compact", state: "current", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },
