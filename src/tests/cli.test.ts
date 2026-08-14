@@ -1,5 +1,6 @@
 // @vitest-environment node
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
@@ -39,7 +40,9 @@ describe('source-owned CLI', () => {
     run(['init', '--target', target]);
     const config = JSON.parse(readFileSync(resolve(target, 'improve.config.json'), 'utf8'));
     const pkg = JSON.parse(readFileSync(resolve(target, 'package.json'), 'utf8'));
-    expect(config.designSystemVersion).toBe('0.4.1');
+    expect(config.schemaVersion).toBe(2);
+    expect(config.designSystemVersion).toBe('0.5.0');
+    expect(config.dependencies['lucide-react']).toBeDefined();
     expect(config.files.every((file: { hash: string }) => file.hash.length === 64)).toBe(true);
     expect(pkg.dependencies['@fontsource-variable/inter']).toBeDefined();
     expect(pkg.dependencies['@fontsource-variable/space-grotesk']).toBeDefined();
@@ -56,10 +59,16 @@ describe('source-owned CLI', () => {
     expect(config.components).toContain('data-grid');
     expect(readFileSync(resolve(target, 'src/improve/components/Agentic.tsx'), 'utf8')).toContain('ApprovalCard');
     expect(readFileSync(resolve(target, 'src/improve/components/Button.tsx'), 'utf8')).toContain('Button');
-    expect(readFileSync(resolve(target, 'src/improve/components/organisms/SaasOrganisms.tsx'), 'utf8')).toContain('DataGrid');
-    expect(readFileSync(resolve(target, 'src/improve/components/index.ts'), 'utf8')).toContain("./organisms/SaasOrganisms");
+    expect(readFileSync(resolve(target, 'src/improve/components/organisms/SaasOrganisms.tsx'), 'utf8')).toContain(
+      'DataGrid',
+    );
+    expect(readFileSync(resolve(target, 'src/improve/components/index.ts'), 'utf8')).toContain(
+      './organisms/SaasOrganisms',
+    );
     run(['artifact', '--recipe', 'agent-workspace', '--target', target]);
-    expect(readFileSync(resolve(target, 'improve-agent-workspace-artifact.tsx'), 'utf8')).toContain('Aprovação necessária');
+    expect(readFileSync(resolve(target, 'improve-agent-workspace-artifact.tsx'), 'utf8')).toContain(
+      'Aprovação necessária',
+    );
   });
 
   it('preserves local changes and emits an explicit upgrade patch', () => {
@@ -73,5 +82,51 @@ describe('source-owned CLI', () => {
     expect(upgrade.status).toBe(2);
     expect(readFileSync(button, 'utf8')).toBe(customized);
     expect(readFileSync(`${button}.improve.patch`, 'utf8')).toContain('local customization');
+  });
+
+  it('migrates schema v1 and recalculates new files, dependencies and obsolete files', () => {
+    const target = fixture();
+    run(['init', '--target', target]);
+    const configPath = resolve(target, 'improve.config.json');
+    const config = JSON.parse(readFileSync(configPath, 'utf8'));
+    config.schemaVersion = 1;
+    delete config.dependencies;
+    const newFile = config.files.find(
+      (file: { source: string }) => file.source === 'src/styles/components/agentic.css',
+    );
+    config.files = config.files.filter((file: { source: string }) => file !== newFile);
+    rmSync(resolve(target, newFile.target));
+    const obsoleteContent = 'legacy file\n';
+    const obsoleteTarget = 'src/improve/styles/obsolete.css';
+    writeFileSync(resolve(target, obsoleteTarget), obsoleteContent);
+    config.files.push({
+      source: 'src/styles/obsolete.css',
+      target: obsoleteTarget,
+      hash: createHash('sha256').update(obsoleteContent).digest('hex'),
+    });
+    writeFileSync(configPath, JSON.stringify(config, null, 2));
+    const pkgPath = resolve(target, 'package.json');
+    const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'));
+    pkg.dependencies['@fontsource-variable/inter'] = '^4.0.0';
+    writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+
+    expect(run(['upgrade', '--target', target])).toContain('Removed obsolete file');
+    const upgraded = JSON.parse(readFileSync(configPath, 'utf8'));
+    const upgradedPackage = JSON.parse(readFileSync(pkgPath, 'utf8'));
+    expect(upgraded.schemaVersion).toBe(2);
+    expect(upgraded.files.some((file: { source: string }) => file.source === 'src/styles/components/agentic.css')).toBe(
+      true,
+    );
+    expect(() => readFileSync(resolve(target, obsoleteTarget), 'utf8')).toThrow();
+    expect(upgradedPackage.dependencies['@fontsource-variable/inter']).toBe('^5.2.8');
+  });
+
+  it('creates six distinct Artifact recipes', () => {
+    const target = fixture();
+    for (const recipe of ['landing-page', 'dashboard', 'app', 'slides', 'agent-workspace', 'artifact']) {
+      run(['artifact', '--recipe', recipe, '--target', target]);
+      const source = readFileSync(resolve(target, `improve-${recipe}-artifact.tsx`), 'utf8');
+      expect(source).toContain('export default function');
+    }
   });
 });

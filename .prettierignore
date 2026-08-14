@@ -1,0 +1,13 @@
+node_modules
+dist
+storybook-static
+etc/*.api.md
+test-results
+playwright-report
+tests/__snapshots__
+src/stories/generated
+src/tokens/generated.ts
+src/styles/tokens.css
+llms.txt
+llms-full.txt
+assets

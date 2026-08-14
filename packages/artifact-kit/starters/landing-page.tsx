@@ -1,5 +1,97 @@
 import { useState } from 'react';
 
-const css=`:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#4f4f51}*{box-sizing:border-box}body{margin:0}.page{min-height:100vh;background:#fff}.wrap{width:min(calc(100% - 40px),1180px);margin:auto}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800}.mark{width:34px}.hero{padding:96px 0 80px;background:radial-gradient(65% 90% at 100% 0%,#ffe4d2,transparent 68%)}.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:end}.eyebrow{color:#483c8f;font-size:12px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.title{font-family:'Clash Display','Space Grotesk',Inter,ui-sans-serif,system-ui,sans-serif;max-width:9ch;margin:12px 0 0;font-size:clamp(54px,8vw,105px);line-height:.94;letter-spacing:-.07em}.lead{font-size:20px;line-height:1.55}.button{min-height:48px;padding:0 24px;border:0;border-radius:999px;background:#f2703e;color:#fff;font-weight:700;cursor:pointer}.button:hover{background:#f47f59}.section{padding:88px 0}.warm{background:#f5f2f0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{min-height:220px;padding:28px;border-radius:16px;background:#fff}.card h3{font-size:24px;letter-spacing:-.04em}.card p{color:#6f6f72;line-height:1.55}.form{display:grid;gap:12px;max-width:480px;margin-top:28px}.input{min-height:48px;padding:0 16px;border:1px solid #a8a29e;border-radius:12px;font:inherit}@media(max-width:760px){.hero{padding:64px 0}.heroGrid{grid-template-columns:1fr;gap:32px}.cards{grid-template-columns:1fr}.title{font-size:58px}}`;
-function Mark(){return <svg className="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4.75 16.25h18.5v18.5H9.75a5 5 0 0 1-5-5v-13.5Z" stroke="currentColor" strokeWidth="1.8"/><path d="M15.75 4.75h14a5.5 5.5 0 0 1 5.5 5.5v14h-19.5V4.75Z" stroke="#f2703e" strokeWidth="2.2"/></svg>}
-export default function ImproveLandingArtifact(){const [email,setEmail]=useState('');const [sent,setSent]=useState(false);return <><style>{css}</style><main className="page"><nav className="nav wrap"><div className="brand"><Mark/>improve</div><button className="button" onClick={()=>document.getElementById('contato')?.scrollIntoView({behavior:'smooth'})}>Vamos conversar</button></nav><section className="hero"><div className="wrap heroGrid"><div><p className="eyebrow">Transformação profissional com IA</p><h1 className="title">Entenda a dor. Melhore o negócio.</h1></div><div><p className="lead">Estratégia, design e tecnologia aplicados ao contexto real da sua operação.</p><button className="button" onClick={()=>document.getElementById('servicos')?.scrollIntoView({behavior:'smooth'})}>Conhecer abordagem</button></div></div></section><section className="section warm" id="servicos"><div className="wrap"><p className="eyebrow">Como ajudamos</p><h2>Da leitura do negócio à transformação.</h2><div className="cards">{[['Diagnóstico','Encontramos tensões, desperdícios e oportunidades reais.'],['Desenho','Conectamos experiência, processo e tecnologia.'],['Implementação','Colocamos a mudança em produção com segurança.']].map(([title,text])=><article className="card" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section><section className="section" id="contato"><div className="wrap"><p className="eyebrow">Próximo passo</p><h2>Vamos entender o seu desafio.</h2>{sent?<p role="status">Recebemos seu contato. Obrigado.</p>:<form className="form" onSubmit={event=>{event.preventDefault();setSent(true)}}><label htmlFor="email">Email profissional</label><input className="input" id="email" type="email" value={email} onChange={event=>setEmail(event.target.value)} required/><button className="button">Solicitar diagnóstico</button></form>}</div></section></main></>}
+const css = `:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#4f4f51}*{box-sizing:border-box}body{margin:0}.page{min-height:100vh;background:#fff}.wrap{width:min(calc(100% - 40px),1180px);margin:auto}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800}.mark{width:34px}.hero{padding:96px 0 80px;background:radial-gradient(65% 90% at 100% 0%,#ffe4d2,transparent 68%)}.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:end}.eyebrow{color:#483c8f;font-size:12px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.title{font-family:'Clash Display','Space Grotesk',Inter,ui-sans-serif,system-ui,sans-serif;max-width:9ch;margin:12px 0 0;font-size:clamp(54px,8vw,105px);line-height:.94;letter-spacing:-.07em}.lead{font-size:20px;line-height:1.55}.button{min-height:48px;padding:0 24px;border:0;border-radius:999px;background:#f2703e;color:#fff;font-weight:700;cursor:pointer}.button:hover{background:#f47f59}.section{padding:88px 0}.warm{background:#f5f2f0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{min-height:220px;padding:28px;border-radius:16px;background:#fff}.card h3{font-size:24px;letter-spacing:-.04em}.card p{color:#6f6f72;line-height:1.55}.form{display:grid;gap:12px;max-width:480px;margin-top:28px}.input{min-height:48px;padding:0 16px;border:1px solid #a8a29e;border-radius:12px;font:inherit}@media(max-width:760px){.hero{padding:64px 0}.heroGrid{grid-template-columns:1fr;gap:32px}.cards{grid-template-columns:1fr}.title{font-size:58px}}`;
+function Mark() {
+  return (
+    <svg className="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <path d="M4.75 16.25h18.5v18.5H9.75a5 5 0 0 1-5-5v-13.5Z" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M15.75 4.75h14a5.5 5.5 0 0 1 5.5 5.5v14h-19.5V4.75Z" stroke="#f2703e" strokeWidth="2.2" />
+    </svg>
+  );
+}
+export default function ImproveLandingArtifact() {
+  const [email, setEmail] = useState('');
+  const [sent, setSent] = useState(false);
+  return (
+    <>
+      <style>{css}</style>
+      <main className="page">
+        <nav className="nav wrap">
+          <div className="brand">
+            <Mark />
+            improve
+          </div>
+          <button
+            className="button"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Vamos conversar
+          </button>
+        </nav>
+        <section className="hero">
+          <div className="wrap heroGrid">
+            <div>
+              <p className="eyebrow">Transformação profissional com IA</p>
+              <h1 className="title">Entenda a dor. Melhore o negócio.</h1>
+            </div>
+            <div>
+              <p className="lead">Estratégia, design e tecnologia aplicados ao contexto real da sua operação.</p>
+              <button
+                className="button"
+                onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Conhecer abordagem
+              </button>
+            </div>
+          </div>
+        </section>
+        <section className="section warm" id="servicos">
+          <div className="wrap">
+            <p className="eyebrow">Como ajudamos</p>
+            <h2>Da leitura do negócio à transformação.</h2>
+            <div className="cards">
+              {[
+                ['Diagnóstico', 'Encontramos tensões, desperdícios e oportunidades reais.'],
+                ['Desenho', 'Conectamos experiência, processo e tecnologia.'],
+                ['Implementação', 'Colocamos a mudança em produção com segurança.'],
+              ].map(([title, text]) => (
+                <article className="card" key={title}>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="section" id="contato">
+          <div className="wrap">
+            <p className="eyebrow">Próximo passo</p>
+            <h2>Vamos entender o seu desafio.</h2>
+            {sent ? (
+              <p role="status">Recebemos seu contato. Obrigado.</p>
+            ) : (
+              <form
+                className="form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setSent(true);
+                }}
+              >
+                <label htmlFor="email">Email profissional</label>
+                <input
+                  className="input"
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  required
+                />
+                <button className="button">Solicitar diagnóstico</button>
+              </form>
+            )}
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

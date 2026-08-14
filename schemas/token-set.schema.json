@@ -7,20 +7,14 @@
     "$schema": { "type": "string", "const": "https://www.designtokens.org/schemas/2025.10/format.json" }
   },
   "additionalProperties": {
-    "anyOf": [
-      { "$ref": "#/$defs/group" },
-      { "$ref": "#/$defs/token" }
-    ]
+    "anyOf": [{ "$ref": "#/$defs/group" }, { "$ref": "#/$defs/token" }]
   },
   "$defs": {
     "group": {
       "type": "object",
       "properties": { "$type": { "type": "string" } },
       "additionalProperties": {
-        "anyOf": [
-          { "$ref": "#/$defs/group" },
-          { "$ref": "#/$defs/token" }
-        ]
+        "anyOf": [{ "$ref": "#/$defs/group" }, { "$ref": "#/$defs/token" }]
       }
     },
     "token": {

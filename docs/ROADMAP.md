@@ -1,8 +1,10 @@
 # Governança e roadmap
 
-## Estado atual — v0.2 Portable Core
+## Estado atual — v0.5 Consumer Experience & Portability
 
 O core entrega contratos legíveis por máquina, geração de tokens, CLI source-owned, skill aberta, adapters Codex/Claude, starters de Artifact, componentes agentic P0 e componentes de confiança. Imports existentes continuam válidos e `variant="brand"` permanece alias compatível.
+
+O ciclo v0.5 torna o upgrade orientado pelo grafo do manifesto, documenta individualmente os 54 componentes, valida API e tokens e compila fixtures consumidoras em Vite e Next.js.
 
 ## Entrada no core
 
@@ -13,6 +15,8 @@ Um componente entra no core quando resolve uma necessidade recorrente, documenta
 - **Patch:** correção visual ou comportamental sem alteração de contrato.
 - **Minor:** componente, variante, recipe ou token novo compatível.
 - **Major:** remoção, renomeação ou comportamento incompatível.
+
+A partir da baseline v0.5, uma remoção pública exige depreciação documentada por duas versões minor antes de uma versão major.
 
 Arquivos gerados nunca são editados manualmente. Mudanças começam em `src/tokens/*.tokens.json` ou `design-system.manifest.json` e exigem `npm run generate`.
 

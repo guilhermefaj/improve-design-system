@@ -5,7 +5,23 @@
   "purpose": "Criar um protótipo React autocontido e fiel à Improve dentro do Claude.",
   "platforms": ["claude-artifact"],
   "components": ["logo", "layout", "typography", "button", "card", "feedback"],
-  "structure": ["Inline tokens", "Inline SVG mark", "Minimal primitives", "Requested experience", "Accessible feedback"],
-  "guidance": ["Mantenha tudo em um arquivo.", "Use somente React e APIs do navegador.", "Inclua fallbacks de fonte e conteúdo.", "Trate o Artifact como protótipo; migre para produção com o CLI."],
-  "antiPatterns": ["Dependência de CDN.", "Fetch externo necessário para renderizar.", "Imagem remota sem fallback.", "Código sem estado vazio, erro ou carregamento."]
+  "structure": [
+    "Inline tokens",
+    "Inline SVG mark",
+    "Minimal primitives",
+    "Requested experience",
+    "Accessible feedback"
+  ],
+  "guidance": [
+    "Mantenha tudo em um arquivo.",
+    "Use somente React e APIs do navegador.",
+    "Inclua fallbacks de fonte e conteúdo.",
+    "Trate o Artifact como protótipo; migre para produção com o CLI."
+  ],
+  "antiPatterns": [
+    "Dependência de CDN.",
+    "Fetch externo necessário para renderizar.",
+    "Imagem remota sem fallback.",
+    "Código sem estado vazio, erro ou carregamento."
+  ]
 }

@@ -10,7 +10,14 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
 
 export function Heading({ level = 2, size = level, family = 'display', className, children, ...props }: HeadingProps) {
   const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4';
-  return <Tag className={cx('ibs-heading', `ibs-heading--${size}`, family === 'body' && 'ibs-heading--body', className)} {...props}>{children}</Tag>;
+  return (
+    <Tag
+      className={cx('ibs-heading', `ibs-heading--${size}`, family === 'body' && 'ibs-heading--body', className)}
+      {...props}
+    >
+      {children}
+    </Tag>
+  );
 }
 
 export type TextProps = HTMLAttributes<HTMLParagraphElement> & {
@@ -20,7 +27,18 @@ export type TextProps = HTMLAttributes<HTMLParagraphElement> & {
 };
 
 export function Text({ size = 'md', tone = 'default', strong = false, className, ...props }: TextProps) {
-  return <p className={cx('ibs-text', size !== 'md' && `ibs-text--${size}`, tone === 'muted' && 'ibs-text--muted', strong && 'ibs-text--strong', className)} {...props} />;
+  return (
+    <p
+      className={cx(
+        'ibs-text',
+        size !== 'md' && `ibs-text--${size}`,
+        tone === 'muted' && 'ibs-text--muted',
+        strong && 'ibs-text--strong',
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 export function Eyebrow({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) {

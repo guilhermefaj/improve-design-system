@@ -5,7 +5,23 @@
   "purpose": "Ajudar equipes a perceber estado, exceções e próximos passos rapidamente.",
   "platforms": ["react", "claude-artifact"],
   "components": ["layout", "typography", "button", "card", "data-display", "feedback", "overlays"],
-  "structure": ["Page header", "Filters", "Key metrics", "Primary visualization or table", "Exceptions", "Recent activity"],
-  "guidance": ["Destaque uma decisão, não todos os números.", "Use tabelas para comparação exata e cards para síntese.", "Mantenha filtros próximos do conteúdo afetado."],
-  "antiPatterns": ["Card para cada texto.", "Gráficos sem escala ou unidade.", "Cores de status sem rótulo.", "Ações ocultas somente em hover."]
+  "structure": [
+    "Page header",
+    "Filters",
+    "Key metrics",
+    "Primary visualization or table",
+    "Exceptions",
+    "Recent activity"
+  ],
+  "guidance": [
+    "Destaque uma decisão, não todos os números.",
+    "Use tabelas para comparação exata e cards para síntese.",
+    "Mantenha filtros próximos do conteúdo afetado."
+  ],
+  "antiPatterns": [
+    "Card para cada texto.",
+    "Gráficos sem escala ou unidade.",
+    "Cores de status sem rótulo.",
+    "Ações ocultas somente em hover."
+  ]
 }

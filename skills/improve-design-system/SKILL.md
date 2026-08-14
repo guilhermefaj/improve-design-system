@@ -13,7 +13,7 @@ Criar interfaces limpas, consultivas e acessíveis a partir do contrato canônic
 2. Identificar a recipe correspondente: landing page, dashboard, app, slides, agent workspace ou Artifact.
 3. Ler [references/foundations.md](references/foundations.md) antes de decidir cores, tipografia ou composição.
 4. Ler [references/component-selection.md](references/component-selection.md) para escolher componentes e estados. Para experiências agentic, ler também [references/agentic-ui.md](references/agentic-ui.md). Para Claude Artifacts, ler [references/artifacts.md](references/artifacts.md).
-5. Consultar o manifesto ou executar `improve-ds list --json` e `improve-ds inspect <id> --json`. Reutilizar componentes existentes antes de criar novos.
+5. Consultar o manifesto ou executar `improve-ds list --json` e `improve-ds inspect <id> --json`. Reutilizar componentes existentes antes de criar novos. O manifesto v3 informa `primaryExport`, `storybookId`, arquivos, dependências e o starter exato de cada recipe.
 6. Implementar com tokens semânticos `--ibs-*`. Não inserir valores arbitrários quando existir token equivalente.
 7. Verificar responsividade, foco, teclado, contraste, movimento reduzido, estados vazios, carregamento, erro e recuperação.
 8. Executar `improve-ds doctor` e os testes do projeto. Fazer verificação visual em desktop e mobile quando houver navegador disponível.
@@ -30,6 +30,7 @@ Criar interfaces limpas, consultivas e acessíveis a partir do contrato canônic
 - Não inventar claims, resultados, clientes ou fontes para preencher uma composição.
 - Não expor raciocínio interno bruto em interfaces agentic; mostrar intenção, etapa, ferramenta, consequência e resultado.
 - Não sobrescrever código source-owned modificado sem revisar o patch produzido pelo CLI.
+- Ao atualizar uma instalação, executar `improve-ds upgrade` e resolver arquivos `.improve.patch`; usar `--force` somente com autorização explícita.
 
 ## Saída
 

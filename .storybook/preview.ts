@@ -16,19 +16,41 @@ const preview: Preview = {
       defaultValue: 'light',
       toolbar: {
         icon: 'paintbrush',
-        items: [{ value: 'light', title: 'Light' }, { value: 'dark', title: 'Dark' }],
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
         dynamicTitle: true,
       },
     },
   },
   decorators: [
-    (Story, context) => createElement('div', { 'data-ibs-theme': context.globals.theme, style: { minHeight: '100vh', background: 'var(--ibs-color-canvas)', color: 'var(--ibs-color-text)' } }, createElement(Story)),
+    (Story, context) =>
+      createElement(
+        'div',
+        {
+          'data-ibs-theme': context.globals.theme,
+          style: { minHeight: '100vh', background: 'var(--ibs-color-canvas)', color: 'var(--ibs-color-text)' },
+        },
+        createElement(Story),
+      ),
   ],
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
     options: {
-      storySort: { order: ['00 Introducao', '01 Foundations', '02 Atoms', '03 Molecules', '04 Organisms', '05 Agentic Patterns', '06 Presentation', '07 Playground'] },
+      storySort: {
+        order: [
+          '00 Introducao',
+          '01 Foundations',
+          '02 Atoms',
+          '03 Molecules',
+          '04 Organisms',
+          '05 Agentic Patterns',
+          '06 Presentation',
+          '07 Playground',
+        ],
+      },
     },
     a11y: { test: 'error' },
     backgrounds: {

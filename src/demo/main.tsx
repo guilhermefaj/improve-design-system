@@ -9,4 +9,8 @@ import '../showcase/showcase.css';
 import './demo.css';
 import { App } from './App';
 
-createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

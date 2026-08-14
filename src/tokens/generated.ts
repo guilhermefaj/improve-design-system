@@ -375,6 +375,87 @@ export const designTokens = {
       "value": 16,
       "unit": "px"
     }
+  },
+  "choice-control": {
+    "background": "#ffffff",
+    "border": "#a8a29e",
+    "selected": "#f2703e",
+    "indicator": "#252527"
+  },
+  "alert": {
+    "background": "#ffffff",
+    "border": "#e7e3e0",
+    "radius": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  "overlay": {
+    "background": "#ffffff",
+    "border": "#e7e3e0",
+    "radius": {
+      "value": 12,
+      "unit": "px"
+    },
+    "shadow": "0 12px 34px rgb(29 29 31 / 10%)"
+  },
+  "navigation": {
+    "background": "#ffffff",
+    "foreground": "#4f4f51",
+    "border": "#e7e3e0"
+  },
+  "marketing-card": {
+    "background": "#f5f2f0",
+    "foreground": "#4f4f51",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "presentation": {
+    "background": "#ffffff",
+    "foreground": "#4f4f51",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "saas-control": {
+    "background": "#ffffff",
+    "background-active": "#f6f4fc",
+    "foreground-active": "#483c8f",
+    "border": "#e7e3e0",
+    "radius": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  "saas-panel": {
+    "background": "#ffffff",
+    "foreground": "#4f4f51",
+    "border": "#e7e3e0",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "agentic-panel": {
+    "background": "#ffffff",
+    "foreground": "#4f4f51",
+    "border": "#e7e3e0",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "trust-panel": {
+    "background": "#ffffff",
+    "foreground": "#4f4f51",
+    "border": "#e7e3e0",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
   }
 } as const;
 
@@ -754,6 +835,87 @@ export const darkDesignTokens = {
       "value": 16,
       "unit": "px"
     }
+  },
+  "choice-control": {
+    "background": "#3d3d40",
+    "border": "#7d7d82",
+    "selected": "#f2703e",
+    "indicator": "#252527"
+  },
+  "alert": {
+    "background": "#3d3d40",
+    "border": "#555559",
+    "radius": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  "overlay": {
+    "background": "#3d3d40",
+    "border": "#555559",
+    "radius": {
+      "value": 12,
+      "unit": "px"
+    },
+    "shadow": "0 12px 34px rgb(29 29 31 / 10%)"
+  },
+  "navigation": {
+    "background": "#2c2c2e",
+    "foreground": "#faf9f8",
+    "border": "#555559"
+  },
+  "marketing-card": {
+    "background": "#343437",
+    "foreground": "#faf9f8",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "presentation": {
+    "background": "#2c2c2e",
+    "foreground": "#faf9f8",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "saas-control": {
+    "background": "#3d3d40",
+    "background-active": "#3a3549",
+    "foreground-active": "#c9c2eb",
+    "border": "#555559",
+    "radius": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  "saas-panel": {
+    "background": "#3d3d40",
+    "foreground": "#faf9f8",
+    "border": "#555559",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "agentic-panel": {
+    "background": "#3d3d40",
+    "foreground": "#faf9f8",
+    "border": "#555559",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  "trust-panel": {
+    "background": "#3d3d40",
+    "foreground": "#faf9f8",
+    "border": "#555559",
+    "radius": {
+      "value": 16,
+      "unit": "px"
+    }
   }
 } as const;
 
@@ -1071,6 +1233,67 @@ export const flatTokens = {
   "artifact.radius": {
     "value": 16,
     "unit": "px"
+  },
+  "choice-control.background": "#ffffff",
+  "choice-control.border": "#a8a29e",
+  "choice-control.selected": "#f2703e",
+  "choice-control.indicator": "#252527",
+  "alert.background": "#ffffff",
+  "alert.border": "#e7e3e0",
+  "alert.radius": {
+    "value": 12,
+    "unit": "px"
+  },
+  "overlay.background": "#ffffff",
+  "overlay.border": "#e7e3e0",
+  "overlay.radius": {
+    "value": 12,
+    "unit": "px"
+  },
+  "overlay.shadow": "0 12px 34px rgb(29 29 31 / 10%)",
+  "navigation.background": "#ffffff",
+  "navigation.foreground": "#4f4f51",
+  "navigation.border": "#e7e3e0",
+  "marketing-card.background": "#f5f2f0",
+  "marketing-card.foreground": "#4f4f51",
+  "marketing-card.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "presentation.background": "#ffffff",
+  "presentation.foreground": "#4f4f51",
+  "presentation.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "saas-control.background": "#ffffff",
+  "saas-control.background-active": "#f6f4fc",
+  "saas-control.foreground-active": "#483c8f",
+  "saas-control.border": "#e7e3e0",
+  "saas-control.radius": {
+    "value": 12,
+    "unit": "px"
+  },
+  "saas-panel.background": "#ffffff",
+  "saas-panel.foreground": "#4f4f51",
+  "saas-panel.border": "#e7e3e0",
+  "saas-panel.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "agentic-panel.background": "#ffffff",
+  "agentic-panel.foreground": "#4f4f51",
+  "agentic-panel.border": "#e7e3e0",
+  "agentic-panel.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "trust-panel.background": "#ffffff",
+  "trust-panel.foreground": "#4f4f51",
+  "trust-panel.border": "#e7e3e0",
+  "trust-panel.radius": {
+    "value": 16,
+    "unit": "px"
   }
 } as const;
 
@@ -1386,6 +1609,67 @@ export const darkFlatTokens = {
   "artifact.background": "#3d3d40",
   "artifact.border": "#555559",
   "artifact.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "choice-control.background": "#3d3d40",
+  "choice-control.border": "#7d7d82",
+  "choice-control.selected": "#f2703e",
+  "choice-control.indicator": "#252527",
+  "alert.background": "#3d3d40",
+  "alert.border": "#555559",
+  "alert.radius": {
+    "value": 12,
+    "unit": "px"
+  },
+  "overlay.background": "#3d3d40",
+  "overlay.border": "#555559",
+  "overlay.radius": {
+    "value": 12,
+    "unit": "px"
+  },
+  "overlay.shadow": "0 12px 34px rgb(29 29 31 / 10%)",
+  "navigation.background": "#2c2c2e",
+  "navigation.foreground": "#faf9f8",
+  "navigation.border": "#555559",
+  "marketing-card.background": "#343437",
+  "marketing-card.foreground": "#faf9f8",
+  "marketing-card.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "presentation.background": "#2c2c2e",
+  "presentation.foreground": "#faf9f8",
+  "presentation.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "saas-control.background": "#3d3d40",
+  "saas-control.background-active": "#3a3549",
+  "saas-control.foreground-active": "#c9c2eb",
+  "saas-control.border": "#555559",
+  "saas-control.radius": {
+    "value": 12,
+    "unit": "px"
+  },
+  "saas-panel.background": "#3d3d40",
+  "saas-panel.foreground": "#faf9f8",
+  "saas-panel.border": "#555559",
+  "saas-panel.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "agentic-panel.background": "#3d3d40",
+  "agentic-panel.foreground": "#faf9f8",
+  "agentic-panel.border": "#555559",
+  "agentic-panel.radius": {
+    "value": 16,
+    "unit": "px"
+  },
+  "trust-panel.background": "#3d3d40",
+  "trust-panel.foreground": "#faf9f8",
+  "trust-panel.border": "#555559",
+  "trust-panel.radius": {
     "value": 16,
     "unit": "px"
   }
@@ -3063,6 +3347,313 @@ export const tokenCatalog = [
   },
   {
     "path": "artifact.radius",
+    "type": "dimension",
+    "reference": "{radius.lg}",
+    "light": {
+      "value": 16,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "choice-control.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "choice-control.border",
+    "type": "color",
+    "reference": "{color.border-strong}",
+    "light": "#a8a29e",
+    "dark": "#7d7d82"
+  },
+  {
+    "path": "choice-control.selected",
+    "type": "color",
+    "reference": "{color.control-selected}",
+    "light": "#f2703e",
+    "dark": "#f2703e"
+  },
+  {
+    "path": "choice-control.indicator",
+    "type": "color",
+    "reference": "{color.control-indicator}",
+    "light": "#252527",
+    "dark": "#252527"
+  },
+  {
+    "path": "alert.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "alert.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "alert.radius",
+    "type": "dimension",
+    "reference": "{radius.md}",
+    "light": {
+      "value": 12,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "overlay.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "overlay.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "overlay.radius",
+    "type": "dimension",
+    "reference": "{radius.md}",
+    "light": {
+      "value": 12,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "overlay.shadow",
+    "type": "string",
+    "reference": "{shadow.md}",
+    "light": "0 12px 34px rgb(29 29 31 / 10%)",
+    "dark": "0 12px 34px rgb(29 29 31 / 10%)"
+  },
+  {
+    "path": "navigation.background",
+    "type": "color",
+    "reference": "{color.canvas}",
+    "light": "#ffffff",
+    "dark": "#2c2c2e"
+  },
+  {
+    "path": "navigation.foreground",
+    "type": "color",
+    "reference": "{color.text}",
+    "light": "#4f4f51",
+    "dark": "#faf9f8"
+  },
+  {
+    "path": "navigation.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "marketing-card.background",
+    "type": "color",
+    "reference": "{color.surface}",
+    "light": "#f5f2f0",
+    "dark": "#343437"
+  },
+  {
+    "path": "marketing-card.foreground",
+    "type": "color",
+    "reference": "{color.text}",
+    "light": "#4f4f51",
+    "dark": "#faf9f8"
+  },
+  {
+    "path": "marketing-card.radius",
+    "type": "dimension",
+    "reference": "{radius.lg}",
+    "light": {
+      "value": 16,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "presentation.background",
+    "type": "color",
+    "reference": "{color.canvas}",
+    "light": "#ffffff",
+    "dark": "#2c2c2e"
+  },
+  {
+    "path": "presentation.foreground",
+    "type": "color",
+    "reference": "{color.text}",
+    "light": "#4f4f51",
+    "dark": "#faf9f8"
+  },
+  {
+    "path": "presentation.radius",
+    "type": "dimension",
+    "reference": "{radius.lg}",
+    "light": {
+      "value": 16,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "saas-control.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "saas-control.background-active",
+    "type": "color",
+    "reference": "{color.secondary-soft}",
+    "light": "#f6f4fc",
+    "dark": "#3a3549"
+  },
+  {
+    "path": "saas-control.foreground-active",
+    "type": "color",
+    "reference": "{color.secondary}",
+    "light": "#483c8f",
+    "dark": "#c9c2eb"
+  },
+  {
+    "path": "saas-control.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "saas-control.radius",
+    "type": "dimension",
+    "reference": "{radius.md}",
+    "light": {
+      "value": 12,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 12,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "saas-panel.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "saas-panel.foreground",
+    "type": "color",
+    "reference": "{color.text}",
+    "light": "#4f4f51",
+    "dark": "#faf9f8"
+  },
+  {
+    "path": "saas-panel.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "saas-panel.radius",
+    "type": "dimension",
+    "reference": "{radius.lg}",
+    "light": {
+      "value": 16,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "agentic-panel.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "agentic-panel.foreground",
+    "type": "color",
+    "reference": "{color.text}",
+    "light": "#4f4f51",
+    "dark": "#faf9f8"
+  },
+  {
+    "path": "agentic-panel.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "agentic-panel.radius",
+    "type": "dimension",
+    "reference": "{radius.lg}",
+    "light": {
+      "value": 16,
+      "unit": "px"
+    },
+    "dark": {
+      "value": 16,
+      "unit": "px"
+    }
+  },
+  {
+    "path": "trust-panel.background",
+    "type": "color",
+    "reference": "{color.surface-raised}",
+    "light": "#ffffff",
+    "dark": "#3d3d40"
+  },
+  {
+    "path": "trust-panel.foreground",
+    "type": "color",
+    "reference": "{color.text}",
+    "light": "#4f4f51",
+    "dark": "#faf9f8"
+  },
+  {
+    "path": "trust-panel.border",
+    "type": "color",
+    "reference": "{color.border}",
+    "light": "#e7e3e0",
+    "dark": "#555559"
+  },
+  {
+    "path": "trust-panel.radius",
     "type": "dimension",
     "reference": "{radius.lg}",
     "light": {

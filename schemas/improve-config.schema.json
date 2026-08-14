@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://improve.business/schemas/improve-config.schema.json",
+  "title": "Improve Design System consumer configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "designSystemVersion",
+    "source",
+    "installRoot",
+    "components",
+    "files",
+    "dependencies",
+    "agentGuidance"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "designSystemVersion": { "type": "string" },
+    "source": { "type": "string" },
+    "installRoot": { "type": "string" },
+    "components": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "target", "hash"],
+        "properties": {
+          "source": { "type": "string" },
+          "target": { "type": "string" },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "dependencies": { "type": "object", "additionalProperties": { "type": "string" } },
+    "agentGuidance": { "type": "array", "items": { "type": "string" } }
+  }
+}
