@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/form",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","molecule"],
   args: { componentId: "form", variant: "input", state: "default", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

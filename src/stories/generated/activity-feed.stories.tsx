@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/activity-feed",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","data-display","organism"],
   args: { componentId: "activity-feed", variant: "default", state: "chronological", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

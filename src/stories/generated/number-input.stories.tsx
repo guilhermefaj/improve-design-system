@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/number-input",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","atom"],
   args: { componentId: "number-input", variant: "controlled", state: "minimum", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

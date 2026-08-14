@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/logo",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","foundation","atom"],
   args: { componentId: "logo", variant: "mark", state: "default", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

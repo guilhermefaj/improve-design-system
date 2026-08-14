@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/citation-list",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","trust","molecule"],
   args: { componentId: "citation-list", variant: "compact", state: "verified", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

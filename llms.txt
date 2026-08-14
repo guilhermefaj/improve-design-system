@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.5.0.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.6.0.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -76,6 +76,16 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - FilterBar (filter-bar, organism, stable): Busca, filtros ativos, limpeza e ações de coleção.
 - PricingCard (pricing-card, organism, stable): Plano de assinatura com preço, benefícios e ação.
 - ActivityFeed (activity-feed, organism, stable): Histórico cronológico de eventos e atores.
+- ScrollArea (scroll-area, foundation, stable): Região com rolagem contida e limite de altura para listas e painéis.
+- AspectRatio (aspect-ratio, foundation, stable): Mantém a proporção de mídia e incorporações de forma responsiva.
+- Tag (tag, atom, stable): Rótulo semântico compacto, opcionalmente removível, para categorização.
+- DescriptionList (description-list, molecule, stable): Lista de termos e definições para metadados e resumos chave-valor.
+- HoverCard (hover-card, molecule, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
+- ContextMenu (context-menu, molecule, stable): Ações contextuais acionadas por clique direito sobre um alvo.
+- Collapsible (collapsible, molecule, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
+- MultiSelect (multi-select, molecule, beta): Seleção pesquisável de múltiplos valores com tags removíveis.
+- DateRangePicker (date-range-picker, molecule, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
+- TimePicker (time-picker, molecule, stable): Seleção de horário baseada no controle nativo da plataforma.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

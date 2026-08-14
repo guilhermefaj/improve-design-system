@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "03 Molecules/file-upload",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","form","molecule"],
   args: { componentId: "file-upload", variant: "single", state: "idle", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

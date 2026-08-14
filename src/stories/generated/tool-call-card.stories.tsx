@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/tool-call-card",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","agentic","organism"],
   args: { componentId: "tool-call-card", variant: "compact", state: "queued", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

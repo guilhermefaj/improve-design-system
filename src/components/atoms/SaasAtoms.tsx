@@ -289,6 +289,24 @@ export function Sparkline({
   );
 }
 
+export type TagProps = HTMLAttributes<HTMLSpanElement> & {
+  tone?: 'neutral' | 'brand' | 'purple';
+  onRemove?: () => void;
+};
+
+export function Tag({ tone = 'neutral', onRemove, className, children, ...props }: TagProps) {
+  return (
+    <span className={cx('ibs-tag', tone !== 'neutral' && `ibs-tag--${tone}`, className)} {...props}>
+      <span className="ibs-tag__label">{children}</span>
+      {onRemove && (
+        <button type="button" className="ibs-tag__remove" aria-label={`Remover ${String(children)}`} onClick={onRemove}>
+          <X aria-hidden="true" />
+        </button>
+      )}
+    </span>
+  );
+}
+
 export type KbdProps = Parameters<typeof Kbd>[0];
 export type ButtonGroupProps = Parameters<typeof ButtonGroup>[0];
 export type SegmentedControlProps = Parameters<typeof SegmentedControl>[0];

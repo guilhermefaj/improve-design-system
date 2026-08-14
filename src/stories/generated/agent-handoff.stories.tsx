@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/agent-handoff",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","trust","organism"],
   args: { componentId: "agent-handoff", variant: "inline", state: "requested", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/trace-viewer",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","trust","organism"],
   args: { componentId: "trace-viewer", variant: "summary", state: "collapsed", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

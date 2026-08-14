@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/data-grid",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","data-display","organism"],
   args: { componentId: "data-grid", variant: "default", state: "selected", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

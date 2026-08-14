@@ -60,6 +60,33 @@ export function Section({ tone = 'canvas', className, children, ...props }: Sect
   );
 }
 
+export type ScrollAreaProps = HTMLAttributes<HTMLDivElement> & {
+  orientation?: 'vertical' | 'horizontal' | 'both';
+  maxBlockSize?: string;
+};
+
+export function ScrollArea({ orientation = 'vertical', maxBlockSize, className, style, ...props }: ScrollAreaProps) {
+  return (
+    <div
+      className={cx('ibs-scroll-area', `ibs-scroll-area--${orientation}`, className)}
+      style={maxBlockSize ? ({ '--ibs-scroll-area-size': maxBlockSize, ...style } as CSSProperties) : style}
+      {...props}
+    />
+  );
+}
+
+export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & { ratio?: number };
+
+export function AspectRatio({ ratio = 16 / 9, className, style, ...props }: AspectRatioProps) {
+  return (
+    <div
+      className={cx('ibs-aspect-ratio', className)}
+      style={{ aspectRatio: String(ratio), ...style } as CSSProperties}
+      {...props}
+    />
+  );
+}
+
 export type ContainerProps = Parameters<typeof Container>[0];
 export type StackProps = Parameters<typeof Stack>[0];
 export type ClusterProps = Parameters<typeof Cluster>[0];

@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "02 Atoms/toggle",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","action","atom"],
   args: { componentId: "toggle", variant: "text", state: "pressed", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

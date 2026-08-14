@@ -445,3 +445,36 @@
 .ibs-toast--danger {
   border-left-color: var(--ibs-color-agent-failed);
 }
+.ibs-multiselect__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ibs-space-2);
+}
+.ibs-date-range {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  gap: var(--ibs-space-2);
+}
+.ibs-date-range > legend {
+  padding: 0;
+  color: var(--ibs-color-text);
+  font-size: var(--ibs-text-sm);
+  font-weight: var(--ibs-font-weight-semibold);
+}
+.ibs-date-range__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--ibs-space-2);
+}
+.ibs-date-range__controls .ibs-date-picker__control {
+  flex: 1;
+}
+.ibs-date-range__separator {
+  color: var(--ibs-color-text-muted);
+}
+.ibs-date-range small {
+  color: var(--ibs-color-text-muted);
+}

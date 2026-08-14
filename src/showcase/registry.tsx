@@ -11,6 +11,7 @@ import {
   AppShell,
   ApprovalCard,
   ArtifactCard,
+  AspectRatio,
   Avatar,
   Badge,
   Breadcrumbs,
@@ -23,10 +24,14 @@ import {
   Chip,
   CitationList,
   Cluster,
+  Collapsible,
   Combobox,
   CommandPalette,
+  ContextMenu,
   DataGrid,
   DatePicker,
+  DateRangePicker,
+  DescriptionList,
   Dialog,
   Divider,
   EcosystemCard,
@@ -40,11 +45,13 @@ import {
   Grid,
   Heading,
   Hero,
+  HoverCard,
   ImproveLogo,
   Input,
   Kbd,
   McpAppFrame,
   MetricCard,
+  MultiSelect,
   NumberInput,
   PageHeader,
   Pagination,
@@ -57,6 +64,7 @@ import {
   Quote,
   RadioSet,
   RunTimeline,
+  ScrollArea,
   SearchInput,
   SegmentedControl,
   Select,
@@ -78,8 +86,10 @@ import {
   StreamingMessage,
   Switch,
   Tabs,
+  Tag,
   Text,
   Textarea,
+  TimePicker,
   Toast,
   Toggle,
   ToolCallCard,
@@ -285,6 +295,44 @@ export function FoundationsCatalog() {
           </Grid>
         </SpecimenPanel>
       </Grid>
+      <SpecimenPanel
+        title="Rolagem e proporção"
+        description="Primitivos utilitários para conter listas longas e preservar a proporção de mídia."
+      >
+        <Grid columns={2} gap={5}>
+          <ScrollArea maxBlockSize="11rem" aria-label="Lista rolável de exemplos">
+            <Stack gap={2}>
+              {['Onboarding', 'Diagnóstico', 'Automação', 'Governança', 'Adoção', 'Expansão', 'Renovação'].map(
+                (item) => (
+                  <div
+                    key={item}
+                    style={{
+                      padding: 'var(--ibs-space-3)',
+                      border: '1px solid var(--ibs-color-border)',
+                      borderRadius: 'var(--ibs-radius-sm)',
+                    }}
+                  >
+                    {item}
+                  </div>
+                ),
+              )}
+            </Stack>
+          </ScrollArea>
+          <AspectRatio ratio={16 / 9}>
+            <div
+              style={{
+                display: 'grid',
+                placeItems: 'center',
+                background: 'var(--ibs-color-secondary-soft)',
+                color: 'var(--ibs-color-secondary)',
+                fontWeight: 600,
+              }}
+            >
+              16 : 9
+            </div>
+          </AspectRatio>
+        </Grid>
+      </SpecimenPanel>
     </Stack>
   );
 }
@@ -435,6 +483,39 @@ export function CoreMoleculesCatalog() {
           />
         </Stack>
       </SpecimenPanel>
+      <SpecimenPanel
+        title="Metadados e disclosures adicionais"
+        description="Listas de definição, prévia em hover, menu de contexto e disclosure único."
+      >
+        <Stack gap={5}>
+          <DescriptionList
+            layout="inline"
+            items={[
+              { term: 'Cliente', description: 'Acme Corporation' },
+              { term: 'Plano', description: 'Enterprise anual' },
+              { term: 'Responsável', description: 'Marina Costa' },
+            ]}
+          />
+          <Cluster>
+            <HoverCard trigger={<Button variant="outline">Prévia (hover)</Button>}>
+              <Stack gap={2}>
+                <strong>Acme Corporation</strong>
+                <Text size="sm" tone="muted">
+                  128 usuários ativos · adoção de IA em 74%.
+                </Text>
+              </Stack>
+            </HoverCard>
+            <ContextMenu items={[{ label: 'Renomear' }, { label: 'Duplicar' }, { label: 'Arquivar' }]}>
+              <Button variant="outline">Clique com o botão direito</Button>
+            </ContextMenu>
+          </Cluster>
+          <Collapsible label="Detalhes técnicos" defaultOpen>
+            <Text size="sm" tone="muted">
+              Integração via API, rastreabilidade completa e revisão humana em decisões críticas.
+            </Text>
+          </Collapsible>
+        </Stack>
+      </SpecimenPanel>
     </Stack>
   );
 }
@@ -476,6 +557,11 @@ export function AtomCatalog() {
         </Toggle>
         <Toggle icon={<Filter />}>Filtros</Toggle>
       </Cluster>
+      <Cluster>
+        <Tag tone="purple">Estratégia</Tag>
+        <Tag tone="brand">IA aplicada</Tag>
+        <Tag onRemove={() => undefined}>Operações</Tag>
+      </Cluster>
       <SegmentedControl
         label="Período"
         value={segment}
@@ -506,6 +592,7 @@ export function AtomCatalog() {
 export function MoleculeCatalog() {
   const [step, setStep] = useState(1);
   const [plan, setPlan] = useState('growth');
+  const [segments, setSegments] = useState<string[]>(['growth']);
   return (
     <Stack gap={7}>
       <SpecimenPanel title="Fluxo e escolha" description="Progressão, seleção e datas para tarefas de produto.">
@@ -533,6 +620,28 @@ export function MoleculeCatalog() {
             <DatePicker label="Início do contrato" hint="Você poderá alterar depois." />
           </Grid>
         </Stack>
+      </SpecimenPanel>
+      <SpecimenPanel
+        title="Seleção múltipla e datas"
+        description="Múltiplos valores pesquisáveis, intervalo de datas e horário."
+      >
+        <Grid columns={2} gap={5}>
+          <MultiSelect
+            label="Segmentos"
+            value={segments}
+            onValueChange={setSegments}
+            options={[
+              { value: 'starter', label: 'Starter' },
+              { value: 'growth', label: 'Growth' },
+              { value: 'enterprise', label: 'Enterprise' },
+              { value: 'public', label: 'Setor público' },
+            ]}
+          />
+          <Stack gap={5}>
+            <DateRangePicker label="Período do contrato" hint="Início e término previstos." />
+            <TimePicker label="Horário da reunião" hint="Fuso do workspace." />
+          </Stack>
+        </Grid>
       </SpecimenPanel>
       <SpecimenPanel title="Arquivos e contexto" description="Entradas complexas permanecem próximas da tarefa atual.">
         <Stack gap={5}>
@@ -942,8 +1051,8 @@ export const showcaseGroups: ShowcaseGroup[] = [
   {
     id: 'foundations',
     title: 'Foundations',
-    description: 'Cores, temas, tipografia, espaçamento, raio, elevação e movimento.',
-    componentIds: ['layout', 'typography'],
+    description: 'Cores, temas, tipografia, espaçamento, raio, elevação, rolagem e proporção.',
+    componentIds: ['layout', 'typography', 'scroll-area', 'aspect-ratio'],
     Render: FoundationsCatalog,
   },
   {
@@ -968,6 +1077,7 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'password-input',
       'number-input',
       'sparkline',
+      'tag',
     ],
     Render: AtomCatalog,
   },
@@ -975,7 +1085,17 @@ export const showcaseGroups: ShowcaseGroup[] = [
     id: 'molecules-core',
     title: 'Molecules · Core',
     description: 'Dados, formulários, feedback e disclosures.',
-    componentIds: ['card', 'data-display', 'form', 'feedback', 'overlays'],
+    componentIds: [
+      'card',
+      'data-display',
+      'form',
+      'feedback',
+      'overlays',
+      'description-list',
+      'hover-card',
+      'context-menu',
+      'collapsible',
+    ],
     Render: CoreMoleculesCatalog,
   },
   {
@@ -992,6 +1112,9 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'date-picker',
       'file-upload',
       'toast',
+      'multi-select',
+      'date-range-picker',
+      'time-picker',
     ],
     Render: MoleculeCatalog,
   },
@@ -1003,8 +1126,24 @@ export const showcaseGroups: ShowcaseGroup[] = [
     Render: BrandOrganismsCatalog,
   },
   {
+    id: 'organisms-saas',
+    title: 'Organisms · SaaS Workspace',
+    description: 'Shell, métricas, dados, filtros, preços e atividade.',
+    componentIds: [
+      'app-shell',
+      'sidebar',
+      'page-header',
+      'metric-card',
+      'data-grid',
+      'filter-bar',
+      'pricing-card',
+      'activity-feed',
+    ],
+    Render: OrganismCatalog,
+  },
+  {
     id: 'agentic',
-    title: 'Agentic Patterns',
+    title: 'Agentic & Trust',
     description: 'Status, execução, aprovação, artefatos, fontes, permissões, rastreabilidade e handoff.',
     componentIds: [
       'agent-status',
@@ -1023,22 +1162,6 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'trace-viewer',
     ],
     Render: AgenticCatalog,
-  },
-  {
-    id: 'organisms-saas',
-    title: 'Organisms · SaaS Workspace',
-    description: 'Shell, métricas, dados, filtros, preços e atividade.',
-    componentIds: [
-      'app-shell',
-      'sidebar',
-      'page-header',
-      'metric-card',
-      'data-grid',
-      'filter-bar',
-      'pricing-card',
-      'activity-feed',
-    ],
-    Render: OrganismCatalog,
   },
   {
     id: 'presentation',

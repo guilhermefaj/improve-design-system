@@ -5,7 +5,7 @@ import { ComponentDocumentation } from '../../showcase/componentDocs';
 const meta = {
   title: "04 Organisms/app-shell",
   component: ComponentDocumentation,
-  tags: ['autodocs'],
+  tags: ["autodocs","saas","organism"],
   args: { componentId: "app-shell", variant: "with-sidebar", state: "desktop", theme: 'light', motion: 'subtle', disabled: false },
   argTypes: {
     componentId: { control: false, table: { disable: true } },

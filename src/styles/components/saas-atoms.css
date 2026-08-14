@@ -216,3 +216,43 @@
 .ibs-sparkline--success polyline {
   stroke: var(--ibs-color-agent-success);
 }
+.ibs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ibs-space-1);
+  min-height: 1.75rem;
+  padding: 0 var(--ibs-space-2) 0 var(--ibs-space-3);
+  border: 1px solid var(--ibs-color-border);
+  border-radius: var(--ibs-radius-pill);
+  background: var(--ibs-color-surface);
+  color: var(--ibs-color-text);
+  font-size: var(--ibs-text-xs);
+  font-weight: var(--ibs-font-weight-semibold);
+}
+.ibs-tag--brand {
+  border-color: transparent;
+  background: var(--ibs-color-brand-soft);
+  color: var(--ibs-color-text);
+}
+.ibs-tag--purple {
+  border-color: transparent;
+  background: var(--ibs-color-secondary-soft);
+  color: var(--ibs-color-secondary);
+}
+.ibs-tag__remove {
+  display: grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+}
+.ibs-tag__remove:hover {
+  background: var(--ibs-color-surface-raised);
+}
+.ibs-tag__remove svg {
+  width: 0.85rem;
+}

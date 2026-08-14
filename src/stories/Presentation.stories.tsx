@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PresentationCatalog } from '../showcase/registry';
 
 const meta = {
-  title: '06 Presentation/Slides',
+  title: '08 Presentation/Slides',
   component: PresentationCatalog,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

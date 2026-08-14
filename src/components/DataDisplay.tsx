@@ -143,6 +143,28 @@ export function Pagination({
   );
 }
 
+export type DescriptionListItem = { term: string; description: ReactNode };
+export type DescriptionListProps = HTMLAttributes<HTMLDListElement> & {
+  items: DescriptionListItem[];
+  layout?: 'stacked' | 'inline';
+};
+
+export function DescriptionList({ items, layout = 'stacked', className, ...props }: DescriptionListProps) {
+  return (
+    <dl
+      className={cx('ibs-description-list', layout !== 'stacked' && `ibs-description-list--${layout}`, className)}
+      {...props}
+    >
+      {items.map((item, index) => (
+        <div className="ibs-description-list__row" key={`${item.term}-${index}`}>
+          <dt>{item.term}</dt>
+          <dd>{item.description}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export type CardProps = Parameters<typeof Card>[0];
 export type CardBodyProps = Parameters<typeof CardBody>[0];
 export type CardFooterProps = Parameters<typeof CardFooter>[0];

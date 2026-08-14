@@ -1,6 +1,17 @@
 import { useId, useMemo, useState } from 'react';
 import type { DragEvent, HTMLAttributes, InputHTMLAttributes, ReactNode } from 'react';
-import { CalendarDays, Check, ChevronRight, Command, FileUp, Inbox, Search, X } from 'lucide-react';
+import {
+  CalendarDays,
+  CalendarRange,
+  Check,
+  ChevronRight,
+  Clock,
+  Command,
+  FileUp,
+  Inbox,
+  Search,
+  X,
+} from 'lucide-react';
 import { Dialog as DialogPrimitive, Popover as PopoverPrimitive } from 'radix-ui';
 import { IconButton } from '../Button';
 import { Heading, Text } from '../Typography';
@@ -441,6 +452,163 @@ export function Toast({
         <IconButton label="Fechar notificação" icon={<X />} size="sm" variant="ghost" onClick={onDismiss} />
       )}
     </div>
+  );
+}
+
+export type MultiSelectProps = {
+  label: string;
+  options: ComboboxOption[];
+  value: string[];
+  placeholder?: string;
+  emptyMessage?: string;
+  onValueChange?: (value: string[]) => void;
+  className?: string;
+};
+export function MultiSelect({
+  label,
+  options,
+  value,
+  placeholder = 'Selecione opções',
+  emptyMessage = 'Nenhum resultado',
+  onValueChange,
+  className,
+}: MultiSelectProps) {
+  const id = useId();
+  const [query, setQuery] = useState('');
+  const [open, setOpen] = useState(false);
+  const selected = options.filter((item) => value.includes(item.value));
+  const filtered = useMemo(
+    () => options.filter((item) => item.label.toLocaleLowerCase().includes(query.toLocaleLowerCase())),
+    [options, query],
+  );
+  const toggle = (item: ComboboxOption) => {
+    if (item.disabled) return;
+    const next = value.includes(item.value)
+      ? value.filter((current) => current !== item.value)
+      : [...value, item.value];
+    onValueChange?.(next);
+  };
+  return (
+    <div className={cx('ibs-combobox', 'ibs-multiselect', className)}>
+      <label id={`${id}-label`} htmlFor={id}>
+        {label}
+      </label>
+      {selected.length > 0 && (
+        <div className="ibs-multiselect__tags">
+          {selected.map((item) => (
+            <span className="ibs-tag ibs-tag--purple" key={item.value}>
+              <span className="ibs-tag__label">{item.label}</span>
+              <button
+                type="button"
+                className="ibs-tag__remove"
+                aria-label={`Remover ${item.label}`}
+                onClick={() => toggle(item)}
+              >
+                <X aria-hidden="true" />
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+      <div className="ibs-combobox__control">
+        <Search aria-hidden="true" />
+        <input
+          id={id}
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={open}
+          aria-controls={`${id}-list`}
+          aria-labelledby={`${id}-label`}
+          value={query}
+          placeholder={placeholder}
+          onFocus={() => setOpen(true)}
+          onChange={(event) => {
+            setQuery(event.currentTarget.value);
+            setOpen(true);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') setOpen(false);
+          }}
+        />
+      </div>
+      {open && (
+        <ul id={`${id}-list`} className="ibs-combobox__list" role="listbox" aria-multiselectable="true">
+          {filtered.length ? (
+            filtered.map((item) => (
+              <li key={item.value} role="none" onMouseDown={(event) => event.preventDefault()}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={value.includes(item.value)}
+                  disabled={item.disabled}
+                  onClick={() => toggle(item)}
+                >
+                  <span>
+                    <strong>{item.label}</strong>
+                    {item.description && <small>{item.description}</small>}
+                  </span>
+                  {value.includes(item.value) && <Check aria-hidden="true" />}
+                </button>
+              </li>
+            ))
+          ) : (
+            <li className="ibs-combobox__empty">{emptyMessage}</li>
+          )}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export type DateRangePickerProps = {
+  label: string;
+  startName?: string;
+  endName?: string;
+  hint?: string;
+  className?: string;
+};
+export function DateRangePicker({
+  label,
+  startName = 'start',
+  endName = 'end',
+  hint,
+  className,
+}: DateRangePickerProps) {
+  const startId = useId();
+  const endId = useId();
+  return (
+    <fieldset className={cx('ibs-date-range', className)}>
+      <legend>{label}</legend>
+      <div className="ibs-date-range__controls">
+        <span className="ibs-date-picker__control">
+          <CalendarRange aria-hidden="true" />
+          <input id={startId} name={startName} type="date" aria-label={`${label} — início`} />
+        </span>
+        <span className="ibs-date-range__separator" aria-hidden="true">
+          –
+        </span>
+        <span className="ibs-date-picker__control">
+          <CalendarRange aria-hidden="true" />
+          <input id={endId} name={endName} type="date" aria-label={`${label} — fim`} />
+        </span>
+      </div>
+      {hint && <small>{hint}</small>}
+    </fieldset>
+  );
+}
+
+export type TimePickerProps = InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string };
+export function TimePicker({ label, hint, className, ...props }: TimePickerProps) {
+  const id = useId();
+  return (
+    <label className={cx('ibs-date-picker', className)} htmlFor={id}>
+      <span>{label}</span>
+      <span className="ibs-date-picker__control">
+        <Clock aria-hidden="true" />
+        <input id={id} type="time" {...props} />
+      </span>
+      {hint && <small>{hint}</small>}
+    </label>
   );
 }
 
