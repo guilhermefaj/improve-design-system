@@ -51,5 +51,62 @@
     "background": { "$type": "color", "$value": "{color.surface-raised}" },
     "border": { "$type": "color", "$value": "{color.border}" },
     "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "choice-control": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "border": { "$type": "color", "$value": "{color.border-strong}" },
+    "selected": { "$type": "color", "$value": "{color.control-selected}" },
+    "indicator": { "$type": "color", "$value": "{color.control-indicator}" }
+  },
+  "alert": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.md}" }
+  },
+  "overlay": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.md}" },
+    "shadow": { "$type": "string", "$value": "{shadow.md}" }
+  },
+  "navigation": {
+    "background": { "$type": "color", "$value": "{color.canvas}" },
+    "foreground": { "$type": "color", "$value": "{color.text}" },
+    "border": { "$type": "color", "$value": "{color.border}" }
+  },
+  "marketing-card": {
+    "background": { "$type": "color", "$value": "{color.surface}" },
+    "foreground": { "$type": "color", "$value": "{color.text}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "presentation": {
+    "background": { "$type": "color", "$value": "{color.canvas}" },
+    "foreground": { "$type": "color", "$value": "{color.text}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "saas-control": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "background-active": { "$type": "color", "$value": "{color.secondary-soft}" },
+    "foreground-active": { "$type": "color", "$value": "{color.secondary}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.md}" }
+  },
+  "saas-panel": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "foreground": { "$type": "color", "$value": "{color.text}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "agentic-panel": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "foreground": { "$type": "color", "$value": "{color.text}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  },
+  "trust-panel": {
+    "background": { "$type": "color", "$value": "{color.surface-raised}" },
+    "foreground": { "$type": "color", "$value": "{color.text}" },
+    "border": { "$type": "color", "$value": "{color.border}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
   }
 }

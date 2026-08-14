@@ -4,6 +4,7 @@ storybook-static/
 coverage/
 playwright-report/
 test-results/
+temp/
 .DS_Store
 *.local
 *.tsbuildinfo

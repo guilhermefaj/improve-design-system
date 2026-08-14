@@ -4,10 +4,20 @@
   "title": "Improve Design System Manifest",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "name", "version", "source", "tokenSets", "components", "recipes", "maturity"],
+  "required": [
+    "schemaVersion",
+    "name",
+    "version",
+    "source",
+    "installation",
+    "tokenSets",
+    "components",
+    "recipes",
+    "maturity"
+  ],
   "properties": {
     "$schema": { "type": "string" },
-    "schemaVersion": { "const": 2 },
+    "schemaVersion": { "const": 3 },
     "name": { "type": "string", "minLength": 1 },
     "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
     "source": {
@@ -18,6 +28,16 @@
         "repository": { "type": "string" },
         "distribution": { "enum": ["github-source-owned"] },
         "canonicalContract": { "enum": ["manifest-and-tokens"] }
+      }
+    },
+    "installation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["installRoot", "sharedFiles", "dependencies"],
+      "properties": {
+        "installRoot": { "type": "string", "minLength": 1 },
+        "sharedFiles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "dependencies": { "type": "object", "additionalProperties": { "type": "string" } }
       }
     },
     "tokenSets": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
@@ -31,12 +51,17 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "label", "file", "platforms"],
+        "required": ["id", "label", "file", "platforms", "starter"],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "label": { "type": "string" },
           "file": { "type": "string" },
-          "platforms": { "type": "array", "items": { "enum": ["react", "claude-artifact", "slides"] }, "uniqueItems": true }
+          "platforms": {
+            "type": "array",
+            "items": { "enum": ["react", "claude-artifact", "slides"] },
+            "uniqueItems": true
+          },
+          "starter": { "type": "string", "minLength": 1 }
         }
       }
     },
@@ -54,16 +79,50 @@
     "component": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "atomicLevel", "category", "status", "files", "exports", "dependencies", "tokens", "variants", "states", "accessibility", "recipes", "maturity"],
+      "required": [
+        "id",
+        "name",
+        "atomicLevel",
+        "category",
+        "status",
+        "files",
+        "exports",
+        "primaryExport",
+        "storybookId",
+        "dependencies",
+        "tokens",
+        "variants",
+        "states",
+        "accessibility",
+        "recipes",
+        "maturity"
+      ],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "name": { "type": "string" },
         "atomicLevel": { "enum": ["foundation", "atom", "molecule", "organism", "template", "page"] },
-        "category": { "enum": ["foundation", "action", "form", "feedback", "data-display", "navigation", "overlay", "marketing", "presentation", "agentic", "trust", "saas"] },
+        "category": {
+          "enum": [
+            "foundation",
+            "action",
+            "form",
+            "feedback",
+            "data-display",
+            "navigation",
+            "overlay",
+            "marketing",
+            "presentation",
+            "agentic",
+            "trust",
+            "saas"
+          ]
+        },
         "status": { "enum": ["stable", "beta", "experimental", "deprecated"] },
         "description": { "type": "string" },
         "files": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "exports": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+        "primaryExport": { "type": "string", "minLength": 1 },
+        "storybookId": { "type": "string", "pattern": "^[a-z0-9-]+--[a-z0-9-]+$" },
         "dependencies": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "tokens": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "variants": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },

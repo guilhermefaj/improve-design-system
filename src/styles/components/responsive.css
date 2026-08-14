@@ -1,0 +1,95 @@
+@media (max-width: 52rem) {
+  .ibs-header__nav {
+    display: none;
+  }
+  .ibs-hero__grid {
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: var(--ibs-space-10);
+  }
+  .ibs-hero__aside {
+    padding-bottom: 0;
+  }
+  .ibs-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ibs-footer__grid > :first-child {
+    grid-column: 1 / -1;
+  }
+  .ibs-app-shell {
+    grid-template-columns: 1fr;
+  }
+  .ibs-app-shell > .ibs-sidebar {
+    display: none;
+  }
+  .ibs-page-header__row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .ibs-page-header__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 34rem) {
+  .ibs-dialog__content {
+    padding: var(--ibs-space-6);
+    border-radius: var(--ibs-radius-lg);
+  }
+  .ibs-footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .ibs-footer__grid > :first-child {
+    grid-column: auto;
+  }
+  .ibs-tool-call__header {
+    grid-template-columns: auto 1fr;
+  }
+  .ibs-tool-call__header .ibs-agent-status {
+    grid-column: 2;
+  }
+  .ibs-approval-card__facts {
+    grid-template-columns: 1fr;
+  }
+  .ibs-artifact-card {
+    grid-template-columns: auto 1fr;
+  }
+  .ibs-artifact-card > .ibs-button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  .ibs-stepper {
+    display: grid;
+  }
+  .ibs-stepper__item button {
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+    text-align: left;
+    padding-bottom: var(--ibs-space-4);
+  }
+  .ibs-stepper__item:not(:last-child)::after {
+    top: 2.5rem;
+    bottom: 0;
+    left: 1.15rem;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+  .ibs-toast {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .ibs-toast > :nth-child(2):not(.ibs-icon-button) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media print {
+  .ibs-slide {
+    width: 100%;
+    break-after: page;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

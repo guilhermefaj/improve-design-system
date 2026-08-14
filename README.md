@@ -15,20 +15,18 @@ Documentação pública: [Specimen visual](https://guilhermefaj.github.io/improv
 
 O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao projeto consumidor. Não há dependência de registry npm.
 
+<!-- generated:versioned-commands:start -->
+
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.4.1 init
-npx github:guilhermefaj/improve-design-system#v0.4.1 add app-shell sidebar data-grid
-npx github:guilhermefaj/improve-design-system#v0.4.1 doctor
+npx github:guilhermefaj/improve-design-system#v0.5.0 init
+npx github:guilhermefaj/improve-design-system#v0.5.0 add app-shell sidebar data-grid
+npx github:guilhermefaj/improve-design-system#v0.5.0 doctor
 ```
 
+<!-- generated:versioned-commands:end -->
+
 ```tsx
-import {
-  Button,
-  Container,
-  Heading,
-  Hero,
-  Section,
-} from './improve';
+import { Button, Container, Heading, Hero, Section } from './improve';
 
 export function LandingPage() {
   return (
@@ -55,7 +53,7 @@ Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold qu
 O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.4.1 list --level atom --json
+npx github:guilhermefaj/improve-design-system#v0.5.0 list --level atom --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -104,13 +102,13 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 
 ## Componentes incluídos
 
-| Camada Atomic | Componentes |
-| --- | --- |
-| Foundations | Tokens, `Container`, `Stack`, `Cluster`, `Grid`, `Section` e tipografia |
-| Atoms | `Button`, `ButtonLink`, `IconButton`, campos, escolhas, `Badge`, `Avatar`, `Kbd`, `Chip`, `Toggle`, `SegmentedControl`, `Slider`, inputs especializados e `Sparkline` |
-| Molecules | `Card`, `FormField`, feedback, disclosures, `EmptyState`, `Popover`, `Sheet`, `Stepper`, `Combobox`, `CommandPalette`, `DatePicker`, `FileUpload` e `Toast` |
-| Organisms | Marketing, navegação, componentes agentic, `AppShell`, `Sidebar`, `PageHeader`, `MetricCard`, `DataGrid`, `FilterBar`, `PricingCard` e `ActivityFeed` |
-| Reservado | `template` e `page` existem no schema, mas não possuem implementação nesta versão |
+| Camada Atomic | Componentes                                                                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Foundations   | Tokens, `Container`, `Stack`, `Cluster`, `Grid`, `Section` e tipografia                                                                                               |
+| Atoms         | `Button`, `ButtonLink`, `IconButton`, campos, escolhas, `Badge`, `Avatar`, `Kbd`, `Chip`, `Toggle`, `SegmentedControl`, `Slider`, inputs especializados e `Sparkline` |
+| Molecules     | `Card`, `FormField`, feedback, disclosures, `EmptyState`, `Popover`, `Sheet`, `Stepper`, `Combobox`, `CommandPalette`, `DatePicker`, `FileUpload` e `Toast`           |
+| Organisms     | Marketing, navegação, componentes agentic, `AppShell`, `Sidebar`, `PageHeader`, `MetricCard`, `DataGrid`, `FilterBar`, `PricingCard` e `ActivityFeed`                 |
+| Reservado     | `template` e `page` existem no schema, mas não possuem implementação nesta versão                                                                                     |
 
 ## Catálogo para agentes
 
@@ -121,9 +119,9 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.4.1 list --json
-npx github:guilhermefaj/improve-design-system#v0.4.1 inspect data-grid --json
-npx github:guilhermefaj/improve-design-system#v0.4.1 artifact --recipe dashboard
+npx github:guilhermefaj/improve-design-system#v0.5.0 list --json
+npx github:guilhermefaj/improve-design-system#v0.5.0 inspect data-grid --json
+npx github:guilhermefaj/improve-design-system#v0.5.0 artifact --recipe dashboard
 ```
 
 ## Temas

@@ -35,14 +35,14 @@
     "agent-paused": { "$type": "color", "$value": "{color.neutral.600}" },
     "risk-low": { "$type": "color", "$value": "{color.green.600}" },
     "risk-medium": { "$type": "color", "$value": "{color.approval-accent}" },
-    "risk-high": { "$type": "color", "$value": "{color.red.700}" }
-    ,"feedback-info-surface": { "$type": "color", "$value": "{color.blue.100}" }
-    ,"feedback-info-foreground": { "$type": "color", "$value": "{color.blue.700}" }
-    ,"feedback-success-surface": { "$type": "color", "$value": "{color.green.100}" }
-    ,"feedback-success-foreground": { "$type": "color", "$value": "{color.green.600}" }
-    ,"feedback-warning-surface": { "$type": "color", "$value": "{color.yellow.100}" }
-    ,"feedback-warning-foreground": { "$type": "color", "$value": "{color.yellow.800}" }
-    ,"feedback-danger-surface": { "$type": "color", "$value": "{color.red.100}" }
-    ,"feedback-danger-foreground": { "$type": "color", "$value": "{color.red.700}" }
+    "risk-high": { "$type": "color", "$value": "{color.red.700}" },
+    "feedback-info-surface": { "$type": "color", "$value": "{color.blue.100}" },
+    "feedback-info-foreground": { "$type": "color", "$value": "{color.blue.700}" },
+    "feedback-success-surface": { "$type": "color", "$value": "{color.green.100}" },
+    "feedback-success-foreground": { "$type": "color", "$value": "{color.green.600}" },
+    "feedback-warning-surface": { "$type": "color", "$value": "{color.yellow.100}" },
+    "feedback-warning-foreground": { "$type": "color", "$value": "{color.yellow.800}" },
+    "feedback-danger-surface": { "$type": "color", "$value": "{color.red.100}" },
+    "feedback-danger-foreground": { "$type": "color", "$value": "{color.red.700}" }
   }
 }

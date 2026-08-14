@@ -17,14 +17,51 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { variant = 'solid', size = 'md', fullWidth = false, leadingIcon, trailingIcon, motion = 'subtle', loading = false, loadingLabel = 'Carregando', className, children, type = 'button', disabled, ...props },
+  {
+    variant = 'solid',
+    size = 'md',
+    fullWidth = false,
+    leadingIcon,
+    trailingIcon,
+    motion = 'subtle',
+    loading = false,
+    loadingLabel = 'Carregando',
+    className,
+    children,
+    type = 'button',
+    disabled,
+    ...props
+  },
   ref,
 ) {
   return (
-    <button ref={ref} type={type} className={cx('ibs-button', `ibs-button--${variant}`, `ibs-motion--${motion}`, size !== 'md' && `ibs-button--${size}`, fullWidth && 'ibs-button--full', loading && 'ibs-button--loading', className)} disabled={disabled || loading} aria-busy={loading || undefined} {...props}>
-      {(loading || leadingIcon) && <span className="ibs-button__icon ibs-button__icon--leading" aria-hidden="true">{loading ? <LoaderCircle /> : leadingIcon}</span>}
+    <button
+      ref={ref}
+      type={type}
+      className={cx(
+        'ibs-button',
+        `ibs-button--${variant}`,
+        `ibs-motion--${motion}`,
+        size !== 'md' && `ibs-button--${size}`,
+        fullWidth && 'ibs-button--full',
+        loading && 'ibs-button--loading',
+        className,
+      )}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
+      {...props}
+    >
+      {(loading || leadingIcon) && (
+        <span className="ibs-button__icon ibs-button__icon--leading" aria-hidden="true">
+          {loading ? <LoaderCircle /> : leadingIcon}
+        </span>
+      )}
       <span>{loading ? loadingLabel : children}</span>
-      {trailingIcon && <span className="ibs-button__icon ibs-button__icon--trailing" aria-hidden="true">{trailingIcon}</span>}
+      {trailingIcon && (
+        <span className="ibs-button__icon ibs-button__icon--trailing" aria-hidden="true">
+          {trailingIcon}
+        </span>
+      )}
     </button>
   );
 });
@@ -41,7 +78,23 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   { label, icon, variant = 'outline', size = 'md', motion = 'subtle', className, type = 'button', ...props },
   ref,
 ) {
-  return <button ref={ref} type={type} className={cx('ibs-icon-button', `ibs-icon-button--${variant}`, `ibs-icon-button--${size}`, `ibs-motion--${motion}`, className)} aria-label={label} {...props}>{icon}</button>;
+  return (
+    <button
+      ref={ref}
+      type={type}
+      className={cx(
+        'ibs-icon-button',
+        `ibs-icon-button--${variant}`,
+        `ibs-icon-button--${size}`,
+        `ibs-motion--${motion}`,
+        className,
+      )}
+      aria-label={label}
+      {...props}
+    >
+      {icon}
+    </button>
+  );
 });
 
 export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -53,6 +106,40 @@ export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   motion?: MotionPreset;
 };
 
-export function ButtonLink({ variant = 'solid', size = 'md', fullWidth = false, leadingIcon, trailingIcon, motion = 'subtle', className, children, ...props }: ButtonLinkProps) {
-  return <a className={cx('ibs-button', `ibs-button--${variant}`, `ibs-motion--${motion}`, size !== 'md' && `ibs-button--${size}`, fullWidth && 'ibs-button--full', className)} {...props}>{leadingIcon && <span className="ibs-button__icon ibs-button__icon--leading" aria-hidden="true">{leadingIcon}</span>}<span>{children}</span>{trailingIcon && <span className="ibs-button__icon ibs-button__icon--trailing" aria-hidden="true">{trailingIcon}</span>}</a>;
+export function ButtonLink({
+  variant = 'solid',
+  size = 'md',
+  fullWidth = false,
+  leadingIcon,
+  trailingIcon,
+  motion = 'subtle',
+  className,
+  children,
+  ...props
+}: ButtonLinkProps) {
+  return (
+    <a
+      className={cx(
+        'ibs-button',
+        `ibs-button--${variant}`,
+        `ibs-motion--${motion}`,
+        size !== 'md' && `ibs-button--${size}`,
+        fullWidth && 'ibs-button--full',
+        className,
+      )}
+      {...props}
+    >
+      {leadingIcon && (
+        <span className="ibs-button__icon ibs-button__icon--leading" aria-hidden="true">
+          {leadingIcon}
+        </span>
+      )}
+      <span>{children}</span>
+      {trailingIcon && (
+        <span className="ibs-button__icon ibs-button__icon--trailing" aria-hidden="true">
+          {trailingIcon}
+        </span>
+      )}
+    </a>
+  );
 }

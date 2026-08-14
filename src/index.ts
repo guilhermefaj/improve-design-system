@@ -1,3 +1,5 @@
+'use client';
+
 import '@fontsource-variable/inter';
 import '@fontsource-variable/montserrat/wght.css';
 import '@fontsource-variable/space-grotesk';
@@ -23,8 +25,10 @@ export const improveTokens = {
     canvas: '#ffffff',
   },
   fontFamily: "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
-  displayFontFamily: "'Clash Display', 'Space Grotesk Variable', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
+  displayFontFamily:
+    "'Clash Display', 'Space Grotesk Variable', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   accentFontFamily: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
-  supportingFontFamily: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
+  supportingFontFamily:
+    "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   radius: { control: 10, card: 16, pill: 999 },
 } as const;

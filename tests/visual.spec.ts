@@ -25,7 +25,10 @@ test('theme control lives in the header and persists the preference', async ({ p
   await expect(page.locator('#root > [data-ibs-theme]')).toHaveAttribute('data-ibs-theme', 'dark');
   await page.reload();
   await expect(page.locator('#root > [data-ibs-theme]')).toHaveAttribute('data-ibs-theme', 'dark');
-  await expect(page.locator('.ibs-header').getByRole('button', { name: 'Ativar tema claro' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.ibs-header').getByRole('button', { name: 'Ativar tema claro' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
 });
 
 test('catalog index stays below the header and adapts to the viewport', async ({ page }, testInfo) => {
@@ -35,7 +38,9 @@ test('catalog index stays below the header and adapts to the viewport', async ({
   const agenticLink = index.getByRole('link', { name: /Agentic Patterns/ });
   if (testInfo.project.name === 'mobile') {
     await index.scrollIntoViewIfNeeded();
-    await index.evaluate((element) => { element.scrollLeft = element.scrollWidth; });
+    await index.evaluate((element) => {
+      element.scrollLeft = element.scrollWidth;
+    });
     await agenticLink.focus();
     await page.keyboard.press('Enter');
   } else {
@@ -51,10 +56,15 @@ test('catalog index stays below the header and adapts to the viewport', async ({
   expect(indexBox!.y).toBeGreaterThanOrEqual(headerBox!.y + headerBox!.height - 2);
 
   if (testInfo.project.name === 'desktop') {
-    const columns = await page.locator('.showcase-catalog-layout').evaluate((element) => getComputedStyle(element).gridTemplateColumns);
+    const columns = await page
+      .locator('.showcase-catalog-layout')
+      .evaluate((element) => getComputedStyle(element).gridTemplateColumns);
     expect(columns.split(' ').length).toBeGreaterThan(1);
   } else {
-    const overflow = await index.locator('nav').evaluate((element) => ({ scrollWidth: element.scrollWidth, clientWidth: element.parentElement?.clientWidth ?? 0 }));
+    const overflow = await index.locator('nav').evaluate((element) => ({
+      scrollWidth: element.scrollWidth,
+      clientWidth: element.parentElement?.clientWidth ?? 0,
+    }));
     expect(overflow.scrollWidth).toBeGreaterThan(overflow.clientWidth);
   }
 });
@@ -71,7 +81,9 @@ test('Storybook Foundations renders visual colors and spacing', async ({ page })
   });
 });
 
-test('light and dark specimens have no serious accessibility violations outside the documented CTA exception', async ({ page }) => {
+test('light and dark specimens have no serious accessibility violations outside the documented CTA exception', async ({
+  page,
+}) => {
   await page.goto('/');
   await page.getByRole('heading', { level: 1 }).waitFor();
   await page.addScriptTag({ content: axe.source });
