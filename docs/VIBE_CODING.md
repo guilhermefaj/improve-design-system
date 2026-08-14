@@ -245,19 +245,83 @@ Não abra um repo Next “só para o deck”. `Slide` em React existe para decks
 
 ### Faixa 2 — Produto React (SaaS, dashboard, app, site institucional)
 
-1. Repo do produto com Vite ou Next (fixtures oficiais cobrem os dois, React 18 e 19).
-2. `npx github:guilhermefaj/improve-design-system#v0.5.0 init`.
+1. Nascer de um **template GitHub** Improve (quando existir) **ou** repo Vite/Next + `init` na tag de release mais recente.
+2. Confirmar `improve.config.json` e `src/improve/` no primeiro commit.
 3. No primeiro prompt do agente: recipe + restrição “importe de `src/improve`, tokens `--ibs-*`, rode `doctor`”.
 4. Composição típica:
    - SaaS: `AppShell` + `Sidebar` + `PageHeader` + `MetricCard` / `DataGrid` + `FilterBar`.
    - Marketing: `SiteHeader` + `Hero` + `FeatureCard` / `ServicePanel` + `Footer`.
    - Agentic: recipe `agent-workspace` + `init --all`.
 5. Tema: claro padrão; `data-ibs-theme="dark"` só onde o produto pedir. Não recodear laranja/roxo.
-6. Upgrade: `improve-ds upgrade`, revisar patches, nunca `--force` no piloto automático.
+6. Quando este DS ganhar uma tag nova: no **produto**, `npx github:…#vX.Y.Z upgrade` — não re-rodar `init`.
 
 ### Faixa 3 — Evoluir o próprio design system
 
 Só neste repositório. Manifesto e tokens primeiro, `pnpm generate`, `pnpm check`. Agentes aqui seguem `AGENTS.md` do core. Não misturar pedido de “landing do cliente X” com mudança de token.
+
+## Novo repo, template e versão
+
+A pinagem `#v0.5.0` não é um bug. É o contrato. Cada produto leva uma **cópia congelada** do sistema. Este repositório continua evoluindo; os produtos só avançam quando alguém decide.
+
+```text
+improve-design-system   v0.5.0 ──init──►  site-improve (copia 0.5.0)
+        │ continua
+        ▼
+                     v0.6.0 ──upgrade──►  site-improve (passa a 0.6.0)
+```
+
+`improve.config.json` guarda `designSystemVersion`. `doctor` avisa se o CLI que você está rodando não é a versão instalada. Por isso o comando sempre leva a tag: ele diz *qual* cópia copiar ou atualizar.
+
+### Como nascer um repo novo
+
+Dois caminhos, os dois corretos. O template é o que o time deve preferir no dia a dia.
+
+**A. Template GitHub (recomendado)**
+
+1. Manter dois templates na org: `improve-site-template` (landing) e `improve-app-template` (SaaS).
+2. Cada um já passou por `init` numa tag de release: vem com `src/improve/`, `improve.config.json`, skill e `AGENTS.md`.
+3. “Use this template” no GitHub → repo novo já é Improve.
+4. Abrir no Cursor e só então pedir a primeira página (recipe `landing-page` ou `app`).
+5. A cada **release deste DS**, regenerar os templates (Action que faz `init` de novo na tag nova e faz push). Repo **já existente** não é tocado.
+
+O template é um atalho de `init`, não uma segunda fonte de verdade. Se o template atrasar um patch, o produto ainda pode `upgrade` para a tag nova.
+
+**B. Repo vazio + `init`**
+
+Copiar o one-liner da **release mais recente** (README da tag, não um comando decorado na wiki):
+
+```bash
+npx github:guilhermefaj/improve-design-system#v0.5.0 init
+npm install
+```
+
+O `#v0.5.0` do README deste repo é gerado a partir de `package.json`. Quando existir `v0.6.0`, o README daquela tag passa a dizer `#v0.6.0`. Projetos antigos continuam em 0.5.0 até o `upgrade`.
+
+### Como este DS avança sem arrastar os produtos
+
+| Momento | Onde | Comando |
+| --- | --- | --- |
+| Evoluir marca, componente, recipe | este repositório | `pnpm generate` + tag SemVer |
+| Começar site ou SaaS novo | repo novo ou template | `init` **na tag atual** |
+| Incorporar o DS novo num produto velho | cada produto, quando couber | `npx github:…#v0.6.0 upgrade` |
+| Ver se a cópia está íntegra / defasada | cada produto | `doctor` (idealmente no CI) |
+
+`upgrade` não é `init` de novo. Ele compara hashes, atualiza o que não foi mexido e gera `.improve.patch` no que o produto personalizou. `--force` só com autorização explícita.
+
+Não é preciso (nem desejável) atualizar todos os produtos no mesmo dia da tag. Um site institucional pode ficar uma minor atrás; um SaaS em construção deve acompanhar de perto. A pinagem existe para essa escolha ser explícita.
+
+### O que não fazer
+
+- **`npx github:guilhermefaj/improve-design-system init` sem tag** (equivale a `main`). O `main` pode estar no meio de um PR. Repo novo nasceria irreprodutível.
+- **Re-rodar `init` para “atualizar”.** Isso não é o fluxo. `init` instala; `upgrade` migra.
+- **Submodule / npm agora.** Source-owned + tag continua o formato que o agente lê melhor. npm privado é decisão de v1.0, quando houver muitos consumidores e RFCs.
+- **Tag móvel `latest` apontando para `main`.** Se um dia existir atalho, que seja um git tag `latest` **movido só no workflow de release**, nunca no branch de trabalho. Mesmo assim, o produto grava a versão semântica no `improve.config.json` — o atalho é só para não copiar o número errado na hora do `init`.
+
+### Ritual mínimo do time
+
+1. Release deste DS = tag `vX.Y.Z` + regenerar templates.
+2. Produto novo = template (ou `init` dessa tag) + `doctor` no GitHub Actions do produto.
+3. Produto velho = `upgrade` para a tag nova quando o time daquele produto puder revisar o patch.
 
 ## Playbook curto por pedido típico
 
@@ -282,14 +346,15 @@ Estados vazio, loading e erro. Não invente cor. Rode improve-ds doctor.
 
 Ordenadas pelo retorno para vibe coding, não por “beleza de plataforma”.
 
-1. **`init` não aceita recipe.** Todo app leva o catálogo stable inteiro. Um `init --recipe app` (e equivalentes) alinharia CLI e recipes e reduziria ruído para o agente.
-2. **Skill não é copiada para `.cursor/skills`.** Cursor fica dependente de `AGENTS.md` + `.agents/skills`. Um terceiro destino no `installAgentGuidance` fecha o trio Cursor / Claude / Codex.
-3. **Não há kit de extração para Claude Design.** Sem `DESIGN.md` gerado + screenshots de referência, o canvas da Anthropic reconstroi a marca com qualidade irregular.
-4. **Não há rule Cursor com glob.** Uma `.mdc` de 20 linhas em arquivos TSX/CSS evita o drift de “Tailwind default” no meio do `src/improve`.
-5. **Starters de Artifact podem divergir do core.** São CSS duplicado. Precisam continuar no tarball de release, mas alguém tem que regenerá-los quando token/marca mudam.
-6. **Templates/pages fora de escopo.** Correto para o core. Para o time, isso significa que “página de pricing” ou “onboarding de 4 passos” ainda são composição. Recipes cobrem a estrutura; não cobrem um template pronto. Resistir à tentação de colocar páginas de cliente no core.
-7. **Roadmap interno está defasado.** `docs/ROADMAP.md` ainda lista v0.3/v0.4 como “próximas fases” depois de declarar v0.5. Isso confunde agente e humano. Separar “feito na v0.5” de “próximo” em um passe de docs.
-8. **Figma / Tokens Studio** está na v1.0. Não bloqueia vibe coding se specimen + Claude Design existirem. Bloqueia o time de design clássico. Tratar como trilha paralela, não como pré-requisito do CLI.
+1. **Não há templates GitHub de produto.** O `init` existe; o atalho “Use this template” ainda não. Dois templates (`site`, `app`) regenerados a cada release resolvem o ritual de repo novo.
+2. **`init` não aceita recipe.** Todo app leva o catálogo stable inteiro. Um `init --recipe app` (e equivalentes) alinharia CLI e recipes e reduziria ruído para o agente.
+3. **Skill não é copiada para `.cursor/skills`.** Cursor fica dependente de `AGENTS.md` + `.agents/skills`. Um terceiro destino no `installAgentGuidance` fecha o trio Cursor / Claude / Codex.
+4. **Não há kit de extração para Claude Design.** Sem `DESIGN.md` gerado + screenshots de referência, o canvas da Anthropic reconstroi a marca com qualidade irregular.
+5. **Não há rule Cursor com glob.** Uma `.mdc` de 20 linhas em arquivos TSX/CSS evita o drift de “Tailwind default” no meio do `src/improve`.
+6. **Starters de Artifact podem divergir do core.** São CSS duplicado. Precisam continuar no tarball de release, mas alguém tem que regenerá-los quando token/marca mudam.
+7. **Templates/pages fora de escopo.** Correto para o core. Para o time, isso significa que “página de pricing” ou “onboarding de 4 passos” ainda são composição. Recipes cobrem a estrutura; não cobrem um template pronto. Resistir à tentação de colocar páginas de cliente no core.
+8. **Roadmap interno está defasado.** `docs/ROADMAP.md` ainda lista v0.3/v0.4 como “próximas fases” depois de declarar v0.5. Isso confunde agente e humano. Separar “feito na v0.5” de “próximo” em um passe de docs.
+9. **Figma / Tokens Studio** está na v1.0. Não bloqueia vibe coding se specimen + Claude Design existirem. Bloqueia o time de design clássico. Tratar como trilha paralela, não como pré-requisito do CLI.
 
 O que **não** falta: mais atoms, preset shadcn, publicação npm, MCP do catálogo. Isso aumenta superfície sem resolver o problema de “o agente não achou a skill no Cursor” ou “o Claude Design inventou um roxo”.
 
@@ -298,10 +363,11 @@ O que **não** falta: mais atoms, preset shadcn, publicação npm, MCP do catál
 Antes de implementar o próximo pacote de portabilidade, vale fechar:
 
 1. **Claude Design é oficial para decks?** Se sim, priorizar o kit de extração (`DESIGN.md` + specimen + screenshots) e um dono de marca na org Anthropic.
-2. **Todo SaaS interno nasce com `init`?** Se sim, documentar o one-liner no README interno da Improve e recusar PRs de UI que não importem de `src/improve`.
-3. **`init --recipe` na v0.6?** Recomendado. É o único corte de CLI que muda o dia a dia do vibe coding.
-4. **Skill em três pastas** (`.agents`, `.claude`, `.cursor`) no mesmo `init`? Recomendado; é uma mudança local no CLI.
-5. **npm privado em v1.0, não agora?** Manter a política atual. Source-owned ainda é o formato que os agentes mais respeitam.
+2. **Produto novo nasce de template GitHub + `doctor` no CI?** Recomendado. `init` na tag de release é o fallback. Não rastrear `main`.
+3. **Cada produto escolhe quando fazer `upgrade`?** Sim. A pinagem existe para isso. Não atualizar todos os consumidores no mesmo dia da tag.
+4. **`init --recipe` na v0.6?** Recomendado. É o único corte de CLI que muda o dia a dia do vibe coding.
+5. **Skill em três pastas** (`.agents`, `.claude`, `.cursor`) no mesmo `init`? Recomendado; é uma mudança local no CLI.
+6. **npm privado em v1.0, não agora?** Manter a política atual. Source-owned ainda é o formato que os agentes mais respeitam.
 
 ## Como este documento se relaciona com o resto
 
