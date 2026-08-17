@@ -31,7 +31,7 @@ Specimen e Storybook passam a agrupar o registro compartilhado em Foundations, A
 ## Upgrade
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.6.0 upgrade
+npx -p "github:guilhermefaj/improve-design-system#v0.6.0" improve-ds upgrade
 ```
 
 Revise arquivos `.improve.patch` antes de aplicar `--force`.
