@@ -35,7 +35,7 @@ test('catalog index stays below the header and adapts to the viewport', async ({
   await page.goto('/');
   const header = page.locator('.ibs-header');
   const index = page.locator('.showcase-catalog-index');
-  const agenticLink = index.getByRole('link', { name: /Agentic Patterns/ });
+  const agenticLink = index.getByRole('link', { name: /Agentic/ });
   if (testInfo.project.name === 'mobile') {
     await index.scrollIntoViewIfNeeded();
     await index.evaluate((element) => {
