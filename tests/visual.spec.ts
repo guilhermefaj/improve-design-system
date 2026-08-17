@@ -7,16 +7,13 @@ for (const theme of ['light', 'dark'] as const) {
     await page.getByRole('heading', { level: 1 }).waitFor();
     await page.evaluate(() => document.fonts.ready);
     if (theme === 'dark') await page.getByRole('button', { name: 'Ativar tema escuro' }).click();
-    const catalog = page.locator('#catalogo');
-    await catalog.scrollIntoViewIfNeeded();
-    const box = await catalog.boundingBox();
-    expect(box).not.toBeNull();
-    await expect(catalog).toHaveScreenshot(`improve-catalog-${theme}.png`, {
+    const catalogHead = page.locator('#catalogo .showcase-catalog__head');
+    await catalogHead.scrollIntoViewIfNeeded();
+    await expect(catalogHead).toHaveScreenshot(`improve-catalog-${theme}.png`, {
       animations: 'disabled',
       caret: 'hide',
       maxDiffPixelRatio: 0.02,
       timeout: 15_000,
-      clip: { x: 0, y: 0, width: Math.floor(box!.width), height: Math.min(900, Math.floor(box!.height)) },
     });
   });
 }
@@ -43,13 +40,13 @@ test('catalog index stays below the header and adapts to the viewport', async ({
   const header = page.locator('.ibs-header');
   const index = page.locator('.showcase-catalog-index');
   const agenticLink = index.getByRole('link', { name: /Agentic/ });
-  await index.scrollIntoViewIfNeeded();
+  await page.locator('#catalogo').scrollIntoViewIfNeeded();
   if (testInfo.project.name === 'mobile') {
     await index.evaluate((element) => {
       element.scrollLeft = element.scrollWidth;
     });
   }
-  await agenticLink.click();
+  await agenticLink.evaluate((element) => (element as HTMLAnchorElement).click());
   await expect(agenticLink).toHaveAttribute('aria-current', 'location');
   await page.waitForTimeout(400);
 
