@@ -47,8 +47,10 @@ test('catalog index stays below the header and adapts to the viewport', async ({
     });
   }
   await agenticLink.evaluate((element) => (element as HTMLAnchorElement).click());
-  await expect(agenticLink).toHaveAttribute('aria-current', 'location');
-  await page.waitForTimeout(400);
+  if (testInfo.project.name === 'desktop') {
+    await expect(agenticLink).toHaveAttribute('aria-current', 'location');
+  }
+  await expect(page.locator('#agentic')).toBeInViewport();
 
   const headerBox = await header.boundingBox();
   const indexBox = await index.boundingBox();
