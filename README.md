@@ -2,7 +2,7 @@
 
 Sistema de design portátil e agentic-first da Improve Business. A fonte de verdade combina tokens DTCG, manifesto JSON, recipes e um catálogo de componentes legível por máquina; React/TypeScript é a implementação principal.
 
-Documentação pública: [Specimen visual](https://guilhermefaj.github.io/improve-design-system/) e [Storybook técnico](https://guilhermefaj.github.io/improve-design-system/storybook/). Os dois consomem o mesmo registro compartilhado de showcases.
+A página geral do sistema é o specimen (`npm run dev`): uma apresentação editorial com todos os componentes, mais simples que o Storybook. O Storybook (`npm run storybook`) continua disponível para inspeção isolada, controles e auditoria. Os dois consomem o mesmo registro compartilhado de showcases.
 
 ## Princípios
 
@@ -70,7 +70,7 @@ npm run check
 
 `npm run check` valida schemas e geração, executa testes, compila o specimen, a biblioteca e o Storybook.
 
-O specimen é a visão editorial completa; o Storybook oferece inspeção isolada, controles e auditoria. Metadados vêm de `design-system.manifest.json`, tokens de `src/tokens` e exemplos visuais do registro compartilhado em `src/showcase`.
+O specimen (`src/demo`) é a página geral — visão editorial de todos os componentes, mais simples que o Storybook. O Storybook oferece inspeção isolada, controles e auditoria. Metadados vêm de `design-system.manifest.json`, tokens de `src/tokens` e exemplos visuais do registro compartilhado em `src/showcase`.
 
 ## Arquitetura
 
