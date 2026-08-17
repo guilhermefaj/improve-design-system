@@ -130,6 +130,7 @@ function buildLlms(manifest, recipes, full = false) {
     '',
     '## Entry points',
     '- Human guide: README.md',
+    '- Consumer playbook: docs/USO_EM_PROJETOS.md',
     '- Machine manifest: design-system.manifest.json',
     '- Tokens: src/tokens/*.tokens.json',
     '- Recipes: recipes/*.json',

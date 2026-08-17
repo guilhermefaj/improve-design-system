@@ -15,12 +15,16 @@ A página geral do sistema é o specimen (`npm run dev`): uma apresentação edi
 
 O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao projeto consumidor. Não há dependência de registry npm.
 
+O guia humano (o que é fixo, o que o produto pode mudar, por que cada comando, ritual para o time) está em [Como usar em projetos novos](docs/USO_EM_PROJETOS.md).
+
+Use `-p` e aspas: no zsh, `#` comenta o resto da linha; sem `-p`, o npm procura um binário chamado `init`.
+
 <!-- generated:versioned-commands:start -->
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v1.0.0 init
-npx github:guilhermefaj/improve-design-system#v1.0.0 add app-shell sidebar data-grid
-npx github:guilhermefaj/improve-design-system#v1.0.0 doctor
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds init
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds add app-shell sidebar data-grid
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds doctor
 ```
 
 <!-- generated:versioned-commands:end -->
@@ -53,7 +57,7 @@ Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold qu
 O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v1.0.0 list --level atom --json
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds list --level atom --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -121,9 +125,9 @@ A v1.0 trata o catálogo **stable** como contrato de produto. Permanecem **beta*
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v1.0.0 list --json
-npx github:guilhermefaj/improve-design-system#v1.0.0 inspect data-grid --json
-npx github:guilhermefaj/improve-design-system#v1.0.0 artifact --recipe dashboard
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds list --json
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds inspect data-grid --json
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds artifact --recipe dashboard
 ```
 
 ## Temas
@@ -179,6 +183,7 @@ Tags SemVer são a unidade de distribuição. Cada release deve anexar manifesto
 - [Voz e conteúdo](docs/CONTENT.md)
 - [Governança e roadmap](docs/ROADMAP.md)
 - [Auditoria agentic-first](docs/AGENTIC_FIRST.md)
+- [Como usar em projetos novos](docs/USO_EM_PROJETOS.md)
 - [Migração v0.5](docs/MIGRATION_V0.5.md)
 - [Migração v0.6](docs/MIGRATION_V0.6.md)
 - [Migração v1.0](docs/MIGRATION_V1.0.md)

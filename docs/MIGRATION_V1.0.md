@@ -17,7 +17,7 @@ A página geral é o specimen local (`pnpm dev`), não o GitHub Pages. O Storybo
 ## Upgrade
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v1.0.0 upgrade
+npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds upgrade
 ```
 
 Leia também [MIGRATION_V0.5.md](MIGRATION_V0.5.md) e [MIGRATION_V0.6.md](MIGRATION_V0.6.md) se a instalação ainda estiver em uma linha 0.x anterior.
