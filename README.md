@@ -18,9 +18,9 @@ O repositório é distribuído pelo GitHub e os arquivos passam a pertencer ao p
 <!-- generated:versioned-commands:start -->
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.6.0 init
-npx github:guilhermefaj/improve-design-system#v0.6.0 add app-shell sidebar data-grid
-npx github:guilhermefaj/improve-design-system#v0.6.0 doctor
+npx github:guilhermefaj/improve-design-system#v1.0.0 init
+npx github:guilhermefaj/improve-design-system#v1.0.0 add app-shell sidebar data-grid
+npx github:guilhermefaj/improve-design-system#v1.0.0 doctor
 ```
 
 <!-- generated:versioned-commands:end -->
@@ -53,7 +53,7 @@ Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold qu
 O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.6.0 list --level atom --json
+npx github:guilhermefaj/improve-design-system#v1.0.0 list --level atom --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -110,6 +110,8 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 | Organisms     | Marketing, navegação, componentes agentic, `AppShell`, `Sidebar`, `PageHeader`, `MetricCard`, `DataGrid`, `FilterBar`, `PricingCard` e `ActivityFeed`                 |
 | Reservado     | `template` e `page` existem no schema, mas não possuem implementação nesta versão                                                                                     |
 
+A v1.0 trata o catálogo **stable** como contrato de produto. Permanecem **beta** `AgentHandoff` e `TraceViewer`. Permanecem **experimental** `GeneratedUIBoundary` e `McpAppFrame`. Consulte o manifesto (`status`) ou `improve-ds list --json` antes de gerar UI de missão crítica em cima desses quatro.
+
 ## Catálogo para agentes
 
 - `design-system.manifest.json`: arquivos, exports, estados, variantes, dependências, acessibilidade e maturidade.
@@ -119,9 +121,9 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx github:guilhermefaj/improve-design-system#v0.6.0 list --json
-npx github:guilhermefaj/improve-design-system#v0.6.0 inspect data-grid --json
-npx github:guilhermefaj/improve-design-system#v0.6.0 artifact --recipe dashboard
+npx github:guilhermefaj/improve-design-system#v1.0.0 list --json
+npx github:guilhermefaj/improve-design-system#v1.0.0 inspect data-grid --json
+npx github:guilhermefaj/improve-design-system#v1.0.0 artifact --recipe dashboard
 ```
 
 ## Temas
@@ -177,5 +179,8 @@ Tags SemVer são a unidade de distribuição. Cada release deve anexar manifesto
 - [Voz e conteúdo](docs/CONTENT.md)
 - [Governança e roadmap](docs/ROADMAP.md)
 - [Auditoria agentic-first](docs/AGENTIC_FIRST.md)
+- [Migração v0.5](docs/MIGRATION_V0.5.md)
+- [Migração v0.6](docs/MIGRATION_V0.6.md)
+- [Migração v1.0](docs/MIGRATION_V1.0.md)
 
 Uso interno Improve Business. Todos os direitos reservados.

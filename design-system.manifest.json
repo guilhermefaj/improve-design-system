@@ -2,7 +2,7 @@
   "$schema": "./schemas/design-system-manifest.schema.json",
   "schemaVersion": 3,
   "name": "Improve Design System",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "source": {
     "repository": "https://github.com/guilhermefaj/improve-design-system",
     "distribution": "github-source-owned",
@@ -484,7 +484,7 @@
       "name": "AgentStatus",
       "atomicLevel": "molecule",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Estado resumido e acessível de uma execução agentic.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -524,7 +524,7 @@
       "name": "StreamingMessage",
       "atomicLevel": "molecule",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Conteúdo progressivo sem anunciar cada token.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -555,7 +555,7 @@
       "name": "ToolCallCard",
       "atomicLevel": "organism",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Chamada de ferramenta inspecionável com propósito, duração e resultado.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -587,7 +587,7 @@
       "name": "ApprovalCard",
       "atomicLevel": "organism",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Aprovação informada para ações externas ou sensíveis.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -629,7 +629,7 @@
       "name": "RunTimeline",
       "atomicLevel": "organism",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Linha do tempo de eventos, atores, tentativas e falhas parciais.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -660,7 +660,7 @@
       "name": "AgentError",
       "atomicLevel": "molecule",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Falha recuperável com contexto e ações de repetir, editar ou cancelar.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -691,7 +691,7 @@
       "name": "PlanSteps",
       "atomicLevel": "organism",
       "category": "agentic",
-      "status": "beta",
+      "status": "stable",
       "description": "Plano visível com estado por etapa.",
       "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
       "exports": [
@@ -724,7 +724,7 @@
       "name": "ArtifactCard",
       "atomicLevel": "molecule",
       "category": "trust",
-      "status": "beta",
+      "status": "stable",
       "description": "Resultado versionado com tipo, autoria e ação de abertura.",
       "files": [
         "src/components/Trust.tsx",
@@ -770,7 +770,7 @@
       "name": "CitationList",
       "atomicLevel": "molecule",
       "category": "trust",
-      "status": "beta",
+      "status": "stable",
       "description": "Fontes verificáveis associadas ao resultado.",
       "files": [
         "src/components/Trust.tsx",
@@ -815,7 +815,7 @@
       "name": "PermissionScope",
       "atomicLevel": "molecule",
       "category": "trust",
-      "status": "beta",
+      "status": "stable",
       "description": "Escopo, duração e revogação de uma permissão.",
       "files": [
         "src/components/Trust.tsx",
@@ -1538,7 +1538,7 @@
       "name": "Combobox",
       "atomicLevel": "molecule",
       "category": "form",
-      "status": "beta",
+      "status": "stable",
       "description": "Seleção pesquisável para listas médias e grandes.",
       "files": [
         "src/components/molecules/SaasMolecules.tsx",
@@ -1992,7 +1992,7 @@
       "name": "DataGrid",
       "atomicLevel": "organism",
       "category": "data-display",
-      "status": "beta",
+      "status": "stable",
       "description": "Tabela genérica com ordenação, seleção e estado vazio.",
       "files": [
         "src/components/organisms/SaasOrganisms.tsx",
@@ -2249,8 +2249,11 @@
       "dependencies": ["react"],
       "tokens": ["color.border"],
       "variants": ["vertical", "horizontal", "both"],
-      "states": [],
-      "accessibility": ["Garanta foco por teclado no conteúdo rolável quando necessário."],
+      "states": ["default", "focus-visible"],
+      "accessibility": [
+        "A região de rolagem é focável por teclado (tabIndex 0) para satisfazer WCAG 2.1.1.",
+        "Use aria-label ou aria-labelledby; o componente aplica role=region quando rotulada."
+      ],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
       "primaryExport": "ScrollArea",
@@ -2375,7 +2378,7 @@
       "name": "MultiSelect",
       "atomicLevel": "molecule",
       "category": "form",
-      "status": "beta",
+      "status": "stable",
       "description": "Seleção pesquisável de múltiplos valores com tags removíveis.",
       "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/utils.ts"],
       "exports": ["MultiSelect", "MultiSelectProps"],
@@ -2385,7 +2388,7 @@
       "states": ["open", "closed", "selected", "empty"],
       "accessibility": ["Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível."],
       "recipes": ["dashboard", "app"],
-      "maturity": 7,
+      "maturity": 8,
       "primaryExport": "MultiSelect",
       "storybookId": "03-molecules-multi-select--playground"
     },

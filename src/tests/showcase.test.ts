@@ -15,6 +15,18 @@ describe('shared showcase registry', () => {
     expect(showcaseGroups.flatMap((group) => group.componentIds).sort()).toEqual(manifestIds);
   });
 
+  it('documents the remaining beta and experimental surface', () => {
+    const byStatus = Object.fromEntries(
+      ['stable', 'beta', 'experimental'].map((status) => [
+        status,
+        manifest.components.filter((component) => component.status === status).map((component) => component.id),
+      ]),
+    );
+    expect(byStatus.beta).toEqual(['agent-handoff', 'trace-viewer']);
+    expect(byStatus.experimental).toEqual(['generated-ui-boundary', 'mcp-app-frame']);
+    expect(byStatus.stable).toHaveLength(60);
+  });
+
   it('uses the manifest version and exposes both generated themes', () => {
     expect(showcaseVersion).toBe(manifest.version);
     expect(designTokens.color.canvas).toBe('#ffffff');

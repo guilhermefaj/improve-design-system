@@ -1,11 +1,11 @@
 # Auditoria agentic-first
 
-## Veredito v0.5
+## Veredito v1.0
 
 O sistema mede duas capacidades separadas:
 
 - **Agent-ready portability: 9/10.** Manifesto, schemas, tokens gerados, recipes, skill aberta, instruções Codex/Claude, CLI source-owned e starters autocontidos formam um contrato portátil.
-- **Agentic UI maturity: 8/10.** O core representa execução, streaming, ferramentas, aprovação, retomada, proveniência, handoff, permissões e observabilidade sem depender de SDK.
+- **Agentic UI maturity: 8/10.** O core representa execução, streaming, ferramentas, aprovação, retomada, proveniência, handoff, permissões e observabilidade sem depender de SDK. Handoff em grafos complexos e o frame MCP permanecem beta/experimental.
 
 ## Dimensões
 

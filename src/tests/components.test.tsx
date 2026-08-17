@@ -1,6 +1,19 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { Accordion, Button, Checkbox, Dialog, FormField, Input, SiteHeader, Tabs } from '../components';
+import {
+  Accordion,
+  Alert,
+  Button,
+  Checkbox,
+  Dialog,
+  FormField,
+  Hero,
+  Input,
+  SiteHeader,
+  Slide,
+  SlideTitle,
+  Tabs,
+} from '../components';
 import { flatTokens } from '../tokens/generated';
 
 function contrastRatio(foreground: string, background: string) {
@@ -93,5 +106,26 @@ describe('Improve Design System', () => {
     render(<Dialog trigger={<Button>Abrir</Button>} title="Novo diagnóstico" description="Comece pela dor." />);
     fireEvent.click(screen.getByRole('button', { name: 'Abrir' }));
     expect(await screen.findByRole('dialog', { name: 'Novo diagnóstico' })).toBeVisible();
+  });
+
+  it('renders marketing, feedback and presentation surfaces with accessible names', () => {
+    render(
+      <>
+        <Hero
+          title="Design que entende o negócio."
+          description="Estratégia aplicada a problemas reais."
+          primaryAction={{ label: 'Começar', href: '#contato' }}
+        />
+        <Alert tone="info" title="Pronto para revisar">
+          O diagnóstico foi gerado.
+        </Alert>
+        <Slide>
+          <SlideTitle>Oportunidades priorizadas</SlideTitle>
+        </Slide>
+      </>,
+    );
+    expect(screen.getByRole('heading', { level: 1, name: 'Design que entende o negócio.' })).toBeVisible();
+    expect(screen.getByRole('status')).toHaveTextContent('Pronto para revisar');
+    expect(screen.getByRole('heading', { name: 'Oportunidades priorizadas' })).toBeVisible();
   });
 });

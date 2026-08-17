@@ -91,3 +91,9 @@ jobs:
           name: playwright-report
           path: playwright-report
           if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-test-results
+          path: test-results
+          if-no-files-found: ignore

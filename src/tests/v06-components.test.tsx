@@ -85,7 +85,7 @@ describe('v0.6 component additions', () => {
   it('renders scroll area and aspect ratio primitives', () => {
     const { container } = render(
       <>
-        <ScrollArea maxBlockSize="10rem">
+        <ScrollArea maxBlockSize="10rem" aria-label="Lista rolável">
           <p>linha</p>
         </ScrollArea>
         <AspectRatio ratio={1}>
@@ -93,7 +93,9 @@ describe('v0.6 component additions', () => {
         </AspectRatio>
       </>,
     );
-    expect(container.querySelector('.ibs-scroll-area')).not.toBeNull();
+    const region = screen.getByRole('region', { name: 'Lista rolável' });
+    expect(region).toHaveClass('ibs-scroll-area');
+    expect(region).toHaveAttribute('tabindex', '0');
     expect(container.querySelector('.ibs-aspect-ratio')).not.toBeNull();
   });
 });

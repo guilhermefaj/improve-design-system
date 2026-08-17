@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.6.0.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.0.0.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -74,43 +74,43 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: Slide, SlideKicker, SlideTitle, SlideMetric, SlideFooter, SlideProps, SlideKickerProps, SlideTitleProps, SlideFooterProps, SlideMetricProps, ImproveMarkProps, ImproveLogoProps
   States: screen, print
   Accessibility: Mantenha ordem semântica e contraste ao exportar.
-- AgentStatus (agent-status, molecule, beta): Estado resumido e acessível de uma execução agentic.
+- AgentStatus (agent-status, molecule, stable): Estado resumido e acessível de uma execução agentic.
   Exports: AgentStatus, AgentRunStatus, AgentEvent, AgentActor, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: queued, thinking, running, awaiting_approval, paused, succeeded, failed, cancelled
   Accessibility: Anuncie somente mudanças de etapa com aria-live polite.
-- StreamingMessage (streaming-message, molecule, beta): Conteúdo progressivo sem anunciar cada token.
+- StreamingMessage (streaming-message, molecule, stable): Conteúdo progressivo sem anunciar cada token.
   Exports: StreamingMessage, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: streaming, complete
   Accessibility: Use aria-busy durante transmissão e uma atualização final em região viva.
-- ToolCallCard (tool-call-card, organism, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ToolCallCard (tool-call-card, organism, stable): Chamada de ferramenta inspecionável com propósito, duração e resultado.
   Exports: ToolCallCard, ToolCallStatus, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: queued, running, succeeded, failed
   Accessibility: Falhas exigem descrição e ação de recuperação disponível por teclado.
-- ApprovalCard (approval-card, organism, beta): Aprovação informada para ações externas ou sensíveis.
+- ApprovalCard (approval-card, organism, stable): Aprovação informada para ações externas ou sensíveis.
   Exports: ApprovalCard, ApprovalRisk, ApprovalScope, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: awaiting, approved, edited, rejected
   Accessibility: Título, consequência, escopo e ações devem ser explícitos. Aprovar e rejeitar precisam de rótulos inequívocos.
-- RunTimeline (run-timeline, organism, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- RunTimeline (run-timeline, organism, stable): Linha do tempo de eventos, atores, tentativas e falhas parciais.
   Exports: RunTimeline, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: current, complete, failed
   Accessibility: Use lista ordenada e datas legíveis por máquina.
-- AgentError (agent-error, molecule, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- AgentError (agent-error, molecule, stable): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
   Exports: AgentError, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: failed, retrying
   Accessibility: Use role alert apenas quando a falha exigir atenção imediata.
-- PlanSteps (plan-steps, organism, beta): Plano visível com estado por etapa.
+- PlanSteps (plan-steps, organism, stable): Plano visível com estado por etapa.
   Exports: PlanSteps, PlanStep, PlanStepStatus, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: pending, in_progress, completed, blocked, skipped
   Accessibility: A etapa atual deve ser identificável sem depender somente de cor.
-- ArtifactCard (artifact-card, molecule, beta): Resultado versionado com tipo, autoria e ação de abertura.
+- ArtifactCard (artifact-card, molecule, stable): Resultado versionado com tipo, autoria e ação de abertura.
   Exports: ArtifactCard, ArtifactPreview, ArtifactDescriptor, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: ready, loading, failed
   Accessibility: Tipo, versão e ação precisam de texto visível ou nome acessível.
-- CitationList (citation-list, molecule, beta): Fontes verificáveis associadas ao resultado.
+- CitationList (citation-list, molecule, stable): Fontes verificáveis associadas ao resultado.
   Exports: CitationList, CitationItem, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: verified, unverified
   Accessibility: Links devem indicar a origem e abrir com comportamento previsível.
-- PermissionScope (permission-scope, molecule, beta): Escopo, duração e revogação de uma permissão.
+- PermissionScope (permission-scope, molecule, stable): Escopo, duração e revogação de uma permissão.
   Exports: PermissionScope, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: requested, granted, revoked
   Accessibility: Escopo e duração devem ser comunicados em texto.
@@ -186,7 +186,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: Stepper, StepperItem, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: complete, current, upcoming
   Accessibility: Etapa atual usa aria-current step e não depende somente de cor.
-- Combobox (combobox, molecule, beta): Seleção pesquisável para listas médias e grandes.
+- Combobox (combobox, molecule, stable): Seleção pesquisável para listas médias e grandes.
   Exports: Combobox, ComboboxOption, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: open, closed, selected, empty, disabled
   Accessibility: Implementa combobox, listbox e option; teclado será coberto por testes de interação.
@@ -222,7 +222,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: MetricCard, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: positive, negative
   Accessibility: Variação inclui sinal, número e contexto em texto.
-- DataGrid (data-grid, organism, beta): Tabela genérica com ordenação, seleção e estado vazio.
+- DataGrid (data-grid, organism, stable): Tabela genérica com ordenação, seleção e estado vazio.
   Exports: DataGrid, DataGridColumn, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: selected, sorted, empty
   Accessibility: Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis.
@@ -240,8 +240,8 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Accessibility: Usa lista ordenada e time com dateTime legível por máquina.
 - ScrollArea (scroll-area, foundation, stable): Região com rolagem contida e limite de altura para listas e painéis.
   Exports: ScrollArea, ScrollAreaProps
-  States: none
-  Accessibility: Garanta foco por teclado no conteúdo rolável quando necessário.
+  States: default, focus-visible
+  Accessibility: A região de rolagem é focável por teclado (tabIndex 0) para satisfazer WCAG 2.1.1. Use aria-label ou aria-labelledby; o componente aplica role=region quando rotulada.
 - AspectRatio (aspect-ratio, foundation, stable): Mantém a proporção de mídia e incorporações de forma responsiva.
   Exports: AspectRatio, AspectRatioProps
   States: none
@@ -266,7 +266,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: Collapsible, CollapsibleProps
   States: open, closed
   Accessibility: O gatilho comunica o estado expandido e controla a região de conteúdo.
-- MultiSelect (multi-select, molecule, beta): Seleção pesquisável de múltiplos valores com tags removíveis.
+- MultiSelect (multi-select, molecule, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
   Exports: MultiSelect, MultiSelectProps
   States: open, closed, selected, empty
   Accessibility: Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível.

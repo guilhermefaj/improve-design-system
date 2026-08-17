@@ -65,12 +65,23 @@ export type ScrollAreaProps = HTMLAttributes<HTMLDivElement> & {
   maxBlockSize?: string;
 };
 
-export function ScrollArea({ orientation = 'vertical', maxBlockSize, className, style, ...props }: ScrollAreaProps) {
+export function ScrollArea({
+  orientation = 'vertical',
+  maxBlockSize,
+  className,
+  style,
+  tabIndex = 0,
+  role,
+  ...props
+}: ScrollAreaProps) {
+  const labelled = Boolean(props['aria-label'] || props['aria-labelledby']);
   return (
     <div
+      {...props}
+      role={role ?? (labelled ? 'region' : undefined)}
+      tabIndex={tabIndex}
       className={cx('ibs-scroll-area', `ibs-scroll-area--${orientation}`, className)}
       style={maxBlockSize ? ({ '--ibs-scroll-area-size': maxBlockSize, ...style } as CSSProperties) : style}
-      {...props}
     />
   );
 }

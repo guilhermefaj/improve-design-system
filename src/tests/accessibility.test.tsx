@@ -10,6 +10,7 @@ import {
   EmptyState,
   FilterBar,
   PageHeader,
+  ScrollArea,
   Sidebar,
   ToolCallCard,
   type DataGridColumn,
@@ -63,6 +64,18 @@ describe('automated accessibility', () => {
           empty={<EmptyState title="Sem clientes" />}
         />
       </AppShell>,
+    );
+    const result = await axe.run(container);
+    expect(unexpectedSeriousViolations(result.violations)).toEqual([]);
+  });
+
+  it('has no critical axe violations in a labelled scroll region', async () => {
+    const { container } = render(
+      <ScrollArea maxBlockSize="6rem" aria-label="Lista rolável de exemplos">
+        {Array.from({ length: 12 }, (_, index) => (
+          <p key={index}>Item {index + 1}</p>
+        ))}
+      </ScrollArea>,
     );
     const result = await axe.run(container);
     expect(unexpectedSeriousViolations(result.violations)).toEqual([]);

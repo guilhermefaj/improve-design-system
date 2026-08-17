@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v0.6.0.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.0.0.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -35,16 +35,16 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Navigation (navigation, organism, stable): Header e Footer institucionais.
 - Marketing patterns (marketing, organism, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
 - Presentation (slides, organism, stable): Primitivas 16:9 para apresentações React.
-- AgentStatus (agent-status, molecule, beta): Estado resumido e acessível de uma execução agentic.
-- StreamingMessage (streaming-message, molecule, beta): Conteúdo progressivo sem anunciar cada token.
-- ToolCallCard (tool-call-card, organism, beta): Chamada de ferramenta inspecionável com propósito, duração e resultado.
-- ApprovalCard (approval-card, organism, beta): Aprovação informada para ações externas ou sensíveis.
-- RunTimeline (run-timeline, organism, beta): Linha do tempo de eventos, atores, tentativas e falhas parciais.
-- AgentError (agent-error, molecule, beta): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
-- PlanSteps (plan-steps, organism, beta): Plano visível com estado por etapa.
-- ArtifactCard (artifact-card, molecule, beta): Resultado versionado com tipo, autoria e ação de abertura.
-- CitationList (citation-list, molecule, beta): Fontes verificáveis associadas ao resultado.
-- PermissionScope (permission-scope, molecule, beta): Escopo, duração e revogação de uma permissão.
+- AgentStatus (agent-status, molecule, stable): Estado resumido e acessível de uma execução agentic.
+- StreamingMessage (streaming-message, molecule, stable): Conteúdo progressivo sem anunciar cada token.
+- ToolCallCard (tool-call-card, organism, stable): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ApprovalCard (approval-card, organism, stable): Aprovação informada para ações externas ou sensíveis.
+- RunTimeline (run-timeline, organism, stable): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- AgentError (agent-error, molecule, stable): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- PlanSteps (plan-steps, organism, stable): Plano visível com estado por etapa.
+- ArtifactCard (artifact-card, molecule, stable): Resultado versionado com tipo, autoria e ação de abertura.
+- CitationList (citation-list, molecule, stable): Fontes verificáveis associadas ao resultado.
+- PermissionScope (permission-scope, molecule, stable): Escopo, duração e revogação de uma permissão.
 - AgentHandoff (agent-handoff, organism, beta): Transferência explícita de responsabilidade e contexto.
 - GeneratedUIBoundary (generated-ui-boundary, organism, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
 - McpAppFrame (mcp-app-frame, organism, experimental): Shell visual para recursos interativos MCP.
@@ -63,7 +63,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Popover (popover, molecule, stable): Conteúdo contextual não modal ancorado a um gatilho.
 - Sheet (sheet, molecule, stable): Painel lateral modal para edição e inspeção contextual.
 - Stepper (stepper, molecule, stable): Progresso e navegação entre etapas de um fluxo.
-- Combobox (combobox, molecule, beta): Seleção pesquisável para listas médias e grandes.
+- Combobox (combobox, molecule, stable): Seleção pesquisável para listas médias e grandes.
 - CommandPalette (command-palette, molecule, stable): Busca global por ações com atalhos e descrições.
 - DatePicker (date-picker, molecule, stable): Seleção de data baseada no controle nativo da plataforma.
 - FileUpload (file-upload, molecule, stable): Upload por seletor ou drag and drop com feedback visual.
@@ -72,7 +72,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Sidebar (sidebar, organism, stable): Navegação de produto recolhível com grupos, ícones e badges.
 - PageHeader (page-header, organism, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
 - MetricCard (metric-card, organism, stable): KPI com variação e tendência compacta.
-- DataGrid (data-grid, organism, beta): Tabela genérica com ordenação, seleção e estado vazio.
+- DataGrid (data-grid, organism, stable): Tabela genérica com ordenação, seleção e estado vazio.
 - FilterBar (filter-bar, organism, stable): Busca, filtros ativos, limpeza e ações de coleção.
 - PricingCard (pricing-card, organism, stable): Plano de assinatura com preço, benefícios e ação.
 - ActivityFeed (activity-feed, organism, stable): Histórico cronológico de eventos e atores.
@@ -83,7 +83,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - HoverCard (hover-card, molecule, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
 - ContextMenu (context-menu, molecule, stable): Ações contextuais acionadas por clique direito sobre um alvo.
 - Collapsible (collapsible, molecule, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
-- MultiSelect (multi-select, molecule, beta): Seleção pesquisável de múltiplos valores com tags removíveis.
+- MultiSelect (multi-select, molecule, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
 - DateRangePicker (date-range-picker, molecule, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
 - TimePicker (time-picker, molecule, stable): Seleção de horário baseada no controle nativo da plataforma.
 

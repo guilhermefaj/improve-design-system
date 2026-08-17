@@ -81,6 +81,7 @@ export function App() {
 
   const nextTheme = theme === 'light' ? 'dark' : 'light';
   const themeLabel = `Ativar tema ${nextTheme === 'dark' ? 'escuro' : 'claro'}`;
+  const componentCount = showcaseRegistry.length;
 
   return (
     <div data-ibs-theme={theme}>
@@ -103,7 +104,7 @@ export function App() {
         <Hero
           eyebrow={`Improve Design System · v${showcaseVersion}`}
           title="Um sistema. Uma fonte de verdade."
-          description="Specimen editorial e Storybook técnico compartilham o mesmo registro de 54 componentes, tokens e exemplos — de landing pages a SaaS e experiências agentic."
+          description={`Specimen editorial e Storybook técnico compartilham o mesmo registro de ${componentCount} componentes, tokens e exemplos — de landing pages a SaaS e experiências agentic.`}
           primaryAction={{ label: 'Explorar o sistema', href: '#catalogo' }}
           secondaryAction={{ label: 'Abrir Storybook', href: STORYBOOK_HREF }}
         />
@@ -112,7 +113,7 @@ export function App() {
           <Container>
             <div className="showcase-summary__grid">
               <div>
-                <span>54</span>
+                <span>{componentCount}</span>
                 <Text>contratos de componentes</Text>
               </div>
               <div>

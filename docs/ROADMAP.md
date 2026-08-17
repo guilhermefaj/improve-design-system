@@ -1,10 +1,12 @@
 # Governança e roadmap
 
-## Estado atual — v0.5 Consumer Experience & Portability
+## Estado atual — v1.0
 
-O core entrega contratos legíveis por máquina, geração de tokens, CLI source-owned, skill aberta, adapters Codex/Claude, starters de Artifact, componentes agentic P0 e componentes de confiança. Imports existentes continuam válidos e `variant="brand"` permanece alias compatível.
+O core é um design system interno production-ready: 64 componentes no manifesto, tokens DTCG, CLI source-owned, skill aberta, starters de Artifact, specimen (`pnpm dev`) como página geral e Storybook para inspeção técnica. Imports existentes continuam válidos e `variant="brand"` permanece alias compatível.
 
-O ciclo v0.5 torna o upgrade orientado pelo grafo do manifesto, documenta individualmente os 54 componentes, valida API e tokens e compila fixtures consumidoras em Vite e Next.js.
+A v1.0 fecha o ciclo 0.x: contratos alinhados ao catálogo real, CI com fixtures Vite/Next e regressão visual no Windows, e superfície **stable / beta / experimental** explícita. Templates e pages existem no schema e continuam sem implementação.
+
+A página geral do sistema é o specimen local, não o GitHub Pages.
 
 ## Entrada no core
 
@@ -20,26 +22,30 @@ A partir da baseline v0.5, uma remoção pública exige depreciação documentad
 
 Arquivos gerados nunca são editados manualmente. Mudanças começam em `src/tokens/*.tokens.json` ou `design-system.manifest.json` e exigem `npm run generate`.
 
-## Próximas fases
+## Entregue no 0.x
 
 ### v0.3 — Agentic Interaction
 
-- Adapters de exemplo para OpenAI e Anthropic fora do core.
-- Persistência e retomada em uma aplicação de referência.
-- Cancelamento durante streaming e falhas parciais compostas.
-- Composer com anexos, contexto e envio interrompível.
-- Testes de leitor de tela em ambiente real.
+Vocabulário de execução, streaming, ferramenta, erro e plano no core. Persistência real e adapters de SDK permanecem nos apps consumidores.
 
 ### v0.4 — Trust & Orchestration
 
-- Evoluir trace e handoff para runs paralelos e grafos.
-- Guardrails e políticas de autorização reutilizáveis.
-- Package de adapters MCP Apps.
-- Proveniência de artefatos e histórico de revisões.
+Aprovação humana, citações, permissões, boundaries, handoff e trace como componentes. Grafos paralelos e um package de adapters MCP ficam para ciclos posteriores.
 
-### v1.0 — Governança
+### v0.5 — Consumer Experience & Portability
 
-- RFCs, responsáveis e política de contribuição.
+Upgrade orientado pelo grafo do manifesto, documentação individual, validação de API e tokens, fixtures Vite e Next.js.
+
+### v0.6 — Catálogo P1 e organização Atomic
+
+Dez componentes P1, Lucide no core e reorganização do specimen/Storybook nas camadas Atomic.
+
+## Próximas fases
+
+### v1.1 — Governança e ferramentas de design
+
+- RFCs, responsáveis e política de contribuição, se o repositório deixar de ser somente interno.
 - Métricas de adoção, acessibilidade e redução de retrabalho.
 - Mapeamento para Figma/Tokens Studio.
-- Publicação pública por tags e GitHub Releases, sem registry obrigatório.
+- Adapters de exemplo OpenAI/Anthropic fora do core.
+- Testes de leitor de tela em ambiente real.

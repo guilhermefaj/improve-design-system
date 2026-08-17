@@ -5,6 +5,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import manifest from '../../design-system.manifest.json';
 
 const cli = resolve(process.cwd(), 'packages/cli/improve.mjs');
 const fixtures: string[] = [];
@@ -41,7 +42,7 @@ describe('source-owned CLI', () => {
     const config = JSON.parse(readFileSync(resolve(target, 'improve.config.json'), 'utf8'));
     const pkg = JSON.parse(readFileSync(resolve(target, 'package.json'), 'utf8'));
     expect(config.schemaVersion).toBe(2);
-    expect(config.designSystemVersion).toBe('0.6.0');
+    expect(config.designSystemVersion).toBe(manifest.version);
     expect(config.dependencies['lucide-react']).toBeDefined();
     expect(config.files.every((file: { hash: string }) => file.hash.length === 64)).toBe(true);
     expect(pkg.dependencies['@fontsource-variable/inter']).toBeDefined();

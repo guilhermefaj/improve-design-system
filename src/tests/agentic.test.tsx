@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import {
+  AgentError,
   AgentHandoff,
   AgentStatus,
   ApprovalCard,
@@ -9,6 +10,7 @@ import {
   McpAppFrame,
   PermissionScope,
   PlanSteps,
+  RunTimeline,
   StreamingMessage,
   ToolCallCard,
   TraceViewer,
@@ -124,5 +126,30 @@ describe('agentic interaction contracts', () => {
     expect(screen.getByText(/Trace trace-1/)).toBeVisible();
     expect(screen.getByRole('region', { name: 'Resumo gerado' })).toHaveTextContent('Versão segura');
     expect(screen.getByRole('region', { name: 'Aplicativo MCP Analytics' })).toHaveTextContent('Falha na conexão');
+  });
+
+  it('exposes recoverable agent errors and a labelled run timeline', () => {
+    const onRetry = vi.fn();
+    render(
+      <>
+        <AgentError message="A ferramenta CRM não respondeu." onRetry={onRetry} />
+        <RunTimeline
+          events={[
+            {
+              id: 'e1',
+              runId: 'r1',
+              type: 'tool',
+              status: 'succeeded',
+              timestamp: '2026-08-12T12:00:00Z',
+              label: 'Consulta concluída',
+              actor: { id: 'agent', label: 'Pesquisador', kind: 'agent' },
+            },
+          ]}
+        />
+      </>,
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Tentar novamente' }));
+    expect(onRetry).toHaveBeenCalledOnce();
+    expect(screen.getByRole('list', { name: 'Linha do tempo da execução' })).toHaveTextContent('Consulta concluída');
   });
 });

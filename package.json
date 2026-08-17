@@ -1,6 +1,6 @@
 {
   "name": "@improve-business/design-system",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "Design system oficial da Improve Business para produtos, landing pages e apresentações em React.",
   "license": "UNLICENSED",
   "packageManager": "pnpm@11.16.0",
@@ -37,6 +37,8 @@
     "schemas",
     "skills",
     "docs/MIGRATION_V0.5.md",
+    "docs/MIGRATION_V0.6.md",
+    "docs/MIGRATION_V1.0.md",
     "design-system.manifest.json",
     "llms.txt",
     "llms-full.txt",
