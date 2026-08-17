@@ -165,7 +165,11 @@ export function App() {
                         href={`#${group.id}`}
                         key={group.id}
                         aria-current={activeGroup === group.id ? 'location' : undefined}
-                        onClick={() => setActiveGroup(group.id)}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          setActiveGroup(group.id);
+                          document.getElementById(group.id)?.scrollIntoView({ block: 'start' });
+                        }}
                       >
                         <span>{String(index + 1).padStart(2, '0')}</span>
                         {group.title}
