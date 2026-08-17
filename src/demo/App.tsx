@@ -19,6 +19,8 @@ import './demo.css';
 
 type Theme = 'light' | 'dark';
 
+const STORYBOOK_HREF = 'http://127.0.0.1:6006';
+
 const navigation = [
   { label: 'Foundations', href: '#foundations' },
   { label: 'Atoms', href: '#atoms-core' },
@@ -84,7 +86,7 @@ export function App() {
     <div data-ibs-theme={theme}>
       <SiteHeader
         items={navigation}
-        action={{ label: 'Storybook', href: './storybook/' }}
+        action={{ label: 'Storybook', href: STORYBOOK_HREF }}
         utilities={
           <Tooltip label={themeLabel}>
             <IconButton
@@ -103,7 +105,7 @@ export function App() {
           title="Um sistema. Uma fonte de verdade."
           description="Specimen editorial e Storybook técnico compartilham o mesmo registro de 54 componentes, tokens e exemplos — de landing pages a SaaS e experiências agentic."
           primaryAction={{ label: 'Explorar o sistema', href: '#catalogo' }}
-          secondaryAction={{ label: 'Abrir Storybook', href: './storybook/' }}
+          secondaryAction={{ label: 'Abrir Storybook', href: STORYBOOK_HREF }}
         />
 
         <Section tone="ink" className="showcase-summary">
@@ -220,7 +222,7 @@ export function App() {
                   Use o manifesto para agentes, o Storybook para inspeção e este specimen para direção visual.
                 </Text>
               </div>
-              <ButtonLink href="./storybook/" variant="solid" trailingIcon={<ArrowRight />}>
+              <ButtonLink href={STORYBOOK_HREF} variant="solid" trailingIcon={<ArrowRight />}>
                 Abrir catálogo técnico
               </ButtonLink>
             </div>
