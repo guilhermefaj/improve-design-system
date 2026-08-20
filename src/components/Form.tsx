@@ -1,7 +1,20 @@
-import { cloneElement, forwardRef, useId } from 'react';
-import type { InputHTMLAttributes, ReactElement, SelectHTMLAttributes, TextareaHTMLAttributes } from 'react';
-import { Check } from 'lucide-react';
-import { Checkbox as CheckboxPrimitive, RadioGroup, Switch as SwitchPrimitive } from 'radix-ui';
+import { Children, cloneElement, forwardRef, isValidElement, useId } from 'react';
+import type {
+  ChangeEvent,
+  InputHTMLAttributes,
+  OptionHTMLAttributes,
+  ReactElement,
+  ReactNode,
+  SelectHTMLAttributes,
+  TextareaHTMLAttributes,
+} from 'react';
+import { Check, ChevronDown } from 'lucide-react';
+import {
+  Checkbox as CheckboxPrimitive,
+  RadioGroup,
+  Select as SelectPrimitive,
+  Switch as SwitchPrimitive,
+} from 'radix-ui';
 import { cx } from './utils';
 
 export type FormFieldProps = {
@@ -51,14 +64,91 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaHTMLAttributes<H
   return <textarea ref={ref} className={cx('ibs-textarea', className)} {...props} />;
 });
 
-export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSelectElement>>(function Select(
-  { className, children, ...props },
+type SelectOption = { value: string; label: ReactNode; disabled?: boolean };
+
+function collectOptions(nodes: ReactNode): SelectOption[] {
+  return Children.toArray(nodes).flatMap((child) => {
+    if (!isValidElement<OptionHTMLAttributes<HTMLOptionElement>>(child)) return [];
+    if (child.type !== 'option') {
+      if (child.type === 'optgroup' && child.props.children) return collectOptions(child.props.children);
+      return [];
+    }
+    return [
+      {
+        value: String(child.props.value ?? ''),
+        label: child.props.children,
+        disabled: Boolean(child.props.disabled),
+      },
+    ];
+  });
+}
+
+export const Select = forwardRef<HTMLButtonElement, SelectHTMLAttributes<HTMLSelectElement>>(function Select(
+  {
+    className,
+    children,
+    value,
+    defaultValue,
+    onChange,
+    id,
+    disabled,
+    name,
+    required,
+    'aria-describedby': ariaDescribedBy,
+    'aria-invalid': ariaInvalid,
+  },
   ref,
 ) {
+  const options = collectOptions(children);
+  const controlled = value !== undefined;
   return (
-    <select ref={ref} className={cx('ibs-select', className)} {...props}>
-      {children}
-    </select>
+    <SelectPrimitive.Root
+      value={controlled ? String(value) : undefined}
+      defaultValue={defaultValue !== undefined ? String(defaultValue) : undefined}
+      disabled={disabled}
+      name={name}
+      required={required}
+      onValueChange={(next) => {
+        if (!onChange) return;
+        const event = {
+          target: { value: next, name },
+          currentTarget: { value: next, name },
+        } as unknown as ChangeEvent<HTMLSelectElement>;
+        onChange(event);
+      }}
+    >
+      <SelectPrimitive.Trigger
+        ref={ref}
+        id={id}
+        className={cx('ibs-select', className)}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={ariaInvalid}
+      >
+        <SelectPrimitive.Value />
+        <SelectPrimitive.Icon className="ibs-select__icon" aria-hidden="true">
+          <ChevronDown />
+        </SelectPrimitive.Icon>
+      </SelectPrimitive.Trigger>
+      <SelectPrimitive.Portal>
+        <SelectPrimitive.Content className="ibs-select__list" position="popper" sideOffset={8}>
+          <SelectPrimitive.Viewport>
+            {options.map((option) => (
+              <SelectPrimitive.Item
+                key={option.value}
+                className="ibs-select__item"
+                value={option.value}
+                disabled={option.disabled}
+              >
+                <SelectPrimitive.ItemText>{option.label}</SelectPrimitive.ItemText>
+                <SelectPrimitive.ItemIndicator className="ibs-select__check">
+                  <Check aria-hidden="true" />
+                </SelectPrimitive.ItemIndicator>
+              </SelectPrimitive.Item>
+            ))}
+          </SelectPrimitive.Viewport>
+        </SelectPrimitive.Content>
+      </SelectPrimitive.Portal>
+    </SelectPrimitive.Root>
   );
 });
 
@@ -73,7 +163,7 @@ export function Checkbox({
     <label className="ibs-choice-row" htmlFor={inputId}>
       <CheckboxPrimitive.Root id={inputId} className="ibs-checkbox" {...props}>
         <CheckboxPrimitive.Indicator>
-          <Check aria-hidden="true" strokeWidth={2.75} />
+          <Check aria-hidden="true" strokeWidth={3} />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       <span>{label}</span>
@@ -98,7 +188,9 @@ export function RadioSet({
           const id = `${groupId}-${option.value}`;
           return (
             <label className="ibs-choice-row" htmlFor={id} key={option.value}>
-              <RadioGroup.Item className="ibs-radio" id={id} value={option.value} />
+              <RadioGroup.Item className="ibs-radio" id={id} value={option.value}>
+                <RadioGroup.Indicator className="ibs-radio__indicator" />
+              </RadioGroup.Item>
               <span>{option.label}</span>
             </label>
           );

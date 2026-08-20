@@ -420,43 +420,48 @@ export function DatePicker({
   ...props
 }: InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string; placeholder?: string }) {
   const id = useId();
-  const [open, setOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [local, setLocal] = useState(typeof defaultValue === 'string' ? defaultValue : '');
   const current = typeof value === 'string' ? value : local;
   const display = current ? new Date(`${current}T00:00:00`).toLocaleDateString('pt-BR') : placeholder;
+  const openPicker = () => {
+    const input = inputRef.current;
+    if (!input || props.disabled) return;
+    input.focus();
+    try {
+      input.showPicker?.();
+    } catch {
+      input.click();
+    }
+  };
   return (
     <div className={cx('ibs-date-picker', className)}>
       <span id={`${id}-label`}>{label}</span>
-      <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-        <PopoverPrimitive.Trigger asChild>
-          <button
-            type="button"
-            className="ibs-date-picker__trigger"
-            aria-labelledby={`${id}-label`}
-            data-placeholder={current ? undefined : 'true'}
-          >
-            <CalendarDays aria-hidden="true" />
-            <span>{display}</span>
-          </button>
-        </PopoverPrimitive.Trigger>
-        <PopoverPrimitive.Portal>
-          <PopoverPrimitive.Content className="ibs-date-picker__panel" align="start" sideOffset={8}>
-            <input
-              id={id}
-              type="date"
-              value={current}
-              aria-labelledby={`${id}-label`}
-              {...props}
-              onChange={(event) => {
-                const next = event.currentTarget.value;
-                setLocal(next);
-                onChange?.(event);
-                if (next) setOpen(false);
-              }}
-            />
-          </PopoverPrimitive.Content>
-        </PopoverPrimitive.Portal>
-      </PopoverPrimitive.Root>
+      <button
+        type="button"
+        className="ibs-date-picker__trigger"
+        aria-labelledby={`${id}-label`}
+        data-placeholder={current ? undefined : 'true'}
+        disabled={props.disabled}
+        onClick={openPicker}
+      >
+        <CalendarDays aria-hidden="true" />
+        <span>{display}</span>
+      </button>
+      <input
+        ref={inputRef}
+        id={id}
+        className="ibs-date-picker__native"
+        type="date"
+        value={current}
+        aria-hidden="true"
+        tabIndex={-1}
+        {...props}
+        onChange={(event) => {
+          setLocal(event.currentTarget.value);
+          onChange?.(event);
+        }}
+      />
       {hint && <small>{hint}</small>}
     </div>
   );
@@ -675,6 +680,58 @@ export type DateRangePickerProps = {
   hint?: string;
   className?: string;
 };
+function DateFieldTrigger({
+  id,
+  label,
+  name,
+  icon,
+  placeholder = 'Selecione uma data',
+}: {
+  id: string;
+  label: string;
+  name?: string;
+  icon: ReactNode;
+  placeholder?: string;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [current, setCurrent] = useState('');
+  const display = current ? new Date(`${current}T00:00:00`).toLocaleDateString('pt-BR') : placeholder;
+  const openPicker = () => {
+    const input = inputRef.current;
+    if (!input) return;
+    input.focus();
+    try {
+      input.showPicker?.();
+    } catch {
+      input.click();
+    }
+  };
+  return (
+    <span className="ibs-date-picker__control">
+      <button
+        type="button"
+        className="ibs-date-picker__trigger"
+        aria-label={label}
+        data-placeholder={current ? undefined : 'true'}
+        onClick={openPicker}
+      >
+        {icon}
+        <span>{display}</span>
+      </button>
+      <input
+        ref={inputRef}
+        id={id}
+        className="ibs-date-picker__native"
+        name={name}
+        type="date"
+        value={current}
+        aria-hidden="true"
+        tabIndex={-1}
+        onChange={(event) => setCurrent(event.currentTarget.value)}
+      />
+    </span>
+  );
+}
 export function DateRangePicker({
   label,
   startName = 'start',
@@ -688,35 +745,87 @@ export function DateRangePicker({
     <fieldset className={cx('ibs-date-range', className)}>
       <legend>{label}</legend>
       <div className="ibs-date-range__controls">
-        <span className="ibs-date-picker__control">
-          <CalendarRange aria-hidden="true" />
-          <input id={startId} name={startName} type="date" aria-label={`${label} — início`} />
-        </span>
+        <DateFieldTrigger
+          id={startId}
+          label={`${label} — início`}
+          name={startName}
+          icon={<CalendarRange aria-hidden="true" />}
+        />
         <span className="ibs-date-range__separator" aria-hidden="true">
           –
         </span>
-        <span className="ibs-date-picker__control">
-          <CalendarRange aria-hidden="true" />
-          <input id={endId} name={endName} type="date" aria-label={`${label} — fim`} />
-        </span>
+        <DateFieldTrigger
+          id={endId}
+          label={`${label} — fim`}
+          name={endName}
+          icon={<CalendarRange aria-hidden="true" />}
+        />
       </div>
       {hint && <small>{hint}</small>}
     </fieldset>
   );
 }
 
-export type TimePickerProps = InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string };
-export function TimePicker({ label, hint, className, ...props }: TimePickerProps) {
+export type TimePickerProps = InputHTMLAttributes<HTMLInputElement> & {
+  label: string;
+  hint?: string;
+  placeholder?: string;
+};
+export function TimePicker({
+  label,
+  hint,
+  className,
+  value,
+  defaultValue,
+  onChange,
+  placeholder = '--:--',
+  ...props
+}: TimePickerProps) {
   const id = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [local, setLocal] = useState(typeof defaultValue === 'string' ? defaultValue : '');
+  const current = typeof value === 'string' ? value : local;
+  const display = current || placeholder;
+  const openPicker = () => {
+    const input = inputRef.current;
+    if (!input || props.disabled) return;
+    input.focus();
+    try {
+      input.showPicker?.();
+    } catch {
+      input.click();
+    }
+  };
   return (
-    <label className={cx('ibs-date-picker', className)} htmlFor={id}>
-      <span>{label}</span>
-      <span className="ibs-date-picker__control">
+    <div className={cx('ibs-date-picker', className)}>
+      <span id={`${id}-label`}>{label}</span>
+      <button
+        type="button"
+        className="ibs-date-picker__trigger"
+        aria-labelledby={`${id}-label`}
+        data-placeholder={current ? undefined : 'true'}
+        disabled={props.disabled}
+        onClick={openPicker}
+      >
         <Clock aria-hidden="true" />
-        <input id={id} type="time" {...props} />
-      </span>
+        <span>{display}</span>
+      </button>
+      <input
+        ref={inputRef}
+        id={id}
+        className="ibs-date-picker__native"
+        type="time"
+        value={current}
+        aria-hidden="true"
+        tabIndex={-1}
+        {...props}
+        onChange={(event) => {
+          setLocal(event.currentTarget.value);
+          onChange?.(event);
+        }}
+      />
       {hint && <small>{hint}</small>}
-    </label>
+    </div>
   );
 }
 
