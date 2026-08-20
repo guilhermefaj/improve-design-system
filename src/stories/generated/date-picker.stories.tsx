@@ -15,7 +15,7 @@ const meta = {
     motion: { control: 'inline-radio', options: ['none', 'subtle', 'expressive'] },
     disabled: { control: 'boolean' },
   },
-  parameters: { docs: { description: { component: "Seleção de data baseada no controle nativo da plataforma." } }, componentId: "date-picker" },
+  parameters: { docs: { description: { component: "Seleção de data com trigger compacto e painel que fecha após a escolha." } }, componentId: "date-picker" },
 } satisfies Meta<typeof ComponentDocumentation>;
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -256,12 +256,10 @@ export function FoundationsCatalog() {
               Pack my box with five dozen liquor jugs
             </Heading>
             <Text size="lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Quisque vitae justo velit.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Quisque vitae justo velit.
             </Text>
-            <Text tone="muted">
-              ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 — áéíóú çãõ ÂÊÔ.
-            </Text>
+            <Text tone="muted">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 — áéíóú çãõ ÂÊÔ.</Text>
           </Stack>
         </SpecimenPanel>
         <SpecimenPanel title="Espaçamento 4–128 px">
@@ -511,9 +509,12 @@ export function CoreMoleculesCatalog() {
               </Stack>
             </HoverCard>
             <ContextMenu items={[{ label: 'Renomear' }, { label: 'Duplicar' }, { label: 'Arquivar' }]}>
-              <Text size="sm" tone="muted" style={{ cursor: 'context-menu', userSelect: 'none' }}>
+              <span
+                className="ibs-text ibs-text--sm ibs-text--muted"
+                style={{ cursor: 'context-menu', userSelect: 'none' }}
+              >
                 * Clique com o botão direito para ver as opções
-              </Text>
+              </span>
             </ContextMenu>
           </Cluster>
           <Collapsible label="Detalhes técnicos" defaultOpen>

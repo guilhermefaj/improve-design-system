@@ -2,7 +2,7 @@
   "$schema": "./schemas/design-system-manifest.schema.json",
   "schemaVersion": 3,
   "name": "Improve Design System",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": {
     "repository": "https://github.com/guilhermefaj/improve-design-system",
     "distribution": "github-source-owned",
@@ -22,9 +22,22 @@
       "category": "action",
       "status": "stable",
       "description": "Ação principal, secundária ou textual com ícones opcionais.",
-      "files": ["src/components/Button.tsx", "src/components/utils.ts"],
-      "exports": ["Button", "ButtonLink", "IconButton", "ButtonProps", "ButtonLinkProps", "IconButtonProps"],
-      "dependencies": ["lucide-react", "react"],
+      "files": [
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "Button",
+        "ButtonLink",
+        "IconButton",
+        "ButtonProps",
+        "ButtonLinkProps",
+        "IconButtonProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "tokens": [
         "button.background-primary",
         "button.background-primary-hover",
@@ -32,14 +45,31 @@
         "button.height",
         "button.radius"
       ],
-      "variants": ["solid", "primary", "brand", "outline", "ghost", "link"],
-      "states": ["default", "hover", "active", "focus-visible", "disabled"],
+      "variants": [
+        "solid",
+        "primary",
+        "brand",
+        "outline",
+        "ghost",
+        "link"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "active",
+        "focus-visible",
+        "disabled"
+      ],
       "accessibility": [
         "Use texto descritivo.",
         "IconButton exige label.",
         "Preserve foco visível e alvo mínimo de 44 px."
       ],
-      "recipes": ["landing-page", "dashboard", "agent-workspace"],
+      "recipes": [
+        "landing-page",
+        "dashboard",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Button",
       "storybookId": "02-atoms-button--playground"
@@ -51,7 +81,10 @@
       "category": "foundation",
       "status": "stable",
       "description": "Container, Stack, Cluster, Grid e Section para composição responsiva.",
-      "files": ["src/components/Layout.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Layout.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Container",
         "Stack",
@@ -64,12 +97,33 @@
         "ClusterProps",
         "GridProps"
       ],
-      "dependencies": ["react"],
-      "tokens": ["space", "layout.container", "layout.content"],
-      "variants": ["canvas", "warm", "ink", "brand"],
-      "states": ["responsive"],
-      "accessibility": ["Mantenha ordem DOM compatível com a ordem visual."],
-      "recipes": ["landing-page", "dashboard", "app", "slides", "agent-workspace"],
+      "dependencies": [
+        "react"
+      ],
+      "tokens": [
+        "space",
+        "layout.container",
+        "layout.content"
+      ],
+      "variants": [
+        "canvas",
+        "warm",
+        "ink",
+        "brand"
+      ],
+      "states": [
+        "responsive"
+      ],
+      "accessibility": [
+        "Mantenha ordem DOM compatível com a ordem visual."
+      ],
+      "recipes": [
+        "landing-page",
+        "dashboard",
+        "app",
+        "slides",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Container",
       "storybookId": "01-foundations-layout--playground"
@@ -81,9 +135,22 @@
       "category": "foundation",
       "status": "stable",
       "description": "Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.",
-      "files": ["src/components/Typography.tsx", "src/components/utils.ts"],
-      "exports": ["Heading", "Text", "Eyebrow", "AccentText", "SupportingLabel", "HeadingProps", "TextProps"],
-      "dependencies": ["react"],
+      "files": [
+        "src/components/Typography.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "Heading",
+        "Text",
+        "Eyebrow",
+        "AccentText",
+        "SupportingLabel",
+        "HeadingProps",
+        "TextProps"
+      ],
+      "dependencies": [
+        "react"
+      ],
       "tokens": [
         "font.sans",
         "font.display",
@@ -106,8 +173,17 @@
         "supporting-label"
       ],
       "states": [],
-      "accessibility": ["Não pule níveis de heading.", "Use um único h1 por contexto principal."],
-      "recipes": ["landing-page", "dashboard", "app", "slides", "agent-workspace"],
+      "accessibility": [
+        "Não pule níveis de heading.",
+        "Use um único h1 por contexto principal."
+      ],
+      "recipes": [
+        "landing-page",
+        "dashboard",
+        "app",
+        "slides",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Heading",
       "storybookId": "01-foundations-typography--playground"
@@ -119,14 +195,37 @@
       "category": "foundation",
       "status": "stable",
       "description": "Marca vetorial responsiva para interfaces e Artifacts.",
-      "files": ["src/components/Logo.tsx", "src/components/utils.ts"],
-      "exports": ["ImproveMark", "ImproveLogo", "ImproveMarkProps", "ImproveLogoProps"],
-      "dependencies": ["react"],
-      "tokens": ["color.brand", "color.text"],
-      "variants": ["mark", "wordmark"],
+      "files": [
+        "src/components/Logo.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "ImproveMark",
+        "ImproveLogo",
+        "ImproveMarkProps",
+        "ImproveLogoProps"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "tokens": [
+        "color.brand",
+        "color.text"
+      ],
+      "variants": [
+        "mark",
+        "wordmark"
+      ],
       "states": [],
-      "accessibility": ["Wordmark vinculada exige nome acessível.", "Marca decorativa deve ser aria-hidden."],
-      "recipes": ["landing-page", "slides", "artifact"],
+      "accessibility": [
+        "Wordmark vinculada exige nome acessível.",
+        "Marca decorativa deve ser aria-hidden."
+      ],
+      "recipes": [
+        "landing-page",
+        "slides",
+        "artifact"
+      ],
       "maturity": 9,
       "primaryExport": "ImproveMark",
       "storybookId": "02-atoms-logo--playground"
@@ -138,7 +237,10 @@
       "category": "data-display",
       "status": "stable",
       "description": "Superfície de conteúdo com corpo, rodapé e modo interativo.",
-      "files": ["src/components/DataDisplay.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/DataDisplay.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Card",
         "CardBody",
@@ -154,12 +256,33 @@
         "BreadcrumbsProps",
         "PaginationProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["card.background", "card.background-warm", "card.radius"],
-      "variants": ["canvas", "warm", "interactive"],
-      "states": ["default", "hover", "focus-within"],
-      "accessibility": ["Não transforme o card inteiro em botão quando houver múltiplas ações."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "card.background",
+        "card.background-warm",
+        "card.radius"
+      ],
+      "variants": [
+        "canvas",
+        "warm",
+        "interactive"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus-within"
+      ],
+      "accessibility": [
+        "Não transforme o card inteiro em botão quando houver múltiplas ações."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "Card",
       "storybookId": "03-molecules-card--playground"
@@ -171,7 +294,10 @@
       "category": "data-display",
       "status": "stable",
       "description": "Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.",
-      "files": ["src/components/DataDisplay.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/DataDisplay.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Avatar",
         "Divider",
@@ -191,16 +317,33 @@
         "BreadcrumbsProps",
         "PaginationProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.surface", "color.border", "text"],
-      "variants": ["avatar-sm", "avatar-md", "avatar-lg"],
-      "states": ["responsive", "current-page"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.surface",
+        "color.border",
+        "text"
+      ],
+      "variants": [
+        "avatar-sm",
+        "avatar-md",
+        "avatar-lg"
+      ],
+      "states": [
+        "responsive",
+        "current-page"
+      ],
       "accessibility": [
         "DataTable exige caption.",
         "Paginação expõe página atual.",
         "Avatar sem imagem anuncia o nome."
       ],
-      "recipes": ["dashboard", "app"],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "Avatar",
       "storybookId": "03-molecules-data-display--playground"
@@ -212,7 +355,10 @@
       "category": "form",
       "status": "stable",
       "description": "Campos, escolhas e switches com descrição e erro associados.",
-      "files": ["src/components/Form.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Form.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "FormField",
         "Input",
@@ -229,7 +375,11 @@
         "RadioSetProps",
         "SwitchProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react"
+      ],
       "tokens": [
         "input.background",
         "input.border",
@@ -238,10 +388,31 @@
         "color.control-selected",
         "color.control-indicator"
       ],
-      "variants": ["input", "textarea", "select", "checkbox", "radio", "switch"],
-      "states": ["default", "hover", "focus", "invalid", "disabled", "checked"],
-      "accessibility": ["Todo controle exige label.", "Erros devem usar aria-describedby e aria-invalid."],
-      "recipes": ["landing-page", "app", "agent-workspace"],
+      "variants": [
+        "input",
+        "textarea",
+        "select",
+        "checkbox",
+        "radio",
+        "switch"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "invalid",
+        "disabled",
+        "checked"
+      ],
+      "accessibility": [
+        "Todo controle exige label.",
+        "Erros devem usar aria-describedby e aria-invalid."
+      ],
+      "recipes": [
+        "landing-page",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "FormField",
       "storybookId": "03-molecules-form--playground"
@@ -253,7 +424,10 @@
       "category": "feedback",
       "status": "stable",
       "description": "Badge, Alert, Skeleton, Spinner e Progress.",
-      "files": ["src/components/Feedback.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Feedback.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Badge",
         "Alert",
@@ -266,7 +440,10 @@
         "SpinnerProps",
         "ProgressProps"
       ],
-      "dependencies": ["lucide-react", "react"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "tokens": [
         "badge.radius",
         "color.feedback-info-surface",
@@ -274,10 +451,29 @@
         "color.feedback-warning-surface",
         "color.feedback-danger-surface"
       ],
-      "variants": ["neutral", "brand", "success", "info", "warning", "danger"],
-      "states": ["loading", "progress", "success", "warning", "error"],
-      "accessibility": ["Use status para atualizações não urgentes e alert somente para falhas imediatas."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "variants": [
+        "neutral",
+        "brand",
+        "success",
+        "info",
+        "warning",
+        "danger"
+      ],
+      "states": [
+        "loading",
+        "progress",
+        "success",
+        "warning",
+        "error"
+      ],
+      "accessibility": [
+        "Use status para atualizações não urgentes e alert somente para falhas imediatas."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "Badge",
       "storybookId": "03-molecules-feedback--playground"
@@ -309,12 +505,32 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["dialog.background", "dialog.radius", "dialog.shadow"],
-      "variants": ["confirmation", "content"],
-      "states": ["open", "closed"],
-      "accessibility": ["Título é obrigatório.", "O foco deve entrar, ficar contido e retornar ao gatilho."],
-      "recipes": ["app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react"
+      ],
+      "tokens": [
+        "dialog.background",
+        "dialog.radius",
+        "dialog.shadow"
+      ],
+      "variants": [
+        "confirmation",
+        "content"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "accessibility": [
+        "Título é obrigatório.",
+        "O foco deve entrar, ficar contido e retornar ao gatilho."
+      ],
+      "recipes": [
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Dialog",
       "storybookId": "04-organisms-dialog--playground"
@@ -350,12 +566,39 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.surface-raised", "color.border", "z.dropdown", "z.toast"],
-      "variants": ["accordion", "tabs", "tooltip", "menu"],
-      "states": ["open", "closed", "active", "highlighted", "disabled"],
-      "accessibility": ["Não use Tooltip para informação necessária.", "Menus precisam ser operáveis por teclado."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react"
+      ],
+      "tokens": [
+        "color.surface-raised",
+        "color.border",
+        "z.dropdown",
+        "z.toast"
+      ],
+      "variants": [
+        "accordion",
+        "tabs",
+        "tooltip",
+        "menu"
+      ],
+      "states": [
+        "open",
+        "closed",
+        "active",
+        "highlighted",
+        "disabled"
+      ],
+      "accessibility": [
+        "Não use Tooltip para informação necessária.",
+        "Menus precisam ser operáveis por teclado."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Accordion",
       "storybookId": "03-molecules-overlays--playground"
@@ -391,12 +634,31 @@
         "ImproveMarkProps",
         "ImproveLogoProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.canvas", "color.border", "z.sticky"],
-      "variants": ["desktop", "mobile"],
-      "states": ["current-page", "sticky"],
-      "accessibility": ["Navegações precisam de nomes distintos.", "Página atual usa aria-current."],
-      "recipes": ["landing-page", "app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.canvas",
+        "color.border",
+        "z.sticky"
+      ],
+      "variants": [
+        "desktop",
+        "mobile"
+      ],
+      "states": [
+        "current-page",
+        "sticky"
+      ],
+      "accessibility": [
+        "Navegações precisam de nomes distintos.",
+        "Página atual usa aria-current."
+      ],
+      "recipes": [
+        "landing-page",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "SiteHeader",
       "storybookId": "04-organisms-navigation--playground"
@@ -437,12 +699,32 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.brand", "color.surface", "accent"],
-      "variants": ["hero", "feature", "ecosystem", "services", "logo-cloud"],
-      "states": ["responsive"],
-      "accessibility": ["CTAs precisam ser descritivos.", "LogoCloud deve ter nome acessível."],
-      "recipes": ["landing-page"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.brand",
+        "color.surface",
+        "accent"
+      ],
+      "variants": [
+        "hero",
+        "feature",
+        "ecosystem",
+        "services",
+        "logo-cloud"
+      ],
+      "states": [
+        "responsive"
+      ],
+      "accessibility": [
+        "CTAs precisam ser descritivos.",
+        "LogoCloud deve ter nome acessível."
+      ],
+      "recipes": [
+        "landing-page"
+      ],
       "maturity": 8,
       "primaryExport": "Hero",
       "storybookId": "04-organisms-marketing--playground"
@@ -454,7 +736,11 @@
       "category": "presentation",
       "status": "stable",
       "description": "Primitivas 16:9 para apresentações React.",
-      "files": ["src/components/Presentation.tsx", "src/components/Logo.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Presentation.tsx",
+        "src/components/Logo.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Slide",
         "SlideKicker",
@@ -469,12 +755,30 @@
         "ImproveMarkProps",
         "ImproveLogoProps"
       ],
-      "dependencies": ["react"],
-      "tokens": ["color.canvas", "color.brand", "text.display"],
-      "variants": ["canvas", "warm", "ink", "brand"],
-      "states": ["screen", "print"],
-      "accessibility": ["Mantenha ordem semântica e contraste ao exportar."],
-      "recipes": ["slides"],
+      "dependencies": [
+        "react"
+      ],
+      "tokens": [
+        "color.canvas",
+        "color.brand",
+        "text.display"
+      ],
+      "variants": [
+        "canvas",
+        "warm",
+        "ink",
+        "brand"
+      ],
+      "states": [
+        "screen",
+        "print"
+      ],
+      "accessibility": [
+        "Mantenha ordem semântica e contraste ao exportar."
+      ],
+      "recipes": [
+        "slides"
+      ],
       "maturity": 8,
       "primaryExport": "Slide",
       "storybookId": "04-organisms-slides--playground"
@@ -486,7 +790,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Estado resumido e acessível de uma execução agentic.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "AgentStatus",
         "AgentRunStatus",
@@ -503,7 +811,10 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "tokens": [
         "agent-status.thinking",
         "agent-status.running",
@@ -511,10 +822,26 @@
         "agent-status.success",
         "agent-status.failed"
       ],
-      "variants": ["compact", "detailed"],
-      "states": ["queued", "thinking", "running", "awaiting_approval", "paused", "succeeded", "failed", "cancelled"],
-      "accessibility": ["Anuncie somente mudanças de etapa com aria-live polite."],
-      "recipes": ["agent-workspace"],
+      "variants": [
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "queued",
+        "thinking",
+        "running",
+        "awaiting_approval",
+        "paused",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "accessibility": [
+        "Anuncie somente mudanças de etapa com aria-live polite."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "AgentStatus",
       "storybookId": "03-molecules-agent-status--playground"
@@ -526,7 +853,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Conteúdo progressivo sem anunciar cada token.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "StreamingMessage",
         "AgentStatusProps",
@@ -540,12 +871,28 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.surface", "duration.base"],
-      "variants": ["user", "agent"],
-      "states": ["streaming", "complete"],
-      "accessibility": ["Use aria-busy durante transmissão e uma atualização final em região viva."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.surface",
+        "duration.base"
+      ],
+      "variants": [
+        "user",
+        "agent"
+      ],
+      "states": [
+        "streaming",
+        "complete"
+      ],
+      "accessibility": [
+        "Use aria-busy durante transmissão e uma atualização final em região viva."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "StreamingMessage",
       "storybookId": "03-molecules-streaming-message--playground"
@@ -557,7 +904,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Chamada de ferramenta inspecionável com propósito, duração e resultado.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "ToolCallCard",
         "ToolCallStatus",
@@ -572,12 +923,31 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["tool-call.background", "tool-call.border", "tool-call.radius"],
-      "variants": ["compact", "expanded"],
-      "states": ["queued", "running", "succeeded", "failed"],
-      "accessibility": ["Falhas exigem descrição e ação de recuperação disponível por teclado."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "tool-call.background",
+        "tool-call.border",
+        "tool-call.radius"
+      ],
+      "variants": [
+        "compact",
+        "expanded"
+      ],
+      "states": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed"
+      ],
+      "accessibility": [
+        "Falhas exigem descrição e ação de recuperação disponível por teclado."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "ToolCallCard",
       "storybookId": "04-organisms-tool-call-card--playground"
@@ -589,7 +959,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Aprovação informada para ações externas ou sensíveis.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "ApprovalCard",
         "ApprovalRisk",
@@ -605,7 +979,10 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
       "tokens": [
         "approval.background",
         "approval.border",
@@ -613,13 +990,24 @@
         "color.approval-accent",
         "color.risk-high"
       ],
-      "variants": ["low-risk", "medium-risk", "high-risk"],
-      "states": ["awaiting", "approved", "edited", "rejected"],
+      "variants": [
+        "low-risk",
+        "medium-risk",
+        "high-risk"
+      ],
+      "states": [
+        "awaiting",
+        "approved",
+        "edited",
+        "rejected"
+      ],
       "accessibility": [
         "Título, consequência, escopo e ações devem ser explícitos.",
         "Aprovar e rejeitar precisam de rótulos inequívocos."
       ],
-      "recipes": ["agent-workspace"],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "ApprovalCard",
       "storybookId": "04-organisms-approval-card--playground"
@@ -631,7 +1019,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Linha do tempo de eventos, atores, tentativas e falhas parciais.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "RunTimeline",
         "AgentStatusProps",
@@ -645,12 +1037,29 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.border", "color.text-muted"],
-      "variants": ["compact", "detailed"],
-      "states": ["current", "complete", "failed"],
-      "accessibility": ["Use lista ordenada e datas legíveis por máquina."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.border",
+        "color.text-muted"
+      ],
+      "variants": [
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "current",
+        "complete",
+        "failed"
+      ],
+      "accessibility": [
+        "Use lista ordenada e datas legíveis por máquina."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "RunTimeline",
       "storybookId": "04-organisms-run-timeline--playground"
@@ -662,7 +1071,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Falha recuperável com contexto e ações de repetir, editar ou cancelar.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "AgentError",
         "AgentStatusProps",
@@ -676,12 +1089,28 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.agent-failed", "color.red.100"],
-      "variants": ["inline", "panel"],
-      "states": ["failed", "retrying"],
-      "accessibility": ["Use role alert apenas quando a falha exigir atenção imediata."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.agent-failed",
+        "color.red.100"
+      ],
+      "variants": [
+        "inline",
+        "panel"
+      ],
+      "states": [
+        "failed",
+        "retrying"
+      ],
+      "accessibility": [
+        "Use role alert apenas quando a falha exigir atenção imediata."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "AgentError",
       "storybookId": "03-molecules-agent-error--playground"
@@ -693,7 +1122,11 @@
       "category": "agentic",
       "status": "stable",
       "description": "Plano visível com estado por etapa.",
-      "files": ["src/components/Agentic.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/Agentic.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "PlanSteps",
         "PlanStep",
@@ -709,12 +1142,32 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.border", "color.agent-running", "color.agent-success"],
-      "variants": ["compact", "detailed"],
-      "states": ["pending", "in_progress", "completed", "blocked", "skipped"],
-      "accessibility": ["A etapa atual deve ser identificável sem depender somente de cor."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.border",
+        "color.agent-running",
+        "color.agent-success"
+      ],
+      "variants": [
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "pending",
+        "in_progress",
+        "completed",
+        "blocked",
+        "skipped"
+      ],
+      "accessibility": [
+        "A etapa atual deve ser identificável sem depender somente de cor."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "PlanSteps",
       "storybookId": "04-organisms-plan-steps--playground"
@@ -755,12 +1208,30 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["artifact.background", "artifact.border", "artifact.radius"],
-      "variants": ["card", "preview"],
-      "states": ["ready", "loading", "failed"],
-      "accessibility": ["Tipo, versão e ação precisam de texto visível ou nome acessível."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "artifact.background",
+        "artifact.border",
+        "artifact.radius"
+      ],
+      "variants": [
+        "card",
+        "preview"
+      ],
+      "states": [
+        "ready",
+        "loading",
+        "failed"
+      ],
+      "accessibility": [
+        "Tipo, versão e ação precisam de texto visível ou nome acessível."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "ArtifactCard",
       "storybookId": "03-molecules-artifact-card--playground"
@@ -800,12 +1271,28 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.action-text", "color.text-muted"],
-      "variants": ["compact", "detailed"],
-      "states": ["verified", "unverified"],
-      "accessibility": ["Links devem indicar a origem e abrir com comportamento previsível."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.action-text",
+        "color.text-muted"
+      ],
+      "variants": [
+        "compact",
+        "detailed"
+      ],
+      "states": [
+        "verified",
+        "unverified"
+      ],
+      "accessibility": [
+        "Links devem indicar a origem e abrir com comportamento previsível."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "CitationList",
       "storybookId": "03-molecules-citation-list--playground"
@@ -844,12 +1331,30 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.agent-awaiting", "color.border"],
-      "variants": ["once", "session", "persistent"],
-      "states": ["requested", "granted", "revoked"],
-      "accessibility": ["Escopo e duração devem ser comunicados em texto."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.agent-awaiting",
+        "color.border"
+      ],
+      "variants": [
+        "once",
+        "session",
+        "persistent"
+      ],
+      "states": [
+        "requested",
+        "granted",
+        "revoked"
+      ],
+      "accessibility": [
+        "Escopo e duração devem ser comunicados em texto."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "PermissionScope",
       "storybookId": "03-molecules-permission-scope--playground"
@@ -888,12 +1393,29 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.agent-thinking", "color.border"],
-      "variants": ["inline", "timeline"],
-      "states": ["requested", "accepted", "completed"],
-      "accessibility": ["Origem, destino e motivo devem ser anunciados em texto."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.agent-thinking",
+        "color.border"
+      ],
+      "variants": [
+        "inline",
+        "timeline"
+      ],
+      "states": [
+        "requested",
+        "accepted",
+        "completed"
+      ],
+      "accessibility": [
+        "Origem, destino e motivo devem ser anunciados em texto."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 7,
       "primaryExport": "AgentHandoff",
       "storybookId": "04-organisms-agent-handoff--playground"
@@ -932,12 +1454,30 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.surface-raised", "color.border"],
-      "variants": ["generated", "external"],
-      "states": ["loading", "ready", "failed"],
-      "accessibility": ["Informe origem, estado e fallback do conteúdo incorporado."],
-      "recipes": ["agent-workspace", "artifact"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.surface-raised",
+        "color.border"
+      ],
+      "variants": [
+        "generated",
+        "external"
+      ],
+      "states": [
+        "loading",
+        "ready",
+        "failed"
+      ],
+      "accessibility": [
+        "Informe origem, estado e fallback do conteúdo incorporado."
+      ],
+      "recipes": [
+        "agent-workspace",
+        "artifact"
+      ],
       "maturity": 7,
       "primaryExport": "GeneratedUIBoundary",
       "storybookId": "04-organisms-generated-ui-boundary--playground"
@@ -976,12 +1516,31 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.surface-raised", "color.agent-running", "color.agent-failed"],
-      "variants": ["inline", "expanded"],
-      "states": ["connecting", "connected", "failed", "disconnected"],
-      "accessibility": ["Mudanças de conexão usam status moderado e fallback operável."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.surface-raised",
+        "color.agent-running",
+        "color.agent-failed"
+      ],
+      "variants": [
+        "inline",
+        "expanded"
+      ],
+      "states": [
+        "connecting",
+        "connected",
+        "failed",
+        "disconnected"
+      ],
+      "accessibility": [
+        "Mudanças de conexão usam status moderado e fallback operável."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 7,
       "primaryExport": "McpAppFrame",
       "storybookId": "04-organisms-mcp-app-frame--playground"
@@ -1021,12 +1580,29 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["font.mono", "color.surface", "color.border"],
-      "variants": ["summary", "expanded"],
-      "states": ["collapsed", "expanded"],
-      "accessibility": ["Detalhes usam summary descritivo e conteúdo selecionável."],
-      "recipes": ["agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "font.mono",
+        "color.surface",
+        "color.border"
+      ],
+      "variants": [
+        "summary",
+        "expanded"
+      ],
+      "states": [
+        "collapsed",
+        "expanded"
+      ],
+      "accessibility": [
+        "Detalhes usam summary descritivo e conteúdo selecionável."
+      ],
+      "recipes": [
+        "agent-workspace"
+      ],
       "maturity": 8,
       "primaryExport": "TraceViewer",
       "storybookId": "04-organisms-trace-viewer--playground"
@@ -1038,7 +1614,11 @@
       "category": "saas",
       "status": "stable",
       "description": "Representa atalhos de teclado e combinações de teclas.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Kbd",
         "KbdProps",
@@ -1055,12 +1635,27 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["font.mono", "color.border"],
-      "variants": ["key", "shortcut"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "font.mono",
+        "color.border"
+      ],
+      "variants": [
+        "key",
+        "shortcut"
+      ],
       "states": [],
-      "accessibility": ["Use texto equivalente quando o atalho não for óbvio."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "accessibility": [
+        "Use texto equivalente quando o atalho não for óbvio."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Kbd",
       "storybookId": "02-atoms-kbd--playground"
@@ -1072,7 +1667,11 @@
       "category": "action",
       "status": "stable",
       "description": "Agrupa ações relacionadas de forma solta ou anexada.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "ButtonGroup",
         "KbdProps",
@@ -1089,12 +1688,26 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["space", "radius.pill"],
-      "variants": ["separated", "attached"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "space",
+        "radius.pill"
+      ],
+      "variants": [
+        "separated",
+        "attached"
+      ],
       "states": [],
-      "accessibility": ["O grupo usa role group; cada ação mantém nome próprio."],
-      "recipes": ["dashboard", "app"],
+      "accessibility": [
+        "O grupo usa role group; cada ação mantém nome próprio."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "ButtonGroup",
       "storybookId": "02-atoms-button-group--playground"
@@ -1106,7 +1719,11 @@
       "category": "saas",
       "status": "stable",
       "description": "Filtro compacto selecionável e opcionalmente removível.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Chip",
         "ChipProps",
@@ -1123,12 +1740,32 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "color.secondary-soft"],
-      "variants": ["default", "selected", "removable"],
-      "states": ["hover", "focus-visible", "selected", "disabled"],
-      "accessibility": ["Seleção usa aria-pressed e remoção tem nome acessível."],
-      "recipes": ["dashboard", "app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.secondary-soft"
+      ],
+      "variants": [
+        "default",
+        "selected",
+        "removable"
+      ],
+      "states": [
+        "hover",
+        "focus-visible",
+        "selected",
+        "disabled"
+      ],
+      "accessibility": [
+        "Seleção usa aria-pressed e remoção tem nome acessível."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "Chip",
       "storybookId": "02-atoms-chip--playground"
@@ -1140,7 +1777,11 @@
       "category": "action",
       "status": "stable",
       "description": "Ativa ou desativa uma opção persistente em uma barra de ferramentas.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Toggle",
         "ToggleProps",
@@ -1157,12 +1798,31 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "color.secondary-soft"],
-      "variants": ["text", "icon-text"],
-      "states": ["pressed", "hover", "focus-visible", "disabled"],
-      "accessibility": ["Estado pressionado usa aria-pressed."],
-      "recipes": ["app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.secondary-soft"
+      ],
+      "variants": [
+        "text",
+        "icon-text"
+      ],
+      "states": [
+        "pressed",
+        "hover",
+        "focus-visible",
+        "disabled"
+      ],
+      "accessibility": [
+        "Estado pressionado usa aria-pressed."
+      ],
+      "recipes": [
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Toggle",
       "storybookId": "02-atoms-toggle--playground"
@@ -1174,7 +1834,11 @@
       "category": "form",
       "status": "stable",
       "description": "Seleciona uma opção entre poucas alternativas mutuamente exclusivas.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "SegmentedControl",
         "SegmentedControlItem",
@@ -1192,12 +1856,30 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "color.surface"],
-      "variants": ["text"],
-      "states": ["checked", "hover", "focus-visible", "disabled"],
-      "accessibility": ["Expõe radiogroup e radio com estado selecionado."],
-      "recipes": ["dashboard", "app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.surface"
+      ],
+      "variants": [
+        "text"
+      ],
+      "states": [
+        "checked",
+        "hover",
+        "focus-visible",
+        "disabled"
+      ],
+      "accessibility": [
+        "Expõe radiogroup e radio com estado selecionado."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "SegmentedControl",
       "storybookId": "02-atoms-segmented-control--playground"
@@ -1209,7 +1891,11 @@
       "category": "form",
       "status": "stable",
       "description": "Seleciona um valor numérico dentro de um intervalo.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Slider",
         "SliderProps",
@@ -1226,12 +1912,27 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary"],
-      "variants": ["continuous", "stepped"],
-      "states": ["focus", "disabled"],
-      "accessibility": ["Label e valor atual permanecem visíveis."],
-      "recipes": ["app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary"
+      ],
+      "variants": [
+        "continuous",
+        "stepped"
+      ],
+      "states": [
+        "focus",
+        "disabled"
+      ],
+      "accessibility": [
+        "Label e valor atual permanecem visíveis."
+      ],
+      "recipes": [
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "Slider",
       "storybookId": "02-atoms-slider--playground"
@@ -1243,7 +1944,11 @@
       "category": "form",
       "status": "stable",
       "description": "Campo de busca com ícone e limpeza opcional.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "SearchInput",
         "SearchInputProps",
@@ -1260,12 +1965,32 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["input.background", "input.border"],
-      "variants": ["default", "clearable"],
-      "states": ["empty", "filled", "focus", "disabled"],
-      "accessibility": ["Exige label visível ou aria-label."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "input.background",
+        "input.border"
+      ],
+      "variants": [
+        "default",
+        "clearable"
+      ],
+      "states": [
+        "empty",
+        "filled",
+        "focus",
+        "disabled"
+      ],
+      "accessibility": [
+        "Exige label visível ou aria-label."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "SearchInput",
       "storybookId": "02-atoms-search-input--playground"
@@ -1277,7 +2002,11 @@
       "category": "form",
       "status": "stable",
       "description": "Campo de senha com alternância acessível de visibilidade.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "PasswordInput",
         "KbdProps",
@@ -1294,12 +2023,29 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["input.background", "input.border"],
-      "variants": ["hidden", "visible"],
-      "states": ["focus", "invalid", "disabled"],
-      "accessibility": ["Controle anuncia mostrar ou ocultar senha."],
-      "recipes": ["app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "input.background",
+        "input.border"
+      ],
+      "variants": [
+        "hidden",
+        "visible"
+      ],
+      "states": [
+        "focus",
+        "invalid",
+        "disabled"
+      ],
+      "accessibility": [
+        "Controle anuncia mostrar ou ocultar senha."
+      ],
+      "recipes": [
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "PasswordInput",
       "storybookId": "02-atoms-password-input--playground"
@@ -1311,7 +2057,11 @@
       "category": "form",
       "status": "stable",
       "description": "Entrada numérica com incremento, decremento e limites.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "NumberInput",
         "NumberInputProps",
@@ -1328,12 +2078,29 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["input.background", "input.border"],
-      "variants": ["controlled", "uncontrolled"],
-      "states": ["minimum", "maximum", "disabled"],
-      "accessibility": ["Botões descrevem a operação e respeitam limites."],
-      "recipes": ["app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "input.background",
+        "input.border"
+      ],
+      "variants": [
+        "controlled",
+        "uncontrolled"
+      ],
+      "states": [
+        "minimum",
+        "maximum",
+        "disabled"
+      ],
+      "accessibility": [
+        "Botões descrevem a operação e respeitam limites."
+      ],
+      "recipes": [
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "NumberInput",
       "storybookId": "02-atoms-number-input--playground"
@@ -1345,7 +2112,11 @@
       "category": "data-display",
       "status": "stable",
       "description": "Tendência compacta em SVG para métricas.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/Button.tsx", "src/components/utils.ts"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/Button.tsx",
+        "src/components/utils.ts"
+      ],
       "exports": [
         "Sparkline",
         "KbdProps",
@@ -1362,12 +2133,26 @@
         "IconButtonProps",
         "ButtonLinkProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "color.brand"],
-      "variants": ["secondary", "brand", "success"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.brand"
+      ],
+      "variants": [
+        "secondary",
+        "brand",
+        "success"
+      ],
       "states": [],
-      "accessibility": ["Exige descrição textual da tendência."],
-      "recipes": ["dashboard"],
+      "accessibility": [
+        "Exige descrição textual da tendência."
+      ],
+      "recipes": [
+        "dashboard"
+      ],
       "maturity": 9,
       "primaryExport": "Sparkline",
       "storybookId": "02-atoms-sparkline--playground"
@@ -1402,12 +2187,31 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.secondary-soft", "color.surface"],
-      "variants": ["default", "compact"],
-      "states": ["empty"],
-      "accessibility": ["Título explica o estado e a ação descreve a recuperação."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.secondary-soft",
+        "color.surface"
+      ],
+      "variants": [
+        "default",
+        "compact"
+      ],
+      "states": [
+        "empty"
+      ],
+      "accessibility": [
+        "Título explica o estado e a ação descreve a recuperação."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "EmptyState",
       "storybookId": "03-molecules-empty-state--playground"
@@ -1442,12 +2246,32 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.surface-raised", "shadow.md"],
-      "variants": ["start", "center", "end"],
-      "states": ["open", "closed"],
-      "accessibility": ["Foco e fechamento seguem o comportamento Radix."],
-      "recipes": ["app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.surface-raised",
+        "shadow.md"
+      ],
+      "variants": [
+        "start",
+        "center",
+        "end"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "accessibility": [
+        "Foco e fechamento seguem o comportamento Radix."
+      ],
+      "recipes": [
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Popover",
       "storybookId": "03-molecules-popover--playground"
@@ -1482,12 +2306,32 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["dialog.background", "dialog.shadow"],
-      "variants": ["left", "right"],
-      "states": ["open", "closed"],
-      "accessibility": ["Título é obrigatório; foco fica contido e retorna ao gatilho."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "dialog.background",
+        "dialog.shadow"
+      ],
+      "variants": [
+        "left",
+        "right"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "accessibility": [
+        "Título é obrigatório; foco fica contido e retorna ao gatilho."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Sheet",
       "storybookId": "03-molecules-sheet--playground"
@@ -1523,12 +2367,31 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.secondary", "color.border"],
-      "variants": ["horizontal", "vertical"],
-      "states": ["complete", "current", "upcoming"],
-      "accessibility": ["Etapa atual usa aria-current step e não depende somente de cor."],
-      "recipes": ["app"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.border"
+      ],
+      "variants": [
+        "horizontal",
+        "vertical"
+      ],
+      "states": [
+        "complete",
+        "current",
+        "upcoming"
+      ],
+      "accessibility": [
+        "Etapa atual usa aria-current step e não depende somente de cor."
+      ],
+      "recipes": [
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "Stepper",
       "storybookId": "03-molecules-stepper--playground"
@@ -1564,12 +2427,33 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["input.background", "color.secondary"],
-      "variants": ["single"],
-      "states": ["open", "closed", "selected", "empty", "disabled"],
-      "accessibility": ["Implementa combobox, listbox e option; teclado será coberto por testes de interação."],
-      "recipes": ["dashboard", "app"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "input.background",
+        "color.secondary"
+      ],
+      "variants": [
+        "single"
+      ],
+      "states": [
+        "open",
+        "closed",
+        "selected",
+        "empty",
+        "disabled"
+      ],
+      "accessibility": [
+        "Implementa combobox, listbox e option; teclado será coberto por testes de interação."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "Combobox",
       "storybookId": "03-molecules-combobox--playground"
@@ -1605,12 +2489,32 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.secondary", "dialog.shadow"],
-      "variants": ["dialog"],
-      "states": ["open", "searching", "empty"],
-      "accessibility": ["Busca recebe foco inicial; resultados são operáveis por teclado."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.secondary",
+        "dialog.shadow"
+      ],
+      "variants": [
+        "dialog"
+      ],
+      "states": [
+        "open",
+        "searching",
+        "empty"
+      ],
+      "accessibility": [
+        "Busca recebe foco inicial; resultados são operáveis por teclado."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "CommandPalette",
       "storybookId": "03-molecules-command-palette--playground"
@@ -1621,7 +2525,7 @@
       "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
-      "description": "Seleção de data baseada no controle nativo da plataforma.",
+      "description": "Seleção de data com trigger compacto e painel que fecha após a escolha.",
       "files": [
         "src/components/molecules/SaasMolecules.tsx",
         "src/components/Button.tsx",
@@ -1645,12 +2549,31 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["input.background", "input.border"],
-      "variants": ["date"],
-      "states": ["empty", "filled", "invalid", "disabled"],
-      "accessibility": ["Label é obrigatório e o controle preserva a semântica nativa."],
-      "recipes": ["app"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "input.background",
+        "input.border"
+      ],
+      "variants": [
+        "date"
+      ],
+      "states": [
+        "empty",
+        "filled",
+        "invalid",
+        "disabled"
+      ],
+      "accessibility": [
+        "Label é obrigatório e o controle preserva a semântica nativa."
+      ],
+      "recipes": [
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "DatePicker",
       "storybookId": "03-molecules-date-picker--playground"
@@ -1685,12 +2608,32 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.secondary", "color.surface"],
-      "variants": ["single", "multiple"],
-      "states": ["idle", "dragging", "disabled"],
-      "accessibility": ["O input nativo permanece disponível por teclado."],
-      "recipes": ["app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.surface"
+      ],
+      "variants": [
+        "single",
+        "multiple"
+      ],
+      "states": [
+        "idle",
+        "dragging",
+        "disabled"
+      ],
+      "accessibility": [
+        "O input nativo permanece disponível por teclado."
+      ],
+      "recipes": [
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "FileUpload",
       "storybookId": "03-molecules-file-upload--playground"
@@ -1726,12 +2669,34 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.secondary", "shadow.md"],
-      "variants": ["neutral", "success", "warning", "danger"],
-      "states": ["visible", "dismissed"],
-      "accessibility": ["Falhas usam alert; demais atualizações usam status."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.secondary",
+        "shadow.md"
+      ],
+      "variants": [
+        "neutral",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "states": [
+        "visible",
+        "dismissed"
+      ],
+      "accessibility": [
+        "Falhas usam alert; demais atualizações usam status."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Toast",
       "storybookId": "03-molecules-toast--playground"
@@ -1788,12 +2753,31 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["layout.container", "color.canvas", "color.border"],
-      "variants": ["with-sidebar", "without-sidebar"],
-      "states": ["desktop", "mobile"],
-      "accessibility": ["Conteúdo principal usa main e mantém ordem DOM previsível."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "layout.container",
+        "color.canvas",
+        "color.border"
+      ],
+      "variants": [
+        "with-sidebar",
+        "without-sidebar"
+      ],
+      "states": [
+        "desktop",
+        "mobile"
+      ],
+      "accessibility": [
+        "Conteúdo principal usa main e mantém ordem DOM previsível."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "AppShell",
       "storybookId": "04-organisms-app-shell--playground"
@@ -1853,12 +2837,33 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "color.secondary-soft", "color.surface"],
-      "variants": ["expanded", "collapsed"],
-      "states": ["active", "hover", "disabled", "mobile"],
-      "accessibility": ["Página atual usa aria-current e o controle anuncia expansão."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.secondary-soft",
+        "color.surface"
+      ],
+      "variants": [
+        "expanded",
+        "collapsed"
+      ],
+      "states": [
+        "active",
+        "hover",
+        "disabled",
+        "mobile"
+      ],
+      "accessibility": [
+        "Página atual usa aria-current e o controle anuncia expansão."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "Sidebar",
       "storybookId": "04-organisms-sidebar--playground"
@@ -1915,12 +2920,30 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["text.3xl", "color.secondary"],
-      "variants": ["simple", "with-actions", "with-breadcrumbs"],
-      "states": ["responsive"],
-      "accessibility": ["Use um único h1 no contexto da página."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "text.3xl",
+        "color.secondary"
+      ],
+      "variants": [
+        "simple",
+        "with-actions",
+        "with-breadcrumbs"
+      ],
+      "states": [
+        "responsive"
+      ],
+      "accessibility": [
+        "Use um único h1 no contexto da página."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "PageHeader",
       "storybookId": "04-organisms-page-header--playground"
@@ -1977,12 +3000,29 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "card.background"],
-      "variants": ["brand", "secondary", "success"],
-      "states": ["positive", "negative"],
-      "accessibility": ["Variação inclui sinal, número e contexto em texto."],
-      "recipes": ["dashboard"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "card.background"
+      ],
+      "variants": [
+        "brand",
+        "secondary",
+        "success"
+      ],
+      "states": [
+        "positive",
+        "negative"
+      ],
+      "accessibility": [
+        "Variação inclui sinal, número e contexto em texto."
+      ],
+      "recipes": [
+        "dashboard"
+      ],
       "maturity": 9,
       "primaryExport": "MetricCard",
       "storybookId": "04-organisms-metric-card--playground"
@@ -2040,12 +3080,31 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.border", "color.secondary-soft"],
-      "variants": ["default", "selectable", "sortable"],
-      "states": ["selected", "sorted", "empty"],
-      "accessibility": ["Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis."],
-      "recipes": ["dashboard", "app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.border",
+        "color.secondary-soft"
+      ],
+      "variants": [
+        "default",
+        "selectable",
+        "sortable"
+      ],
+      "states": [
+        "selected",
+        "sorted",
+        "empty"
+      ],
+      "accessibility": [
+        "Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "DataGrid",
       "storybookId": "04-organisms-data-grid--playground"
@@ -2102,12 +3161,30 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["input.background", "color.border"],
-      "variants": ["search-only", "with-filters", "with-actions"],
-      "states": ["empty", "filtered"],
-      "accessibility": ["Busca exige nome e filtros ativos podem ser removidos por teclado."],
-      "recipes": ["dashboard", "app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "input.background",
+        "color.border"
+      ],
+      "variants": [
+        "search-only",
+        "with-filters",
+        "with-actions"
+      ],
+      "states": [
+        "empty",
+        "filtered"
+      ],
+      "accessibility": [
+        "Busca exige nome e filtros ativos podem ser removidos por teclado."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "FilterBar",
       "storybookId": "04-organisms-filter-bar--playground"
@@ -2164,12 +3241,28 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.brand", "card.background"],
-      "variants": ["default", "highlighted"],
-      "states": ["hover"],
-      "accessibility": ["Preço, período, benefícios e ação são comunicados em texto."],
-      "recipes": ["landing-page", "app"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.brand",
+        "card.background"
+      ],
+      "variants": [
+        "default",
+        "highlighted"
+      ],
+      "states": [
+        "hover"
+      ],
+      "accessibility": [
+        "Preço, período, benefícios e ação são comunicados em texto."
+      ],
+      "recipes": [
+        "landing-page",
+        "app"
+      ],
       "maturity": 9,
       "primaryExport": "PricingCard",
       "storybookId": "04-organisms-pricing-card--playground"
@@ -2227,12 +3320,28 @@
         "HeadingProps",
         "TextProps"
       ],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.border", "color.secondary"],
-      "variants": ["default"],
-      "states": ["chronological"],
-      "accessibility": ["Usa lista ordenada e time com dateTime legível por máquina."],
-      "recipes": ["dashboard", "app", "agent-workspace"],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.border",
+        "color.secondary"
+      ],
+      "variants": [
+        "default"
+      ],
+      "states": [
+        "chronological"
+      ],
+      "accessibility": [
+        "Usa lista ordenada e time com dateTime legível por máquina."
+      ],
+      "recipes": [
+        "dashboard",
+        "app",
+        "agent-workspace"
+      ],
       "maturity": 9,
       "primaryExport": "ActivityFeed",
       "storybookId": "04-organisms-activity-feed--playground"
@@ -2244,17 +3353,37 @@
       "category": "foundation",
       "status": "stable",
       "description": "Região com rolagem contida e limite de altura para listas e painéis.",
-      "files": ["src/components/Layout.tsx", "src/components/utils.ts"],
-      "exports": ["ScrollArea", "ScrollAreaProps"],
-      "dependencies": ["react"],
-      "tokens": ["color.border"],
-      "variants": ["vertical", "horizontal", "both"],
-      "states": ["default", "focus-visible"],
+      "files": [
+        "src/components/Layout.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "ScrollArea",
+        "ScrollAreaProps"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "tokens": [
+        "color.border"
+      ],
+      "variants": [
+        "vertical",
+        "horizontal",
+        "both"
+      ],
+      "states": [
+        "default",
+        "focus-visible"
+      ],
       "accessibility": [
         "A região de rolagem é focável por teclado (tabIndex 0) para satisfazer WCAG 2.1.1.",
         "Use aria-label ou aria-labelledby; o componente aplica role=region quando rotulada."
       ],
-      "recipes": ["app", "dashboard"],
+      "recipes": [
+        "app",
+        "dashboard"
+      ],
       "maturity": 8,
       "primaryExport": "ScrollArea",
       "storybookId": "01-foundations-scroll-area--playground"
@@ -2266,14 +3395,33 @@
       "category": "foundation",
       "status": "stable",
       "description": "Mantém a proporção de mídia e incorporações de forma responsiva.",
-      "files": ["src/components/Layout.tsx", "src/components/utils.ts"],
-      "exports": ["AspectRatio", "AspectRatioProps"],
-      "dependencies": ["react"],
-      "tokens": ["radius.lg"],
-      "variants": ["widescreen", "standard", "square"],
+      "files": [
+        "src/components/Layout.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "AspectRatio",
+        "AspectRatioProps"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "tokens": [
+        "radius.lg"
+      ],
+      "variants": [
+        "widescreen",
+        "standard",
+        "square"
+      ],
       "states": [],
-      "accessibility": ["Mídia incorporada mantém texto alternativo ou título acessível."],
-      "recipes": ["landing-page", "app"],
+      "accessibility": [
+        "Mídia incorporada mantém texto alternativo ou título acessível."
+      ],
+      "recipes": [
+        "landing-page",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "AspectRatio",
       "storybookId": "01-foundations-aspect-ratio--playground"
@@ -2285,14 +3433,35 @@
       "category": "data-display",
       "status": "stable",
       "description": "Rótulo semântico compacto, opcionalmente removível, para categorização.",
-      "files": ["src/components/atoms/SaasAtoms.tsx", "src/components/utils.ts"],
-      "exports": ["Tag", "TagProps"],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.secondary", "color.secondary-soft"],
-      "variants": ["neutral", "brand", "purple"],
+      "files": [
+        "src/components/atoms/SaasAtoms.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "Tag",
+        "TagProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.secondary-soft"
+      ],
+      "variants": [
+        "neutral",
+        "brand",
+        "purple"
+      ],
       "states": [],
-      "accessibility": ["A remoção expõe um nome acessível com o rótulo da tag."],
-      "recipes": ["dashboard", "app"],
+      "accessibility": [
+        "A remoção expõe um nome acessível com o rótulo da tag."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "Tag",
       "storybookId": "02-atoms-tag--playground"
@@ -2304,14 +3473,35 @@
       "category": "data-display",
       "status": "stable",
       "description": "Lista de termos e definições para metadados e resumos chave-valor.",
-      "files": ["src/components/DataDisplay.tsx", "src/components/utils.ts"],
-      "exports": ["DescriptionList", "DescriptionListItem", "DescriptionListProps"],
-      "dependencies": ["lucide-react", "react"],
-      "tokens": ["color.text-muted", "color.text"],
-      "variants": ["stacked", "inline"],
+      "files": [
+        "src/components/DataDisplay.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "DescriptionList",
+        "DescriptionListItem",
+        "DescriptionListProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "tokens": [
+        "color.text-muted",
+        "color.text"
+      ],
+      "variants": [
+        "stacked",
+        "inline"
+      ],
       "states": [],
-      "accessibility": ["Use dt para o termo e dd para a definição; não substitua por tabela."],
-      "recipes": ["dashboard", "app"],
+      "accessibility": [
+        "Use dt para o termo e dd para a definição; não substitua por tabela."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "DescriptionList",
       "storybookId": "03-molecules-description-list--playground"
@@ -2323,14 +3513,36 @@
       "category": "overlay",
       "status": "stable",
       "description": "Prévia contextual não modal exibida ao focar ou apontar um gatilho.",
-      "files": ["src/components/Overlays.tsx"],
-      "exports": ["HoverCard", "HoverCardProps"],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.surface-raised", "color.border"],
-      "variants": ["inline"],
-      "states": ["open", "closed"],
-      "accessibility": ["Não coloque informação essencial apenas no hover; garanta acesso por teclado."],
-      "recipes": ["app", "dashboard"],
+      "files": [
+        "src/components/Overlays.tsx"
+      ],
+      "exports": [
+        "HoverCard",
+        "HoverCardProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react"
+      ],
+      "tokens": [
+        "color.surface-raised",
+        "color.border"
+      ],
+      "variants": [
+        "inline"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "accessibility": [
+        "Não coloque informação essencial apenas no hover; garanta acesso por teclado."
+      ],
+      "recipes": [
+        "app",
+        "dashboard"
+      ],
       "maturity": 8,
       "primaryExport": "HoverCard",
       "storybookId": "03-molecules-hover-card--playground"
@@ -2342,14 +3554,37 @@
       "category": "overlay",
       "status": "stable",
       "description": "Ações contextuais acionadas por clique direito sobre um alvo.",
-      "files": ["src/components/Overlays.tsx"],
-      "exports": ["ContextMenu", "ContextMenuOption", "ContextMenuProps"],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.border", "color.surface-raised"],
-      "variants": ["default"],
-      "states": ["open", "closed"],
-      "accessibility": ["Ofereça uma alternativa acessível por teclado às ações do menu de contexto."],
-      "recipes": ["app", "dashboard"],
+      "files": [
+        "src/components/Overlays.tsx"
+      ],
+      "exports": [
+        "ContextMenu",
+        "ContextMenuOption",
+        "ContextMenuProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react"
+      ],
+      "tokens": [
+        "color.border",
+        "color.surface-raised"
+      ],
+      "variants": [
+        "default"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "accessibility": [
+        "Ofereça uma alternativa acessível por teclado às ações do menu de contexto."
+      ],
+      "recipes": [
+        "app",
+        "dashboard"
+      ],
       "maturity": 7,
       "primaryExport": "ContextMenu",
       "storybookId": "03-molecules-context-menu--playground"
@@ -2361,14 +3596,36 @@
       "category": "overlay",
       "status": "stable",
       "description": "Disclosure único que mostra ou oculta uma região de conteúdo.",
-      "files": ["src/components/Overlays.tsx"],
-      "exports": ["Collapsible", "CollapsibleProps"],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.border", "color.text"],
-      "variants": ["default"],
-      "states": ["open", "closed"],
-      "accessibility": ["O gatilho comunica o estado expandido e controla a região de conteúdo."],
-      "recipes": ["app", "dashboard"],
+      "files": [
+        "src/components/Overlays.tsx"
+      ],
+      "exports": [
+        "Collapsible",
+        "CollapsibleProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react"
+      ],
+      "tokens": [
+        "color.border",
+        "color.text"
+      ],
+      "variants": [
+        "default"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "accessibility": [
+        "O gatilho comunica o estado expandido e controla a região de conteúdo."
+      ],
+      "recipes": [
+        "app",
+        "dashboard"
+      ],
       "maturity": 8,
       "primaryExport": "Collapsible",
       "storybookId": "03-molecules-collapsible--playground"
@@ -2380,14 +3637,40 @@
       "category": "form",
       "status": "stable",
       "description": "Seleção pesquisável de múltiplos valores com tags removíveis.",
-      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/utils.ts"],
-      "exports": ["MultiSelect", "MultiSelectProps"],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.secondary", "color.border"],
-      "variants": ["default"],
-      "states": ["open", "closed", "selected", "empty"],
-      "accessibility": ["Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível."],
-      "recipes": ["dashboard", "app"],
+      "files": [
+        "src/components/molecules/SaasMolecules.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "MultiSelect",
+        "MultiSelectProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.secondary",
+        "color.border"
+      ],
+      "variants": [
+        "default"
+      ],
+      "states": [
+        "open",
+        "closed",
+        "selected",
+        "empty"
+      ],
+      "accessibility": [
+        "Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível."
+      ],
+      "recipes": [
+        "dashboard",
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "MultiSelect",
       "storybookId": "03-molecules-multi-select--playground"
@@ -2399,14 +3682,40 @@
       "category": "form",
       "status": "stable",
       "description": "Seleção de intervalo com datas de início e fim baseadas no controle nativo.",
-      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/utils.ts"],
-      "exports": ["DateRangePicker", "DateRangePickerProps"],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.border", "color.secondary"],
-      "variants": ["range"],
-      "states": ["empty", "filled", "invalid", "disabled"],
-      "accessibility": ["Cada campo do intervalo mantém rótulo próprio de início e fim."],
-      "recipes": ["app", "dashboard"],
+      "files": [
+        "src/components/molecules/SaasMolecules.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "DateRangePicker",
+        "DateRangePickerProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.border",
+        "color.secondary"
+      ],
+      "variants": [
+        "range"
+      ],
+      "states": [
+        "empty",
+        "filled",
+        "invalid",
+        "disabled"
+      ],
+      "accessibility": [
+        "Cada campo do intervalo mantém rótulo próprio de início e fim."
+      ],
+      "recipes": [
+        "app",
+        "dashboard"
+      ],
       "maturity": 8,
       "primaryExport": "DateRangePicker",
       "storybookId": "03-molecules-date-range-picker--playground"
@@ -2418,14 +3727,39 @@
       "category": "form",
       "status": "stable",
       "description": "Seleção de horário baseada no controle nativo da plataforma.",
-      "files": ["src/components/molecules/SaasMolecules.tsx", "src/components/utils.ts"],
-      "exports": ["TimePicker", "TimePickerProps"],
-      "dependencies": ["lucide-react", "radix-ui", "react"],
-      "tokens": ["color.border", "color.secondary"],
-      "variants": ["time"],
-      "states": ["empty", "filled", "invalid", "disabled"],
-      "accessibility": ["Label é obrigatório e o controle preserva a semântica nativa de horário."],
-      "recipes": ["app"],
+      "files": [
+        "src/components/molecules/SaasMolecules.tsx",
+        "src/components/utils.ts"
+      ],
+      "exports": [
+        "TimePicker",
+        "TimePickerProps"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "react-dom"
+      ],
+      "tokens": [
+        "color.border",
+        "color.secondary"
+      ],
+      "variants": [
+        "time"
+      ],
+      "states": [
+        "empty",
+        "filled",
+        "invalid",
+        "disabled"
+      ],
+      "accessibility": [
+        "Label é obrigatório e o controle preserva a semântica nativa de horário."
+      ],
+      "recipes": [
+        "app"
+      ],
       "maturity": 8,
       "primaryExport": "TimePicker",
       "storybookId": "03-molecules-time-picker--playground"
@@ -2436,42 +3770,59 @@
       "id": "landing-page",
       "label": "Landing page",
       "file": "recipes/landing-page.json",
-      "platforms": ["react", "claude-artifact"],
+      "platforms": [
+        "react",
+        "claude-artifact"
+      ],
       "starter": "packages/artifact-kit/starters/landing-page.tsx"
     },
     {
       "id": "dashboard",
       "label": "Dashboard",
       "file": "recipes/dashboard.json",
-      "platforms": ["react", "claude-artifact"],
+      "platforms": [
+        "react",
+        "claude-artifact"
+      ],
       "starter": "packages/artifact-kit/starters/dashboard.tsx"
     },
     {
       "id": "app",
       "label": "Product app",
       "file": "recipes/app.json",
-      "platforms": ["react", "claude-artifact"],
+      "platforms": [
+        "react",
+        "claude-artifact"
+      ],
       "starter": "packages/artifact-kit/starters/app.tsx"
     },
     {
       "id": "slides",
       "label": "Slides",
       "file": "recipes/slides.json",
-      "platforms": ["react", "slides"],
+      "platforms": [
+        "react",
+        "slides"
+      ],
       "starter": "packages/artifact-kit/starters/slides.tsx"
     },
     {
       "id": "agent-workspace",
       "label": "Agent workspace",
       "file": "recipes/agent-workspace.json",
-      "platforms": ["react", "claude-artifact"],
+      "platforms": [
+        "react",
+        "claude-artifact"
+      ],
       "starter": "packages/artifact-kit/starters/agent-workspace.tsx"
     },
     {
       "id": "artifact",
       "label": "Claude Artifact",
       "file": "recipes/artifact.json",
-      "platforms": ["claude-artifact"],
+      "platforms": [
+        "claude-artifact"
+      ],
       "starter": "packages/artifact-kit/starters/artifact.tsx"
     }
   ],

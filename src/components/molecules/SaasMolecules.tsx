@@ -423,9 +423,7 @@ export function DatePicker({
   const [open, setOpen] = useState(false);
   const [local, setLocal] = useState(typeof defaultValue === 'string' ? defaultValue : '');
   const current = typeof value === 'string' ? value : local;
-  const display = current
-    ? new Date(`${current}T00:00:00`).toLocaleDateString('pt-BR')
-    : placeholder;
+  const display = current ? new Date(`${current}T00:00:00`).toLocaleDateString('pt-BR') : placeholder;
   return (
     <div className={cx('ibs-date-picker', className)}>
       <span id={`${id}-label`}>{label}</span>

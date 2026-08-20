@@ -528,7 +528,7 @@ export const darkDesignTokens: {
         readonly "approval-accent": "#c9c2eb";
         readonly "control-selected": "#f2703e";
         readonly "control-selected-hover": "#f47f59";
-        readonly "control-indicator": "#252527";
+        readonly "control-indicator": "#ffffff";
         readonly overlay: "rgb(13 13 14 / 64%)";
         readonly "agent-thinking": "#c9c2eb";
         readonly "agent-running": "#f7a487";
@@ -829,7 +829,7 @@ export const darkDesignTokens: {
         readonly background: "#3d3d40";
         readonly border: "#7d7d82";
         readonly selected: "#f2703e";
-        readonly indicator: "#252527";
+        readonly indicator: "#ffffff";
     };
     readonly alert: {
         readonly background: "#3d3d40";
@@ -1138,7 +1138,7 @@ export const darkFlatTokens: {
     readonly "color.approval-accent": "#c9c2eb";
     readonly "color.control-selected": "#f2703e";
     readonly "color.control-selected-hover": "#f47f59";
-    readonly "color.control-indicator": "#252527";
+    readonly "color.control-indicator": "#ffffff";
     readonly "color.overlay": "rgb(13 13 14 / 64%)";
     readonly "color.agent-thinking": "#c9c2eb";
     readonly "color.agent-running": "#f7a487";
@@ -1227,7 +1227,7 @@ export const darkFlatTokens: {
     readonly "choice-control.background": "#3d3d40";
     readonly "choice-control.border": "#7d7d82";
     readonly "choice-control.selected": "#f2703e";
-    readonly "choice-control.indicator": "#252527";
+    readonly "choice-control.indicator": "#ffffff";
     readonly "alert.background": "#3d3d40";
     readonly "alert.border": "#555559";
     readonly "alert.radius": {
@@ -1325,6 +1325,7 @@ export type DataTableProps = Parameters<typeof DataTable>[0];
 export function DatePicker(input: InputHTMLAttributes<HTMLInputElement> & {
     label: string;
     hint?: string;
+    placeholder?: string;
 }): JSX.Element;
 
 // @public (undocumented)
@@ -1441,7 +1442,7 @@ export const designTokens: {
         readonly "approval-accent": "#483c8f";
         readonly "control-selected": "#f2703e";
         readonly "control-selected-hover": "#f47f59";
-        readonly "control-indicator": "#252527";
+        readonly "control-indicator": "#ffffff";
         readonly overlay: "rgb(13 13 14 / 64%)";
         readonly "agent-thinking": "#483c8f";
         readonly "agent-running": "#c94b1e";
@@ -1742,7 +1743,7 @@ export const designTokens: {
         readonly background: "#ffffff";
         readonly border: "#a8a29e";
         readonly selected: "#f2703e";
-        readonly indicator: "#252527";
+        readonly indicator: "#ffffff";
     };
     readonly alert: {
         readonly background: "#ffffff";
@@ -2140,7 +2141,7 @@ export const flatTokens: {
     readonly "color.approval-accent": "#483c8f";
     readonly "color.control-selected": "#f2703e";
     readonly "color.control-selected-hover": "#f47f59";
-    readonly "color.control-indicator": "#252527";
+    readonly "color.control-indicator": "#ffffff";
     readonly "color.overlay": "rgb(13 13 14 / 64%)";
     readonly "color.agent-thinking": "#483c8f";
     readonly "color.agent-running": "#c94b1e";
@@ -2229,7 +2230,7 @@ export const flatTokens: {
     readonly "choice-control.background": "#ffffff";
     readonly "choice-control.border": "#a8a29e";
     readonly "choice-control.selected": "#f2703e";
-    readonly "choice-control.indicator": "#252527";
+    readonly "choice-control.indicator": "#ffffff";
     readonly "alert.background": "#ffffff";
     readonly "alert.border": "#e7e3e0";
     readonly "alert.radius": {
@@ -4138,9 +4139,9 @@ export const tokenCatalog: readonly [{
 }, {
     readonly path: "color.control-indicator";
     readonly type: "color";
-    readonly reference: "{color.neutral.900}";
-    readonly light: "#252527";
-    readonly dark: "#252527";
+    readonly reference: "{color.neutral.0}";
+    readonly light: "#ffffff";
+    readonly dark: "#ffffff";
 }, {
     readonly path: "color.overlay";
     readonly type: "string";
@@ -4550,8 +4551,8 @@ export const tokenCatalog: readonly [{
     readonly path: "choice-control.indicator";
     readonly type: "color";
     readonly reference: "{color.control-indicator}";
-    readonly light: "#252527";
-    readonly dark: "#252527";
+    readonly light: "#ffffff";
+    readonly dark: "#ffffff";
 }, {
     readonly path: "alert.background";
     readonly type: "color";

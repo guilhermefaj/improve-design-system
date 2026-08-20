@@ -27,8 +27,8 @@
   color: var(--ibs-color-secondary);
 }
 .ibs-empty-state__icon svg {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.4rem;
+  height: 1.4rem;
   stroke-width: 2.25;
 }
 .ibs-empty-state .ibs-heading,
