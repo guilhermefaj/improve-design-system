@@ -79,7 +79,7 @@ export const designTokens = {
     "approval-accent": "#483c8f",
     "control-selected": "#f2703e",
     "control-selected-hover": "#f47f59",
-    "control-indicator": "#252527",
+    "control-indicator": "#ffffff",
     "overlay": "rgb(13 13 14 / 64%)",
     "agent-thinking": "#483c8f",
     "agent-running": "#c94b1e",
@@ -380,7 +380,7 @@ export const designTokens = {
     "background": "#ffffff",
     "border": "#a8a29e",
     "selected": "#f2703e",
-    "indicator": "#252527"
+    "indicator": "#ffffff"
   },
   "alert": {
     "background": "#ffffff",
@@ -539,7 +539,7 @@ export const darkDesignTokens = {
     "approval-accent": "#c9c2eb",
     "control-selected": "#f2703e",
     "control-selected-hover": "#f47f59",
-    "control-indicator": "#252527",
+    "control-indicator": "#ffffff",
     "overlay": "rgb(13 13 14 / 64%)",
     "agent-thinking": "#c9c2eb",
     "agent-running": "#f7a487",
@@ -840,7 +840,7 @@ export const darkDesignTokens = {
     "background": "#3d3d40",
     "border": "#7d7d82",
     "selected": "#f2703e",
-    "indicator": "#252527"
+    "indicator": "#ffffff"
   },
   "alert": {
     "background": "#3d3d40",
@@ -1148,7 +1148,7 @@ export const flatTokens = {
   "color.approval-accent": "#483c8f",
   "color.control-selected": "#f2703e",
   "color.control-selected-hover": "#f47f59",
-  "color.control-indicator": "#252527",
+  "color.control-indicator": "#ffffff",
   "color.overlay": "rgb(13 13 14 / 64%)",
   "color.agent-thinking": "#483c8f",
   "color.agent-running": "#c94b1e",
@@ -1237,7 +1237,7 @@ export const flatTokens = {
   "choice-control.background": "#ffffff",
   "choice-control.border": "#a8a29e",
   "choice-control.selected": "#f2703e",
-  "choice-control.indicator": "#252527",
+  "choice-control.indicator": "#ffffff",
   "alert.background": "#ffffff",
   "alert.border": "#e7e3e0",
   "alert.radius": {
@@ -1526,7 +1526,7 @@ export const darkFlatTokens = {
   "color.approval-accent": "#c9c2eb",
   "color.control-selected": "#f2703e",
   "color.control-selected-hover": "#f47f59",
-  "color.control-indicator": "#252527",
+  "color.control-indicator": "#ffffff",
   "color.overlay": "rgb(13 13 14 / 64%)",
   "color.agent-thinking": "#c9c2eb",
   "color.agent-running": "#f7a487",
@@ -1615,7 +1615,7 @@ export const darkFlatTokens = {
   "choice-control.background": "#3d3d40",
   "choice-control.border": "#7d7d82",
   "choice-control.selected": "#f2703e",
-  "choice-control.indicator": "#252527",
+  "choice-control.indicator": "#ffffff",
   "alert.background": "#3d3d40",
   "alert.border": "#555559",
   "alert.radius": {
@@ -2915,9 +2915,9 @@ export const tokenCatalog = [
   {
     "path": "color.control-indicator",
     "type": "color",
-    "reference": "{color.neutral.900}",
-    "light": "#252527",
-    "dark": "#252527"
+    "reference": "{color.neutral.0}",
+    "light": "#ffffff",
+    "dark": "#ffffff"
   },
   {
     "path": "color.overlay",
@@ -3383,8 +3383,8 @@ export const tokenCatalog = [
     "path": "choice-control.indicator",
     "type": "color",
     "reference": "{color.control-indicator}",
-    "light": "#252527",
-    "dark": "#252527"
+    "light": "#ffffff",
+    "dark": "#ffffff"
   },
   {
     "path": "alert.background",

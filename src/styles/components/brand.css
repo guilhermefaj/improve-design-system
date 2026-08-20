@@ -88,8 +88,18 @@
   color: var(--ibs-marketing-card-foreground);
 }
 .ibs-feature-card__icon {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ibs-color-secondary-soft);
+  color: var(--ibs-color-secondary);
+}
+.ibs-feature-card__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  stroke-width: 2.25;
 }
 .ibs-feature-card__link {
   display: inline-flex;

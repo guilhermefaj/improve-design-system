@@ -67,7 +67,7 @@ export function Hero({ eyebrow, title, titleLevel = 1, description, primaryActio
               {primaryAction.label}
             </ButtonLink>
             {secondaryAction && (
-              <ButtonLink href={secondaryAction.href} variant="ghost" size="lg">
+              <ButtonLink href={secondaryAction.href} variant="outline" size="lg">
                 {secondaryAction.label}
               </ButtonLink>
             )}
@@ -89,7 +89,9 @@ export function FeatureCard({
   return (
     <article className={`ibs-feature-card ibs-motion--${motion}`}>
       <Stack gap={6}>
-        {icon}
+        <span className="ibs-feature-card__icon" aria-hidden="true">
+          {icon}
+        </span>
         <div>
           <Heading level={3} size={4}>
             {title}

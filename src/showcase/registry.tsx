@@ -247,16 +247,21 @@ export function FoundationsCatalog() {
         <SpecimenPanel title="Tipografia">
           <Stack gap={5}>
             <Heading level={4} size={1}>
-              Display 01
+              Lorem Ipsum Dolor Sit Amet
             </Heading>
             <Heading level={4} size={2}>
-              Heading 02
+              Quick Brown Fox Jumps
             </Heading>
             <Heading level={4} size={3}>
-              Heading 03
+              Pack my box with five dozen liquor jugs
             </Heading>
-            <Text size="lg">Inter organiza interfaces, conteúdo e decisões.</Text>
-            <Text tone="muted">Tracking menos comprimido melhora a leitura sem perder personalidade.</Text>
+            <Text size="lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+              et dolore magna aliqua. Quisque vitae justo velit.
+            </Text>
+            <Text tone="muted">
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 — áéíóú çãõ ÂÊÔ.
+            </Text>
           </Stack>
         </SpecimenPanel>
         <SpecimenPanel title="Espaçamento 4–128 px">
@@ -506,7 +511,9 @@ export function CoreMoleculesCatalog() {
               </Stack>
             </HoverCard>
             <ContextMenu items={[{ label: 'Renomear' }, { label: 'Duplicar' }, { label: 'Arquivar' }]}>
-              <Button variant="outline">Clique com o botão direito</Button>
+              <Text size="sm" tone="muted" style={{ cursor: 'context-menu', userSelect: 'none' }}>
+                * Clique com o botão direito para ver as opções
+              </Text>
             </ContextMenu>
           </Cluster>
           <Collapsible label="Detalhes técnicos" defaultOpen>
@@ -532,6 +539,7 @@ export function CoreCatalog() {
 export function AtomCatalog() {
   const [segment, setSegment] = useState('month');
   const [selected, setSelected] = useState(true);
+  const [search, setSearch] = useState('Acme');
   return (
     <Stack gap={7}>
       <ButtonGroup>
@@ -573,7 +581,13 @@ export function AtomCatalog() {
         ]}
       />
       <Grid columns={2}>
-        <SearchInput aria-label="Buscar clientes" placeholder="Buscar clientes" />
+        <SearchInput
+          aria-label="Buscar clientes"
+          placeholder="Buscar clientes"
+          value={search}
+          onChange={(event) => setSearch(event.currentTarget.value)}
+          onClear={() => setSearch('')}
+        />
         <PasswordInput aria-label="Senha" placeholder="Sua senha" />
         <NumberInput label="Licenças" min={1} max={100} defaultValue={12} />
         <Slider label="Automação" defaultValue={62} valueLabel={(value) => `${value}%`} />
@@ -900,7 +914,7 @@ const customers: Customer[] = [
 const customerColumns: DataGridColumn<Customer>[] = [
   { id: 'name', header: 'Cliente', cell: (row) => <strong>{row.name}</strong>, sortValue: (row) => row.name },
   { id: 'plan', header: 'Plano', cell: (row) => row.plan },
-  { id: 'users', header: 'Usuários', cell: (row) => row.users, align: 'end' },
+  { id: 'users', header: 'Usuários', cell: (row) => row.users, align: 'center' },
   { id: 'status', header: 'Status', cell: (row) => <Badge tone="success">{row.status}</Badge> },
 ];
 export function OrganismCatalog() {

@@ -22,12 +22,14 @@
   height: 3rem;
   display: grid;
   place-items: center;
-  border-radius: var(--ibs-radius-lg);
+  border-radius: 50%;
   background: var(--ibs-color-secondary-soft);
   color: var(--ibs-color-secondary);
 }
 .ibs-empty-state__icon svg {
-  width: 1.4rem;
+  width: 1.45rem;
+  height: 1.45rem;
+  stroke-width: 2.25;
 }
 .ibs-empty-state .ibs-heading,
 .ibs-empty-state .ibs-text {
@@ -230,11 +232,17 @@
   overflow: auto;
   margin: 0;
   padding: var(--ibs-space-2);
-  border: 1px solid var(--ibs-color-border);
+  border: 1px solid var(--ibs-color-border-strong);
   border-radius: var(--ibs-radius-md);
   background: var(--ibs-color-surface-raised);
-  box-shadow: var(--ibs-shadow-md);
+  box-shadow: var(--ibs-shadow-lg);
   list-style: none;
+}
+.ibs-combobox__list--floating {
+  position: fixed;
+  top: auto;
+  width: auto;
+  max-width: min(28rem, calc(100vw - 1rem));
 }
 .ibs-combobox__list button {
   width: 100%;
@@ -358,25 +366,53 @@
   font-size: var(--ibs-text-sm);
   font-weight: var(--ibs-font-weight-semibold);
 }
-.ibs-date-picker__control {
+.ibs-date-picker__trigger {
   display: flex;
   align-items: center;
   gap: var(--ibs-space-2);
+  min-height: var(--ibs-control-md);
   padding: 0 var(--ibs-space-3);
+  border: 1px solid var(--ibs-saas-control-border);
+  border-radius: var(--ibs-saas-control-radius);
+  background: var(--ibs-saas-control-background);
+  color: var(--ibs-color-text);
+  font: inherit;
+  font-size: var(--ibs-text-md, 1rem);
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+}
+.ibs-date-picker__trigger[data-placeholder='true'] {
+  color: var(--ibs-color-text-subtle);
+}
+.ibs-date-picker__trigger:focus-visible {
+  border-color: var(--ibs-color-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ibs-color-focus) 18%, transparent);
+  outline: none;
+}
+.ibs-date-picker__trigger svg {
+  width: 1.05rem;
+  flex: none;
+  color: var(--ibs-color-secondary);
+}
+.ibs-date-picker__panel {
+  z-index: var(--ibs-z-dropdown);
+  display: grid;
+  gap: var(--ibs-space-2);
+  padding: var(--ibs-space-3);
   border: 1px solid var(--ibs-color-border-strong);
   border-radius: var(--ibs-radius-md);
   background: var(--ibs-color-surface-raised);
+  box-shadow: var(--ibs-shadow-lg);
 }
-.ibs-date-picker__control svg {
-  width: 1.05rem;
-  color: var(--ibs-color-secondary);
-}
-.ibs-date-picker input {
+.ibs-date-picker__panel input {
   min-height: var(--ibs-control-md);
-  border: 0;
-  outline: 0;
-  background: transparent;
+  border: 1px solid var(--ibs-color-border);
+  border-radius: var(--ibs-radius-sm);
+  background: var(--ibs-color-surface-raised);
   color: var(--ibs-color-text);
+  padding: 0 var(--ibs-space-3);
+  font: inherit;
 }
 .ibs-date-picker small {
   color: var(--ibs-color-text-muted);

@@ -305,16 +305,20 @@
 }
 .ibs-pricing-card__price {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--ibs-space-2);
   margin: var(--ibs-space-3) 0 0;
 }
 .ibs-pricing-card__price strong {
   font-size: var(--ibs-text-3xl);
   letter-spacing: var(--ibs-tracking-metric);
+  line-height: 1;
 }
 .ibs-pricing-card__price span {
   color: var(--ibs-color-text-muted);
+  font-size: var(--ibs-text-sm);
+  line-height: 1;
+  align-self: center;
 }
 .ibs-pricing-card ul {
   display: grid;
