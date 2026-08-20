@@ -22,9 +22,9 @@ Use `-p` e aspas: no zsh, `#` comenta o resto da linha; sem `-p`, o npm procura 
 <!-- generated:versioned-commands:start -->
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds init
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds add app-shell sidebar data-grid
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds doctor
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds init
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds add app-shell sidebar data-grid
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds doctor
 ```
 
 <!-- generated:versioned-commands:end -->
@@ -57,7 +57,7 @@ Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold qu
 O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds list --level atom --json
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds list --level atom --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -125,9 +125,9 @@ A v1.0 trata o catálogo **stable** como contrato de produto. Permanecem **beta*
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds list --json
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds inspect data-grid --json
-npx -p "github:guilhermefaj/improve-design-system#v1.0.0" improve-ds artifact --recipe dashboard
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds list --json
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds inspect data-grid --json
+npx -p "github:guilhermefaj/improve-design-system#v1.0.1" improve-ds artifact --recipe dashboard
 ```
 
 ## Temas

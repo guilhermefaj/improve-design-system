@@ -73,7 +73,7 @@ export function Checkbox({
     <label className="ibs-choice-row" htmlFor={inputId}>
       <CheckboxPrimitive.Root id={inputId} className="ibs-checkbox" {...props}>
         <CheckboxPrimitive.Indicator>
-          <Check aria-hidden="true" strokeWidth={3} />
+          <Check aria-hidden="true" strokeWidth={2.75} />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       <span>{label}</span>
@@ -98,9 +98,7 @@ export function RadioSet({
           const id = `${groupId}-${option.value}`;
           return (
             <label className="ibs-choice-row" htmlFor={id} key={option.value}>
-              <RadioGroup.Item className="ibs-radio" id={id} value={option.value}>
-                <RadioGroup.Indicator className="ibs-radio__indicator" />
-              </RadioGroup.Item>
+              <RadioGroup.Item className="ibs-radio" id={id} value={option.value} />
               <span>{option.label}</span>
             </label>
           );

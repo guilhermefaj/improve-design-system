@@ -20,7 +20,7 @@
     "approval-accent": { "$type": "color", "$value": "#c9c2eb" },
     "control-selected": { "$type": "color", "$value": "{color.orange.500}" },
     "control-selected-hover": { "$type": "color", "$value": "{color.orange.400}" },
-    "control-indicator": { "$type": "color", "$value": "#252527" },
+    "control-indicator": { "$type": "color", "$value": "{color.neutral.0}" },
     "agent-thinking": { "$type": "color", "$value": "#c9c2eb" },
     "agent-running": { "$type": "color", "$value": "#f7a487" },
     "agent-awaiting": { "$type": "color", "$value": "#c9c2eb" },

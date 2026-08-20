@@ -1,5 +1,6 @@
-import { useId, useMemo, useState } from 'react';
-import type { DragEvent, HTMLAttributes, InputHTMLAttributes, ReactNode } from 'react';
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import type { CSSProperties, DragEvent, HTMLAttributes, InputHTMLAttributes, ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import {
   CalendarDays,
   CalendarRange,
@@ -16,6 +17,56 @@ import { Dialog as DialogPrimitive, Popover as PopoverPrimitive } from 'radix-ui
 import { IconButton } from '../Button';
 import { Heading, Text } from '../Typography';
 import { cx } from '../utils';
+
+type FloatingCoords = { top: number; left: number; width: number; maxHeight: number };
+
+function useFloatingList(open: boolean, onClose: () => void) {
+  const controlRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  const [coords, setCoords] = useState<FloatingCoords | null>(null);
+
+  useLayoutEffect(() => {
+    if (!open || !controlRef.current) {
+      setCoords(null);
+      return;
+    }
+    const update = () => {
+      const rect = controlRef.current!.getBoundingClientRect();
+      const gutter = 8;
+      const spaceBelow = window.innerHeight - rect.bottom - gutter;
+      const spaceAbove = rect.top - gutter;
+      const preferred = Math.min(18 * 16, spaceBelow > 120 ? spaceBelow : Math.max(spaceAbove, spaceBelow));
+      const flip = spaceBelow < 160 && spaceAbove > spaceBelow;
+      const top = flip ? Math.max(gutter, rect.top - preferred - gutter) : rect.bottom + gutter;
+      setCoords({
+        top,
+        left: Math.min(rect.left, window.innerWidth - rect.width - gutter),
+        width: rect.width,
+        maxHeight: preferred,
+      });
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, true);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update, true);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (controlRef.current?.contains(target) || listRef.current?.contains(target)) return;
+      onClose();
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    return () => document.removeEventListener('mousedown', onPointerDown);
+  }, [open, onClose]);
+
+  return { controlRef, listRef, coords };
+}
 
 export function EmptyState({
   icon = <Inbox />,
@@ -170,6 +221,7 @@ export function Combobox({
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { controlRef, listRef, coords } = useFloatingList(open, () => setOpen(false));
   const selected = options.find((item) => item.value === value);
   const filtered = useMemo(
     () => options.filter((item) => item.label.toLocaleLowerCase().includes(query.toLocaleLowerCase())),
@@ -188,12 +240,50 @@ export function Combobox({
     while (filtered[next]?.disabled && next !== activeIndex);
     setActiveIndex(next);
   };
+  const listStyle: CSSProperties | undefined = coords
+    ? { top: coords.top, left: coords.left, width: coords.width, maxHeight: coords.maxHeight }
+    : undefined;
+  const list = open ? (
+    <ul
+      ref={listRef}
+      id={`${id}-list`}
+      className="ibs-combobox__list ibs-combobox__list--floating"
+      role="listbox"
+      style={listStyle}
+    >
+      {filtered.length ? (
+        filtered.map((item, index) => (
+          <li key={item.value} role="none" onMouseDown={(event) => event.preventDefault()}>
+            <button
+              id={`${id}-option-${index}`}
+              type="button"
+              role="option"
+              aria-selected={item.value === value}
+              disabled={item.disabled}
+              tabIndex={-1}
+              className={index === activeIndex ? 'is-active' : undefined}
+              onMouseEnter={() => setActiveIndex(index)}
+              onClick={() => select(item)}
+            >
+              <span>
+                <strong>{item.label}</strong>
+                {item.description && <small>{item.description}</small>}
+              </span>
+              {item.value === value && <Check aria-hidden="true" />}
+            </button>
+          </li>
+        ))
+      ) : (
+        <li className="ibs-combobox__empty">{emptyMessage}</li>
+      )}
+    </ul>
+  ) : null;
   return (
     <div className={cx('ibs-combobox', className)}>
       <label id={`${id}-label`} htmlFor={id}>
         {label}
       </label>
-      <div className="ibs-combobox__control">
+      <div className="ibs-combobox__control" ref={controlRef}>
         <Search aria-hidden="true" />
         <input
           id={id}
@@ -234,35 +324,7 @@ export function Combobox({
           }}
         />
       </div>
-      {open && (
-        <ul id={`${id}-list`} className="ibs-combobox__list" role="listbox">
-          {filtered.length ? (
-            filtered.map((item, index) => (
-              <li key={item.value} role="none" onMouseDown={(event) => event.preventDefault()}>
-                <button
-                  id={`${id}-option-${index}`}
-                  type="button"
-                  role="option"
-                  aria-selected={item.value === value}
-                  disabled={item.disabled}
-                  tabIndex={-1}
-                  className={index === activeIndex ? 'is-active' : undefined}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onClick={() => select(item)}
-                >
-                  <span>
-                    <strong>{item.label}</strong>
-                    {item.description && <small>{item.description}</small>}
-                  </span>
-                  {item.value === value && <Check aria-hidden="true" />}
-                </button>
-              </li>
-            ))
-          ) : (
-            <li className="ibs-combobox__empty">{emptyMessage}</li>
-          )}
-        </ul>
-      )}
+      {list && createPortal(list, document.body)}
     </div>
   );
 }
@@ -351,18 +413,52 @@ export function DatePicker({
   label,
   hint,
   className,
+  value,
+  defaultValue,
+  onChange,
+  placeholder = 'Selecione uma data',
   ...props
-}: InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string }) {
+}: InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string; placeholder?: string }) {
   const id = useId();
+  const [open, setOpen] = useState(false);
+  const [local, setLocal] = useState(typeof defaultValue === 'string' ? defaultValue : '');
+  const current = typeof value === 'string' ? value : local;
+  const display = current ? new Date(`${current}T00:00:00`).toLocaleDateString('pt-BR') : placeholder;
   return (
-    <label className={cx('ibs-date-picker', className)} htmlFor={id}>
-      <span>{label}</span>
-      <span className="ibs-date-picker__control">
-        <CalendarDays aria-hidden="true" />
-        <input id={id} type="date" {...props} />
-      </span>
+    <div className={cx('ibs-date-picker', className)}>
+      <span id={`${id}-label`}>{label}</span>
+      <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
+        <PopoverPrimitive.Trigger asChild>
+          <button
+            type="button"
+            className="ibs-date-picker__trigger"
+            aria-labelledby={`${id}-label`}
+            data-placeholder={current ? undefined : 'true'}
+          >
+            <CalendarDays aria-hidden="true" />
+            <span>{display}</span>
+          </button>
+        </PopoverPrimitive.Trigger>
+        <PopoverPrimitive.Portal>
+          <PopoverPrimitive.Content className="ibs-date-picker__panel" align="start" sideOffset={8}>
+            <input
+              id={id}
+              type="date"
+              value={current}
+              aria-labelledby={`${id}-label`}
+              {...props}
+              onChange={(event) => {
+                const next = event.currentTarget.value;
+                setLocal(next);
+                onChange?.(event);
+                if (next) setOpen(false);
+              }}
+            />
+          </PopoverPrimitive.Content>
+        </PopoverPrimitive.Portal>
+      </PopoverPrimitive.Root>
       {hint && <small>{hint}</small>}
-    </label>
+    </div>
   );
 }
 
@@ -476,6 +572,7 @@ export function MultiSelect({
   const id = useId();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
+  const { controlRef, listRef, coords } = useFloatingList(open, () => setOpen(false));
   const selected = options.filter((item) => value.includes(item.value));
   const filtered = useMemo(
     () => options.filter((item) => item.label.toLocaleLowerCase().includes(query.toLocaleLowerCase())),
@@ -488,6 +585,41 @@ export function MultiSelect({
       : [...value, item.value];
     onValueChange?.(next);
   };
+  const listStyle: CSSProperties | undefined = coords
+    ? { top: coords.top, left: coords.left, width: coords.width, maxHeight: coords.maxHeight }
+    : undefined;
+  const list = open ? (
+    <ul
+      ref={listRef}
+      id={`${id}-list`}
+      className="ibs-combobox__list ibs-combobox__list--floating"
+      role="listbox"
+      aria-multiselectable="true"
+      style={listStyle}
+    >
+      {filtered.length ? (
+        filtered.map((item) => (
+          <li key={item.value} role="none" onMouseDown={(event) => event.preventDefault()}>
+            <button
+              type="button"
+              role="option"
+              aria-selected={value.includes(item.value)}
+              disabled={item.disabled}
+              onClick={() => toggle(item)}
+            >
+              <span>
+                <strong>{item.label}</strong>
+                {item.description && <small>{item.description}</small>}
+              </span>
+              {value.includes(item.value) && <Check aria-hidden="true" />}
+            </button>
+          </li>
+        ))
+      ) : (
+        <li className="ibs-combobox__empty">{emptyMessage}</li>
+      )}
+    </ul>
+  ) : null;
   return (
     <div className={cx('ibs-combobox', 'ibs-multiselect', className)}>
       <label id={`${id}-label`} htmlFor={id}>
@@ -510,7 +642,7 @@ export function MultiSelect({
           ))}
         </div>
       )}
-      <div className="ibs-combobox__control">
+      <div className="ibs-combobox__control" ref={controlRef}>
         <Search aria-hidden="true" />
         <input
           id={id}
@@ -531,31 +663,7 @@ export function MultiSelect({
           }}
         />
       </div>
-      {open && (
-        <ul id={`${id}-list`} className="ibs-combobox__list" role="listbox" aria-multiselectable="true">
-          {filtered.length ? (
-            filtered.map((item) => (
-              <li key={item.value} role="none" onMouseDown={(event) => event.preventDefault()}>
-                <button
-                  type="button"
-                  role="option"
-                  aria-selected={value.includes(item.value)}
-                  disabled={item.disabled}
-                  onClick={() => toggle(item)}
-                >
-                  <span>
-                    <strong>{item.label}</strong>
-                    {item.description && <small>{item.description}</small>}
-                  </span>
-                  {value.includes(item.value) && <Check aria-hidden="true" />}
-                </button>
-              </li>
-            ))
-          ) : (
-            <li className="ibs-combobox__empty">{emptyMessage}</li>
-          )}
-        </ul>
-      )}
+      {list && createPortal(list, document.body)}
     </div>
   );
 }

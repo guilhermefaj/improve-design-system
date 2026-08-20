@@ -30,6 +30,17 @@
     box-shadow var(--ibs-duration-base);
 }
 
+.ibs-select {
+  appearance: none;
+  height: var(--ibs-input-height);
+  line-height: 1.25;
+  padding-right: calc(var(--ibs-space-4) + 1.25rem);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6864' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--ibs-space-4) center;
+  background-size: 1rem;
+}
+
 .ibs-textarea {
   min-height: 7.5rem;
   padding-block: var(--ibs-space-3);
@@ -92,14 +103,8 @@
   border-color: var(--ibs-color-control-selected-hover);
 }
 .ibs-checkbox svg {
-  width: 1rem;
-  height: 1rem;
-}
-.ibs-radio__indicator {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: currentColor;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .ibs-switch {

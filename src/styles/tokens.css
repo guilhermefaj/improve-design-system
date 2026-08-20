@@ -140,7 +140,7 @@
   --ibs-color-approval-accent: var(--ibs-purple-600);
   --ibs-color-control-selected: var(--ibs-orange-500);
   --ibs-color-control-selected-hover: var(--ibs-orange-400);
-  --ibs-color-control-indicator: var(--ibs-neutral-900);
+  --ibs-color-control-indicator: var(--ibs-neutral-0);
   --ibs-color-overlay: rgb(13 13 14 / 64%);
   --ibs-color-agent-thinking: var(--ibs-purple-600);
   --ibs-color-agent-running: var(--ibs-orange-700);
@@ -253,7 +253,7 @@
   --ibs-color-approval-accent: #c9c2eb;
   --ibs-color-control-selected: var(--ibs-orange-500);
   --ibs-color-control-selected-hover: var(--ibs-orange-400);
-  --ibs-color-control-indicator: #252527;
+  --ibs-color-control-indicator: var(--ibs-neutral-0);
   --ibs-color-agent-thinking: #c9c2eb;
   --ibs-color-agent-running: #f7a487;
   --ibs-color-agent-awaiting: #c9c2eb;

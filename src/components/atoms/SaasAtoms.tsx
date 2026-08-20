@@ -167,7 +167,16 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
     <span className={cx('ibs-input-shell', className)}>
       <Search aria-hidden="true" />
       <input ref={ref} className="ibs-input" type="search" value={value} {...props} />
-      {onClear && value && <IconButton label="Limpar busca" icon={<X />} size="sm" variant="ghost" onClick={onClear} />}
+      {onClear && value ? (
+        <IconButton
+          label="Limpar busca"
+          icon={<X strokeWidth={1.5} />}
+          size="sm"
+          variant="ghost"
+          className="ibs-input-shell__clear"
+          onClick={onClear}
+        />
+      ) : null}
     </span>
   );
 });
