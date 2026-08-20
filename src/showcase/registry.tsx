@@ -103,14 +103,12 @@ import {
   Bold,
   Bot,
   Building2,
-  Check,
   Command,
   Filter,
   FolderKanban,
   Home,
   Plus,
   Settings,
-  Sparkles,
   Users,
   WandSparkles,
 } from 'lucide-react';
@@ -988,17 +986,19 @@ export function OrganismCatalog() {
         title="Planos e conversão"
         description="Comparação de oferta com hierarquia de escolha consistente."
       >
-        <Grid columns={3}>
+        <Grid columns={3} style={{ alignItems: 'start' }}>
           <PricingCard
             name="Starter"
-            price="R$ 490"
+            currency="R$"
+            price="490"
             suffix="/mês"
             features={['5 usuários', '1 workspace']}
             action={{ label: 'Começar', href: '#' }}
           />
           <PricingCard
             name="Growth"
-            price="R$ 1.490"
+            currency="R$"
+            price="1.490"
             suffix="/mês"
             features={['30 usuários', 'Automações com IA']}
             action={{ label: 'Escolher Growth', href: '#' }}
@@ -1025,14 +1025,12 @@ export function OrganismCatalog() {
                 </>
               ),
               timestamp: '2026-08-13T10:10:00-03:00',
-              icon: <Check />,
             },
             {
               id: '2',
               actor: { name: 'Improve AI' },
               content: <>gerou três recomendações.</>,
               timestamp: '2026-08-13T09:42:00-03:00',
-              icon: <Sparkles />,
             },
           ]}
         />

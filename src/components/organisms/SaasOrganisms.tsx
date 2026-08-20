@@ -13,7 +13,7 @@ import {
   X,
 } from 'lucide-react';
 import { Button, ButtonLink, IconButton } from '../Button';
-import { Avatar, Breadcrumbs } from '../DataDisplay';
+import { Breadcrumbs } from '../DataDisplay';
 import { Heading, Text } from '../Typography';
 import { SearchInput, Sparkline } from '../atoms/SaasAtoms';
 import { cx } from '../utils';
@@ -361,6 +361,7 @@ export function PricingCard({
   name,
   description,
   price,
+  currency,
   suffix,
   features,
   action,
@@ -371,6 +372,7 @@ export function PricingCard({
   name: string;
   description?: string;
   price: string;
+  currency?: string;
   suffix?: string;
   features: string[];
   action: { label: string; href: string };
@@ -391,8 +393,9 @@ export function PricingCard({
           </Text>
         )}
         <p className="ibs-pricing-card__price">
+          {currency && <span className="ibs-pricing-card__currency">{currency}</span>}
           <strong>{price}</strong>
-          {suffix && <span>{suffix}</span>}
+          {suffix && <span className="ibs-pricing-card__suffix">{suffix}</span>}
         </p>
       </header>
       <ul>
@@ -415,7 +418,6 @@ export type ActivityItem = {
   actor: { name: string; avatar?: string };
   content: ReactNode;
   timestamp: string;
-  icon?: ReactNode;
 };
 export function ActivityFeed({
   items,
@@ -430,12 +432,11 @@ export function ActivityFeed({
     <ol className={cx('ibs-activity-feed', className)} aria-label={label}>
       {items.map((item) => (
         <li key={item.id}>
-          <div className="ibs-activity-feed__avatar">
-            <Avatar name={item.actor.name} src={item.actor.avatar} size="sm" />
-            {item.icon && <span aria-hidden="true">{item.icon}</span>}
-          </div>
+          <span className="ibs-activity-feed__dot" aria-hidden="true" />
           <div>
-            <p>{item.content}</p>
+            <p>
+              <strong>{item.actor.name}</strong> {item.content}
+            </p>
             <time dateTime={item.timestamp}>{new Date(item.timestamp).toLocaleString('pt-BR')}</time>
           </div>
         </li>
