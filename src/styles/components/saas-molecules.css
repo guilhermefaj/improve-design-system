@@ -359,6 +359,7 @@
   color: var(--ibs-color-secondary);
 }
 .ibs-date-picker {
+  position: relative;
   display: grid;
   gap: var(--ibs-space-2);
 }
@@ -366,7 +367,14 @@
   font-size: var(--ibs-text-sm);
   font-weight: var(--ibs-font-weight-semibold);
 }
+.ibs-date-picker__control {
+  position: relative;
+  display: block;
+  min-width: 0;
+  flex: 1;
+}
 .ibs-date-picker__trigger {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: var(--ibs-space-2);
@@ -377,7 +385,7 @@
   background: var(--ibs-saas-control-background);
   color: var(--ibs-color-text);
   font: inherit;
-  font-size: var(--ibs-text-md, 1rem);
+  font-size: var(--ibs-text-md);
   line-height: 1.25;
   text-align: left;
   cursor: pointer;
@@ -390,29 +398,29 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ibs-color-focus) 18%, transparent);
   outline: none;
 }
+.ibs-date-picker__trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
 .ibs-date-picker__trigger svg {
   width: 1.05rem;
   flex: none;
   color: var(--ibs-color-secondary);
 }
-.ibs-date-picker__panel {
-  z-index: var(--ibs-z-dropdown);
-  display: grid;
-  gap: var(--ibs-space-2);
-  padding: var(--ibs-space-3);
-  border: 1px solid var(--ibs-color-border-strong);
-  border-radius: var(--ibs-radius-md);
-  background: var(--ibs-color-surface-raised);
-  box-shadow: var(--ibs-shadow-lg);
+.ibs-date-picker__native {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
-.ibs-date-picker__panel input {
-  min-height: var(--ibs-control-md);
-  border: 1px solid var(--ibs-color-border);
-  border-radius: var(--ibs-radius-sm);
-  background: var(--ibs-color-surface-raised);
-  color: var(--ibs-color-text);
-  padding: 0 var(--ibs-space-3);
-  font: inherit;
+.ibs-date-picker__native::-webkit-calendar-picker-indicator {
+  display: none;
 }
 .ibs-date-picker small {
   color: var(--ibs-color-text-muted);
@@ -485,6 +493,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--ibs-space-2);
+}
+.ibs-multiselect .ibs-tag {
+  min-height: 1.5rem;
+  padding: 0 var(--ibs-space-1) 0 var(--ibs-space-2);
+}
+.ibs-multiselect .ibs-tag__remove {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0;
+}
+.ibs-multiselect .ibs-tag__remove svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+.ibs-multiselect .ibs-combobox__control input {
+  min-height: var(--ibs-control-sm);
 }
 .ibs-date-range {
   min-inline-size: 0;
