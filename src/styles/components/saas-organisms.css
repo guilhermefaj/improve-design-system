@@ -343,6 +343,7 @@
   line-height: 1;
 }
 .ibs-pricing-card__suffix {
+  flex: 0 0 100%;
   width: 100%;
   color: var(--ibs-color-text-muted);
   font-size: var(--ibs-text-sm);

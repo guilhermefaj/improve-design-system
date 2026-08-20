@@ -73,7 +73,6 @@ export type ActivityItem = {
     };
     content: ReactNode;
     timestamp: string;
-    icon?: ReactNode;
 };
 
 // @public (undocumented)
@@ -2611,6 +2610,7 @@ export function PricingCard(input: {
     name: string;
     description?: string;
     price: string;
+    currency?: string;
     suffix?: string;
     features: string[];
     action: {
@@ -2715,7 +2715,7 @@ export type SegmentedControlItem = {
 export type SegmentedControlProps = Parameters<typeof SegmentedControl>[0];
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<SelectHTMLAttributes<HTMLSelectElement> & RefAttributes<HTMLSelectElement>>;
+export const Select: ForwardRefExoticComponent<SelectHTMLAttributes<HTMLSelectElement> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export function SelectMenu(input: {
@@ -3009,6 +3009,7 @@ export function TimePicker(input: TimePickerProps): JSX.Element;
 export type TimePickerProps = InputHTMLAttributes<HTMLInputElement> & {
     label: string;
     hint?: string;
+    placeholder?: string;
 };
 
 // @public (undocumented)
@@ -4847,8 +4848,8 @@ export type TraceViewerProps = Parameters<typeof TraceViewer>[0];
 
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:124:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:297:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:123:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:296:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

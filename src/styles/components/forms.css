@@ -170,11 +170,11 @@
   height: 1.25rem;
 }
 .ibs-radio__indicator {
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.65rem;
+  height: 0.65rem;
   border-radius: 50%;
   background: var(--ibs-choice-control-indicator);
-  box-shadow: var(--ibs-shadow-sm);
+  box-shadow: 0 1px 2px rgb(13 13 14 / 28%);
 }
 
 .ibs-switch {

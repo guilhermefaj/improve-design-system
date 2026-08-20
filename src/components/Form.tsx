@@ -9,7 +9,12 @@ import type {
   TextareaHTMLAttributes,
 } from 'react';
 import { Check, ChevronDown } from 'lucide-react';
-import { Checkbox as CheckboxPrimitive, RadioGroup, Select as SelectPrimitive, Switch as SwitchPrimitive } from 'radix-ui';
+import {
+  Checkbox as CheckboxPrimitive,
+  RadioGroup,
+  Select as SelectPrimitive,
+  Switch as SwitchPrimitive,
+} from 'radix-ui';
 import { cx } from './utils';
 
 export type FormFieldProps = {
