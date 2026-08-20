@@ -174,7 +174,7 @@
   height: 0.65rem;
   border-radius: 50%;
   background: var(--ibs-choice-control-indicator);
-  box-shadow: 0 1px 2px rgb(13 13 14 / 28%);
+  box-shadow: var(--ibs-shadow-sm);
 }
 
 .ibs-switch {
