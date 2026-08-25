@@ -7,7 +7,7 @@ import {
   Check,
   ChevronRight,
   Clock,
-  Command,
+  Command as CommandIcon,
   FileUp,
   Inbox,
   Search,
@@ -134,7 +134,7 @@ export function Sheet({
   title: string;
   description?: string;
   children?: ReactNode;
-  side?: 'left' | 'right';
+  side?: 'left' | 'right' | 'top' | 'bottom';
   footer?: ReactNode;
 }) {
   return (
@@ -389,7 +389,7 @@ export function CommandPalette({
                   onClick={item.onSelect}
                 >
                   <span className="ibs-command__icon" aria-hidden="true">
-                    {item.icon ?? <Command />}
+                    {item.icon ?? <CommandIcon />}
                   </span>
                   <span>
                     <strong>{item.label}</strong>
@@ -838,3 +838,8 @@ export type CommandPaletteProps = Parameters<typeof CommandPalette>[0];
 export type DatePickerProps = Parameters<typeof DatePicker>[0];
 export type FileUploadProps = Parameters<typeof FileUpload>[0];
 export type ToastProps = Parameters<typeof Toast>[0];
+
+export const Empty = EmptyState;
+export type EmptyProps = EmptyStateProps;
+export const Command = CommandPalette;
+export type CommandProps = CommandPaletteProps;

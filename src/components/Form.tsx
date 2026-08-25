@@ -223,3 +223,8 @@ export type SelectProps = React.ComponentPropsWithoutRef<typeof Select>;
 export type CheckboxProps = Parameters<typeof Checkbox>[0];
 export type RadioSetProps = Parameters<typeof RadioSet>[0];
 export type SwitchProps = Parameters<typeof Switch>[0];
+
+export const Field = FormField;
+export type FieldProps = FormFieldProps;
+export { RadioSet as RadioGroup };
+export type RadioGroupProps = RadioSetProps;
