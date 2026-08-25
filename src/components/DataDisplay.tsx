@@ -175,3 +175,8 @@ export type QuoteProps = Parameters<typeof Quote>[0];
 export type DataTableProps = Parameters<typeof DataTable>[0];
 export type BreadcrumbsProps = Parameters<typeof Breadcrumbs>[0];
 export type PaginationProps = Parameters<typeof Pagination>[0];
+
+export const Separator = Divider;
+export type SeparatorProps = DividerProps;
+export const Breadcrumb = Breadcrumbs;
+export type BreadcrumbProps = BreadcrumbsProps;
