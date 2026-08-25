@@ -1,11 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { Moon, Search, Sun } from 'lucide-react';
 import { IconButton, ImproveLogo, Text, Tooltip } from '../components';
-import {
-  catalogEntriesByCategory,
-  filterCatalogEntries,
-  type CatalogEntry,
-} from '../showcase/catalog';
+import { catalogEntriesByCategory, filterCatalogEntries, type CatalogEntry } from '../showcase/catalog';
 import { componentSpecimens } from '../showcase/componentSpecimens';
 import { showcaseVersion } from '../showcase/registry';
 import './demo.css';
@@ -31,10 +27,7 @@ export function App() {
 
   const filteredEntries = useMemo(() => filterCatalogEntries(query), [query]);
   const sidebarSections = useMemo(() => catalogEntriesByCategory(filteredEntries), [filteredEntries]);
-  const orderedEntries = useMemo(
-    () => sidebarSections.flatMap((section) => section.entries),
-    [sidebarSections],
-  );
+  const orderedEntries = useMemo(() => sidebarSections.flatMap((section) => section.entries), [sidebarSections]);
   const [activeId, setActiveId] = useState<string>(() => orderedEntries[0]?.id ?? 'button');
   const resolvedActiveId = orderedEntries.some((entry) => entry.id === activeId)
     ? activeId

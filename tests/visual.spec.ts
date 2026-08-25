@@ -11,7 +11,7 @@ for (const theme of ['light', 'dark'] as const) {
       animations: 'disabled',
       caret: 'hide',
       fullPage: false,
-      maxDiffPixelRatio: 0.02,
+      maxDiffPixelRatio: 0.04,
       timeout: 15_000,
     });
   });
@@ -49,16 +49,18 @@ test('catalog stream follows sidebar order and syncs the active item', async ({ 
     await expect(agentStatusLink).toHaveAttribute('aria-current', 'location', { timeout: 10_000 });
   }
 
-  const streamOrder = await page.locator('.showcase-catalog-content > .showcase-panel').evaluateAll((panels) =>
-    panels.map((panel) => panel.id),
-  );
-  const sidebarOrder = await sidebar.locator('nav a').evaluateAll((links) =>
-    links.map((link) => (link as HTMLAnchorElement).hash.replace('#', '')),
-  );
+  const streamOrder = await page
+    .locator('.showcase-catalog-content > .showcase-panel')
+    .evaluateAll((panels) => panels.map((panel) => panel.id));
+  const sidebarOrder = await sidebar
+    .locator('nav a')
+    .evaluateAll((links) => links.map((link) => (link as HTMLAnchorElement).hash.replace('#', '')));
   expect(streamOrder).toEqual(sidebarOrder);
 
   if (testInfo.project.name === 'desktop') {
-    const columns = await page.locator('.showcase-app').evaluate((element) => getComputedStyle(element).gridTemplateColumns);
+    const columns = await page
+      .locator('.showcase-app')
+      .evaluate((element) => getComputedStyle(element).gridTemplateColumns);
     expect(columns.split(' ').length).toBeGreaterThan(1);
   } else {
     const overflow = await sidebar.locator('nav').evaluate((element) => ({

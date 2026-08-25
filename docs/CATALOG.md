@@ -4,13 +4,13 @@ O specimen (`pnpm dev`) é a superfície canônica: sidebar plana por `category`
 
 ## Fonte de verdade
 
-| Camada              | Arquivo                                        |
-| ------------------- | ---------------------------------------------- |
-| Contratos / exports | `design-system.manifest.json`                  |
-| Índice navegável    | `src/showcase/catalog.ts`                      |
-| Specimens           | `src/showcase/componentSpecimens.tsx`          |
-| Agrupamento interno | `src/showcase/registry.tsx`                    |
-| Contratos para IA   | `llms.txt` / `llms-full.txt` (gerados)         |
+| Camada              | Arquivo                                |
+| ------------------- | -------------------------------------- |
+| Contratos / exports | `design-system.manifest.json`          |
+| Índice navegável    | `src/showcase/catalog.ts`              |
+| Specimens           | `src/showcase/componentSpecimens.tsx`  |
+| Agrupamento interno | `src/showcase/registry.tsx`            |
+| Contratos para IA   | `llms.txt` / `llms-full.txt` (gerados) |
 
 ## Navegação
 
