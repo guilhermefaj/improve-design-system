@@ -513,7 +513,7 @@
   flex-direction: column;
   gap: var(--ibs-space-1);
   width: fit-content;
-  max-width: min(85%, 26rem);
+  max-width: min(85%, 28rem);
   flex: 0 1 auto;
 }
 .ibs-bubble--human {
