@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { ChevronDown, Ellipsis, Plus, X } from 'lucide-react';
+import { ChevronDown, Ellipsis, X } from 'lucide-react';
 import {
   Accordion as AccordionPrimitive,
   Collapsible as CollapsiblePrimitive,
@@ -22,7 +22,7 @@ export function Accordion({ items, defaultValue }: { items: AccordionItem[]; def
           <AccordionPrimitive.Header style={{ margin: 0 }}>
             <AccordionPrimitive.Trigger className="ibs-accordion__trigger">
               <span>{item.title}</span>
-              <Plus aria-hidden="true" />
+              <ChevronDown aria-hidden="true" />
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
           <AccordionPrimitive.Content className="ibs-accordion__content">

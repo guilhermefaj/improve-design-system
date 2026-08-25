@@ -201,10 +201,13 @@
 }
 .ibs-accordion__trigger svg {
   flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--ibs-color-text-muted);
   transition: transform var(--ibs-duration-base);
 }
 .ibs-accordion__trigger[data-state='open'] svg {
-  transform: rotate(45deg);
+  transform: rotate(180deg);
 }
 .ibs-accordion__content {
   overflow: hidden;
