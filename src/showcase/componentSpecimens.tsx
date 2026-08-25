@@ -229,31 +229,55 @@ const customerColumns: DataGridColumn<Customer>[] = [
 ];
 
 function LogoSpecimen() {
+  const lockups = [
+    { src: '/brand/logo_fundo_branco.png', label: 'Duo · fundo claro', pad: 'var(--ibs-color-surface)' },
+    { src: '/brand/logo_duo_fundo_preto.png', label: 'Duo · fundo escuro', pad: '#000' },
+    { src: '/brand/logo_brand_fundo_preto.png', label: 'Brand', pad: '#000' },
+    { src: '/brand/logo_mono_fundo_preto.png', label: 'Mono', pad: '#000' },
+    { src: '/brand/logo_inverse_fundo_preto.png', label: 'Inverse', pad: '#000' },
+  ] as const;
   return panel(
     'logo',
-    <Cluster>
-      <ImproveLogo variant="duo" />
-      <div
-        style={{
-          padding: 'var(--ibs-space-4)',
-          borderRadius: 'var(--ibs-radius-md)',
-          background: '#fff7f3',
-          color: '#9f3918',
-        }}
-      >
-        <ImproveLogo variant="brand" />
-      </div>
-      <ImproveLogo variant="mono" />
-      <div
-        style={{
-          padding: 'var(--ibs-space-4)',
-          borderRadius: 'var(--ibs-radius-md)',
-          background: '#1d1d1f',
-        }}
-      >
-        <ImproveLogo variant="inverse" />
-      </div>
-    </Cluster>,
+    <Stack gap={4}>
+      <Cluster>
+        <ImproveLogo />
+        <ImproveLogo compact />
+      </Cluster>
+      <Cluster>
+        {lockups.map((lockup) => (
+          <figure
+            key={lockup.src}
+            style={{
+              margin: 0,
+              display: 'grid',
+              gap: 'var(--ibs-space-2)',
+              justifyItems: 'center',
+            }}
+          >
+            <div
+              style={{
+                width: '7.5rem',
+                height: '7.5rem',
+                display: 'grid',
+                placeItems: 'center',
+                borderRadius: 'var(--ibs-radius-md)',
+                background: lockup.pad,
+                overflow: 'hidden',
+              }}
+            >
+              <img
+                src={lockup.src}
+                alt={`Improve logo ${lockup.label}`}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+              />
+            </div>
+            <figcaption style={{ color: 'var(--ibs-color-text-muted)', fontSize: 'var(--ibs-text-xs)' }}>
+              {lockup.label}
+            </figcaption>
+          </figure>
+        ))}
+      </Cluster>
+    </Stack>,
     'hug',
   );
 }
@@ -1010,13 +1034,15 @@ export const componentSpecimens: Record<string, ComponentType> = {
       'sidebar',
       <div
         style={{
-          maxWidth: '16rem',
+          width: 'fit-content',
+          maxWidth: '100%',
           border: '1px solid var(--ibs-color-border)',
           borderRadius: 'var(--ibs-radius-lg)',
           overflow: 'hidden',
         }}
       >
         <Sidebar
+          defaultCollapsed
           brand={<ImproveLogo compact />}
           groups={[
             {
@@ -1030,6 +1056,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
           ]}
         />
       </div>,
+      'hug',
     ),
 
   'page-header': () =>
@@ -1417,7 +1444,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
           Vamos começar pela dor operacional mais cara.
         </Bubble>
       </Stack>,
-      'bounded',
+      'fill',
     ),
 
   message: () =>

@@ -33,6 +33,7 @@
     "src/index.ts",
     "packages/cli",
     "packages/artifact-kit/starters",
+    "assets",
     "recipes",
     "schemas",
     "skills",

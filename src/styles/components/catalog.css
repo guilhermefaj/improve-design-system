@@ -509,7 +509,8 @@
 }
 
 .ibs-bubble {
-  max-width: min(100%, 42rem);
+  width: 100%;
+  max-width: 100%;
   display: grid;
   gap: var(--ibs-space-2);
   padding: var(--ibs-space-4);
