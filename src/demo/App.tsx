@@ -65,11 +65,6 @@ export function App() {
     return () => observer.disconnect();
   }, [orderedEntries]);
 
-  useEffect(() => {
-    document.querySelectorAll('.showcase-panel[data-active]').forEach((node) => node.removeAttribute('data-active'));
-    document.getElementById(resolvedActiveId)?.setAttribute('data-active', '');
-  }, [resolvedActiveId]);
-
   const nextTheme = theme === 'light' ? 'dark' : 'light';
   const themeLabel = `Ativar tema ${nextTheme === 'dark' ? 'escuro' : 'claro'}`;
 
