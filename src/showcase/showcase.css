@@ -7,27 +7,18 @@
 
 .showcase-panel > header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.7fr);
-  align-items: end;
-  gap: var(--ibs-space-5);
-  padding: var(--ibs-space-5);
+  gap: var(--ibs-space-1);
+  padding: var(--ibs-space-3) var(--ibs-space-5);
   border-bottom: 1px solid var(--ibs-color-border);
   background: var(--ibs-color-surface-subtle);
 }
 
 .showcase-panel__label {
-  display: block;
-  margin-bottom: var(--ibs-space-1);
-  color: var(--ibs-color-secondary);
-  font-family: var(--ibs-font-mono);
-  font-size: 0.68rem;
-  font-weight: var(--ibs-font-weight-bold);
-  letter-spacing: var(--ibs-tracking-label);
-  text-transform: uppercase;
+  display: none;
 }
 
 .showcase-panel__body {
-  padding: var(--ibs-space-6);
+  padding: var(--ibs-space-5);
 }
 
 .showcase-color-ramp {

@@ -1,30 +1,17 @@
 import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { Moon, Search, Sun } from 'lucide-react';
-import {
-  Badge,
-  Container,
-  Footer,
-  Heading,
-  Hero,
-  IconButton,
-  Section,
-  SiteHeader,
-  Stack,
-  Text,
-  Tooltip,
-} from '../components';
+import { IconButton, ImproveLogo, Text, Tooltip } from '../components';
 import {
   catalogEntriesByCategory,
   filterCatalogEntries,
-  resolveCatalogTargetId,
   type CatalogEntry,
 } from '../showcase/catalog';
-import { showcaseGroups, showcaseRegistry, showcaseVersion } from '../showcase/registry';
+import { componentSpecimens } from '../showcase/componentSpecimens';
+import { showcaseVersion } from '../showcase/registry';
 import './demo.css';
+import '../showcase/showcase.css';
 
 type Theme = 'light' | 'dark';
-
-const navigation = [{ label: 'Componentes', href: '#catalogo' }];
 
 function initialTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
@@ -33,44 +20,33 @@ function initialTheme(): Theme {
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-function targetIdOf(element: Element): string {
-  return element.getAttribute('data-specimen-id') || element.id;
-}
-
 function scrollToId(id: string) {
-  const panel = document.querySelector(`[data-specimen-id="${id}"]`);
-  if (panel instanceof HTMLElement) {
-    panel.scrollIntoView({ block: 'start' });
-    return;
-  }
   document.getElementById(id)?.scrollIntoView({ block: 'start' });
 }
 
 export function App() {
   const [theme, setTheme] = useState<Theme>(initialTheme);
   const [query, setQuery] = useState('');
-  const [activeId, setActiveId] = useState<string>(showcaseRegistry[0]?.id ?? 'button');
   const pinnedIdRef = useRef<string | null>(null);
 
   const filteredEntries = useMemo(() => filterCatalogEntries(query), [query]);
   const sidebarSections = useMemo(() => catalogEntriesByCategory(filteredEntries), [filteredEntries]);
-  const visibleTargetIds = useMemo(() => {
-    const ids = new Set<string>();
-    for (const entry of filteredEntries) ids.add(resolveCatalogTargetId(entry));
-    return ids;
-  }, [filteredEntries]);
+  const orderedEntries = useMemo(
+    () => sidebarSections.flatMap((section) => section.entries),
+    [sidebarSections],
+  );
+  const [activeId, setActiveId] = useState<string>(() => orderedEntries[0]?.id ?? 'button');
+  const resolvedActiveId = orderedEntries.some((entry) => entry.id === activeId)
+    ? activeId
+    : (orderedEntries[0]?.id ?? activeId);
 
   useEffect(() => {
     window.localStorage.setItem('ibs-theme', theme);
   }, [theme]);
 
   useEffect(() => {
-    const targets = showcaseRegistry
-      .map((component) => {
-        const panel = document.querySelector(`[data-specimen-id="${component.id}"]`);
-        if (panel instanceof HTMLElement) return panel;
-        return document.getElementById(component.id);
-      })
+    const targets = orderedEntries
+      .map((entry) => document.getElementById(entry.id))
       .filter((element): element is HTMLElement => Boolean(element));
     if (!targets.length || !('IntersectionObserver' in window)) return;
 
@@ -81,176 +57,102 @@ export function App() {
           .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
         const pinned = pinnedIdRef.current;
         if (pinned) {
-          const pinnedVisible = visible.some((entry) => targetIdOf(entry.target) === pinned);
+          const pinnedVisible = visible.some((entry) => entry.target.id === pinned);
           setActiveId(pinned);
           if (pinnedVisible) pinnedIdRef.current = null;
           return;
         }
-        const next = visible[0] ? targetIdOf(visible[0].target) : '';
+        const next = visible[0]?.target.id;
         if (next) setActiveId(next);
       },
-      { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.1, 0.25, 0.5] },
+      { rootMargin: '-12% 0px -62% 0px', threshold: [0, 0.1, 0.25, 0.5] },
     );
 
     targets.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, [visibleTargetIds]);
+  }, [orderedEntries]);
 
   useEffect(() => {
-    document.querySelectorAll('[data-active]').forEach((node) => node.removeAttribute('data-active'));
-    const panel = document.querySelector(`[data-specimen-id="${activeId}"]`);
-    const anchor = document.getElementById(activeId);
-    const highlight = panel ?? anchor;
-    if (!highlight) return;
-    highlight.setAttribute('data-active', '');
-    const chunk = highlight.closest('.showcase-stream-chunk');
-    chunk?.setAttribute('data-active', '');
-    if (!panel) {
-      chunk?.querySelector('.showcase-panel')?.setAttribute('data-active', '');
-    }
-  }, [activeId]);
+    document.querySelectorAll('.showcase-panel[data-active]').forEach((node) => node.removeAttribute('data-active'));
+    document.getElementById(resolvedActiveId)?.setAttribute('data-active', '');
+  }, [resolvedActiveId]);
 
   const nextTheme = theme === 'light' ? 'dark' : 'light';
   const themeLabel = `Ativar tema ${nextTheme === 'dark' ? 'escuro' : 'claro'}`;
-  const componentCount = showcaseRegistry.length;
 
   const onNavClick = (event: MouseEvent<HTMLAnchorElement>, entry: CatalogEntry) => {
     event.preventDefault();
-    const targetId = resolveCatalogTargetId(entry);
-    pinnedIdRef.current = targetId;
-    setActiveId(targetId);
-    scrollToId(targetId);
-    window.history.replaceState(null, '', `#${targetId}`);
+    pinnedIdRef.current = entry.id;
+    setActiveId(entry.id);
+    scrollToId(entry.id);
+    window.history.replaceState(null, '', `#${entry.id}`);
   };
 
   return (
-    <div data-ibs-theme={theme}>
-      <SiteHeader
-        items={navigation}
-        utilities={
+    <div className="showcase-app" data-ibs-theme={theme}>
+      <aside className="showcase-sidebar">
+        <div className="showcase-sidebar__brand">
+          <ImproveLogo href="#catalogo" compact />
+          <div className="showcase-sidebar__brand-text">
+            <h1 className="showcase-sidebar__title">Improve</h1>
+            <span className="showcase-sidebar__meta">Design System · v{showcaseVersion}</span>
+          </div>
           <Tooltip label={themeLabel}>
             <IconButton
               aria-pressed={theme === 'dark'}
               label={themeLabel}
               icon={theme === 'light' ? <Moon /> : <Sun />}
               variant="outline"
+              size="sm"
               onClick={() => setTheme(nextTheme)}
             />
           </Tooltip>
-        }
-      />
-      <main>
-        <Hero
-          eyebrow={`Improve Design System · v${showcaseVersion}`}
-          title="Um sistema. Uma fonte de verdade."
-          description={`Catálogo plano de ${componentCount} componentes — manifesto, specimen e contratos para produtos e agentes.`}
-          primaryAction={{ label: 'Explorar componentes', href: '#catalogo' }}
-        />
+        </div>
 
-        <Section tone="ink" className="showcase-summary">
-          <Container>
-            <div className="showcase-summary__grid">
-              <div>
-                <span>{componentCount}</span>
-                <Text>componentes</Text>
-              </div>
-              <div>
-                <span>{sidebarSections.length}</span>
-                <Text>categorias</Text>
-              </div>
-              <div>
-                <span>2</span>
-                <Text>temas</Text>
-              </div>
-              <div>
-                <span>1</span>
-                <Text>catálogo plano</Text>
-              </div>
-            </div>
-          </Container>
-        </Section>
+        <div className="showcase-search">
+          <Search aria-hidden="true" />
+          <input
+            aria-label="Buscar componentes"
+            placeholder="Buscar componente…"
+            value={query}
+            onChange={(event) => setQuery(event.currentTarget.value)}
+          />
+        </div>
 
-        <Section id="catalogo" className="showcase-catalog">
-          <Container>
-            <Stack gap={8}>
-              <div className="showcase-catalog__head">
-                <Stack gap={4}>
-                  <Badge tone="brand">Componentes · v{showcaseVersion}</Badge>
-                  <Heading level={2} size={2}>
-                    Catálogo
-                  </Heading>
-                  <Text size="lg" tone="muted">
-                    Sidebar com todos os componentes. O item ativo e o painel em tela ficam sincronizados ao rolar.
-                  </Text>
-                </Stack>
-                <div className="showcase-search">
-                  <Search aria-hidden="true" />
-                  <input
-                    aria-label="Buscar componentes"
-                    placeholder="Buscar componente ou categoria…"
-                    value={query}
-                    onChange={(event) => setQuery(event.currentTarget.value)}
-                  />
-                </div>
+        <nav aria-label="Lista de componentes" className="showcase-component-nav" id="catalogo">
+          {sidebarSections.length ? (
+            sidebarSections.map((section) => (
+              <div className="showcase-component-nav__group" key={section.category}>
+                <span className="showcase-component-nav__heading">{section.label}</span>
+                {section.entries.map((entry) => (
+                  <a
+                    key={entry.id}
+                    href={`#${entry.id}`}
+                    aria-current={resolvedActiveId === entry.id ? 'location' : undefined}
+                    onClick={(event) => onNavClick(event, entry)}
+                  >
+                    {entry.name}
+                  </a>
+                ))}
               </div>
+            ))
+          ) : (
+            <Text size="sm" tone="muted">
+              Nenhum resultado.
+            </Text>
+          )}
+        </nav>
+      </aside>
 
-              <div className="showcase-catalog-layout">
-                <aside className="showcase-catalog-index">
-                  <span className="showcase-catalog-index__label">Componentes</span>
-                  <nav aria-label="Lista de componentes" className="showcase-component-nav">
-                    {sidebarSections.length ? (
-                      sidebarSections.map((section) => (
-                        <div className="showcase-component-nav__group" key={section.category}>
-                          <span className="showcase-component-nav__heading">{section.label}</span>
-                          {section.entries.map((entry) => {
-                            const targetId = resolveCatalogTargetId(entry);
-                            return (
-                              <a
-                                key={entry.id}
-                                href={entry.href}
-                                aria-current={activeId === targetId ? 'location' : undefined}
-                                data-alias={entry.status === 'alias' ? '' : undefined}
-                                onClick={(event) => onNavClick(event, entry)}
-                              >
-                                {entry.name}
-                              </a>
-                            );
-                          })}
-                        </div>
-                      ))
-                    ) : (
-                      <Text size="sm" tone="muted">
-                        Nenhum resultado.
-                      </Text>
-                    )}
-                  </nav>
-                </aside>
-
-                <div className="showcase-catalog-content">
-                  {showcaseGroups.map((group) => {
-                    const Catalog = group.Render;
-                    const visibleIds = group.componentIds.filter((id) => visibleTargetIds.has(id));
-                    if (query.trim() && !visibleIds.length) return null;
-                    return (
-                      <div className="showcase-stream-chunk" key={group.id} data-group={group.id}>
-                        <Catalog />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </Stack>
-          </Container>
-        </Section>
+      <main className="showcase-main">
+        <div className="showcase-catalog-content">
+          {orderedEntries.map((entry) => {
+            const Specimen = componentSpecimens[entry.id];
+            if (!Specimen) return null;
+            return <Specimen key={entry.id} />;
+          })}
+        </div>
       </main>
-      <Footer
-        description="Design que entende o negócio e transforma com IA de forma profissional."
-        links={navigation}
-        social={[
-          { label: 'GitHub', href: 'https://github.com/guilhermefaj/improve-design-system' },
-          { label: 'Improve Business', href: 'https://improve.business/' },
-        ]}
-      />
     </div>
   );
 }

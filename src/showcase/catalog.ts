@@ -111,72 +111,6 @@ const improveOnlyIds = new Set([
   'typography',
 ]);
 
-const aliases: CatalogEntry[] = [
-  {
-    id: 'empty',
-    name: 'Empty',
-    href: '#empty-state',
-    category: 'feedback',
-    status: 'alias',
-    aliasOf: 'empty-state',
-    description: 'Alias de EmptyState.',
-  },
-  {
-    id: 'field',
-    name: 'Field',
-    href: '#form',
-    category: 'form',
-    status: 'alias',
-    aliasOf: 'form',
-    description: 'Alias de FormField (pacote form).',
-  },
-  {
-    id: 'separator',
-    name: 'Separator',
-    href: '#data-display',
-    category: 'data-display',
-    status: 'alias',
-    aliasOf: 'data-display',
-    description: 'Alias de Divider.',
-  },
-  {
-    id: 'command',
-    name: 'Command',
-    href: '#command-palette',
-    category: 'overlay',
-    status: 'alias',
-    aliasOf: 'command-palette',
-    description: 'Alias de CommandPalette.',
-  },
-  {
-    id: 'breadcrumb',
-    name: 'Breadcrumb',
-    href: '#data-display',
-    category: 'data-display',
-    status: 'alias',
-    aliasOf: 'data-display',
-    description: 'Alias de Breadcrumbs.',
-  },
-  {
-    id: 'radio-group',
-    name: 'Radio Group',
-    href: '#form',
-    category: 'form',
-    status: 'alias',
-    aliasOf: 'form',
-    description: 'Alias de RadioSet.',
-  },
-  {
-    id: 'questionnaire-new',
-    name: 'QuestionnaireNew',
-    href: '#questionnaire',
-    category: 'form',
-    status: 'alias',
-    aliasOf: 'questionnaire',
-    description: 'Alias de Questionnaire.',
-  },
-];
-
 const primaryEntries: CatalogEntry[] = manifest.components.map((component) => ({
   id: component.id,
   name: component.name,
@@ -187,18 +121,17 @@ const primaryEntries: CatalogEntry[] = manifest.components.map((component) => ({
   improveOnly: improveOnlyIds.has(component.id),
 }));
 
-export const catalogEntries: CatalogEntry[] = [...primaryEntries, ...aliases];
+/** Canonical catalog only — no alias duplicates in the specimen sidebar. */
+export const catalogEntries: CatalogEntry[] = primaryEntries;
 
 export const catalogById = new Map(catalogEntries.map((entry) => [entry.id, entry]));
 
-/** Navigable targets for scroll-spy (aliases resolve to canonical ids). */
 export function resolveCatalogTargetId(entry: CatalogEntry): string {
-  if (entry.status === 'alias' && entry.aliasOf) return entry.aliasOf;
   return entry.id;
 }
 
 export function navigableCatalogEntries(): CatalogEntry[] {
-  return catalogEntries.filter((entry) => entry.status !== 'planned');
+  return catalogEntries.filter((entry) => entry.status === 'stable');
 }
 
 export function catalogEntriesByCategory(entries: CatalogEntry[] = navigableCatalogEntries()): Array<{
@@ -228,7 +161,7 @@ export function filterCatalogEntries(
   const normalized = query.trim().toLocaleLowerCase('pt-BR');
   if (!normalized) return entries;
   return entries.filter((entry) =>
-    [entry.name, entry.description, entry.id, entry.aliasOf, entry.category]
+    [entry.name, entry.description, entry.id, entry.category]
       .filter(Boolean)
       .join(' ')
       .toLocaleLowerCase('pt-BR')
