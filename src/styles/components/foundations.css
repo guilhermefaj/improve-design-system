@@ -69,10 +69,10 @@
   text-decoration: none;
 }
 .ibs-logo--brand {
-  color: var(--ibs-color-brand);
+  color: inherit;
 }
 .ibs-logo--mono {
-  color: var(--ibs-neutral-500);
+  color: var(--ibs-color-text-muted);
 }
 .ibs-logo--inverse {
   color: var(--ibs-neutral-0);

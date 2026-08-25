@@ -233,7 +233,16 @@ function LogoSpecimen() {
     'logo',
     <Cluster>
       <ImproveLogo variant="duo" />
-      <ImproveLogo variant="brand" />
+      <div
+        style={{
+          padding: 'var(--ibs-space-4)',
+          borderRadius: 'var(--ibs-radius-md)',
+          background: '#fff7f3',
+          color: '#9f3918',
+        }}
+      >
+        <ImproveLogo variant="brand" />
+      </div>
       <ImproveLogo variant="mono" />
       <div
         style={{
