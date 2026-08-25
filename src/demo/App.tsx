@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type MouseEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { Moon, Search, Sun } from 'lucide-react';
 import {
   Badge,
@@ -33,7 +33,16 @@ function initialTheme(): Theme {
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
+function targetIdOf(element: Element): string {
+  return element.getAttribute('data-specimen-id') || element.id;
+}
+
 function scrollToId(id: string) {
+  const panel = document.querySelector(`[data-specimen-id="${id}"]`);
+  if (panel instanceof HTMLElement) {
+    panel.scrollIntoView({ block: 'start' });
+    return;
+  }
   document.getElementById(id)?.scrollIntoView({ block: 'start' });
 }
 
@@ -41,6 +50,7 @@ export function App() {
   const [theme, setTheme] = useState<Theme>(initialTheme);
   const [query, setQuery] = useState('');
   const [activeId, setActiveId] = useState<string>(showcaseRegistry[0]?.id ?? 'button');
+  const pinnedIdRef = useRef<string | null>(null);
 
   const filteredEntries = useMemo(() => filterCatalogEntries(query), [query]);
   const sidebarSections = useMemo(() => catalogEntriesByCategory(filteredEntries), [filteredEntries]);
@@ -56,7 +66,11 @@ export function App() {
 
   useEffect(() => {
     const targets = showcaseRegistry
-      .map((component) => document.getElementById(component.id))
+      .map((component) => {
+        const panel = document.querySelector(`[data-specimen-id="${component.id}"]`);
+        if (panel instanceof HTMLElement) return panel;
+        return document.getElementById(component.id);
+      })
       .filter((element): element is HTMLElement => Boolean(element));
     if (!targets.length || !('IntersectionObserver' in window)) return;
 
@@ -65,7 +79,14 @@ export function App() {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
-        const next = visible[0]?.target.id;
+        const pinned = pinnedIdRef.current;
+        if (pinned) {
+          const pinnedVisible = visible.some((entry) => targetIdOf(entry.target) === pinned);
+          setActiveId(pinned);
+          if (pinnedVisible) pinnedIdRef.current = null;
+          return;
+        }
+        const next = visible[0] ? targetIdOf(visible[0].target) : '';
         if (next) setActiveId(next);
       },
       { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.1, 0.25, 0.5] },
@@ -77,14 +98,16 @@ export function App() {
 
   useEffect(() => {
     document.querySelectorAll('[data-active]').forEach((node) => node.removeAttribute('data-active'));
+    const panel = document.querySelector(`[data-specimen-id="${activeId}"]`);
     const anchor = document.getElementById(activeId);
-    if (!anchor) return;
-    anchor.setAttribute('data-active', '');
-    const chunk = anchor.closest('.showcase-stream-chunk');
+    const highlight = panel ?? anchor;
+    if (!highlight) return;
+    highlight.setAttribute('data-active', '');
+    const chunk = highlight.closest('.showcase-stream-chunk');
     chunk?.setAttribute('data-active', '');
-    const panel =
-      chunk?.querySelector(`[data-specimen-id="${activeId}"]`) ?? chunk?.querySelector('.showcase-panel') ?? null;
-    panel?.setAttribute('data-active', '');
+    if (!panel) {
+      chunk?.querySelector('.showcase-panel')?.setAttribute('data-active', '');
+    }
   }, [activeId]);
 
   const nextTheme = theme === 'light' ? 'dark' : 'light';
@@ -94,6 +117,7 @@ export function App() {
   const onNavClick = (event: MouseEvent<HTMLAnchorElement>, entry: CatalogEntry) => {
     event.preventDefault();
     const targetId = resolveCatalogTargetId(entry);
+    pinnedIdRef.current = targetId;
     setActiveId(targetId);
     scrollToId(targetId);
     window.history.replaceState(null, '', `#${targetId}`);

@@ -267,7 +267,7 @@
   text-decoration: none;
 }
 .showcase-catalog-index a[data-alias] {
-  opacity: 0.75;
+  color: var(--ibs-color-text-muted);
   font-style: italic;
 }
 .showcase-catalog-index a:hover {

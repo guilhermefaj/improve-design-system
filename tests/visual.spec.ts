@@ -39,18 +39,18 @@ test('catalog index stays below the header and adapts to the viewport', async ({
   await page.goto('/');
   const header = page.locator('.ibs-header');
   const index = page.locator('.showcase-catalog-index');
-  const agenticLink = index.getByRole('link', { name: /Agentic/ });
+  const agentStatusLink = index.getByRole('link', { name: 'AgentStatus', exact: true });
   await page.locator('#catalogo').scrollIntoViewIfNeeded();
   if (testInfo.project.name === 'mobile') {
     await index.evaluate((element) => {
       element.scrollLeft = element.scrollWidth;
     });
   }
-  await agenticLink.evaluate((element) => (element as HTMLAnchorElement).click());
+  await agentStatusLink.evaluate((element) => (element as HTMLAnchorElement).click());
+  await expect(page.locator('[data-specimen-id="agent-status"]')).toBeInViewport();
   if (testInfo.project.name === 'desktop') {
-    await expect(agenticLink).toHaveAttribute('aria-current', 'location');
+    await expect(agentStatusLink).toHaveAttribute('aria-current', 'location', { timeout: 10_000 });
   }
-  await expect(page.locator('#agentic')).toBeInViewport();
 
   const headerBox = await header.boundingBox();
   const indexBox = await index.boundingBox();

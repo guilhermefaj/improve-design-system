@@ -632,6 +632,7 @@ export function Questionnaire({
       <div
         className="ibs-questionnaire__progress"
         role="progressbar"
+        aria-label={`Progresso do questionário: pergunta ${index + 1} de ${steps.length}`}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={progress}

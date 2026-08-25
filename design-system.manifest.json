@@ -2854,6 +2854,7 @@
       "src/styles/components/saas-molecules.css",
       "src/styles/components/saas-organisms.css",
       "src/styles/components/responsive.css",
+      "src/styles/components/catalog.css",
       "src/tokens/generated.ts",
       "src/tokens/primitive.tokens.json",
       "src/tokens/semantic.tokens.json",

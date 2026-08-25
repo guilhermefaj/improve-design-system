@@ -100,9 +100,12 @@ export function MessageScroller({
   children,
   stickToBottom = true,
   className,
+  tabIndex,
+  role,
   ...props
 }: HTMLAttributes<HTMLDivElement> & { stickToBottom?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
+  const labelled = Boolean(props['aria-label'] || props['aria-labelledby']);
 
   useEffect(() => {
     if (!stickToBottom || !ref.current) return;
@@ -110,7 +113,13 @@ export function MessageScroller({
   }, [children, stickToBottom]);
 
   return (
-    <div ref={ref} className={cx('ibs-message-scroller', className)} {...props}>
+    <div
+      ref={ref}
+      {...props}
+      role={role ?? (labelled ? 'region' : undefined)}
+      tabIndex={tabIndex ?? (labelled ? 0 : undefined)}
+      className={cx('ibs-message-scroller', className)}
+    >
       {children}
     </div>
   );

@@ -797,6 +797,7 @@ export function AgenticCatalog() {
   return (
     <Stack gap={7}>
       <SpecimenPanel
+        id="agent-status"
         title="Execução e streaming"
         description="O usuário entende o estado atual sem depender de linguagem técnica."
       >

@@ -513,7 +513,10 @@
   background: var(--ibs-color-surface-raised);
 }
 .ibs-bubble--human .ibs-bubble__meta strong {
-  color: var(--ibs-color-brand);
+  color: var(--ibs-orange-800);
+}
+[data-ibs-theme='dark'] .ibs-bubble--human .ibs-bubble__meta strong {
+  color: var(--ibs-orange-300);
 }
 .ibs-bubble--agent {
   margin-inline-end: auto;
