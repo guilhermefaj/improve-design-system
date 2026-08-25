@@ -299,6 +299,7 @@ export function Bubble(input: HTMLAttributes<HTMLDivElement> & {
     speaker: BubbleRole;
     name?: string;
     timestamp?: string;
+    continued?: boolean;
 }): JSX.Element;
 
 // @public (undocumented)
@@ -2694,6 +2695,7 @@ export function Message(input: {
     };
     children: ReactNode;
     streaming?: boolean;
+    continued?: boolean;
     className?: string;
 }): JSX.Element;
 
@@ -5218,7 +5220,7 @@ export function useDirection(): Direction;
 // Warnings were encountered during analysis:
 //
 // dist/index.d.ts:138:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:367:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:369:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

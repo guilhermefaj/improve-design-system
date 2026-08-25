@@ -283,14 +283,23 @@ export function AgenticCatalogAdditions() {
   return (
     <Stack gap={7}>
       <SpecimenPanel id="bubble" title="Bubble" description="Bolhas humana e agente.">
-        <Stack gap={3}>
+        <div
+          className="ibs-message-scroller"
+          style={{ maxBlockSize: 'none', border: 'none', padding: 0, background: 'transparent' }}
+        >
           <Bubble speaker="human" name="Marina">
             Preciso priorizar o diagnóstico desta semana.
+          </Bubble>
+          <Bubble speaker="human" name="Marina" continued>
+            O time operacional está no limite.
           </Bubble>
           <Bubble speaker="agent" name="Improve Agent">
             Vamos começar pela dor operacional mais cara.
           </Bubble>
-        </Stack>
+          <Bubble speaker="agent" name="Improve Agent" continued>
+            Posso devolver um plano em três passos.
+          </Bubble>
+        </div>
       </SpecimenPanel>
       <SpecimenPanel id="message" title="Message" description="Mensagem genérica de conversa.">
         <Message author={{ name: 'Improve Agent', role: 'agent' }} streaming>
