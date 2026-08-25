@@ -18,7 +18,6 @@
     {
       "id": "button",
       "name": "Button",
-      "atomicLevel": "atom",
       "category": "action",
       "status": "stable",
       "description": "Ação principal, secundária ou textual com ícones opcionais.",
@@ -41,13 +40,11 @@
       ],
       "recipes": ["landing-page", "dashboard", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Button",
-      "storybookId": "02-atoms-button--playground"
+      "primaryExport": "Button"
     },
     {
       "id": "layout",
       "name": "Layout primitives",
-      "atomicLevel": "foundation",
       "category": "foundation",
       "status": "stable",
       "description": "Container, Stack, Cluster, Grid e Section para composição responsiva.",
@@ -71,13 +68,11 @@
       "accessibility": ["Mantenha ordem DOM compatível com a ordem visual."],
       "recipes": ["landing-page", "dashboard", "app", "slides", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Container",
-      "storybookId": "01-foundations-layout--playground"
+      "primaryExport": "Container"
     },
     {
       "id": "typography",
       "name": "Typography",
-      "atomicLevel": "foundation",
       "category": "foundation",
       "status": "stable",
       "description": "Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.",
@@ -109,13 +104,11 @@
       "accessibility": ["Não pule níveis de heading.", "Use um único h1 por contexto principal."],
       "recipes": ["landing-page", "dashboard", "app", "slides", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Heading",
-      "storybookId": "01-foundations-typography--playground"
+      "primaryExport": "Heading"
     },
     {
       "id": "logo",
       "name": "Improve Logo",
-      "atomicLevel": "atom",
       "category": "foundation",
       "status": "stable",
       "description": "Marca vetorial responsiva para interfaces e Artifacts.",
@@ -128,13 +121,11 @@
       "accessibility": ["Wordmark vinculada exige nome acessível.", "Marca decorativa deve ser aria-hidden."],
       "recipes": ["landing-page", "slides", "artifact"],
       "maturity": 9,
-      "primaryExport": "ImproveMark",
-      "storybookId": "02-atoms-logo--playground"
+      "primaryExport": "ImproveMark"
     },
     {
       "id": "card",
       "name": "Card",
-      "atomicLevel": "molecule",
       "category": "data-display",
       "status": "stable",
       "description": "Superfície de conteúdo com corpo, rodapé e modo interativo.",
@@ -161,13 +152,11 @@
       "accessibility": ["Não transforme o card inteiro em botão quando houver múltiplas ações."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 8,
-      "primaryExport": "Card",
-      "storybookId": "03-molecules-card--playground"
+      "primaryExport": "Card"
     },
     {
       "id": "data-display",
       "name": "Data display",
-      "atomicLevel": "molecule",
       "category": "data-display",
       "status": "stable",
       "description": "Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.",
@@ -206,13 +195,11 @@
       ],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "primaryExport": "Avatar",
-      "storybookId": "03-molecules-data-display--playground"
+      "primaryExport": "Avatar"
     },
     {
       "id": "form",
       "name": "Form controls",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Campos, escolhas e switches com descrição e erro associados.",
@@ -251,13 +238,11 @@
       "accessibility": ["Todo controle exige label.", "Erros devem usar aria-describedby e aria-invalid."],
       "recipes": ["landing-page", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "FormField",
-      "storybookId": "03-molecules-form--playground"
+      "primaryExport": "FormField"
     },
     {
       "id": "feedback",
       "name": "Feedback",
-      "atomicLevel": "molecule",
       "category": "feedback",
       "status": "stable",
       "description": "Badge, Alert, Skeleton, Spinner e Progress.",
@@ -287,13 +272,11 @@
       "accessibility": ["Use status para atualizações não urgentes e alert somente para falhas imediatas."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 8,
-      "primaryExport": "Badge",
-      "storybookId": "03-molecules-feedback--playground"
+      "primaryExport": "Badge"
     },
     {
       "id": "dialog",
       "name": "Dialog",
-      "atomicLevel": "organism",
       "category": "overlay",
       "status": "stable",
       "description": "Modal acessível com título, descrição, conteúdo e ação.",
@@ -324,13 +307,11 @@
       "accessibility": ["Título é obrigatório.", "O foco deve entrar, ficar contido e retornar ao gatilho."],
       "recipes": ["app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Dialog",
-      "storybookId": "04-organisms-dialog--playground"
+      "primaryExport": "Dialog"
     },
     {
       "id": "overlays",
       "name": "Overlays and disclosure",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Accordion, Tabs, Tooltip e menus acessíveis.",
@@ -365,13 +346,11 @@
       "accessibility": ["Não use Tooltip para informação necessária.", "Menus precisam ser operáveis por teclado."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Accordion",
-      "storybookId": "03-molecules-overlays--playground"
+      "primaryExport": "Accordion"
     },
     {
       "id": "navigation",
       "name": "Navigation",
-      "atomicLevel": "organism",
       "category": "navigation",
       "status": "stable",
       "description": "Header e Footer institucionais.",
@@ -406,13 +385,11 @@
       "accessibility": ["Navegações precisam de nomes distintos.", "Página atual usa aria-current."],
       "recipes": ["landing-page", "app"],
       "maturity": 8,
-      "primaryExport": "SiteHeader",
-      "storybookId": "04-organisms-navigation--playground"
+      "primaryExport": "SiteHeader"
     },
     {
       "id": "marketing",
       "name": "Marketing patterns",
-      "atomicLevel": "organism",
       "category": "marketing",
       "status": "stable",
       "description": "Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.",
@@ -452,13 +429,11 @@
       "accessibility": ["CTAs precisam ser descritivos.", "LogoCloud deve ter nome acessível."],
       "recipes": ["landing-page"],
       "maturity": 8,
-      "primaryExport": "Hero",
-      "storybookId": "04-organisms-marketing--playground"
+      "primaryExport": "Hero"
     },
     {
       "id": "slides",
       "name": "Presentation",
-      "atomicLevel": "organism",
       "category": "presentation",
       "status": "stable",
       "description": "Primitivas 16:9 para apresentações React.",
@@ -484,13 +459,11 @@
       "accessibility": ["Mantenha ordem semântica e contraste ao exportar."],
       "recipes": ["slides"],
       "maturity": 8,
-      "primaryExport": "Slide",
-      "storybookId": "04-organisms-slides--playground"
+      "primaryExport": "Slide"
     },
     {
       "id": "agent-status",
       "name": "AgentStatus",
-      "atomicLevel": "molecule",
       "category": "agentic",
       "status": "stable",
       "description": "Estado resumido e acessível de uma execução agentic.",
@@ -524,13 +497,11 @@
       "accessibility": ["Anuncie somente mudanças de etapa com aria-live polite."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "AgentStatus",
-      "storybookId": "03-molecules-agent-status--playground"
+      "primaryExport": "AgentStatus"
     },
     {
       "id": "streaming-message",
       "name": "StreamingMessage",
-      "atomicLevel": "molecule",
       "category": "agentic",
       "status": "stable",
       "description": "Conteúdo progressivo sem anunciar cada token.",
@@ -555,13 +526,11 @@
       "accessibility": ["Use aria-busy durante transmissão e uma atualização final em região viva."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "StreamingMessage",
-      "storybookId": "03-molecules-streaming-message--playground"
+      "primaryExport": "StreamingMessage"
     },
     {
       "id": "tool-call-card",
       "name": "ToolCallCard",
-      "atomicLevel": "organism",
       "category": "agentic",
       "status": "stable",
       "description": "Chamada de ferramenta inspecionável com propósito, duração e resultado.",
@@ -587,13 +556,11 @@
       "accessibility": ["Falhas exigem descrição e ação de recuperação disponível por teclado."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "ToolCallCard",
-      "storybookId": "04-organisms-tool-call-card--playground"
+      "primaryExport": "ToolCallCard"
     },
     {
       "id": "approval-card",
       "name": "ApprovalCard",
-      "atomicLevel": "organism",
       "category": "agentic",
       "status": "stable",
       "description": "Aprovação informada para ações externas ou sensíveis.",
@@ -629,13 +596,11 @@
       ],
       "recipes": ["agent-workspace"],
       "maturity": 9,
-      "primaryExport": "ApprovalCard",
-      "storybookId": "04-organisms-approval-card--playground"
+      "primaryExport": "ApprovalCard"
     },
     {
       "id": "run-timeline",
       "name": "RunTimeline",
-      "atomicLevel": "organism",
       "category": "agentic",
       "status": "stable",
       "description": "Linha do tempo de eventos, atores, tentativas e falhas parciais.",
@@ -660,13 +625,11 @@
       "accessibility": ["Use lista ordenada e datas legíveis por máquina."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "RunTimeline",
-      "storybookId": "04-organisms-run-timeline--playground"
+      "primaryExport": "RunTimeline"
     },
     {
       "id": "agent-error",
       "name": "AgentError",
-      "atomicLevel": "molecule",
       "category": "agentic",
       "status": "stable",
       "description": "Falha recuperável com contexto e ações de repetir, editar ou cancelar.",
@@ -691,13 +654,11 @@
       "accessibility": ["Use role alert apenas quando a falha exigir atenção imediata."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "AgentError",
-      "storybookId": "03-molecules-agent-error--playground"
+      "primaryExport": "AgentError"
     },
     {
       "id": "plan-steps",
       "name": "PlanSteps",
-      "atomicLevel": "organism",
       "category": "agentic",
       "status": "stable",
       "description": "Plano visível com estado por etapa.",
@@ -724,13 +685,11 @@
       "accessibility": ["A etapa atual deve ser identificável sem depender somente de cor."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "PlanSteps",
-      "storybookId": "04-organisms-plan-steps--playground"
+      "primaryExport": "PlanSteps"
     },
     {
       "id": "artifact-card",
       "name": "ArtifactCard",
-      "atomicLevel": "molecule",
       "category": "trust",
       "status": "stable",
       "description": "Resultado versionado com tipo, autoria e ação de abertura.",
@@ -770,13 +729,11 @@
       "accessibility": ["Tipo, versão e ação precisam de texto visível ou nome acessível."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "ArtifactCard",
-      "storybookId": "03-molecules-artifact-card--playground"
+      "primaryExport": "ArtifactCard"
     },
     {
       "id": "citation-list",
       "name": "CitationList",
-      "atomicLevel": "molecule",
       "category": "trust",
       "status": "stable",
       "description": "Fontes verificáveis associadas ao resultado.",
@@ -815,13 +772,11 @@
       "accessibility": ["Links devem indicar a origem e abrir com comportamento previsível."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "CitationList",
-      "storybookId": "03-molecules-citation-list--playground"
+      "primaryExport": "CitationList"
     },
     {
       "id": "permission-scope",
       "name": "PermissionScope",
-      "atomicLevel": "molecule",
       "category": "trust",
       "status": "stable",
       "description": "Escopo, duração e revogação de uma permissão.",
@@ -859,13 +814,11 @@
       "accessibility": ["Escopo e duração devem ser comunicados em texto."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "PermissionScope",
-      "storybookId": "03-molecules-permission-scope--playground"
+      "primaryExport": "PermissionScope"
     },
     {
       "id": "agent-handoff",
       "name": "AgentHandoff",
-      "atomicLevel": "organism",
       "category": "trust",
       "status": "beta",
       "description": "Transferência explícita de responsabilidade e contexto.",
@@ -903,13 +856,11 @@
       "accessibility": ["Origem, destino e motivo devem ser anunciados em texto."],
       "recipes": ["agent-workspace"],
       "maturity": 7,
-      "primaryExport": "AgentHandoff",
-      "storybookId": "04-organisms-agent-handoff--playground"
+      "primaryExport": "AgentHandoff"
     },
     {
       "id": "generated-ui-boundary",
       "name": "GeneratedUIBoundary",
-      "atomicLevel": "organism",
       "category": "trust",
       "status": "experimental",
       "description": "Contêiner identificado para UI gerada e conteúdo incorporado.",
@@ -947,13 +898,11 @@
       "accessibility": ["Informe origem, estado e fallback do conteúdo incorporado."],
       "recipes": ["agent-workspace", "artifact"],
       "maturity": 7,
-      "primaryExport": "GeneratedUIBoundary",
-      "storybookId": "04-organisms-generated-ui-boundary--playground"
+      "primaryExport": "GeneratedUIBoundary"
     },
     {
       "id": "mcp-app-frame",
       "name": "McpAppFrame",
-      "atomicLevel": "organism",
       "category": "trust",
       "status": "experimental",
       "description": "Shell visual para recursos interativos MCP.",
@@ -991,13 +940,11 @@
       "accessibility": ["Mudanças de conexão usam status moderado e fallback operável."],
       "recipes": ["agent-workspace"],
       "maturity": 7,
-      "primaryExport": "McpAppFrame",
-      "storybookId": "04-organisms-mcp-app-frame--playground"
+      "primaryExport": "McpAppFrame"
     },
     {
       "id": "trace-viewer",
       "name": "TraceViewer",
-      "atomicLevel": "organism",
       "category": "trust",
       "status": "beta",
       "description": "Detalhes técnicos progressivamente revelados para suporte e auditoria.",
@@ -1036,13 +983,11 @@
       "accessibility": ["Detalhes usam summary descritivo e conteúdo selecionável."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "primaryExport": "TraceViewer",
-      "storybookId": "04-organisms-trace-viewer--playground"
+      "primaryExport": "TraceViewer"
     },
     {
       "id": "kbd",
       "name": "Kbd",
-      "atomicLevel": "atom",
       "category": "saas",
       "status": "stable",
       "description": "Representa atalhos de teclado e combinações de teclas.",
@@ -1070,13 +1015,11 @@
       "accessibility": ["Use texto equivalente quando o atalho não for óbvio."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Kbd",
-      "storybookId": "02-atoms-kbd--playground"
+      "primaryExport": "Kbd"
     },
     {
       "id": "button-group",
       "name": "ButtonGroup",
-      "atomicLevel": "atom",
       "category": "action",
       "status": "stable",
       "description": "Agrupa ações relacionadas de forma solta ou anexada.",
@@ -1104,13 +1047,11 @@
       "accessibility": ["O grupo usa role group; cada ação mantém nome próprio."],
       "recipes": ["dashboard", "app"],
       "maturity": 9,
-      "primaryExport": "ButtonGroup",
-      "storybookId": "02-atoms-button-group--playground"
+      "primaryExport": "ButtonGroup"
     },
     {
       "id": "chip",
       "name": "Chip",
-      "atomicLevel": "atom",
       "category": "saas",
       "status": "stable",
       "description": "Filtro compacto selecionável e opcionalmente removível.",
@@ -1138,13 +1079,11 @@
       "accessibility": ["Seleção usa aria-pressed e remoção tem nome acessível."],
       "recipes": ["dashboard", "app"],
       "maturity": 9,
-      "primaryExport": "Chip",
-      "storybookId": "02-atoms-chip--playground"
+      "primaryExport": "Chip"
     },
     {
       "id": "toggle",
       "name": "Toggle",
-      "atomicLevel": "atom",
       "category": "action",
       "status": "stable",
       "description": "Ativa ou desativa uma opção persistente em uma barra de ferramentas.",
@@ -1172,13 +1111,11 @@
       "accessibility": ["Estado pressionado usa aria-pressed."],
       "recipes": ["app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Toggle",
-      "storybookId": "02-atoms-toggle--playground"
+      "primaryExport": "Toggle"
     },
     {
       "id": "segmented-control",
       "name": "SegmentedControl",
-      "atomicLevel": "atom",
       "category": "form",
       "status": "stable",
       "description": "Seleciona uma opção entre poucas alternativas mutuamente exclusivas.",
@@ -1207,13 +1144,11 @@
       "accessibility": ["Expõe radiogroup e radio com estado selecionado."],
       "recipes": ["dashboard", "app"],
       "maturity": 9,
-      "primaryExport": "SegmentedControl",
-      "storybookId": "02-atoms-segmented-control--playground"
+      "primaryExport": "SegmentedControl"
     },
     {
       "id": "slider",
       "name": "Slider",
-      "atomicLevel": "atom",
       "category": "form",
       "status": "stable",
       "description": "Seleciona um valor numérico dentro de um intervalo.",
@@ -1241,13 +1176,11 @@
       "accessibility": ["Label e valor atual permanecem visíveis."],
       "recipes": ["app"],
       "maturity": 9,
-      "primaryExport": "Slider",
-      "storybookId": "02-atoms-slider--playground"
+      "primaryExport": "Slider"
     },
     {
       "id": "search-input",
       "name": "SearchInput",
-      "atomicLevel": "atom",
       "category": "form",
       "status": "stable",
       "description": "Campo de busca com ícone e limpeza opcional.",
@@ -1275,13 +1208,11 @@
       "accessibility": ["Exige label visível ou aria-label."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "SearchInput",
-      "storybookId": "02-atoms-search-input--playground"
+      "primaryExport": "SearchInput"
     },
     {
       "id": "password-input",
       "name": "PasswordInput",
-      "atomicLevel": "atom",
       "category": "form",
       "status": "stable",
       "description": "Campo de senha com alternância acessível de visibilidade.",
@@ -1309,13 +1240,11 @@
       "accessibility": ["Controle anuncia mostrar ou ocultar senha."],
       "recipes": ["app"],
       "maturity": 9,
-      "primaryExport": "PasswordInput",
-      "storybookId": "02-atoms-password-input--playground"
+      "primaryExport": "PasswordInput"
     },
     {
       "id": "number-input",
       "name": "NumberInput",
-      "atomicLevel": "atom",
       "category": "form",
       "status": "stable",
       "description": "Entrada numérica com incremento, decremento e limites.",
@@ -1343,13 +1272,11 @@
       "accessibility": ["Botões descrevem a operação e respeitam limites."],
       "recipes": ["app"],
       "maturity": 9,
-      "primaryExport": "NumberInput",
-      "storybookId": "02-atoms-number-input--playground"
+      "primaryExport": "NumberInput"
     },
     {
       "id": "sparkline",
       "name": "Sparkline",
-      "atomicLevel": "atom",
       "category": "data-display",
       "status": "stable",
       "description": "Tendência compacta em SVG para métricas.",
@@ -1377,13 +1304,11 @@
       "accessibility": ["Exige descrição textual da tendência."],
       "recipes": ["dashboard"],
       "maturity": 9,
-      "primaryExport": "Sparkline",
-      "storybookId": "02-atoms-sparkline--playground"
+      "primaryExport": "Sparkline"
     },
     {
       "id": "empty-state",
       "name": "EmptyState",
-      "atomicLevel": "molecule",
       "category": "feedback",
       "status": "stable",
       "description": "Estado vazio com contexto e próxima ação.",
@@ -1419,13 +1344,11 @@
       "accessibility": ["Título explica o estado e a ação descreve a recuperação."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "EmptyState",
-      "storybookId": "03-molecules-empty-state--playground"
+      "primaryExport": "EmptyState"
     },
     {
       "id": "popover",
       "name": "Popover",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Conteúdo contextual não modal ancorado a um gatilho.",
@@ -1459,13 +1382,11 @@
       "accessibility": ["Foco e fechamento seguem o comportamento Radix."],
       "recipes": ["app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Popover",
-      "storybookId": "03-molecules-popover--playground"
+      "primaryExport": "Popover"
     },
     {
       "id": "sheet",
       "name": "Sheet",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Painel lateral modal para edição e inspeção contextual.",
@@ -1499,13 +1420,11 @@
       "accessibility": ["Título é obrigatório; foco fica contido e retorna ao gatilho."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Sheet",
-      "storybookId": "03-molecules-sheet--playground"
+      "primaryExport": "Sheet"
     },
     {
       "id": "stepper",
       "name": "Stepper",
-      "atomicLevel": "molecule",
       "category": "navigation",
       "status": "stable",
       "description": "Progresso e navegação entre etapas de um fluxo.",
@@ -1540,13 +1459,11 @@
       "accessibility": ["Etapa atual usa aria-current step e não depende somente de cor."],
       "recipes": ["app"],
       "maturity": 9,
-      "primaryExport": "Stepper",
-      "storybookId": "03-molecules-stepper--playground"
+      "primaryExport": "Stepper"
     },
     {
       "id": "combobox",
       "name": "Combobox",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Seleção pesquisável para listas médias e grandes.",
@@ -1581,13 +1498,11 @@
       "accessibility": ["Implementa combobox, listbox e option; teclado será coberto por testes de interação."],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "primaryExport": "Combobox",
-      "storybookId": "03-molecules-combobox--playground"
+      "primaryExport": "Combobox"
     },
     {
       "id": "command-palette",
       "name": "CommandPalette",
-      "atomicLevel": "molecule",
       "category": "navigation",
       "status": "stable",
       "description": "Busca global por ações com atalhos e descrições.",
@@ -1624,13 +1539,11 @@
       "accessibility": ["Busca recebe foco inicial; resultados são operáveis por teclado."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "CommandPalette",
-      "storybookId": "03-molecules-command-palette--playground"
+      "primaryExport": "CommandPalette"
     },
     {
       "id": "date-picker",
       "name": "DatePicker",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Seleção de data com trigger compacto e painel que fecha após a escolha.",
@@ -1664,13 +1577,11 @@
       "accessibility": ["Label é obrigatório e o controle preserva a semântica nativa."],
       "recipes": ["app"],
       "maturity": 9,
-      "primaryExport": "DatePicker",
-      "storybookId": "03-molecules-date-picker--playground"
+      "primaryExport": "DatePicker"
     },
     {
       "id": "file-upload",
       "name": "FileUpload",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Upload por seletor ou drag and drop com feedback visual.",
@@ -1704,13 +1615,11 @@
       "accessibility": ["O input nativo permanece disponível por teclado."],
       "recipes": ["app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "FileUpload",
-      "storybookId": "03-molecules-file-upload--playground"
+      "primaryExport": "FileUpload"
     },
     {
       "id": "toast",
       "name": "Toast",
-      "atomicLevel": "molecule",
       "category": "feedback",
       "status": "stable",
       "description": "Notificação temporária controlada e acionável.",
@@ -1745,13 +1654,11 @@
       "accessibility": ["Falhas usam alert; demais atualizações usam status."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Toast",
-      "storybookId": "03-molecules-toast--playground"
+      "primaryExport": "Toast"
     },
     {
       "id": "app-shell",
       "name": "AppShell",
-      "atomicLevel": "organism",
       "category": "saas",
       "status": "stable",
       "description": "Estrutura responsiva de produto com sidebar, header e conteúdo.",
@@ -1807,13 +1714,11 @@
       "accessibility": ["Conteúdo principal usa main e mantém ordem DOM previsível."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "AppShell",
-      "storybookId": "04-organisms-app-shell--playground"
+      "primaryExport": "AppShell"
     },
     {
       "id": "sidebar",
       "name": "Sidebar",
-      "atomicLevel": "organism",
       "category": "navigation",
       "status": "stable",
       "description": "Navegação de produto recolhível com grupos, ícones e badges.",
@@ -1872,13 +1777,11 @@
       "accessibility": ["Página atual usa aria-current e o controle anuncia expansão."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "Sidebar",
-      "storybookId": "04-organisms-sidebar--playground"
+      "primaryExport": "Sidebar"
     },
     {
       "id": "page-header",
       "name": "PageHeader",
-      "atomicLevel": "organism",
       "category": "navigation",
       "status": "stable",
       "description": "Cabeçalho de página com contexto, breadcrumbs, metadados e ações.",
@@ -1934,13 +1837,11 @@
       "accessibility": ["Use um único h1 no contexto da página."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "PageHeader",
-      "storybookId": "04-organisms-page-header--playground"
+      "primaryExport": "PageHeader"
     },
     {
       "id": "metric-card",
       "name": "MetricCard",
-      "atomicLevel": "organism",
       "category": "data-display",
       "status": "stable",
       "description": "KPI com variação e tendência compacta.",
@@ -1996,13 +1897,11 @@
       "accessibility": ["Variação inclui sinal, número e contexto em texto."],
       "recipes": ["dashboard"],
       "maturity": 9,
-      "primaryExport": "MetricCard",
-      "storybookId": "04-organisms-metric-card--playground"
+      "primaryExport": "MetricCard"
     },
     {
       "id": "data-grid",
       "name": "DataGrid",
-      "atomicLevel": "organism",
       "category": "data-display",
       "status": "stable",
       "description": "Tabela genérica com ordenação, seleção e estado vazio.",
@@ -2059,13 +1958,11 @@
       "accessibility": ["Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis."],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "primaryExport": "DataGrid",
-      "storybookId": "04-organisms-data-grid--playground"
+      "primaryExport": "DataGrid"
     },
     {
       "id": "filter-bar",
       "name": "FilterBar",
-      "atomicLevel": "organism",
       "category": "form",
       "status": "stable",
       "description": "Busca, filtros ativos, limpeza e ações de coleção.",
@@ -2121,13 +2018,11 @@
       "accessibility": ["Busca exige nome e filtros ativos podem ser removidos por teclado."],
       "recipes": ["dashboard", "app"],
       "maturity": 9,
-      "primaryExport": "FilterBar",
-      "storybookId": "04-organisms-filter-bar--playground"
+      "primaryExport": "FilterBar"
     },
     {
       "id": "pricing-card",
       "name": "PricingCard",
-      "atomicLevel": "organism",
       "category": "marketing",
       "status": "stable",
       "description": "Plano de assinatura com preço, benefícios e ação.",
@@ -2183,13 +2078,11 @@
       "accessibility": ["Preço, período, benefícios e ação são comunicados em texto."],
       "recipes": ["landing-page", "app"],
       "maturity": 9,
-      "primaryExport": "PricingCard",
-      "storybookId": "04-organisms-pricing-card--playground"
+      "primaryExport": "PricingCard"
     },
     {
       "id": "activity-feed",
       "name": "ActivityFeed",
-      "atomicLevel": "organism",
       "category": "data-display",
       "status": "stable",
       "description": "Histórico cronológico de eventos e atores.",
@@ -2246,13 +2139,11 @@
       "accessibility": ["Usa lista ordenada e time com dateTime legível por máquina."],
       "recipes": ["dashboard", "app", "agent-workspace"],
       "maturity": 9,
-      "primaryExport": "ActivityFeed",
-      "storybookId": "04-organisms-activity-feed--playground"
+      "primaryExport": "ActivityFeed"
     },
     {
       "id": "scroll-area",
       "name": "ScrollArea",
-      "atomicLevel": "foundation",
       "category": "foundation",
       "status": "stable",
       "description": "Região com rolagem contida e limite de altura para listas e painéis.",
@@ -2268,13 +2159,11 @@
       ],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "primaryExport": "ScrollArea",
-      "storybookId": "01-foundations-scroll-area--playground"
+      "primaryExport": "ScrollArea"
     },
     {
       "id": "aspect-ratio",
       "name": "AspectRatio",
-      "atomicLevel": "foundation",
       "category": "foundation",
       "status": "stable",
       "description": "Mantém a proporção de mídia e incorporações de forma responsiva.",
@@ -2287,13 +2176,11 @@
       "accessibility": ["Mídia incorporada mantém texto alternativo ou título acessível."],
       "recipes": ["landing-page", "app"],
       "maturity": 8,
-      "primaryExport": "AspectRatio",
-      "storybookId": "01-foundations-aspect-ratio--playground"
+      "primaryExport": "AspectRatio"
     },
     {
       "id": "tag",
       "name": "Tag",
-      "atomicLevel": "atom",
       "category": "data-display",
       "status": "stable",
       "description": "Rótulo semântico compacto, opcionalmente removível, para categorização.",
@@ -2306,13 +2193,11 @@
       "accessibility": ["A remoção expõe um nome acessível com o rótulo da tag."],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "primaryExport": "Tag",
-      "storybookId": "02-atoms-tag--playground"
+      "primaryExport": "Tag"
     },
     {
       "id": "description-list",
       "name": "DescriptionList",
-      "atomicLevel": "molecule",
       "category": "data-display",
       "status": "stable",
       "description": "Lista de termos e definições para metadados e resumos chave-valor.",
@@ -2325,13 +2210,11 @@
       "accessibility": ["Use dt para o termo e dd para a definição; não substitua por tabela."],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "primaryExport": "DescriptionList",
-      "storybookId": "03-molecules-description-list--playground"
+      "primaryExport": "DescriptionList"
     },
     {
       "id": "hover-card",
       "name": "HoverCard",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Prévia contextual não modal exibida ao focar ou apontar um gatilho.",
@@ -2344,13 +2227,11 @@
       "accessibility": ["Não coloque informação essencial apenas no hover; garanta acesso por teclado."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "primaryExport": "HoverCard",
-      "storybookId": "03-molecules-hover-card--playground"
+      "primaryExport": "HoverCard"
     },
     {
       "id": "context-menu",
       "name": "ContextMenu",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Ações contextuais acionadas por clique direito sobre um alvo.",
@@ -2363,13 +2244,11 @@
       "accessibility": ["Ofereça uma alternativa acessível por teclado às ações do menu de contexto."],
       "recipes": ["app", "dashboard"],
       "maturity": 7,
-      "primaryExport": "ContextMenu",
-      "storybookId": "03-molecules-context-menu--playground"
+      "primaryExport": "ContextMenu"
     },
     {
       "id": "collapsible",
       "name": "Collapsible",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "status": "stable",
       "description": "Disclosure único que mostra ou oculta uma região de conteúdo.",
@@ -2382,13 +2261,11 @@
       "accessibility": ["O gatilho comunica o estado expandido e controla a região de conteúdo."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "primaryExport": "Collapsible",
-      "storybookId": "03-molecules-collapsible--playground"
+      "primaryExport": "Collapsible"
     },
     {
       "id": "multi-select",
       "name": "MultiSelect",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Seleção pesquisável de múltiplos valores com tags removíveis.",
@@ -2401,13 +2278,11 @@
       "accessibility": ["Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível."],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "primaryExport": "MultiSelect",
-      "storybookId": "03-molecules-multi-select--playground"
+      "primaryExport": "MultiSelect"
     },
     {
       "id": "date-range-picker",
       "name": "DateRangePicker",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Seleção de intervalo com datas de início e fim baseadas no controle nativo.",
@@ -2420,13 +2295,11 @@
       "accessibility": ["Cada campo do intervalo mantém rótulo próprio de início e fim."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "primaryExport": "DateRangePicker",
-      "storybookId": "03-molecules-date-range-picker--playground"
+      "primaryExport": "DateRangePicker"
     },
     {
       "id": "time-picker",
       "name": "TimePicker",
-      "atomicLevel": "molecule",
       "category": "form",
       "status": "stable",
       "description": "Seleção de horário baseada no controle nativo da plataforma.",
@@ -2439,13 +2312,11 @@
       "accessibility": ["Label é obrigatório e o controle preserva a semântica nativa de horário."],
       "recipes": ["app"],
       "maturity": 8,
-      "primaryExport": "TimePicker",
-      "storybookId": "03-molecules-time-picker--playground"
+      "primaryExport": "TimePicker"
     },
     {
       "id": "direction",
       "name": "Direction",
-      "atomicLevel": "foundation",
       "category": "foundation",
       "description": "Provider e hook para direção de leitura LTR/RTL.",
       "files": ["src/components/atoms/CatalogAtoms.tsx", "src/components/utils.ts"],
@@ -2458,13 +2329,11 @@
       "accessibility": ["Propague dir no contêiner e mantenha a ordem lógica do conteúdo."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "01-foundations-direction--playground"
+      "status": "stable"
     },
     {
       "id": "resizable",
       "name": "Resizable",
-      "atomicLevel": "foundation",
       "category": "foundation",
       "description": "Painéis com divisor arrastável por ponteiro e teclado.",
       "files": [
@@ -2482,13 +2351,11 @@
       "accessibility": ["O divisor deve ser operável por teclado e anunciar o redimensionamento."],
       "recipes": ["app", "dashboard"],
       "maturity": 7,
-      "status": "stable",
-      "storybookId": "01-foundations-resizable--playground"
+      "status": "stable"
     },
     {
       "id": "label",
       "name": "Label",
-      "atomicLevel": "atom",
       "category": "form",
       "description": "Rótulo acessível reutilizável para controles de formulário.",
       "files": ["src/components/atoms/CatalogAtoms.tsx", "src/components/utils.ts"],
@@ -2501,13 +2368,11 @@
       "accessibility": ["Associe o label ao controle via htmlFor ou encapsulamento."],
       "recipes": ["app", "landing-page"],
       "maturity": 9,
-      "status": "stable",
-      "storybookId": "02-atoms-label--playground"
+      "status": "stable"
     },
     {
       "id": "marker",
       "name": "Marker",
-      "atomicLevel": "atom",
       "category": "data-display",
       "description": "Marcador de status para listas e timelines.",
       "files": ["src/components/atoms/CatalogAtoms.tsx", "src/components/utils.ts"],
@@ -2520,13 +2385,11 @@
       "accessibility": ["Quando comunicar status, forneça label acessível."],
       "recipes": ["dashboard", "agent-workspace"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "02-atoms-marker--playground"
+      "status": "stable"
     },
     {
       "id": "item",
       "name": "Item",
-      "atomicLevel": "atom",
       "category": "navigation",
       "description": "Linha reutilizável para listas, menus e seletores.",
       "files": ["src/components/atoms/CatalogAtoms.tsx", "src/components/utils.ts"],
@@ -2539,13 +2402,11 @@
       "accessibility": ["Itens acionáveis precisam de nome acessível e foco visível."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "02-atoms-item--playground"
+      "status": "stable"
     },
     {
       "id": "chart",
       "name": "Chart",
-      "atomicLevel": "atom",
       "category": "data-display",
       "description": "Série simples em barra ou linha para tendências compactas.",
       "files": ["src/components/atoms/CatalogAtoms.tsx", "src/components/utils.ts"],
@@ -2558,13 +2419,11 @@
       "accessibility": ["Sempre forneça aria-label descrevendo a métrica."],
       "recipes": ["dashboard", "app"],
       "maturity": 7,
-      "status": "stable",
-      "storybookId": "02-atoms-chart--playground"
+      "status": "stable"
     },
     {
       "id": "toggle-group",
       "name": "Toggle Group",
-      "atomicLevel": "atom",
       "category": "form",
       "description": "Grupo de opções mutuamente exclusivas em controles compactos.",
       "files": ["src/components/atoms/CatalogAtoms.tsx", "src/components/utils.ts"],
@@ -2577,13 +2436,11 @@
       "accessibility": ["Use radiogroup com opções nomeadas."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "02-atoms-toggle-group--playground"
+      "status": "stable"
     },
     {
       "id": "native-select",
       "name": "Native Select",
-      "atomicLevel": "molecule",
       "category": "form",
       "description": "Select HTML nativo com estilo Improve.",
       "files": [
@@ -2601,13 +2458,11 @@
       "accessibility": ["Exija label associada ao select nativo."],
       "recipes": ["app", "landing-page"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-native-select--playground"
+      "status": "stable"
     },
     {
       "id": "input-group",
       "name": "Input Group",
-      "atomicLevel": "molecule",
       "category": "form",
       "description": "Composer com afixos ao redor de inputs.",
       "files": [
@@ -2625,13 +2480,11 @@
       "accessibility": ["Afixos decorativos não substituem o nome acessível do campo."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-input-group--playground"
+      "status": "stable"
     },
     {
       "id": "input-otp",
       "name": "Input OTP",
-      "atomicLevel": "molecule",
       "category": "form",
       "description": "Entrada por slots para códigos de verificação.",
       "files": [
@@ -2649,13 +2502,11 @@
       "accessibility": ["Agrupe slots com label e suporte colar/backspace."],
       "recipes": ["app"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-input-otp--playground"
+      "status": "stable"
     },
     {
       "id": "table",
       "name": "Table",
-      "atomicLevel": "molecule",
       "category": "data-display",
       "description": "Primitivos de tabela para composição com DataTable.",
       "files": [
@@ -2690,13 +2541,11 @@
       "accessibility": ["Use caption e cabeçalhos de coluna semânticos."],
       "recipes": ["dashboard", "app"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-table--playground"
+      "status": "stable"
     },
     {
       "id": "dropdown-menu",
       "name": "Dropdown Menu",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "description": "Menu de ações a partir de um gatilho.",
       "files": [
@@ -2714,13 +2563,11 @@
       "accessibility": ["Menus precisam ser operáveis por teclado."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-dropdown-menu--playground"
+      "status": "stable"
     },
     {
       "id": "alert-dialog",
       "name": "Alert Dialog",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "description": "Diálogo de confirmação com ênfase destrutiva opcional.",
       "files": [
@@ -2738,13 +2585,11 @@
       "accessibility": ["Descreva a consequência antes da confirmação destrutiva."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-alert-dialog--playground"
+      "status": "stable"
     },
     {
       "id": "calendar",
       "name": "Calendar",
-      "atomicLevel": "molecule",
       "category": "form",
       "description": "Grade mensal para seleção avulsa de data.",
       "files": [
@@ -2762,13 +2607,11 @@
       "accessibility": ["Navegação por teclado entre dias e rótulo do mês."],
       "recipes": ["app", "dashboard"],
       "maturity": 7,
-      "status": "stable",
-      "storybookId": "03-molecules-calendar--playground"
+      "status": "stable"
     },
     {
       "id": "drawer",
       "name": "Drawer",
-      "atomicLevel": "molecule",
       "category": "overlay",
       "description": "Painel modal lateral ou inferior/superior.",
       "files": [
@@ -2786,13 +2629,11 @@
       "accessibility": ["Foco preso no painel e fechamento por Escape."],
       "recipes": ["app", "dashboard"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-drawer--playground"
+      "status": "stable"
     },
     {
       "id": "attachment",
       "name": "Attachment",
-      "atomicLevel": "molecule",
       "category": "form",
       "description": "Lista de anexos com metadados e remoção.",
       "files": [
@@ -2810,13 +2651,11 @@
       "accessibility": ["Cada remoção precisa de nome acessível com o arquivo."],
       "recipes": ["app", "agent-workspace"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "03-molecules-attachment--playground"
+      "status": "stable"
     },
     {
       "id": "carousel",
       "name": "Carousel",
-      "atomicLevel": "molecule",
       "category": "data-display",
       "description": "Carrossel de slides com navegação por teclado.",
       "files": [
@@ -2834,13 +2673,11 @@
       "accessibility": ["Controles anterior/próximo e anúncio do slide atual."],
       "recipes": ["landing-page", "app"],
       "maturity": 7,
-      "status": "stable",
-      "storybookId": "03-molecules-carousel--playground"
+      "status": "stable"
     },
     {
       "id": "navigation-menu",
       "name": "Navigation Menu",
-      "atomicLevel": "organism",
       "category": "navigation",
       "description": "Menu de navegação horizontal desacoplado do header.",
       "files": [
@@ -2858,13 +2695,11 @@
       "accessibility": ["Marque o item atual com aria-current."],
       "recipes": ["landing-page", "app"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "04-organisms-navigation-menu--playground"
+      "status": "stable"
     },
     {
       "id": "questionnaire",
       "name": "Questionnaire",
-      "atomicLevel": "molecule",
       "category": "form",
       "description": "Fluxo guiado de perguntas com progresso.",
       "files": [
@@ -2882,13 +2717,11 @@
       "accessibility": ["Anuncie progresso e mantenha foco no passo atual."],
       "recipes": ["app", "landing-page"],
       "maturity": 7,
-      "status": "stable",
-      "storybookId": "03-molecules-questionnaire--playground"
+      "status": "stable"
     },
     {
       "id": "menubar",
       "name": "Menubar",
-      "atomicLevel": "organism",
       "category": "navigation",
       "description": "Barra de menus desktop com submenus.",
       "files": ["src/components/organisms/CatalogOrganisms.tsx", "src/components/utils.ts"],
@@ -2901,13 +2734,11 @@
       "accessibility": ["Navegação por setas entre menus e itens."],
       "recipes": ["app", "dashboard"],
       "maturity": 7,
-      "status": "stable",
-      "storybookId": "04-organisms-menubar--playground"
+      "status": "stable"
     },
     {
       "id": "bubble",
       "name": "Bubble",
-      "atomicLevel": "organism",
       "category": "agentic",
       "description": "Bolha de mensagem humana ou de agente.",
       "files": ["src/components/organisms/CatalogOrganisms.tsx", "src/components/utils.ts"],
@@ -2920,13 +2751,11 @@
       "accessibility": ["Identifique o autor quando houver múltiplos interlocutores."],
       "recipes": ["agent-workspace", "app"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "04-organisms-bubble--playground"
+      "status": "stable"
     },
     {
       "id": "message",
       "name": "Message",
-      "atomicLevel": "organism",
       "category": "agentic",
       "description": "Mensagem genérica de conversa com autor.",
       "files": ["src/components/organisms/CatalogOrganisms.tsx", "src/components/utils.ts"],
@@ -2939,13 +2768,11 @@
       "accessibility": ["Indique streaming de forma não disruptiva para leitores de tela."],
       "recipes": ["agent-workspace"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "04-organisms-message--playground"
+      "status": "stable"
     },
     {
       "id": "message-scroller",
       "name": "Message Scroller",
-      "atomicLevel": "organism",
       "category": "agentic",
       "description": "Viewport de conversa com stick-to-bottom.",
       "files": ["src/components/organisms/CatalogOrganisms.tsx", "src/components/utils.ts"],
@@ -2958,8 +2785,7 @@
       "accessibility": ["Região rolável com nome acessível quando isolada."],
       "recipes": ["agent-workspace", "app"],
       "maturity": 8,
-      "status": "stable",
-      "storybookId": "04-organisms-message-scroller--playground"
+      "status": "stable"
     }
   ],
   "recipes": [

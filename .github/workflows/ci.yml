@@ -38,7 +38,6 @@ jobs:
           name: visual-documentation
           path: |
             dist
-            storybook-static
             etc/improve-design-system.api.md
 
   consumer-fixtures:

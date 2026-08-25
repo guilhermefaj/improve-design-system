@@ -72,18 +72,6 @@ test('catalog index stays below the header and adapts to the viewport', async ({
   }
 });
 
-test('Storybook Foundations renders visual colors and spacing', async ({ page }) => {
-  await page.goto('http://127.0.0.1:6006/iframe.html?id=01-foundations-overview--overview&viewMode=story');
-  await page.getByRole('heading', { name: 'Escalas de cor' }).waitFor();
-  await expect(page.locator('.showcase-color-ramp').first().locator('span').first()).toBeVisible();
-  await expect(page.locator('.showcase-spacing-scale span').last()).toBeVisible();
-  await expect(page.locator('#storybook-root')).toHaveScreenshot('storybook-foundations.png', {
-    animations: 'disabled',
-    caret: 'hide',
-    maxDiffPixelRatio: 0.01,
-  });
-});
-
 test('light and dark specimens have no serious accessibility violations outside the documented CTA exception', async ({
   page,
 }) => {

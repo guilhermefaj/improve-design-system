@@ -29,9 +29,9 @@ describe('source-owned CLI', () => {
   it('lists and inspects the machine-readable catalog', () => {
     const catalog = JSON.parse(run(['list', '--json']));
     expect(catalog.some((item: { id: string }) => item.id === 'approval-card')).toBe(true);
-    const atoms = JSON.parse(run(['list', '--level', 'atom', '--json']));
-    expect(atoms.every((item: { atomicLevel: string }) => item.atomicLevel === 'atom')).toBe(true);
-    expect(atoms.some((item: { id: string }) => item.id === 'chip')).toBe(true);
+    const actionComponents = JSON.parse(run(['list', '--category', 'action', '--json']));
+    expect(actionComponents.every((item: { category: string }) => item.category === 'action')).toBe(true);
+    expect(actionComponents.some((item: { id: string }) => item.id === 'button')).toBe(true);
     const component = JSON.parse(run(['inspect', 'approval-card', '--json']));
     expect(component.states).toContain('edited');
   });

@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.1.0.
+- Group components by category (action, form, feedback, navigation, overlay, agentic, trust, saas, etc.) instead of atomic levels.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -23,93 +23,93 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Source-owned CLI: packages/cli/improve.mjs
 
 ## Components
-- Button (button, atom, stable): Ação principal, secundária ou textual com ícones opcionais.
+- Button (button, action, stable): Ação principal, secundária ou textual com ícones opcionais.
 - Layout primitives (layout, foundation, stable): Container, Stack, Cluster, Grid e Section para composição responsiva.
 - Typography (typography, foundation, stable): Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.
-- Improve Logo (logo, atom, stable): Marca vetorial responsiva para interfaces e Artifacts.
-- Card (card, molecule, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
-- Data display (data-display, molecule, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
-- Form controls (form, molecule, stable): Campos, escolhas e switches com descrição e erro associados.
-- Feedback (feedback, molecule, stable): Badge, Alert, Skeleton, Spinner e Progress.
-- Dialog (dialog, organism, stable): Modal acessível com título, descrição, conteúdo e ação.
-- Overlays and disclosure (overlays, molecule, stable): Accordion, Tabs, Tooltip e menus acessíveis.
-- Navigation (navigation, organism, stable): Header e Footer institucionais.
-- Marketing patterns (marketing, organism, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
-- Presentation (slides, organism, stable): Primitivas 16:9 para apresentações React.
-- AgentStatus (agent-status, molecule, stable): Estado resumido e acessível de uma execução agentic.
-- StreamingMessage (streaming-message, molecule, stable): Conteúdo progressivo sem anunciar cada token.
-- ToolCallCard (tool-call-card, organism, stable): Chamada de ferramenta inspecionável com propósito, duração e resultado.
-- ApprovalCard (approval-card, organism, stable): Aprovação informada para ações externas ou sensíveis.
-- RunTimeline (run-timeline, organism, stable): Linha do tempo de eventos, atores, tentativas e falhas parciais.
-- AgentError (agent-error, molecule, stable): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
-- PlanSteps (plan-steps, organism, stable): Plano visível com estado por etapa.
-- ArtifactCard (artifact-card, molecule, stable): Resultado versionado com tipo, autoria e ação de abertura.
-- CitationList (citation-list, molecule, stable): Fontes verificáveis associadas ao resultado.
-- PermissionScope (permission-scope, molecule, stable): Escopo, duração e revogação de uma permissão.
-- AgentHandoff (agent-handoff, organism, beta): Transferência explícita de responsabilidade e contexto.
-- GeneratedUIBoundary (generated-ui-boundary, organism, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
-- McpAppFrame (mcp-app-frame, organism, experimental): Shell visual para recursos interativos MCP.
-- TraceViewer (trace-viewer, organism, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
-- Kbd (kbd, atom, stable): Representa atalhos de teclado e combinações de teclas.
-- ButtonGroup (button-group, atom, stable): Agrupa ações relacionadas de forma solta ou anexada.
-- Chip (chip, atom, stable): Filtro compacto selecionável e opcionalmente removível.
-- Toggle (toggle, atom, stable): Ativa ou desativa uma opção persistente em uma barra de ferramentas.
-- SegmentedControl (segmented-control, atom, stable): Seleciona uma opção entre poucas alternativas mutuamente exclusivas.
-- Slider (slider, atom, stable): Seleciona um valor numérico dentro de um intervalo.
-- SearchInput (search-input, atom, stable): Campo de busca com ícone e limpeza opcional.
-- PasswordInput (password-input, atom, stable): Campo de senha com alternância acessível de visibilidade.
-- NumberInput (number-input, atom, stable): Entrada numérica com incremento, decremento e limites.
-- Sparkline (sparkline, atom, stable): Tendência compacta em SVG para métricas.
-- EmptyState (empty-state, molecule, stable): Estado vazio com contexto e próxima ação.
-- Popover (popover, molecule, stable): Conteúdo contextual não modal ancorado a um gatilho.
-- Sheet (sheet, molecule, stable): Painel lateral modal para edição e inspeção contextual.
-- Stepper (stepper, molecule, stable): Progresso e navegação entre etapas de um fluxo.
-- Combobox (combobox, molecule, stable): Seleção pesquisável para listas médias e grandes.
-- CommandPalette (command-palette, molecule, stable): Busca global por ações com atalhos e descrições.
-- DatePicker (date-picker, molecule, stable): Seleção de data com trigger compacto e painel que fecha após a escolha.
-- FileUpload (file-upload, molecule, stable): Upload por seletor ou drag and drop com feedback visual.
-- Toast (toast, molecule, stable): Notificação temporária controlada e acionável.
-- AppShell (app-shell, organism, stable): Estrutura responsiva de produto com sidebar, header e conteúdo.
-- Sidebar (sidebar, organism, stable): Navegação de produto recolhível com grupos, ícones e badges.
-- PageHeader (page-header, organism, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
-- MetricCard (metric-card, organism, stable): KPI com variação e tendência compacta.
-- DataGrid (data-grid, organism, stable): Tabela genérica com ordenação, seleção e estado vazio.
-- FilterBar (filter-bar, organism, stable): Busca, filtros ativos, limpeza e ações de coleção.
-- PricingCard (pricing-card, organism, stable): Plano de assinatura com preço, benefícios e ação.
-- ActivityFeed (activity-feed, organism, stable): Histórico cronológico de eventos e atores.
+- Improve Logo (logo, foundation, stable): Marca vetorial responsiva para interfaces e Artifacts.
+- Card (card, data-display, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
+- Data display (data-display, data-display, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
+- Form controls (form, form, stable): Campos, escolhas e switches com descrição e erro associados.
+- Feedback (feedback, feedback, stable): Badge, Alert, Skeleton, Spinner e Progress.
+- Dialog (dialog, overlay, stable): Modal acessível com título, descrição, conteúdo e ação.
+- Overlays and disclosure (overlays, overlay, stable): Accordion, Tabs, Tooltip e menus acessíveis.
+- Navigation (navigation, navigation, stable): Header e Footer institucionais.
+- Marketing patterns (marketing, marketing, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
+- Presentation (slides, presentation, stable): Primitivas 16:9 para apresentações React.
+- AgentStatus (agent-status, agentic, stable): Estado resumido e acessível de uma execução agentic.
+- StreamingMessage (streaming-message, agentic, stable): Conteúdo progressivo sem anunciar cada token.
+- ToolCallCard (tool-call-card, agentic, stable): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ApprovalCard (approval-card, agentic, stable): Aprovação informada para ações externas ou sensíveis.
+- RunTimeline (run-timeline, agentic, stable): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- AgentError (agent-error, agentic, stable): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- PlanSteps (plan-steps, agentic, stable): Plano visível com estado por etapa.
+- ArtifactCard (artifact-card, trust, stable): Resultado versionado com tipo, autoria e ação de abertura.
+- CitationList (citation-list, trust, stable): Fontes verificáveis associadas ao resultado.
+- PermissionScope (permission-scope, trust, stable): Escopo, duração e revogação de uma permissão.
+- AgentHandoff (agent-handoff, trust, beta): Transferência explícita de responsabilidade e contexto.
+- GeneratedUIBoundary (generated-ui-boundary, trust, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
+- McpAppFrame (mcp-app-frame, trust, experimental): Shell visual para recursos interativos MCP.
+- TraceViewer (trace-viewer, trust, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
+- Kbd (kbd, saas, stable): Representa atalhos de teclado e combinações de teclas.
+- ButtonGroup (button-group, action, stable): Agrupa ações relacionadas de forma solta ou anexada.
+- Chip (chip, saas, stable): Filtro compacto selecionável e opcionalmente removível.
+- Toggle (toggle, action, stable): Ativa ou desativa uma opção persistente em uma barra de ferramentas.
+- SegmentedControl (segmented-control, form, stable): Seleciona uma opção entre poucas alternativas mutuamente exclusivas.
+- Slider (slider, form, stable): Seleciona um valor numérico dentro de um intervalo.
+- SearchInput (search-input, form, stable): Campo de busca com ícone e limpeza opcional.
+- PasswordInput (password-input, form, stable): Campo de senha com alternância acessível de visibilidade.
+- NumberInput (number-input, form, stable): Entrada numérica com incremento, decremento e limites.
+- Sparkline (sparkline, data-display, stable): Tendência compacta em SVG para métricas.
+- EmptyState (empty-state, feedback, stable): Estado vazio com contexto e próxima ação.
+- Popover (popover, overlay, stable): Conteúdo contextual não modal ancorado a um gatilho.
+- Sheet (sheet, overlay, stable): Painel lateral modal para edição e inspeção contextual.
+- Stepper (stepper, navigation, stable): Progresso e navegação entre etapas de um fluxo.
+- Combobox (combobox, form, stable): Seleção pesquisável para listas médias e grandes.
+- CommandPalette (command-palette, navigation, stable): Busca global por ações com atalhos e descrições.
+- DatePicker (date-picker, form, stable): Seleção de data com trigger compacto e painel que fecha após a escolha.
+- FileUpload (file-upload, form, stable): Upload por seletor ou drag and drop com feedback visual.
+- Toast (toast, feedback, stable): Notificação temporária controlada e acionável.
+- AppShell (app-shell, saas, stable): Estrutura responsiva de produto com sidebar, header e conteúdo.
+- Sidebar (sidebar, navigation, stable): Navegação de produto recolhível com grupos, ícones e badges.
+- PageHeader (page-header, navigation, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
+- MetricCard (metric-card, data-display, stable): KPI com variação e tendência compacta.
+- DataGrid (data-grid, data-display, stable): Tabela genérica com ordenação, seleção e estado vazio.
+- FilterBar (filter-bar, form, stable): Busca, filtros ativos, limpeza e ações de coleção.
+- PricingCard (pricing-card, marketing, stable): Plano de assinatura com preço, benefícios e ação.
+- ActivityFeed (activity-feed, data-display, stable): Histórico cronológico de eventos e atores.
 - ScrollArea (scroll-area, foundation, stable): Região com rolagem contida e limite de altura para listas e painéis.
 - AspectRatio (aspect-ratio, foundation, stable): Mantém a proporção de mídia e incorporações de forma responsiva.
-- Tag (tag, atom, stable): Rótulo semântico compacto, opcionalmente removível, para categorização.
-- DescriptionList (description-list, molecule, stable): Lista de termos e definições para metadados e resumos chave-valor.
-- HoverCard (hover-card, molecule, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
-- ContextMenu (context-menu, molecule, stable): Ações contextuais acionadas por clique direito sobre um alvo.
-- Collapsible (collapsible, molecule, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
-- MultiSelect (multi-select, molecule, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
-- DateRangePicker (date-range-picker, molecule, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
-- TimePicker (time-picker, molecule, stable): Seleção de horário baseada no controle nativo da plataforma.
+- Tag (tag, data-display, stable): Rótulo semântico compacto, opcionalmente removível, para categorização.
+- DescriptionList (description-list, data-display, stable): Lista de termos e definições para metadados e resumos chave-valor.
+- HoverCard (hover-card, overlay, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
+- ContextMenu (context-menu, overlay, stable): Ações contextuais acionadas por clique direito sobre um alvo.
+- Collapsible (collapsible, overlay, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
+- MultiSelect (multi-select, form, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
+- DateRangePicker (date-range-picker, form, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
+- TimePicker (time-picker, form, stable): Seleção de horário baseada no controle nativo da plataforma.
 - Direction (direction, foundation, stable): Provider e hook para direção de leitura LTR/RTL.
 - Resizable (resizable, foundation, stable): Painéis com divisor arrastável por ponteiro e teclado.
-- Label (label, atom, stable): Rótulo acessível reutilizável para controles de formulário.
-- Marker (marker, atom, stable): Marcador de status para listas e timelines.
-- Item (item, atom, stable): Linha reutilizável para listas, menus e seletores.
-- Chart (chart, atom, stable): Série simples em barra ou linha para tendências compactas.
-- Toggle Group (toggle-group, atom, stable): Grupo de opções mutuamente exclusivas em controles compactos.
-- Native Select (native-select, molecule, stable): Select HTML nativo com estilo Improve.
-- Input Group (input-group, molecule, stable): Composer com afixos ao redor de inputs.
-- Input OTP (input-otp, molecule, stable): Entrada por slots para códigos de verificação.
-- Table (table, molecule, stable): Primitivos de tabela para composição com DataTable.
-- Dropdown Menu (dropdown-menu, molecule, stable): Menu de ações a partir de um gatilho.
-- Alert Dialog (alert-dialog, molecule, stable): Diálogo de confirmação com ênfase destrutiva opcional.
-- Calendar (calendar, molecule, stable): Grade mensal para seleção avulsa de data.
-- Drawer (drawer, molecule, stable): Painel modal lateral ou inferior/superior.
-- Attachment (attachment, molecule, stable): Lista de anexos com metadados e remoção.
-- Carousel (carousel, molecule, stable): Carrossel de slides com navegação por teclado.
-- Navigation Menu (navigation-menu, organism, stable): Menu de navegação horizontal desacoplado do header.
-- Questionnaire (questionnaire, molecule, stable): Fluxo guiado de perguntas com progresso.
-- Menubar (menubar, organism, stable): Barra de menus desktop com submenus.
-- Bubble (bubble, organism, stable): Bolha de mensagem humana ou de agente.
-- Message (message, organism, stable): Mensagem genérica de conversa com autor.
-- Message Scroller (message-scroller, organism, stable): Viewport de conversa com stick-to-bottom.
+- Label (label, form, stable): Rótulo acessível reutilizável para controles de formulário.
+- Marker (marker, data-display, stable): Marcador de status para listas e timelines.
+- Item (item, navigation, stable): Linha reutilizável para listas, menus e seletores.
+- Chart (chart, data-display, stable): Série simples em barra ou linha para tendências compactas.
+- Toggle Group (toggle-group, form, stable): Grupo de opções mutuamente exclusivas em controles compactos.
+- Native Select (native-select, form, stable): Select HTML nativo com estilo Improve.
+- Input Group (input-group, form, stable): Composer com afixos ao redor de inputs.
+- Input OTP (input-otp, form, stable): Entrada por slots para códigos de verificação.
+- Table (table, data-display, stable): Primitivos de tabela para composição com DataTable.
+- Dropdown Menu (dropdown-menu, overlay, stable): Menu de ações a partir de um gatilho.
+- Alert Dialog (alert-dialog, overlay, stable): Diálogo de confirmação com ênfase destrutiva opcional.
+- Calendar (calendar, form, stable): Grade mensal para seleção avulsa de data.
+- Drawer (drawer, overlay, stable): Painel modal lateral ou inferior/superior.
+- Attachment (attachment, form, stable): Lista de anexos com metadados e remoção.
+- Carousel (carousel, data-display, stable): Carrossel de slides com navegação por teclado.
+- Navigation Menu (navigation-menu, navigation, stable): Menu de navegação horizontal desacoplado do header.
+- Questionnaire (questionnaire, form, stable): Fluxo guiado de perguntas com progresso.
+- Menubar (menubar, navigation, stable): Barra de menus desktop com submenus.
+- Bubble (bubble, agentic, stable): Bolha de mensagem humana ou de agente.
+- Message (message, agentic, stable): Mensagem genérica de conversa com autor.
+- Message Scroller (message-scroller, agentic, stable): Viewport de conversa com stick-to-bottom.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

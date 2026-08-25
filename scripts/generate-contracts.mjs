@@ -124,7 +124,7 @@ function buildLlms(manifest, recipes, full = false) {
     '- Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.',
     '- Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.',
     '- Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.',
-    `- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v${manifest.version}.`,
+    `- Group components by category (action, form, feedback, navigation, overlay, agentic, trust, saas, etc.) instead of atomic levels.`,
     '- Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.',
     '- Use existing components and semantic tokens before inventing new values.',
     '',
@@ -141,7 +141,7 @@ function buildLlms(manifest, recipes, full = false) {
   ];
   for (const component of manifest.components) {
     lines.push(
-      `- ${component.name} (${component.id}, ${component.atomicLevel}, ${component.status}): ${component.description}`,
+      `- ${component.name} (${component.id}, ${component.category}, ${component.status}): ${component.description}`,
     );
     if (full) {
       lines.push(`  Exports: ${component.exports.join(', ')}`);

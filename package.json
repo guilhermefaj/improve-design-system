@@ -46,8 +46,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "generate": "node scripts/generate-contracts.mjs && node scripts/generate-stories.mjs",
-    "generate:check": "node scripts/generate-contracts.mjs --check && node scripts/generate-stories.mjs --check",
+    "generate": "node scripts/generate-contracts.mjs",
+    "generate:check": "node scripts/generate-contracts.mjs --check",
     "validate:contracts": "node scripts/validate-contracts.mjs",
     "design:check": "node scripts/lint-design-values.mjs",
     "lint": "eslint . --max-warnings 0",
@@ -61,12 +61,10 @@
     "dev": "vite",
     "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
     "build:lib": "vite build --config vite.config.lib.ts",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build --disable-telemetry",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:visual": "playwright test",
-    "check": "npm run generate:check && npm run validate:contracts && npm run design:check && npm run lint && npm run format:check && npm run test && npm run build && npm run build:lib && npm run api:check && npm run storybook:build && npm run package:check"
+    "check": "npm run generate:check && npm run validate:contracts && npm run design:check && npm run lint && npm run format:check && npm run test && npm run build && npm run build:lib && npm run api:check && npm run package:check"
   },
   "peerDependencies": {
     "react": ">=18 <21",
@@ -84,8 +82,6 @@
     "@eslint/js": "^10.0.1",
     "@microsoft/api-extractor": "^7.58.12",
     "@playwright/test": "^1.55.0",
-    "@storybook/addon-a11y": "^10.5.7",
-    "@storybook/react-vite": "^10.5.7",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^24.10.0",
@@ -102,7 +98,6 @@
     "prettier": "^3.9.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "storybook": "^10.5.7",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.67.0",
     "vite": "^8.2.1",
