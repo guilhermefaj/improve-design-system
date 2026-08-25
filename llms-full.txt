@@ -359,10 +359,10 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: Menubar, MenubarProps
   States: open, closed
   Accessibility: Navegação por setas entre menus e itens.
-- Bubble (bubble, agentic, stable): Bolha de mensagem humana ou de agente.
+- Bubble (bubble, agentic, stable): Bolha de mensagem humana ou de agente, com empilhamento opcional.
   Exports: Bubble, BubbleProps, BubbleRole
-  States: none
-  Accessibility: Identifique o autor quando houver múltiplos interlocutores.
+  States: continued
+  Accessibility: Identifique o autor quando houver múltiplos interlocutores. Em mensagens continuadas, mantenha o nome no aria-label mesmo sem meta visível.
 - Message (message, agentic, stable): Mensagem genérica de conversa com autor.
   Exports: Message, MessageProps
   States: streaming

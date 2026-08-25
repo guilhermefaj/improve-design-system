@@ -1435,14 +1435,26 @@ export const componentSpecimens: Record<string, ComponentType> = {
   bubble: () =>
     panel(
       'bubble',
-      <Stack gap={3}>
+      <div
+        className="ibs-message-scroller"
+        style={{ maxBlockSize: 'none', border: 'none', padding: 0, background: 'transparent' }}
+      >
         <Bubble speaker="human" name="Marina">
           Preciso priorizar o diagnóstico desta semana.
+        </Bubble>
+        <Bubble speaker="human" name="Marina" continued>
+          O time operacional está no limite e o cliente Enterprise cobra status amanhã.
         </Bubble>
         <Bubble speaker="agent" name="Improve Agent">
           Vamos começar pela dor operacional mais cara.
         </Bubble>
-      </Stack>,
+        <Bubble speaker="agent" name="Improve Agent" continued>
+          Posso mapear os gargalos e te devolver um plano em três passos.
+        </Bubble>
+        <Bubble speaker="human" name="Marina">
+          Perfeito — manda o primeiro passo.
+        </Bubble>
+      </div>,
       'fill',
     ),
 
@@ -1452,18 +1464,24 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <Message author={{ name: 'Improve Agent', role: 'agent' }} streaming>
         Preparando o plano de execução…
       </Message>,
-      'bounded',
+      'hug',
     ),
 
   'message-scroller': () =>
     panel(
       'message-scroller',
-      <MessageScroller style={{ maxBlockSize: '10rem' }} aria-label="Histórico da conversa">
+      <MessageScroller style={{ maxBlockSize: '14rem' }} aria-label="Histórico da conversa">
         <Message author={{ name: 'Marina', role: 'human' }}>Olá</Message>
-        <Message author={{ name: 'Improve Agent', role: 'agent' }}>Como posso ajudar?</Message>
+        <Message author={{ name: 'Marina', role: 'human' }} continued>
+          Consegue me ajudar com o próximo passo?
+        </Message>
+        <Message author={{ name: 'Improve Agent', role: 'agent' }}>Claro — vamos focar no diagnóstico.</Message>
+        <Message author={{ name: 'Improve Agent', role: 'agent' }} continued>
+          Primeiro, listei as fricções com maior custo.
+        </Message>
         <Message author={{ name: 'Marina', role: 'human' }}>Mostre o próximo passo.</Message>
       </MessageScroller>,
-      'bounded',
+      'fill',
     ),
 };
 

@@ -107,7 +107,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Navigation Menu (navigation-menu, navigation, stable): Menu de navegação horizontal desacoplado do header.
 - Questionnaire (questionnaire, form, stable): Fluxo guiado de perguntas com progresso.
 - Menubar (menubar, navigation, stable): Barra de menus desktop com submenus.
-- Bubble (bubble, agentic, stable): Bolha de mensagem humana ou de agente.
+- Bubble (bubble, agentic, stable): Bolha de mensagem humana ou de agente, com empilhamento opcional.
 - Message (message, agentic, stable): Mensagem genérica de conversa com autor.
 - Message Scroller (message-scroller, agentic, stable): Viewport de conversa com stick-to-bottom.
 

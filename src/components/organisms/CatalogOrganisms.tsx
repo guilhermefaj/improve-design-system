@@ -48,26 +48,34 @@ export function Bubble({
   children,
   name,
   timestamp,
+  continued = false,
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement> & {
   speaker: BubbleRole;
   name?: string;
   timestamp?: string;
+  /** When true, hides the name (and tightens spacing) for consecutive messages from the same speaker. */
+  continued?: boolean;
 }) {
+  const showMeta = Boolean(!continued && (name || timestamp));
+  const ariaLabel = name ? (continued ? `Mensagem continuada de ${name}` : `Mensagem de ${name}`) : undefined;
+
   return (
     <article
-      className={cx('ibs-bubble', `ibs-bubble--${speaker}`, className)}
-      aria-label={name ? `Mensagem de ${name}` : undefined}
+      className={cx('ibs-bubble', `ibs-bubble--${speaker}`, continued && 'ibs-bubble--continued', className)}
+      aria-label={ariaLabel}
       {...props}
     >
-      {(name || timestamp) && (
+      {showMeta && (
         <header className="ibs-bubble__meta">
           {name && <strong>{name}</strong>}
           {timestamp && <time dateTime={timestamp}>{timestamp}</time>}
         </header>
       )}
-      <div className="ibs-bubble__content">{children}</div>
+      <div className="ibs-bubble__body">
+        <div className="ibs-bubble__content">{children}</div>
+      </div>
     </article>
   );
 }
@@ -76,15 +84,22 @@ export function Message({
   author,
   children,
   streaming = false,
+  continued = false,
   className,
 }: {
   author: { name: string; role?: BubbleRole };
   children: ReactNode;
   streaming?: boolean;
+  continued?: boolean;
   className?: string;
 }) {
   return (
-    <Bubble speaker={author.role ?? 'human'} name={author.name} className={cx('ibs-message', className)}>
+    <Bubble
+      speaker={author.role ?? 'human'}
+      name={author.name}
+      continued={continued}
+      className={cx('ibs-message', className)}
+    >
       <div className="ibs-message__body">{children}</div>
       {streaming && (
         <span className="ibs-message__streaming" aria-live="polite">
