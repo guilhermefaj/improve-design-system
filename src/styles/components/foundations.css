@@ -46,10 +46,6 @@
 .ibs-accent-text {
   font-family: var(--ibs-font-accent);
 }
-.ibs-supporting-label {
-  font-family: var(--ibs-font-montserrat);
-  font-weight: var(--ibs-font-weight-medium);
-}
 
 .ibs-eyebrow {
   margin: 0;

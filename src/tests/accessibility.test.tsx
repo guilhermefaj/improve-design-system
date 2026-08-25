@@ -83,7 +83,7 @@ describe('automated accessibility', () => {
 
   it('keeps one explicit contrast allowlist entry', () => {
     expect(documentedContrastException).toEqual(
-      expect.objectContaining({ selector: '.ibs-button--primary, .ibs-button--brand', ratio: 2.93 }),
+      expect.objectContaining({ selector: '.ibs-button--primary', ratio: 2.93 }),
     );
   });
 });

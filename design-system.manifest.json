@@ -31,7 +31,7 @@
         "button.height",
         "button.radius"
       ],
-      "variants": ["solid", "primary", "brand", "outline", "ghost", "link"],
+      "variants": ["solid", "primary", "outline", "ghost", "link"],
       "states": ["default", "hover", "active", "focus-visible", "disabled"],
       "accessibility": [
         "Use texto descritivo.",
@@ -77,29 +77,10 @@
       "status": "stable",
       "description": "Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.",
       "files": ["src/components/Typography.tsx", "src/components/utils.ts"],
-      "exports": ["Heading", "Text", "Eyebrow", "AccentText", "SupportingLabel", "HeadingProps", "TextProps"],
+      "exports": ["Heading", "Text", "Eyebrow", "AccentText", "HeadingProps", "TextProps"],
       "dependencies": ["react"],
-      "tokens": [
-        "font.sans",
-        "font.display",
-        "font.accent",
-        "font.montserrat",
-        "font-weight",
-        "text",
-        "leading",
-        "tracking"
-      ],
-      "variants": [
-        "heading-1",
-        "heading-2",
-        "heading-3",
-        "heading-4",
-        "body-sm",
-        "body-md",
-        "body-lg",
-        "accent",
-        "supporting-label"
-      ],
+      "tokens": ["font.sans", "font.display", "font.accent", "font-weight", "text", "leading", "tracking"],
+      "variants": ["heading-1", "heading-2", "heading-3", "heading-4", "body-sm", "body-md", "body-lg", "accent"],
       "states": [],
       "accessibility": ["Não pule níveis de heading.", "Use um único h1 por contexto principal."],
       "recipes": ["landing-page", "dashboard", "app", "slides", "agent-workspace"],
@@ -2864,7 +2845,6 @@
     "dependencies": {
       "@fontsource/edu-nsw-act-cursive": "^5.3.0",
       "@fontsource-variable/inter": "^5.2.8",
-      "@fontsource-variable/montserrat": "^5.3.0",
       "@fontsource-variable/space-grotesk": "^5.2.9",
       "lucide-react": "^1.31.0",
       "radix-ui": "^1.6.7"

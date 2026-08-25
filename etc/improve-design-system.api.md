@@ -309,7 +309,7 @@ export type BubbleRole = 'human' | 'agent';
 
 // @public (undocumented)
 export const Button: ForwardRefExoticComponent<ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: "solid" | "primary" | "brand" | "outline" | "ghost" | "link";
+    variant?: "solid" | "primary" | "outline" | "ghost" | "link";
     size?: "sm" | "md" | "lg";
     fullWidth?: boolean;
     leadingIcon?: ReactNode;
@@ -342,7 +342,7 @@ export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 // @public (undocumented)
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: 'solid' | 'primary' | 'brand' | 'outline' | 'ghost' | 'link';
+    variant?: 'solid' | 'primary' | 'outline' | 'ghost' | 'link';
     size?: 'sm' | 'md' | 'lg';
     fullWidth?: boolean;
     leadingIcon?: ReactNode;
@@ -706,7 +706,6 @@ export const darkDesignTokens: {
         readonly sans: "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
         readonly display: "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
         readonly accent: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
-        readonly montserrat: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
         readonly mono: "'SFMono-Regular', Consolas, 'Liberation Mono', monospace";
     };
     readonly "font-weight": {
@@ -1105,7 +1104,6 @@ export const darkFlatTokens: {
     readonly "font.sans": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly "font.display": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly "font.accent": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
-    readonly "font.montserrat": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly "font.mono": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace";
     readonly "font-weight.regular": 400;
     readonly "font-weight.medium": 500;
@@ -1620,7 +1618,6 @@ export const designTokens: {
         readonly sans: "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
         readonly display: "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
         readonly accent: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
-        readonly montserrat: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
         readonly mono: "'SFMono-Regular', Consolas, 'Liberation Mono', monospace";
     };
     readonly "font-weight": {
@@ -2157,7 +2154,6 @@ export const flatTokens: {
     readonly "font.sans": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly "font.display": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly "font.accent": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
-    readonly "font.montserrat": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly "font.mono": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace";
     readonly "font-weight.regular": 400;
     readonly "font-weight.medium": 500;
@@ -2570,7 +2566,6 @@ export const improveTokens: {
     readonly fontFamily: "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly displayFontFamily: "'Clash Display', 'Space Grotesk Variable', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly accentFontFamily: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
-    readonly supportingFontFamily: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
     readonly radius: {
         readonly control: 10;
         readonly card: 16;
@@ -3249,9 +3244,6 @@ export type StreamingMessageProps = HTMLAttributes<HTMLElement> & {
 };
 
 // @public (undocumented)
-export function SupportingLabel(input: HTMLAttributes<HTMLSpanElement>): JSX.Element;
-
-// @public (undocumented)
 export function Switch(input: React.ComponentPropsWithoutRef<typeof Switch_2.Root> & {
     label: string;
     id?: string;
@@ -3893,12 +3885,6 @@ export const tokenCatalog: readonly [{
     readonly reference: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
     readonly light: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
     readonly dark: "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive";
-}, {
-    readonly path: "font.montserrat";
-    readonly type: "string";
-    readonly reference: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
-    readonly light: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
-    readonly dark: "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif";
 }, {
     readonly path: "font.mono";
     readonly type: "string";

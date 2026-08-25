@@ -71,18 +71,15 @@
 .ibs-button--solid:hover {
   background: var(--ibs-neutral-700);
 }
-.ibs-button--primary,
-.ibs-button--brand {
+.ibs-button--primary {
   background: var(--ibs-button-background-primary);
   color: var(--ibs-button-text-primary);
   font-weight: var(--ibs-font-weight-bold);
 }
-.ibs-button--primary:hover,
-.ibs-button--brand:hover {
+.ibs-button--primary:hover {
   background: var(--ibs-button-background-primary-hover);
 }
-.ibs-button--primary:active,
-.ibs-button--brand:active {
+.ibs-button--primary:active {
   background: var(--ibs-button-background-primary-active);
 }
 .ibs-button--outline {

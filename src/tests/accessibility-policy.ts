@@ -1,7 +1,7 @@
 import type { Result } from 'axe-core';
 
 export const documentedContrastException = {
-  selector: '.ibs-button--primary, .ibs-button--brand',
+  selector: '.ibs-button--primary',
   foreground: '#FFFFFF',
   background: '#F2703E',
   ratio: 2.93,
@@ -13,10 +13,7 @@ export function unexpectedSeriousViolations(violations: Result[]) {
     if (!['critical', 'serious'].includes(violation.impact ?? '')) return false;
     if (violation.id !== 'color-contrast') return true;
     return violation.nodes.some(
-      (node) =>
-        !node.target.every(
-          (target) => String(target).includes('ibs-button--primary') || String(target).includes('ibs-button--brand'),
-        ),
+      (node) => !node.target.every((target) => String(target).includes('ibs-button--primary')),
     );
   });
 }

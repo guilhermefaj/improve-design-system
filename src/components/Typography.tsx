@@ -48,7 +48,3 @@ export function Eyebrow({ className, ...props }: HTMLAttributes<HTMLParagraphEle
 export function AccentText({ className, ...props }: HTMLAttributes<HTMLSpanElement>) {
   return <span className={cx('ibs-accent-text', className)} {...props} />;
 }
-
-export function SupportingLabel({ className, ...props }: HTMLAttributes<HTMLSpanElement>) {
-  return <span className={cx('ibs-supporting-label', className)} {...props} />;
-}

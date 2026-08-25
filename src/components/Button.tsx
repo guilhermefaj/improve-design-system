@@ -6,7 +6,7 @@ import { cx } from './utils';
 export type MotionPreset = 'none' | 'subtle' | 'expressive';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'solid' | 'primary' | 'brand' | 'outline' | 'ghost' | 'link';
+  variant?: 'solid' | 'primary' | 'outline' | 'ghost' | 'link';
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   leadingIcon?: ReactNode;
