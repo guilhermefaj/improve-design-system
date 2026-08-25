@@ -91,8 +91,16 @@
 }
 .ibs-sheet > header {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--ibs-space-4);
+}
+.ibs-sheet__close {
+  align-self: flex-start;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-height: 2.25rem;
+  border-radius: var(--ibs-radius-md);
 }
 .ibs-sheet > header h2 {
   margin: 0;

@@ -106,7 +106,7 @@
   --ibs-ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ibs-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --ibs-ease-exit: cubic-bezier(0.4, 0, 1, 1);
-  --ibs-z-dropdown: 30;
+  --ibs-z-dropdown: 45;
   --ibs-z-sticky: 40;
   --ibs-z-modal: 50;
   --ibs-z-toast: 60;

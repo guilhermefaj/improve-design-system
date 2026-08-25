@@ -68,6 +68,15 @@
   color: currentColor;
   text-decoration: none;
 }
+.ibs-logo--brand {
+  color: inherit;
+}
+.ibs-logo--mono {
+  color: var(--ibs-color-text-muted);
+}
+.ibs-logo--inverse {
+  color: var(--ibs-neutral-0);
+}
 
 .ibs-logo__mark {
   width: 2.25rem;
@@ -75,9 +84,23 @@
   flex: none;
 }
 .ibs-logo__word {
-  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.02em;
+  font-family: var(--ibs-font-display);
+  font-size: 1.2rem;
   font-weight: var(--ibs-font-weight-bold);
-  letter-spacing: var(--ibs-tracking-heading);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: lowercase;
+}
+.ibs-logo__i {
+  display: inline-block;
+  width: 0.26em;
+  height: 0.78em;
+  margin-bottom: 0.02em;
+  background: currentColor;
+  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%, 0 26%);
 }
 
 .ibs-scroll-area {

@@ -819,7 +819,7 @@ export const darkDesignTokens: {
         readonly exit: "cubic-bezier(0.4, 0, 1, 1)";
     };
     readonly z: {
-        readonly dropdown: 30;
+        readonly dropdown: 45;
         readonly sticky: 40;
         readonly modal: 50;
         readonly toast: 60;
@@ -1196,7 +1196,7 @@ export const darkFlatTokens: {
     readonly "ease.standard": "cubic-bezier(0.2, 0, 0, 1)";
     readonly "ease.enter": "cubic-bezier(0.16, 1, 0.3, 1)";
     readonly "ease.exit": "cubic-bezier(0.4, 0, 1, 1)";
-    readonly "z.dropdown": 30;
+    readonly "z.dropdown": 45;
     readonly "z.sticky": 40;
     readonly "z.modal": 50;
     readonly "z.toast": 60;
@@ -1733,7 +1733,7 @@ export const designTokens: {
         readonly exit: "cubic-bezier(0.4, 0, 1, 1)";
     };
     readonly z: {
-        readonly dropdown: 30;
+        readonly dropdown: 45;
         readonly sticky: 40;
         readonly modal: 50;
         readonly toast: 60;
@@ -2248,7 +2248,7 @@ export const flatTokens: {
     readonly "ease.standard": "cubic-bezier(0.2, 0, 0, 1)";
     readonly "ease.enter": "cubic-bezier(0.16, 1, 0.3, 1)";
     readonly "ease.exit": "cubic-bezier(0.4, 0, 1, 1)";
-    readonly "z.dropdown": 30;
+    readonly "z.dropdown": 45;
     readonly "z.sticky": 40;
     readonly "z.modal": 50;
     readonly "z.toast": 60;
@@ -2539,7 +2539,11 @@ export function ImproveLogo(input: ImproveLogoProps): JSX.Element;
 export type ImproveLogoProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     compact?: boolean;
     href?: string;
+    variant?: ImproveLogoVariant;
 };
+
+// @public (undocumented)
+export type ImproveLogoVariant = 'brand' | 'duo' | 'mono' | 'inverse';
 
 // @public (undocumented)
 export function ImproveMark(input: ImproveMarkProps): JSX.Element;
@@ -2547,6 +2551,7 @@ export function ImproveMark(input: ImproveMarkProps): JSX.Element;
 // @public (undocumented)
 export type ImproveMarkProps = HTMLAttributes<SVGSVGElement> & {
     size?: number;
+    variant?: ImproveLogoVariant;
 };
 
 // @public (undocumented)
@@ -4302,9 +4307,9 @@ export const tokenCatalog: readonly [{
 }, {
     readonly path: "z.dropdown";
     readonly type: "number";
-    readonly reference: 30;
-    readonly light: 30;
-    readonly dark: 30;
+    readonly reference: 45;
+    readonly light: 45;
+    readonly dark: 45;
 }, {
     readonly path: "z.sticky";
     readonly type: "number";
