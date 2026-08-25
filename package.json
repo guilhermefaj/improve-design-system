@@ -1,7 +1,7 @@
 {
   "name": "@improve-business/design-system",
   "version": "1.1.0",
-  "description": "Design system oficial da Improve Business para produtos, landing pages e apresenta\u00e7\u00f5es em React.",
+  "description": "Design system oficial da Improve Business para produtos, landing pages e apresentações em React.",
   "license": "UNLICENSED",
   "packageManager": "pnpm@11.16.0",
   "type": "module",
