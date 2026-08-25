@@ -1010,7 +1010,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <AppShell
         sidebar={
           <Sidebar
-            brand={<ImproveLogo compact />}
+            brand={<ImproveLogo />}
             groups={[
               {
                 items: [
@@ -1042,8 +1042,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         }}
       >
         <Sidebar
-          defaultCollapsed
-          brand={<ImproveLogo compact />}
+          brand={<ImproveLogo />}
           groups={[
             {
               items: [
