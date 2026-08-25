@@ -295,12 +295,6 @@
 .showcase-stream-chunk[data-active] {
   box-shadow: inset 0 0 0 1px var(--ibs-color-secondary-soft);
 }
-.showcase-stream-anchor {
-  scroll-margin-top: calc(var(--ibs-layout-header-height) + var(--ibs-space-6));
-  block-size: 1px;
-  margin: 0;
-  pointer-events: none;
-}
 .showcase-panel {
   scroll-margin-top: calc(var(--ibs-layout-header-height) + var(--ibs-space-6));
   transition:

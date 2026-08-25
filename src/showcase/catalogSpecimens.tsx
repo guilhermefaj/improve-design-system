@@ -48,10 +48,9 @@ export function SpecimenPanel({
   children: ReactNode;
 }) {
   return (
-    <section className="showcase-panel" data-specimen-id={id} aria-labelledby={id ? `${id}-title` : undefined}>
+    <section className="showcase-panel" id={id} data-specimen-id={id} aria-labelledby={id ? `${id}-title` : undefined}>
       <header>
         <div>
-          <span className="showcase-panel__label">Specimen</span>
           <Heading level={3} size={4} id={id ? `${id}-title` : undefined}>
             {title}
           </Heading>

@@ -233,15 +233,6 @@ export function App() {
                     if (query.trim() && !visibleIds.length) return null;
                     return (
                       <div className="showcase-stream-chunk" key={group.id} data-group={group.id}>
-                        {group.componentIds.map((id) => (
-                          <div
-                            id={id}
-                            key={id}
-                            className="showcase-stream-anchor"
-                            hidden={query.trim() ? !visibleTargetIds.has(id) : undefined}
-                            tabIndex={-1}
-                          />
-                        ))}
                         <Catalog />
                       </div>
                     );
