@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.0.3.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.1.0.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -87,6 +87,29 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - MultiSelect (multi-select, molecule, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
 - DateRangePicker (date-range-picker, molecule, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
 - TimePicker (time-picker, molecule, stable): Seleção de horário baseada no controle nativo da plataforma.
+- Direction (direction, foundation, stable): Provider e hook para direção de leitura LTR/RTL.
+- Resizable (resizable, foundation, stable): Painéis com divisor arrastável por ponteiro e teclado.
+- Label (label, atom, stable): Rótulo acessível reutilizável para controles de formulário.
+- Marker (marker, atom, stable): Marcador de status para listas e timelines.
+- Item (item, atom, stable): Linha reutilizável para listas, menus e seletores.
+- Chart (chart, atom, stable): Série simples em barra ou linha para tendências compactas.
+- Toggle Group (toggle-group, atom, stable): Grupo de opções mutuamente exclusivas em controles compactos.
+- Native Select (native-select, molecule, stable): Select HTML nativo com estilo Improve.
+- Input Group (input-group, molecule, stable): Composer com afixos ao redor de inputs.
+- Input OTP (input-otp, molecule, stable): Entrada por slots para códigos de verificação.
+- Table (table, molecule, stable): Primitivos de tabela para composição com DataTable.
+- Dropdown Menu (dropdown-menu, molecule, stable): Menu de ações a partir de um gatilho.
+- Alert Dialog (alert-dialog, molecule, stable): Diálogo de confirmação com ênfase destrutiva opcional.
+- Calendar (calendar, molecule, stable): Grade mensal para seleção avulsa de data.
+- Drawer (drawer, molecule, stable): Painel modal lateral ou inferior/superior.
+- Attachment (attachment, molecule, stable): Lista de anexos com metadados e remoção.
+- Carousel (carousel, molecule, stable): Carrossel de slides com navegação por teclado.
+- Navigation Menu (navigation-menu, organism, stable): Menu de navegação horizontal desacoplado do header.
+- Questionnaire (questionnaire, molecule, stable): Fluxo guiado de perguntas com progresso.
+- Menubar (menubar, organism, stable): Barra de menus desktop com submenus.
+- Bubble (bubble, organism, stable): Bolha de mensagem humana ou de agente.
+- Message (message, organism, stable): Mensagem genérica de conversa com autor.
+- Message Scroller (message-scroller, organism, stable): Viewport de conversa com stick-to-bottom.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

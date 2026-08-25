@@ -44,20 +44,20 @@ export function Menubar({
 export type BubbleRole = 'human' | 'agent';
 
 export function Bubble({
-  role,
+  speaker,
   children,
   name,
   timestamp,
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement> & {
-  role: BubbleRole;
+  speaker: BubbleRole;
   name?: string;
   timestamp?: string;
 }) {
   return (
     <article
-      className={cx('ibs-bubble', `ibs-bubble--${role}`, className)}
+      className={cx('ibs-bubble', `ibs-bubble--${speaker}`, className)}
       aria-label={name ? `Mensagem de ${name}` : undefined}
       {...props}
     >
@@ -84,7 +84,7 @@ export function Message({
   className?: string;
 }) {
   return (
-    <Bubble role={author.role ?? 'human'} name={author.name} className={cx('ibs-message', className)}>
+    <Bubble speaker={author.role ?? 'human'} name={author.name} className={cx('ibs-message', className)}>
       <div className="ibs-message__body">{children}</div>
       {streaming && (
         <span className="ibs-message__streaming" aria-live="polite">

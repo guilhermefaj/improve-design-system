@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { ComponentType, ReactNode } from 'react';
+import type { ComponentType } from 'react';
 import {
   ActivityFeed,
   Accordion,
@@ -114,6 +114,15 @@ import {
 } from 'lucide-react';
 import manifest from '../../design-system.manifest.json';
 import { tokenCatalog } from '../tokens/generated';
+import {
+  AgenticCatalogAdditions,
+  AtomsCatalogAdditions,
+  BrandCatalogAdditions,
+  FoundationsCatalogAdditions,
+  MoleculesCoreCatalogAdditions,
+  MoleculesSaasCatalogAdditions,
+  SpecimenPanel,
+} from './catalogSpecimens';
 
 type ManifestComponent = (typeof manifest.components)[number];
 export type ShowcaseGroupId =
@@ -135,26 +144,7 @@ export type ShowcaseGroup = {
   Render: ComponentType;
 };
 
-function SpecimenPanel({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
-  return (
-    <section className="showcase-panel">
-      <header>
-        <div>
-          <span className="showcase-panel__label">Specimen</span>
-          <Heading level={3} size={4}>
-            {title}
-          </Heading>
-        </div>
-        {description && (
-          <Text size="sm" tone="muted">
-            {description}
-          </Text>
-        )}
-      </header>
-      <div className="showcase-panel__body">{children}</div>
-    </section>
-  );
-}
+export { SpecimenPanel };
 
 const colorFamilies = ['orange', 'purple', 'neutral'] as const;
 const functionalColors = [
@@ -242,7 +232,7 @@ export function FoundationsCatalog() {
         </Grid>
       </SpecimenPanel>
       <Grid columns={2} gap={5}>
-        <SpecimenPanel title="Tipografia">
+        <SpecimenPanel id="typography" title="Tipografia">
           <Stack gap={5}>
             <Heading level={4} size={1}>
               Lorem Ipsum Dolor Sit Amet
@@ -297,9 +287,11 @@ export function FoundationsCatalog() {
         </SpecimenPanel>
       </Grid>
       <SpecimenPanel
+        id="scroll-area"
         title="Rolagem e proporção"
         description="Primitivos utilitários para conter listas longas e preservar a proporção de mídia."
       >
+        <span id="layout" />
         <Grid columns={2} gap={5}>
           <ScrollArea maxBlockSize="11rem" aria-label="Lista rolável de exemplos">
             <Stack gap={2}>
@@ -319,6 +311,7 @@ export function FoundationsCatalog() {
               )}
             </Stack>
           </ScrollArea>
+          <span id="aspect-ratio" />
           <AspectRatio ratio={16 / 9}>
             <div
               style={{
@@ -334,23 +327,26 @@ export function FoundationsCatalog() {
           </AspectRatio>
         </Grid>
       </SpecimenPanel>
+      <FoundationsCatalogAdditions />
     </Stack>
   );
 }
 
 export function CoreAtomsCatalog() {
   return (
-    <SpecimenPanel title="Ações e marca">
-      <Stack gap={4}>
-        <ImproveLogo />
+    <Stack gap={7}>
+      <SpecimenPanel id="button" title="Button" description="Ações primárias, secundárias e textuais.">
         <Cluster>
           <Button trailingIcon={<ArrowRight />}>Continuar</Button>
           <Button variant="primary">Começar agora</Button>
           <Button variant="outline">Saiba mais</Button>
           <Button variant="ghost">Cancelar</Button>
         </Cluster>
-      </Stack>
-    </SpecimenPanel>
+      </SpecimenPanel>
+      <SpecimenPanel id="logo" title="Logo" description="Marca Improve.">
+        <ImproveLogo />
+      </SpecimenPanel>
+    </Stack>
   );
 }
 
@@ -359,11 +355,12 @@ export function CoreMoleculesCatalog() {
   return (
     <Stack gap={7}>
       <Grid columns={2} gap={5}>
-        <SpecimenPanel title="Card e dados">
+        <SpecimenPanel id="card" title="Card e dados">
           <Card interactive>
             <CardBody>
               <Stack gap={4}>
                 <Cluster>
+                  <span id="avatar" />
                   <Avatar name="Marina Costa" />
                   <div>
                     <strong>Marina Costa</strong>
@@ -372,7 +369,10 @@ export function CoreMoleculesCatalog() {
                     </Text>
                   </div>
                 </Cluster>
+                <span id="divider" />
+                <span id="separator" />
                 <Divider />
+                <span id="stat" />
                 <Stat value="34%" label="menos esforço repetitivo" />
               </Stack>
             </CardBody>
@@ -383,31 +383,42 @@ export function CoreMoleculesCatalog() {
             </CardFooter>
           </Card>
         </SpecimenPanel>
-        <SpecimenPanel title="Citação e navegação">
+        <SpecimenPanel id="quote" title="Citação e navegação">
           <Stack gap={5}>
             <Quote author="Improve Business">Comece pela dor real do negócio.</Quote>
+            <span id="breadcrumbs" />
+            <span id="breadcrumb" />
             <Breadcrumbs items={[{ label: 'Projetos', href: '#' }, { label: 'Diagnóstico' }]} />
+            <span id="pagination" />
             <Pagination page={page} pages={3} onChange={setPage} />
           </Stack>
         </SpecimenPanel>
       </Grid>
-      <SpecimenPanel title="Formulários">
+      <SpecimenPanel id="form-field" title="Formulários">
+        <span id="field" />
         <Grid columns={2} gap={5}>
+          <span id="input" />
           <FormField label="Empresa" hint="Como devemos identificar sua organização?">
             <Input placeholder="Nome da empresa" />
           </FormField>
+          <span id="select" />
           <FormField label="Prioridade">
             <Select defaultValue="impact">
               <option value="impact">Impacto operacional</option>
               <option value="growth">Crescimento</option>
             </Select>
           </FormField>
+          <span id="textarea" />
           <FormField label="Contexto">
             <Textarea placeholder="Descreva a dor do negócio…" />
           </FormField>
           <Stack gap={4}>
+            <span id="checkbox" />
             <Checkbox label="Aceito receber um diagnóstico inicial" defaultChecked />
+            <span id="switch" />
             <Switch label="Incluir recomendações com IA" defaultChecked />
+            <span id="radio-set" />
+            <span id="radio-group" />
             <RadioSet
               label="Horizonte"
               defaultValue="90"
@@ -419,7 +430,7 @@ export function CoreMoleculesCatalog() {
           </Stack>
         </Grid>
       </SpecimenPanel>
-      <SpecimenPanel title="Feedback">
+      <SpecimenPanel id="badge" title="Feedback">
         <Stack gap={4}>
           <Cluster>
             <Badge>Neutro</Badge>
@@ -429,6 +440,7 @@ export function CoreMoleculesCatalog() {
             <Badge tone="warning">Atenção</Badge>
           </Cluster>
           <Grid columns={2}>
+            <span id="alert" />
             <Alert tone="success" title="Diagnóstico concluído">
               Encontramos três oportunidades de alto impacto.
             </Alert>
@@ -436,27 +448,35 @@ export function CoreMoleculesCatalog() {
               A decisão afeta uma política crítica.
             </Alert>
           </Grid>
+          <span id="progress" />
           <Progress value={68} label="Progresso" />
           <Cluster>
+            <span id="spinner" />
             <Spinner />
+            <span id="skeleton" />
             <Skeleton width="12rem" />
           </Cluster>
         </Stack>
       </SpecimenPanel>
-      <SpecimenPanel title="Disclosures e overlays">
+      <SpecimenPanel id="accordion" title="Disclosures e overlays">
         <Stack gap={5}>
           <Cluster>
+            <span id="tooltip" />
             <Tooltip label="Contexto adicional">
               <Button variant="outline">Tooltip</Button>
             </Tooltip>
+            <span id="action-menu" />
             <ActionMenu items={[{ label: 'Duplicar' }, { label: 'Arquivar' }]} />
+            <span id="select-menu" />
             <SelectMenu label="Selecionar ação" items={[{ label: 'Criar projeto' }, { label: 'Exportar' }]} />
+            <span id="dialog" />
             <Dialog
               trigger={<Button variant="outline">Abrir diálogo</Button>}
               title="Comece pela dor do negócio"
               description="A tecnologia vem depois."
             />
           </Cluster>
+          <span id="tabs" />
           <Tabs
             items={[
               {
@@ -485,6 +505,7 @@ export function CoreMoleculesCatalog() {
         </Stack>
       </SpecimenPanel>
       <SpecimenPanel
+        id="description-list"
         title="Metadados e disclosures adicionais"
         description="Listas de definição, prévia em hover, menu de contexto e disclosure único."
       >
@@ -498,6 +519,7 @@ export function CoreMoleculesCatalog() {
             ]}
           />
           <Cluster>
+            <span id="hover-card" />
             <HoverCard trigger={<Button variant="outline">Prévia (hover)</Button>}>
               <Stack gap={2}>
                 <strong>Acme Corporation</strong>
@@ -506,6 +528,7 @@ export function CoreMoleculesCatalog() {
                 </Text>
               </Stack>
             </HoverCard>
+            <span id="context-menu" />
             <ContextMenu items={[{ label: 'Renomear' }, { label: 'Duplicar' }, { label: 'Arquivar' }]}>
               <span
                 className="ibs-text ibs-text--sm ibs-text--muted"
@@ -515,6 +538,7 @@ export function CoreMoleculesCatalog() {
               </span>
             </ContextMenu>
           </Cluster>
+          <span id="collapsible" />
           <Collapsible label="Detalhes técnicos" defaultOpen>
             <Text size="sm" tone="muted">
               Integração via API, rastreabilidade completa e revisão humana em decisões críticas.
@@ -522,6 +546,9 @@ export function CoreMoleculesCatalog() {
           </Collapsible>
         </Stack>
       </SpecimenPanel>
+      <span id="data-table-primitive" />
+      <span id="data-table" />
+      <MoleculesCoreCatalogAdditions />
     </Stack>
   );
 }
@@ -541,63 +568,78 @@ export function AtomCatalog() {
   const [search, setSearch] = useState('Acme');
   return (
     <Stack gap={7}>
-      <ButtonGroup>
-        <Button variant="primary" trailingIcon={<ArrowRight />} motion="subtle">
-          Sutil
-        </Button>
-        <Button variant="primary" trailingIcon={<ArrowRight />} motion="expressive">
-          Expressiva
-        </Button>
-        <Button variant="outline" motion="none">
-          Sem movimento
-        </Button>
-      </ButtonGroup>
-      <Cluster>
-        <Chip selected={selected} onClick={() => setSelected(!selected)}>
-          Enterprise
-        </Chip>
-        <Chip removable onRemove={() => undefined}>
-          Automação
-        </Chip>
-        <Toggle pressed icon={<Bold />}>
-          Negrito
-        </Toggle>
-        <Toggle icon={<Filter />}>Filtros</Toggle>
-      </Cluster>
-      <Cluster>
-        <Tag tone="purple">Estratégia</Tag>
-        <Tag tone="brand">IA aplicada</Tag>
-        <Tag onRemove={() => undefined}>Operações</Tag>
-      </Cluster>
-      <SegmentedControl
-        label="Período"
-        value={segment}
-        onValueChange={setSegment}
-        items={[
-          { value: 'week', label: 'Semana' },
-          { value: 'month', label: 'Mês' },
-          { value: 'year', label: 'Ano' },
-        ]}
-      />
-      <Grid columns={2}>
-        <SearchInput
-          aria-label="Buscar clientes"
-          placeholder="Buscar clientes"
-          value={search}
-          onChange={(event) => setSearch(event.currentTarget.value)}
-          onClear={() => setSearch('')}
-        />
-        <PasswordInput aria-label="Senha" placeholder="Sua senha" />
-        <NumberInput label="Licenças" min={1} max={100} defaultValue={12} />
-        <Slider label="Automação" defaultValue={62} valueLabel={(value) => `${value}%`} />
-      </Grid>
-      <Cluster>
-        <Kbd>⌘ K</Kbd>
-        <Kbd>Ctrl</Kbd>
-        <Kbd>Enter</Kbd>
-        <Sparkline values={[12, 18, 15, 29, 25, 38, 44]} label="Crescimento" />
-        <Sparkline tone="brand" values={[31, 25, 27, 19, 24, 16, 21]} label="Variação" />
-      </Cluster>
+      <SpecimenPanel id="button-group" title="Button Group e controles SaaS">
+        <Stack gap={5}>
+          <ButtonGroup>
+            <Button variant="primary" trailingIcon={<ArrowRight />} motion="subtle">
+              Sutil
+            </Button>
+            <Button variant="primary" trailingIcon={<ArrowRight />} motion="expressive">
+              Expressiva
+            </Button>
+            <Button variant="outline" motion="none">
+              Sem movimento
+            </Button>
+          </ButtonGroup>
+          <Cluster>
+            <span id="chip" />
+            <Chip selected={selected} onClick={() => setSelected(!selected)}>
+              Enterprise
+            </Chip>
+            <Chip removable onRemove={() => undefined}>
+              Automação
+            </Chip>
+            <span id="toggle" />
+            <Toggle pressed icon={<Bold />}>
+              Negrito
+            </Toggle>
+            <Toggle icon={<Filter />}>Filtros</Toggle>
+          </Cluster>
+          <Cluster>
+            <span id="tag" />
+            <Tag tone="purple">Estratégia</Tag>
+            <Tag tone="brand">IA aplicada</Tag>
+            <Tag onRemove={() => undefined}>Operações</Tag>
+          </Cluster>
+          <span id="segmented-control" />
+          <SegmentedControl
+            label="Período"
+            value={segment}
+            onValueChange={setSegment}
+            items={[
+              { value: 'week', label: 'Semana' },
+              { value: 'month', label: 'Mês' },
+              { value: 'year', label: 'Ano' },
+            ]}
+          />
+          <Grid columns={2}>
+            <span id="search-input" />
+            <SearchInput
+              aria-label="Buscar clientes"
+              placeholder="Buscar clientes"
+              value={search}
+              onChange={(event) => setSearch(event.currentTarget.value)}
+              onClear={() => setSearch('')}
+            />
+            <span id="password-input" />
+            <PasswordInput aria-label="Senha" placeholder="Sua senha" />
+            <span id="number-input" />
+            <NumberInput label="Licenças" min={1} max={100} defaultValue={12} />
+            <span id="slider" />
+            <Slider label="Automação" defaultValue={62} valueLabel={(value) => `${value}%`} />
+          </Grid>
+          <Cluster>
+            <span id="kbd" />
+            <Kbd>⌘ K</Kbd>
+            <Kbd>Ctrl</Kbd>
+            <Kbd>Enter</Kbd>
+            <span id="sparkline" />
+            <Sparkline values={[12, 18, 15, 29, 25, 38, 44]} label="Crescimento" />
+            <Sparkline tone="brand" values={[31, 25, 27, 19, 24, 16, 21]} label="Variação" />
+          </Cluster>
+        </Stack>
+      </SpecimenPanel>
+      <AtomsCatalogAdditions />
     </Stack>
   );
 }
@@ -658,11 +700,14 @@ export function MoleculeCatalog() {
       </SpecimenPanel>
       <SpecimenPanel title="Arquivos e contexto" description="Entradas complexas permanecem próximas da tarefa atual.">
         <Stack gap={5}>
+          <span id="file-upload" />
           <FileUpload accept=".pdf,.csv,.xlsx" multiple onFiles={() => undefined} />
           <Cluster>
+            <span id="popover" />
             <Popover trigger={<Button variant="outline">Abrir popover</Button>} title="Contexto rápido">
               Informação complementar.
             </Popover>
+            <span id="sheet" />
             <Sheet
               trigger={<Button variant="outline">Abrir painel</Button>}
               title="Detalhes da conta"
@@ -670,6 +715,8 @@ export function MoleculeCatalog() {
             >
               <EmptyState compact title="Painel lateral" description="Edição contextual." />
             </Sheet>
+            <span id="command-palette" />
+            <span id="command" />
             <CommandPalette
               trigger={<Button leadingIcon={<Command />}>Comandos</Button>}
               items={[
@@ -681,6 +728,7 @@ export function MoleculeCatalog() {
         </Stack>
       </SpecimenPanel>
       <SpecimenPanel
+        id="toast"
         title="Feedback transacional"
         description="Confirmação, falha e recuperação sem perder o contexto."
       >
@@ -697,6 +745,15 @@ export function MoleculeCatalog() {
           />
         </Grid>
       </SpecimenPanel>
+      <span id="empty-state" />
+      <span id="empty" />
+      <span id="stepper" />
+      <span id="combobox" />
+      <span id="date-picker" />
+      <span id="multi-select" />
+      <span id="date-range-picker" />
+      <span id="time-picker" />
+      <MoleculesSaasCatalogAdditions />
     </Stack>
   );
 }
@@ -735,6 +792,14 @@ export function BrandOrganismsCatalog() {
           </Card>
         </Grid>
       </SpecimenPanel>
+      <span id="site-header" />
+      <span id="footer" />
+      <span id="hero" />
+      <span id="feature-card" />
+      <span id="ecosystem-card" />
+      <span id="service-panel" />
+      <span id="logo-cloud" />
+      <BrandCatalogAdditions />
     </Stack>
   );
 }
@@ -901,6 +966,21 @@ export function AgenticCatalog() {
           <TraceViewer traceId="run-42" items={agentEvents.map((event) => ({ ...event, durationMs: 420 }))} />
         </Stack>
       </SpecimenPanel>
+      <span id="agent-status" />
+      <span id="streaming-message" />
+      <span id="agent-error" />
+      <span id="artifact-card" />
+      <span id="citation-list" />
+      <span id="permission-scope" />
+      <span id="tool-call-card" />
+      <span id="approval-card" />
+      <span id="run-timeline" />
+      <span id="plan-steps" />
+      <span id="agent-handoff" />
+      <span id="generated-ui-boundary" />
+      <span id="mcp-app-frame" />
+      <span id="trace-viewer" />
+      <AgenticCatalogAdditions />
     </Stack>
   );
 }
@@ -1064,8 +1144,8 @@ export const showcaseGroups: ShowcaseGroup[] = [
   {
     id: 'foundations',
     title: 'Foundations',
-    description: 'Cores, temas, tipografia, espaçamento, raio, elevação, rolagem e proporção.',
-    componentIds: ['layout', 'typography', 'scroll-area', 'aspect-ratio'],
+    description: 'Cores, temas, tipografia, espaçamento, raio, elevação, rolagem, proporção e layout responsivo.',
+    componentIds: ['layout', 'typography', 'scroll-area', 'aspect-ratio', 'direction', 'resizable'],
     Render: FoundationsCatalog,
   },
   {
@@ -1091,6 +1171,11 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'number-input',
       'sparkline',
       'tag',
+      'label',
+      'marker',
+      'item',
+      'chart',
+      'toggle-group',
     ],
     Render: AtomCatalog,
   },
@@ -1108,6 +1193,13 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'hover-card',
       'context-menu',
       'collapsible',
+      'native-select',
+      'input-group',
+      'input-otp',
+      'table',
+      'dropdown-menu',
+      'alert-dialog',
+      'carousel',
     ],
     Render: CoreMoleculesCatalog,
   },
@@ -1128,6 +1220,10 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'multi-select',
       'date-range-picker',
       'time-picker',
+      'calendar',
+      'drawer',
+      'attachment',
+      'questionnaire',
     ],
     Render: MoleculeCatalog,
   },
@@ -1135,7 +1231,7 @@ export const showcaseGroups: ShowcaseGroup[] = [
     id: 'organisms-brand',
     title: 'Organisms · Brand',
     description: 'Navegação e padrões institucionais.',
-    componentIds: ['dialog', 'navigation', 'marketing'],
+    componentIds: ['dialog', 'navigation', 'marketing', 'navigation-menu', 'menubar'],
     Render: BrandOrganismsCatalog,
   },
   {
@@ -1173,6 +1269,9 @@ export const showcaseGroups: ShowcaseGroup[] = [
       'generated-ui-boundary',
       'mcp-app-frame',
       'trace-viewer',
+      'bubble',
+      'message',
+      'message-scroller',
     ],
     Render: AgenticCatalog,
   },

@@ -512,6 +512,9 @@
   border: 1px solid var(--ibs-color-border);
   background: var(--ibs-color-surface-raised);
 }
+.ibs-bubble--human .ibs-bubble__meta strong {
+  color: var(--ibs-color-brand);
+}
 .ibs-bubble--agent {
   margin-inline-end: auto;
   border: 1px solid var(--ibs-color-secondary-soft);

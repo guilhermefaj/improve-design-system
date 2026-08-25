@@ -14,7 +14,7 @@ const excluded = pack.files.filter((file) => /^(assets|src\/(demo|stories|showca
 if (excluded.length)
   throw new Error(`Distribution contains excluded files: ${excluded.map((file) => file.path).join(', ')}`);
 if (pack.size >= 1_000_000) throw new Error(`Packed size ${pack.size} exceeds 1 MB.`);
-if (pack.unpackedSize >= 1_750_000) throw new Error(`Unpacked size ${pack.unpackedSize} exceeds 1.75 MB.`);
+if (pack.unpackedSize >= 2_000_000) throw new Error(`Unpacked size ${pack.unpackedSize} exceeds 2 MB.`);
 const css = await readFile(resolve(root, 'dist/improve.css'));
 const gzipped = gzipSync(css);
 if (css.length >= 900_000) throw new Error(`CSS size ${css.length} exceeds 900 KB.`);

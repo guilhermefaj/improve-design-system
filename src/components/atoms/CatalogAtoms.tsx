@@ -91,7 +91,7 @@ export function Item({
   );
 }
 
-type Direction = 'ltr' | 'rtl';
+export type Direction = 'ltr' | 'rtl';
 
 const DirectionContext = createContext<Direction>('ltr');
 

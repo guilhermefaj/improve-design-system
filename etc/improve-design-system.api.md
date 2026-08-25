@@ -12,15 +12,18 @@ import { ForwardRefExoticComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from 'react';
 import { JSX } from 'react';
+import { LabelHTMLAttributes } from 'react';
 import { LucideProps } from 'lucide-react';
-import { RadioGroup } from 'radix-ui';
+import { RadioGroup as RadioGroup_2 } from 'radix-ui';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import { SelectHTMLAttributes } from 'react';
 import { Switch as Switch_2 } from 'radix-ui';
 import { TableHTMLAttributes } from 'react';
+import { TdHTMLAttributes } from 'react';
 import { TextareaHTMLAttributes } from 'react';
+import { ThHTMLAttributes } from 'react';
 
 // @public (undocumented)
 export function AccentText(input: HTMLAttributes<HTMLSpanElement>): JSX.Element;
@@ -147,6 +150,20 @@ export type AgentStatusProps = HTMLAttributes<HTMLDivElement> & {
 export function Alert(input: AlertProps): JSX.Element;
 
 // @public (undocumented)
+export function AlertDialog(input: {
+    trigger: ReactNode;
+    title: string;
+    description?: string;
+    confirmLabel?: string;
+    cancelLabel?: string;
+    tone?: 'danger' | 'neutral';
+    onConfirm?: () => void;
+}): JSX.Element;
+
+// @public (undocumented)
+export type AlertDialogProps = Parameters<typeof AlertDialog>[0];
+
+// @public (undocumented)
 export type AlertProps = HTMLAttributes<HTMLDivElement> & {
     tone?: keyof typeof alertIcons;
     title: string;
@@ -224,6 +241,24 @@ export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 // @public (undocumented)
+export function Attachment(input: {
+    files: AttachmentFile[];
+    onRemove?: (index: number) => void;
+    label?: string;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type AttachmentFile = {
+    name: string;
+    sizeLabel?: string;
+    type?: string;
+};
+
+// @public (undocumented)
+export type AttachmentProps = Parameters<typeof Attachment>[0];
+
+// @public (undocumented)
 export function Avatar(input: HTMLAttributes<HTMLSpanElement> & {
     name: string;
     size?: 'sm' | 'md' | 'lg';
@@ -243,6 +278,12 @@ export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
 };
 
 // @public (undocumented)
+export const Breadcrumb: typeof Breadcrumbs;
+
+// @public (undocumented)
+export type BreadcrumbProps = BreadcrumbsProps;
+
+// @public (undocumented)
 export function Breadcrumbs(input: {
     items: Array<{
         label: string;
@@ -252,6 +293,19 @@ export function Breadcrumbs(input: {
 
 // @public (undocumented)
 export type BreadcrumbsProps = Parameters<typeof Breadcrumbs>[0];
+
+// @public (undocumented)
+export function Bubble(input: HTMLAttributes<HTMLDivElement> & {
+    speaker: BubbleRole;
+    name?: string;
+    timestamp?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type BubbleProps = Parameters<typeof Bubble>[0];
+
+// @public (undocumented)
+export type BubbleRole = 'human' | 'agent';
 
 // @public (undocumented)
 export const Button: ForwardRefExoticComponent<ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -299,6 +353,17 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 // @public (undocumented)
+export function Calendar(input: {
+    value?: string;
+    onValueChange?: (value: string) => void;
+    label: string;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type CalendarProps = Parameters<typeof Calendar>[0];
+
+// @public (undocumented)
 export function Card(input: HTMLAttributes<HTMLDivElement> & {
     tone?: 'canvas' | 'warm';
     interactive?: boolean;
@@ -319,6 +384,28 @@ export type CardFooterProps = Parameters<typeof CardFooter>[0];
 
 // @public (undocumented)
 export type CardProps = Parameters<typeof Card>[0];
+
+// @public (undocumented)
+export function Carousel(input: {
+    slides: ReactNode[];
+    label: string;
+    index?: number;
+    onIndexChange?: (index: number) => void;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type CarouselProps = Parameters<typeof Carousel>[0];
+
+// @public (undocumented)
+export function Chart(input: ChartProps): JSX.Element;
+
+// @public (undocumented)
+export type ChartProps = HTMLAttributes<SVGElement> & {
+    data: number[];
+    variant?: 'bar' | 'line';
+    label: string;
+};
 
 // @public (undocumented)
 export function Checkbox(input: React.ComponentPropsWithoutRef<typeof Checkbox_2.Root> & {
@@ -399,6 +486,9 @@ export type ComboboxOption = {
 export type ComboboxProps = Parameters<typeof Combobox>[0];
 
 // @public (undocumented)
+export const Command: typeof CommandPalette;
+
+// @public (undocumented)
 export type CommandItem = {
     id: string;
     label: string;
@@ -420,6 +510,9 @@ export function CommandPalette(input: {
 
 // @public (undocumented)
 export type CommandPaletteProps = Parameters<typeof CommandPalette>[0];
+
+// @public (undocumented)
+export type CommandProps = CommandPaletteProps;
 
 // @public (undocumented)
 export function Container(input: HTMLAttributes<HTMLDivElement> & {
@@ -1834,10 +1927,47 @@ export function Dialog(input: {
 export type DialogProps = Parameters<typeof Dialog>[0];
 
 // @public (undocumented)
+export type Direction = 'ltr' | 'rtl';
+
+// @public (undocumented)
+export function DirectionProvider(input: DirectionProviderProps): JSX.Element;
+
+// @public (undocumented)
+export type DirectionProviderProps = HTMLAttributes<HTMLDivElement> & {
+    dir?: Direction;
+};
+
+// @public (undocumented)
 export function Divider(props: HTMLAttributes<HTMLHRElement>): JSX.Element;
 
 // @public (undocumented)
 export type DividerProps = Parameters<typeof Divider>[0];
+
+// @public (undocumented)
+export function Drawer(input: {
+    trigger: ReactNode;
+    title: string;
+    description?: string;
+    children?: ReactNode;
+    side?: 'left' | 'right' | 'top' | 'bottom';
+    footer?: ReactNode;
+}): JSX.Element;
+
+// @public (undocumented)
+export type DrawerProps = Parameters<typeof Drawer>[0];
+
+// @public (undocumented)
+export function DropdownMenu(input: {
+    label?: string;
+    items: Array<{
+        label: string;
+        onSelect?: () => void;
+        disabled?: boolean;
+    }>;
+}): JSX.Element;
+
+// @public (undocumented)
+export type DropdownMenuProps = Parameters<typeof DropdownMenu>[0];
 
 // @public (undocumented)
 export function EcosystemCard(input: EcosystemCardProps): JSX.Element;
@@ -1852,6 +1982,12 @@ export type EcosystemCardProps = {
     description: string;
     motion?: MotionPreset;
 };
+
+// @public (undocumented)
+export const Empty: typeof EmptyState;
+
+// @public (undocumented)
+export type EmptyProps = EmptyStateProps;
 
 // @public (undocumented)
 export function EmptyState(input: HTMLAttributes<HTMLDivElement> & {
@@ -1880,6 +2016,12 @@ export type FeatureCardProps = {
     linkLabel?: string;
     motion?: MotionPreset;
 };
+
+// @public (undocumented)
+export const Field: typeof FormField;
+
+// @public (undocumented)
+export type FieldProps = FormFieldProps;
 
 // @public (undocumented)
 export function FileUpload(input: {
@@ -2435,13 +2577,55 @@ export const improveTokens: {
 export const Input: ForwardRefExoticComponent<InputHTMLAttributes<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
+export function InputGroup(input: InputGroupProps): JSX.Element;
+
+// @public (undocumented)
+export type InputGroupProps = HTMLAttributes<HTMLDivElement> & {
+    start?: ReactNode;
+    end?: ReactNode;
+};
+
+// @public (undocumented)
+export function InputOTP(input: InputOTPProps): JSX.Element;
+
+// @public (undocumented)
+export type InputOTPProps = {
+    length?: number;
+    value?: string;
+    onValueChange?: (value: string) => void;
+    label: string;
+    disabled?: boolean;
+    className?: string;
+};
+
+// @public (undocumented)
 export type InputProps = React.ComponentPropsWithoutRef<typeof Input>;
+
+// @public (undocumented)
+export function Item(input: ItemProps): JSX.Element;
+
+// @public (undocumented)
+export type ItemProps = Omit<HTMLAttributes<HTMLElement>, 'title'> & {
+    title: ReactNode;
+    description?: ReactNode;
+    leading?: ReactNode;
+    trailing?: ReactNode;
+    selected?: boolean;
+    href?: string;
+    onClick?: () => void;
+};
 
 // @public (undocumented)
 export function Kbd(input: HTMLAttributes<HTMLElement>): JSX.Element;
 
 // @public (undocumented)
 export type KbdProps = Parameters<typeof Kbd>[0];
+
+// @public (undocumented)
+export const Label: ForwardRefExoticComponent<LabelHTMLAttributes<HTMLLabelElement> & RefAttributes<HTMLLabelElement>>;
+
+// @public (undocumented)
+export type LabelProps = React.ComponentPropsWithoutRef<typeof Label>;
 
 // @public (undocumented)
 export function LogoCloud(input: LogoCloudProps): JSX.Element;
@@ -2451,6 +2635,18 @@ export type LogoCloudProps = {
     labels: string[];
     label?: string;
 };
+
+// @public (undocumented)
+export function Marker(input: MarkerProps): JSX.Element;
+
+// @public (undocumented)
+export type MarkerProps = HTMLAttributes<HTMLSpanElement> & {
+    tone?: MarkerTone;
+    label?: string;
+};
+
+// @public (undocumented)
+export type MarkerTone = 'neutral' | 'brand' | 'success' | 'warning' | 'danger' | 'purple';
 
 // @public (undocumented)
 export type MarketingAction = {
@@ -2472,6 +2668,45 @@ export type McpAppFrameProps = Parameters<typeof McpAppFrame>[0];
 
 // @public (undocumented)
 export type McpConnectionStatus = 'connecting' | 'connected' | 'failed' | 'disconnected';
+
+// @public (undocumented)
+export function Menubar(input: {
+    menus: Array<{
+        label: string;
+        items: Array<{
+            label: string;
+            onSelect?: () => void;
+            disabled?: boolean;
+        }>;
+    }>;
+    label?: string;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type MenubarProps = Parameters<typeof Menubar>[0];
+
+// @public (undocumented)
+export function Message(input: {
+    author: {
+        name: string;
+        role?: BubbleRole;
+    };
+    children: ReactNode;
+    streaming?: boolean;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type MessageProps = Parameters<typeof Message>[0];
+
+// @public (undocumented)
+export function MessageScroller(input: HTMLAttributes<HTMLDivElement> & {
+    stickToBottom?: boolean;
+}): JSX.Element;
+
+// @public (undocumented)
+export type MessageScrollerProps = Parameters<typeof MessageScroller>[0];
 
 // @public (undocumented)
 export function MetricCard(input: {
@@ -2506,10 +2741,30 @@ export type MultiSelectProps = {
 };
 
 // @public (undocumented)
+export const NativeSelect: ForwardRefExoticComponent<SelectHTMLAttributes<HTMLSelectElement> & RefAttributes<HTMLSelectElement>>;
+
+// @public (undocumented)
+export type NativeSelectProps = React.ComponentPropsWithoutRef<typeof NativeSelect>;
+
+// @public (undocumented)
 export type NavigationAction = {
     label: string;
     href: string;
 };
+
+// @public (undocumented)
+export function NavigationMenu(input: {
+    items: Array<{
+        label: string;
+        href: string;
+        current?: boolean;
+    }>;
+    label?: string;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type NavigationMenuProps = Parameters<typeof NavigationMenu>[0];
 
 // @public (undocumented)
 export type NavItem = {
@@ -2635,6 +2890,26 @@ export type ProgressProps = {
 };
 
 // @public (undocumented)
+export function Questionnaire(input: {
+    steps: QuestionnaireStep[];
+    index: number;
+    onIndexChange?: (index: number) => void;
+    children?: ReactNode;
+    onComplete?: () => void;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type QuestionnaireProps = Parameters<typeof Questionnaire>[0];
+
+// @public (undocumented)
+export type QuestionnaireStep = {
+    id: string;
+    question: string;
+    description?: string;
+};
+
+// @public (undocumented)
 export function Quote(input: {
     children: ReactNode;
     author: string;
@@ -2645,19 +2920,36 @@ export function Quote(input: {
 export type QuoteProps = Parameters<typeof Quote>[0];
 
 // @public (undocumented)
+export const RadioGroup: typeof RadioSet;
+
+// @public (undocumented)
+export type RadioGroupProps = RadioSetProps;
+
+// @public (undocumented)
 export type RadioOption = {
     value: string;
     label: string;
 };
 
 // @public (undocumented)
-export function RadioSet(input: React.ComponentPropsWithoutRef<typeof RadioGroup.Root> & {
+export function RadioSet(input: React.ComponentPropsWithoutRef<typeof RadioGroup_2.Root> & {
     label: string;
     options: RadioOption[];
 }): JSX.Element;
 
 // @public (undocumented)
 export type RadioSetProps = Parameters<typeof RadioSet>[0];
+
+// @public (undocumented)
+export function Resizable(input: {
+    orientation?: 'horizontal' | 'vertical';
+    defaultSizes?: [number, number];
+    children: [ReactNode, ReactNode] | ReactNode;
+    className?: string;
+}): JSX.Element;
+
+// @public (undocumented)
+export type ResizableProps = Parameters<typeof Resizable>[0];
 
 // @public (undocumented)
 export function RunTimeline(input: HTMLAttributes<HTMLOListElement> & {
@@ -2733,6 +3025,12 @@ export type SelectMenuProps = Parameters<typeof SelectMenu>[0];
 export type SelectProps = React.ComponentPropsWithoutRef<typeof Select>;
 
 // @public (undocumented)
+export const Separator: typeof Divider;
+
+// @public (undocumented)
+export type SeparatorProps = DividerProps;
+
+// @public (undocumented)
 export function ServicePanel(input: ServicePanelProps): JSX.Element;
 
 // @public (undocumented)
@@ -2760,7 +3058,7 @@ export function Sheet(input: {
     title: string;
     description?: string;
     children?: ReactNode;
-    side?: 'left' | 'right';
+    side?: 'left' | 'right' | 'top' | 'bottom';
     footer?: ReactNode;
 }): JSX.Element;
 
@@ -2965,6 +3263,54 @@ export type TabItem = {
 };
 
 // @public (undocumented)
+export const Table: ForwardRefExoticComponent<TableHTMLAttributes<HTMLTableElement> & RefAttributes<HTMLTableElement>>;
+
+// @public (undocumented)
+export const TableBody: ForwardRefExoticComponent<HTMLAttributes<HTMLTableSectionElement> & RefAttributes<HTMLTableSectionElement>>;
+
+// @public (undocumented)
+export type TableBodyProps = React.ComponentPropsWithoutRef<typeof TableBody>;
+
+// @public (undocumented)
+export const TableCaption: ForwardRefExoticComponent<HTMLAttributes<HTMLTableCaptionElement> & RefAttributes<HTMLTableCaptionElement>>;
+
+// @public (undocumented)
+export type TableCaptionProps = React.ComponentPropsWithoutRef<typeof TableCaption>;
+
+// @public (undocumented)
+export const TableCell: ForwardRefExoticComponent<TdHTMLAttributes<HTMLTableCellElement> & RefAttributes<HTMLTableCellElement>>;
+
+// @public (undocumented)
+export type TableCellProps = React.ComponentPropsWithoutRef<typeof TableCell>;
+
+// @public (undocumented)
+export const TableFooter: ForwardRefExoticComponent<HTMLAttributes<HTMLTableSectionElement> & RefAttributes<HTMLTableSectionElement>>;
+
+// @public (undocumented)
+export type TableFooterProps = React.ComponentPropsWithoutRef<typeof TableFooter>;
+
+// @public (undocumented)
+export const TableHead: ForwardRefExoticComponent<ThHTMLAttributes<HTMLTableCellElement> & RefAttributes<HTMLTableCellElement>>;
+
+// @public (undocumented)
+export const TableHeader: ForwardRefExoticComponent<HTMLAttributes<HTMLTableSectionElement> & RefAttributes<HTMLTableSectionElement>>;
+
+// @public (undocumented)
+export type TableHeaderProps = React.ComponentPropsWithoutRef<typeof TableHeader>;
+
+// @public (undocumented)
+export type TableHeadProps = React.ComponentPropsWithoutRef<typeof TableHead>;
+
+// @public (undocumented)
+export type TableProps = React.ComponentPropsWithoutRef<typeof Table>;
+
+// @public (undocumented)
+export const TableRow: ForwardRefExoticComponent<HTMLAttributes<HTMLTableRowElement> & RefAttributes<HTMLTableRowElement>>;
+
+// @public (undocumented)
+export type TableRowProps = React.ComponentPropsWithoutRef<typeof TableRow>;
+
+// @public (undocumented)
 export function Tabs(input: {
     items: TabItem[];
     defaultValue?: string;
@@ -3030,6 +3376,26 @@ export type ToastTone = 'neutral' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export function Toggle(input: ToggleProps): JSX.Element;
+
+// @public (undocumented)
+export function ToggleGroup(input: ToggleGroupProps): JSX.Element;
+
+// @public (undocumented)
+export type ToggleGroupItem = {
+    value: string;
+    label: ReactNode;
+    disabled?: boolean;
+};
+
+// @public (undocumented)
+export type ToggleGroupProps = {
+    value: string;
+    items: ToggleGroupItem[];
+    label: string;
+    onValueChange?: (value: string) => void;
+    type?: 'single';
+    className?: string;
+};
 
 // @public (undocumented)
 export type ToggleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -4846,10 +5212,13 @@ export function TraceViewer(input: HTMLAttributes<HTMLDetailsElement> & {
 // @public (undocumented)
 export type TraceViewerProps = Parameters<typeof TraceViewer>[0];
 
+// @public (undocumented)
+export function useDirection(): Direction;
+
 // Warnings were encountered during analysis:
 //
-// dist/index.d.ts:123:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:296:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:138:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:367:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -16,7 +16,7 @@ import {
   type ThHTMLAttributes,
 } from 'react';
 import { ChevronLeft, ChevronRight, Ellipsis, File, GripVertical, X } from 'lucide-react';
-import { Dialog as DialogPrimitive, DropdownMenu } from 'radix-ui';
+import { Dialog as DialogPrimitive, DropdownMenu as DropdownMenuPrimitive } from 'radix-ui';
 import { Button, IconButton } from '../Button';
 import { Heading, Text } from '../Typography';
 import { cx } from '../utils';
@@ -196,7 +196,7 @@ export const TableCaption = forwardRef<HTMLTableCaptionElement, HTMLAttributes<H
   },
 );
 
-export function DropdownMenuComponent({
+export function DropdownMenu({
   label = 'Mais ações',
   items,
 }: {
@@ -204,29 +204,27 @@ export function DropdownMenuComponent({
   items: Array<{ label: string; onSelect?: () => void; disabled?: boolean }>;
 }) {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Trigger asChild>
         <IconButton label={label} icon={<Ellipsis />} />
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content className="ibs-menu" align="end" sideOffset={8}>
+      </DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Content className="ibs-menu" align="end" sideOffset={8}>
           {items.map((item) => (
-            <DropdownMenu.Item
+            <DropdownMenuPrimitive.Item
               className="ibs-menu__item"
               key={item.label}
               onSelect={item.onSelect}
               disabled={item.disabled}
             >
               {item.label}
-            </DropdownMenu.Item>
+            </DropdownMenuPrimitive.Item>
           ))}
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+        </DropdownMenuPrimitive.Content>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   );
 }
-
-export { DropdownMenuComponent as DropdownMenu };
 
 export function AlertDialog({
   trigger,
@@ -597,7 +595,7 @@ export function NavigationMenu({
     <nav className={cx('ibs-navigation-menu', className)} aria-label={label}>
       <ul>
         {items.map((item) => (
-          <li key={item.href}>
+          <li key={`${item.label}-${item.href}`}>
             <a href={item.href} aria-current={item.current ? 'page' : undefined}>
               {item.label}
             </a>
@@ -671,7 +669,7 @@ export function Questionnaire({
 }
 
 export type NativeSelectProps = React.ComponentPropsWithoutRef<typeof NativeSelect>;
-export type DropdownMenuProps = Parameters<typeof DropdownMenuComponent>[0];
+export type DropdownMenuProps = Parameters<typeof DropdownMenu>[0];
 export type AlertDialogProps = Parameters<typeof AlertDialog>[0];
 export type CalendarProps = Parameters<typeof Calendar>[0];
 export type DrawerProps = Parameters<typeof Drawer>[0];
