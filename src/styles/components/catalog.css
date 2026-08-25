@@ -514,12 +514,15 @@
   gap: var(--ibs-space-1);
   width: fit-content;
   max-width: min(85%, 26rem);
+  flex: 0 1 auto;
 }
 .ibs-bubble--human {
+  align-self: flex-end;
   margin-inline-start: auto;
   align-items: flex-end;
 }
 .ibs-bubble--agent {
+  align-self: flex-start;
   margin-inline-end: auto;
   align-items: flex-start;
 }
@@ -590,6 +593,7 @@
 .ibs-message-scroller {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: var(--ibs-space-3);
   max-height: 22rem;
   overflow-y: auto;
