@@ -1,6 +1,6 @@
 # Migração para v0.6
 
-A v0.6 amplia o catálogo em dez componentes P1, passa a usar Lucide no core e reorganiza specimen e Storybook nas camadas Atomic. Não há quebra de contrato público: exports existentes e `variant="brand"` continuam válidos.
+A v0.6 amplia o catálogo em dez componentes P1, passa a usar Lucide no core e reorganiza o specimen nas camadas Atomic. Não há quebra de contrato público: exports existentes continuam válidos.
 
 ## Componentes novos
 
@@ -26,7 +26,7 @@ A v0.6 amplia o catálogo em dez componentes P1, passa a usar Lucide no core e r
 
 ## Organização Atomic
 
-Specimen e Storybook passam a agrupar o registro compartilhado em Foundations, Atoms, Molecules, Organisms, Agentic e Presentation. Recipes e o manifesto não mudam de ID.
+O specimen passa a agrupar o registro compartilhado em Foundations, Atoms, Molecules, Organisms, Agentic e Presentation. Recipes e o manifesto não mudam de ID.
 
 ## Upgrade
 

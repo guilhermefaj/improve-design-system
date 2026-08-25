@@ -8,7 +8,7 @@ export default defineConfig({
     dts({
       entryRoot: 'src',
       include: ['src'],
-      exclude: ['src/demo/**', 'src/stories/**', 'src/tests/**'],
+      exclude: ['src/demo/**', 'src/tests/**'],
       insertTypesEntry: true,
       rollupTypes: true,
       tsconfigPath: './tsconfig.app.json',

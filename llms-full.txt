@@ -5,7 +5,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 ## Non-negotiable brand rules
 - Use Inter for body copy, controls and product UI.
 - Use Clash Display Bold for H1, H2 and selected display highlights; fall back to Inter when its local file is unavailable.
-- Use Edu NSW ACT Cursive for rare expressive accents and Montserrat Medium only as a legacy supporting face.
+- Use Edu NSW ACT Cursive for rare expressive accents.
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
@@ -32,7 +32,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   States: responsive
   Accessibility: Mantenha ordem DOM compatível com a ordem visual.
 - Typography (typography, foundation, stable): Inter na interface, Clash Display nos títulos quando disponível, Space Grotesk como fallback redistribuível e Edu NSW ACT Cursive em acentos raros.
-  Exports: Heading, Text, Eyebrow, AccentText, SupportingLabel, HeadingProps, TextProps
+  Exports: Heading, Text, Eyebrow, AccentText, HeadingProps, TextProps
   States: none
   Accessibility: Não pule níveis de heading. Use um único h1 por contexto principal.
 - Improve Logo (logo, foundation, stable): Marca vetorial responsiva para interfaces e Artifacts.

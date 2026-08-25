@@ -19,7 +19,7 @@ O laranja puro não deve ser usado como texto pequeno sobre branco. Para links e
 
 ## Tipografia
 
-Inter é a família principal para texto, controles e interfaces de produto. Clash Display Bold conduz títulos quando carregada pelo serviço oficial da Fontshare; Space Grotesk é o fallback open source redistribuível. Edu NSW ACT Cursive entra somente em acentos expressivos. Montserrat permanece como compatibilidade legada. Texto corrido usa Inter 400, linha 1.58 e largura máxima de 68 caracteres.
+Inter é a família principal para texto, controles e interfaces de produto. Clash Display Bold conduz títulos quando carregada pelo serviço oficial da Fontshare; Space Grotesk é o fallback open source redistribuível. Edu NSW ACT Cursive entra somente em acentos expressivos. Texto corrido usa Inter 400, linha 1.58 e largura máxima de 68 caracteres.
 
 Evite:
 

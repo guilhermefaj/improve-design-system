@@ -124,12 +124,6 @@ const primaryEntries: CatalogEntry[] = manifest.components.map((component) => ({
 /** Canonical catalog only — no alias duplicates in the specimen sidebar. */
 export const catalogEntries: CatalogEntry[] = primaryEntries;
 
-export const catalogById = new Map(catalogEntries.map((entry) => [entry.id, entry]));
-
-export function resolveCatalogTargetId(entry: CatalogEntry): string {
-  return entry.id;
-}
-
 export function navigableCatalogEntries(): CatalogEntry[] {
   return catalogEntries.filter((entry) => entry.status === 'stable');
 }

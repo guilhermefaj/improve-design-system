@@ -86,9 +86,6 @@
     "sans": { "$value": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
     "display": { "$value": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif" },
     "accent": { "$value": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive" },
-    "montserrat": {
-      "$value": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif"
-    },
     "mono": { "$value": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace" }
   },
   "font-weight": {

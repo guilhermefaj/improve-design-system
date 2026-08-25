@@ -22,9 +22,9 @@ Use `-p` e aspas: no zsh, `#` comenta o resto da linha; sem `-p`, o npm procura 
 <!-- generated:versioned-commands:start -->
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds init
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds add app-shell sidebar data-grid
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds doctor
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds init
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds add app-shell sidebar data-grid
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds doctor
 ```
 
 <!-- generated:versioned-commands:end -->
@@ -52,12 +52,12 @@ export function LandingPage() {
 }
 ```
 
-Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold quando ela é carregada pela API oficial da Fontshare e usa Space Grotesk como fallback open source e autocontido. Edu NSW ACT Cursive conduz `AccentText`; Montserrat permanece somente como compatibilidade legada.
+Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold quando ela é carregada pela API oficial da Fontshare e usa Space Grotesk como fallback open source e autocontido. Edu NSW ACT Cursive conduz `AccentText`.
 
 O catálogo é plano: componentes agrupados por `category` no manifesto (form, overlay, agentic, …). Para filtrar o contrato legível por agentes:
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds list --category form --json
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds list --category form --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -118,9 +118,9 @@ A v1.0+ trata o catálogo **stable** como contrato de produto. Permanecem **beta
 - `AGENTS.md` e `CLAUDE.md`: regras do repositório e integração entre agentes.
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds list --json
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds inspect data-grid --json
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds artifact --recipe dashboard
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds list --json
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds inspect data-grid --json
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds artifact --recipe dashboard
 ```
 
 ## Temas
@@ -173,6 +173,7 @@ Tags SemVer são a unidade de distribuição. Cada release deve anexar manifesto
 ## Documentação complementar
 
 - [Fundamentos](docs/FOUNDATIONS.md)
+- [Catálogo do specimen](docs/CATALOG.md)
 - [Voz e conteúdo](docs/CONTENT.md)
 - [Governança e roadmap](docs/ROADMAP.md)
 - [Auditoria agentic-first](docs/AGENTIC_FIRST.md)
@@ -180,5 +181,6 @@ Tags SemVer são a unidade de distribuição. Cada release deve anexar manifesto
 - [Migração v0.5](docs/MIGRATION_V0.5.md)
 - [Migração v0.6](docs/MIGRATION_V0.6.md)
 - [Migração v1.0](docs/MIGRATION_V1.0.md)
+- [Migração v2.0](docs/MIGRATION_V2.0.md)
 
 Uso interno Improve Business. Todos os direitos reservados.

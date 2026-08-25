@@ -12,7 +12,7 @@ Componentes agentic P0 e o vocabulário SaaS (`Combobox`, `DataGrid`, `MultiSele
 
 ## Specimen
 
-A página geral é o specimen local (`pnpm dev`), não o GitHub Pages. O Storybook local continua em `pnpm storybook` (`http://127.0.0.1:6006`).
+A página geral é o specimen local (`pnpm dev`), não o GitHub Pages.
 
 ## Upgrade
 

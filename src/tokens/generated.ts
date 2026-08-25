@@ -165,7 +165,6 @@ export const designTokens = {
     "sans": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
     "display": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
     "accent": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
-    "montserrat": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
     "mono": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace"
   },
   "font-weight": {
@@ -625,7 +624,6 @@ export const darkDesignTokens = {
     "sans": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
     "display": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
     "accent": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
-    "montserrat": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
     "mono": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace"
   },
   "font-weight": {
@@ -1023,7 +1021,6 @@ export const flatTokens = {
   "font.sans": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   "font.display": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   "font.accent": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
-  "font.montserrat": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   "font.mono": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace",
   "font-weight.regular": 400,
   "font-weight.medium": 500,
@@ -1401,7 +1398,6 @@ export const darkFlatTokens = {
   "font.sans": "'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   "font.display": "'Clash Display', 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   "font.accent": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
-  "font.montserrat": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
   "font.mono": "'SFMono-Regular', Consolas, 'Liberation Mono', monospace",
   "font-weight.regular": 400,
   "font-weight.medium": 500,
@@ -2216,13 +2212,6 @@ export const tokenCatalog = [
     "reference": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
     "light": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive",
     "dark": "'Edu NSW ACT Cursive', 'Inter Variable', Inter, cursive"
-  },
-  {
-    "path": "font.montserrat",
-    "type": "string",
-    "reference": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
-    "light": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif",
-    "dark": "'Montserrat Variable', Montserrat, 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif"
   },
   {
     "path": "font.mono",

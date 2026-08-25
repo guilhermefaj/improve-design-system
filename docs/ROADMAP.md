@@ -1,8 +1,8 @@
 # Governança e roadmap
 
-## Estado atual — v1.0
+## Estado atual — v2.0
 
-O core é um design system interno production-ready: 64 componentes no manifesto, tokens DTCG, CLI source-owned, skill aberta, starters de Artifact, specimen (`pnpm dev`) como página geral e Storybook para inspeção técnica. Imports existentes continuam válidos e `variant="brand"` permanece alias compatível.
+O core é um design system interno production-ready: 87 componentes no manifesto (83 stable), tokens DTCG, CLI source-owned, skill aberta, starters de Artifact e specimen (`pnpm dev`) como página geral. A v2.0 remove APIs legadas: o alias `variant="brand"` do botão e a face de apoio Montserrat (`SupportingLabel`, token `font.montserrat`).
 
 A v1.0 fecha o ciclo 0.x: contratos alinhados ao catálogo real, CI com fixtures Vite/Next e regressão visual no Windows, e superfície **stable / beta / experimental** explícita. Templates e pages existem no schema e continuam sem implementação.
 
@@ -38,7 +38,11 @@ Upgrade orientado pelo grafo do manifesto, documentação individual, validaçã
 
 ### v0.6 — Catálogo P1 e organização Atomic
 
-Dez componentes P1, Lucide no core e reorganização do specimen/Storybook nas camadas Atomic.
+Dez componentes P1, Lucide no core e reorganização do specimen nas camadas Atomic.
+
+## v2.0 — Limpeza e remoção de legado
+
+Primeira major desde a baseline v1.0. Remove código morto interno e resíduos do Storybook, e retira as APIs públicas legadas: o alias `variant="brand"` do botão (use `variant="primary"`) e a face de apoio Montserrat — `SupportingLabel`, o token `font.montserrat` e `improveTokens.supportingFontFamily` (use `AccentText`/`Text`). Detalhes em [MIGRATION_V2.0.md](MIGRATION_V2.0.md).
 
 ## Próximas fases
 

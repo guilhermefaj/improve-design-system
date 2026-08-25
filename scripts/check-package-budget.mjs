@@ -10,7 +10,7 @@ const result =
     : spawnSync('npm', ['pack', '--dry-run', '--json'], { cwd: root, encoding: 'utf8' });
 if (result.status !== 0) throw new Error(result.stderr || 'npm pack --dry-run failed.');
 const [pack] = JSON.parse(result.stdout);
-const excluded = pack.files.filter((file) => /^(assets|src\/(demo|stories|showcase|tests)|tests)\//.test(file.path));
+const excluded = pack.files.filter((file) => /^(assets|src\/(demo|showcase|tests)|tests)\//.test(file.path));
 if (excluded.length)
   throw new Error(`Distribution contains excluded files: ${excluded.map((file) => file.path).join(', ')}`);
 if (pack.size >= 1_000_000) throw new Error(`Packed size ${pack.size} exceeds 1 MB.`);
