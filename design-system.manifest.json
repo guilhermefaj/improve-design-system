@@ -2721,15 +2721,18 @@
       "id": "bubble",
       "name": "Bubble",
       "category": "agentic",
-      "description": "Bolha de mensagem humana ou de agente.",
+      "description": "Bolha de mensagem humana ou de agente, com empilhamento opcional.",
       "files": ["src/components/organisms/CatalogOrganisms.tsx", "src/components/utils.ts"],
       "exports": ["Bubble", "BubbleProps", "BubbleRole"],
       "primaryExport": "Bubble",
       "dependencies": ["react", "lucide-react", "radix-ui"],
       "tokens": ["color.surface-raised", "color.secondary-soft", "color.brand"],
       "variants": ["human", "agent"],
-      "states": [],
-      "accessibility": ["Identifique o autor quando houver múltiplos interlocutores."],
+      "states": ["continued"],
+      "accessibility": [
+        "Identifique o autor quando houver múltiplos interlocutores.",
+        "Em mensagens continuadas, mantenha o nome no aria-label mesmo sem meta visível."
+      ],
       "recipes": ["agent-workspace", "app"],
       "maturity": 8,
       "status": "stable"

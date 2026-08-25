@@ -299,6 +299,7 @@ export function Bubble(input: HTMLAttributes<HTMLDivElement> & {
     speaker: BubbleRole;
     name?: string;
     timestamp?: string;
+    continued?: boolean;
 }): JSX.Element;
 
 // @public (undocumented)
@@ -2535,11 +2536,7 @@ export function ImproveLogo(input: ImproveLogoProps): JSX.Element;
 export type ImproveLogoProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     compact?: boolean;
     href?: string;
-    variant?: ImproveLogoVariant;
 };
-
-// @public (undocumented)
-export type ImproveLogoVariant = 'brand' | 'duo' | 'mono' | 'inverse';
 
 // @public (undocumented)
 export function ImproveMark(input: ImproveMarkProps): JSX.Element;
@@ -2547,7 +2544,6 @@ export function ImproveMark(input: ImproveMarkProps): JSX.Element;
 // @public (undocumented)
 export type ImproveMarkProps = HTMLAttributes<SVGSVGElement> & {
     size?: number;
-    variant?: ImproveLogoVariant;
 };
 
 // @public (undocumented)
@@ -2694,6 +2690,7 @@ export function Message(input: {
     };
     children: ReactNode;
     streaming?: boolean;
+    continued?: boolean;
     className?: string;
 }): JSX.Element;
 
@@ -5209,7 +5206,7 @@ export function useDirection(): Direction;
 // Warnings were encountered during analysis:
 //
 // dist/index.d.ts:138:5 - (ae-forgotten-export) The symbol "alertIcons" needs to be exported by the entry point index.d.ts
-// dist/index.d.ts:367:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
+// dist/index.d.ts:369:5 - (ae-forgotten-export) The symbol "Space" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
