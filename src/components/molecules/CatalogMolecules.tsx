@@ -392,13 +392,7 @@ export function Drawer({
               {description && <DialogPrimitive.Description>{description}</DialogPrimitive.Description>}
             </div>
             <DialogPrimitive.Close asChild>
-              <IconButton
-                className="ibs-drawer__close"
-                label="Fechar painel"
-                icon={<X />}
-                variant="ghost"
-                size="sm"
-              />
+              <IconButton className="ibs-drawer__close" label="Fechar painel" icon={<X />} variant="ghost" size="sm" />
             </DialogPrimitive.Close>
           </header>
           <div className="ibs-drawer__content">{children}</div>

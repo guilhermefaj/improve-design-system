@@ -45,13 +45,7 @@ export type ImproveLogoProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: ImproveLogoVariant;
 };
 
-export function ImproveLogo({
-  compact = false,
-  href = '/',
-  variant = 'duo',
-  className,
-  ...props
-}: ImproveLogoProps) {
+export function ImproveLogo({ compact = false, href = '/', variant = 'duo', className, ...props }: ImproveLogoProps) {
   return (
     <a
       className={cx(

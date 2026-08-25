@@ -149,13 +149,7 @@ export function Sheet({
               {description && <DialogPrimitive.Description>{description}</DialogPrimitive.Description>}
             </div>
             <DialogPrimitive.Close asChild>
-              <IconButton
-                className="ibs-sheet__close"
-                label="Fechar painel"
-                icon={<X />}
-                variant="ghost"
-                size="sm"
-              />
+              <IconButton className="ibs-sheet__close" label="Fechar painel" icon={<X />} variant="ghost" size="sm" />
             </DialogPrimitive.Close>
           </header>
           <div className="ibs-sheet__content">{children}</div>
