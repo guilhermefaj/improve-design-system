@@ -2,7 +2,6 @@ import type { ComponentType } from 'react';
 import { Stack } from '../components';
 import manifest from '../../design-system.manifest.json';
 import { componentSpecimens } from './componentSpecimens';
-import { SpecimenPanel } from './catalogSpecimens';
 
 type ManifestComponent = (typeof manifest.components)[number];
 export type ShowcaseGroupId =
@@ -23,8 +22,6 @@ export type ShowcaseGroup = {
   componentIds: string[];
   Render: ComponentType;
 };
-
-export { SpecimenPanel };
 
 /**
  * Builds a group `Render` that streams the individual `componentSpecimens`

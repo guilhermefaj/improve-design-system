@@ -8,11 +8,9 @@ export default tseslint.config(
   {
     ignores: [
       'dist/**',
-      'storybook-static/**',
       'node_modules/**',
       'test-results/**',
       'playwright-report/**',
-      'src/stories/generated/**',
       'src/tokens/generated.ts',
     ],
   },

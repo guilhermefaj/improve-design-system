@@ -1,16 +1,5 @@
 import type { ComponentType } from 'react';
-import manifest from '../../design-system.manifest.json';
-import { Badge, Grid, Heading, Stack, Text } from '../components';
 import { showcaseRegistry } from './registry';
-
-export type ComponentDocumentationProps = {
-  componentId: string;
-  variant?: string;
-  state?: string;
-  theme?: 'light' | 'dark';
-  motion?: 'none' | 'subtle' | 'expressive';
-  disabled?: boolean;
-};
 
 export type ComponentDocumentationEntry = {
   id: string;
@@ -59,66 +48,3 @@ export const componentDocumentationRegistry: ComponentDocumentationEntry[] = sho
     Render: entry.Render,
   };
 });
-
-const documentationById = new Map(componentDocumentationRegistry.map((entry) => [entry.id, entry]));
-
-export function ComponentDocumentation({
-  componentId,
-  variant,
-  state,
-  theme = 'light',
-  motion = 'subtle',
-  disabled = false,
-}: ComponentDocumentationProps) {
-  const entry = documentationById.get(componentId);
-  if (!entry) throw new Error(`Unknown component documentation id: ${componentId}`);
-  const Render = entry.Render;
-  const category = manifest.components.find((item) => item.id === componentId)?.category;
-  return (
-    <article
-      className="showcase-component-doc"
-      data-ibs-theme={theme}
-      data-motion={motion}
-      data-state={state}
-      data-disabled={disabled || undefined}
-    >
-      <header className="showcase-component-doc__header">
-        <Stack gap={3}>
-          <Badge tone={entry.id.includes('agent') ? 'info' : 'brand'}>{category}</Badge>
-          <Heading level={1} size={2}>
-            {entry.title}
-          </Heading>
-          <Text tone="muted">{entry.description}</Text>
-        </Stack>
-        <Grid columns={2} gap={4}>
-          <div>
-            <strong>Quando usar</strong>
-            <Text size="sm">{entry.whenToUse}</Text>
-          </div>
-          <div>
-            <strong>Quando não usar</strong>
-            <Text size="sm">{entry.whenNotToUse}</Text>
-          </div>
-        </Grid>
-      </header>
-      <section className="showcase-component-doc__preview" aria-label={`Playground de ${entry.title}`}>
-        <div className={`ibs-motion--${motion}`} data-variant={variant} data-state={state}>
-          <Render />
-        </div>
-      </section>
-      <footer className="showcase-component-doc__contract">
-        <div>
-          <strong>Variantes</strong>
-          <Text size="sm">{entry.variants.join(', ') || 'Sem variantes'}</Text>
-        </div>
-        <div>
-          <strong>Estados</strong>
-          <Text size="sm">{entry.states.join(', ') || 'Estado padrão'}</Text>
-        </div>
-        <pre>
-          <code>{entry.snippet}</code>
-        </pre>
-      </footer>
-    </article>
-  );
-}

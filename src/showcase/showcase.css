@@ -13,10 +13,6 @@
   background: var(--ibs-color-surface-subtle);
 }
 
-.showcase-panel__label {
-  display: none;
-}
-
 .showcase-panel__body {
   padding: var(--ibs-space-5);
 }
@@ -161,45 +157,6 @@
   padding-block: var(--ibs-space-12);
 }
 
-.showcase-component-doc {
-  min-height: 100vh;
-  display: grid;
-  gap: var(--ibs-space-8);
-  padding: clamp(1rem, 4vw, 3rem);
-  background: var(--ibs-color-canvas);
-  color: var(--ibs-color-text);
-}
-.showcase-component-doc[aria-disabled='true'] .showcase-component-doc__preview {
-  opacity: 0.48;
-  pointer-events: none;
-}
-.showcase-component-doc__header {
-  display: grid;
-  gap: var(--ibs-space-6);
-}
-.showcase-component-doc__preview {
-  overflow: auto;
-  padding: clamp(1rem, 3vw, 2rem);
-  border: 1px solid var(--ibs-color-border);
-  border-radius: var(--ibs-radius-lg);
-  background: var(--ibs-color-surface-subtle);
-}
-.showcase-component-doc__contract {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--ibs-space-4);
-}
-.showcase-component-doc__contract > * {
-  padding: var(--ibs-space-4);
-  border: 1px solid var(--ibs-color-border);
-  border-radius: var(--ibs-radius-md);
-  background: var(--ibs-color-surface-raised);
-}
-.showcase-component-doc__contract pre {
-  grid-column: 1 / -1;
-  overflow-x: auto;
-}
-
 @media (max-width: 52rem) {
   .showcase-panel > header {
     grid-template-columns: 1fr;
@@ -216,8 +173,5 @@
   }
   .showcase-surface-stack {
     grid-template-columns: 1fr 1fr;
-  }
-  .showcase-component-doc__contract {
-    grid-template-columns: 1fr;
   }
 }

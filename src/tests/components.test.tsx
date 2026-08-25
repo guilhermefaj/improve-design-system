@@ -42,12 +42,12 @@ describe('Improve Design System', () => {
     render(
       <SiteHeader
         items={[]}
-        action={{ label: 'Storybook', href: '#storybook' }}
+        action={{ label: 'Documentação', href: '#docs' }}
         utilities={<button type="button">Alternar tema</button>}
       />,
     );
     expect(screen.getByRole('button', { name: 'Alternar tema' })).toBeVisible();
-    expect(screen.getByRole('link', { name: 'Storybook' })).toHaveAttribute('href', '#storybook');
+    expect(screen.getByRole('link', { name: 'Documentação' })).toHaveAttribute('href', '#docs');
   });
 
   it('exposes the semantic primary action variant', () => {
