@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.0.3.
+- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.1.0.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -44,11 +44,11 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   States: default, hover, focus-within
   Accessibility: Não transforme o card inteiro em botão quando houver múltiplas ações.
 - Data display (data-display, molecule, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
-  Exports: Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs, Pagination, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps
+  Exports: Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs, Pagination, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, Separator, SeparatorProps, Breadcrumb, BreadcrumbProps
   States: responsive, current-page
   Accessibility: DataTable exige caption. Paginação expõe página atual. Avatar sem imagem anuncia o nome.
 - Form controls (form, molecule, stable): Campos, escolhas e switches com descrição e erro associados.
-  Exports: FormField, Input, Textarea, Select, Checkbox, RadioSet, Switch, FormFieldProps, InputProps, TextareaProps, SelectProps, CheckboxProps, RadioSetProps, SwitchProps
+  Exports: FormField, Input, Textarea, Select, Checkbox, RadioSet, Switch, FormFieldProps, InputProps, TextareaProps, SelectProps, CheckboxProps, RadioSetProps, SwitchProps, Field, FieldProps, RadioGroup, RadioGroupProps
   States: default, hover, focus, invalid, disabled, checked
   Accessibility: Todo controle exige label. Erros devem usar aria-describedby e aria-invalid.
 - Feedback (feedback, molecule, stable): Badge, Alert, Skeleton, Spinner e Progress.
@@ -172,7 +172,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   States: none
   Accessibility: Exige descrição textual da tendência.
 - EmptyState (empty-state, molecule, stable): Estado vazio com contexto e próxima ação.
-  Exports: EmptyState, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
+  Exports: EmptyState, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps, Empty, EmptyProps
   States: empty
   Accessibility: Título explica o estado e a ação descreve a recuperação.
 - Popover (popover, molecule, stable): Conteúdo contextual não modal ancorado a um gatilho.
@@ -192,7 +192,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   States: open, closed, selected, empty, disabled
   Accessibility: Implementa combobox, listbox e option; teclado será coberto por testes de interação.
 - CommandPalette (command-palette, molecule, stable): Busca global por ações com atalhos e descrições.
-  Exports: CommandPalette, CommandItem, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
+  Exports: CommandPalette, CommandItem, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps, Command, CommandProps
   States: open, searching, empty
   Accessibility: Busca recebe foco inicial; resultados são operáveis por teclado.
 - DatePicker (date-picker, molecule, stable): Seleção de data com trigger compacto e painel que fecha após a escolha.
@@ -279,6 +279,98 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: TimePicker, TimePickerProps
   States: empty, filled, invalid, disabled
   Accessibility: Label é obrigatório e o controle preserva a semântica nativa de horário.
+- Direction (direction, foundation, stable): Provider e hook para direção de leitura LTR/RTL.
+  Exports: DirectionProvider, useDirection, DirectionProviderProps, Direction
+  States: none
+  Accessibility: Propague dir no contêiner e mantenha a ordem lógica do conteúdo.
+- Resizable (resizable, foundation, stable): Painéis com divisor arrastável por ponteiro e teclado.
+  Exports: Resizable, ResizableProps
+  States: dragging
+  Accessibility: O divisor deve ser operável por teclado e anunciar o redimensionamento.
+- Label (label, atom, stable): Rótulo acessível reutilizável para controles de formulário.
+  Exports: Label, LabelProps
+  States: none
+  Accessibility: Associe o label ao controle via htmlFor ou encapsulamento.
+- Marker (marker, atom, stable): Marcador de status para listas e timelines.
+  Exports: Marker, MarkerProps, MarkerTone
+  States: none
+  Accessibility: Quando comunicar status, forneça label acessível.
+- Item (item, atom, stable): Linha reutilizável para listas, menus e seletores.
+  Exports: Item, ItemProps
+  States: selected, hover, focus-visible
+  Accessibility: Itens acionáveis precisam de nome acessível e foco visível.
+- Chart (chart, atom, stable): Série simples em barra ou linha para tendências compactas.
+  Exports: Chart, ChartProps
+  States: none
+  Accessibility: Sempre forneça aria-label descrevendo a métrica.
+- Toggle Group (toggle-group, atom, stable): Grupo de opções mutuamente exclusivas em controles compactos.
+  Exports: ToggleGroup, ToggleGroupProps, ToggleGroupItem
+  States: checked, disabled
+  Accessibility: Use radiogroup com opções nomeadas.
+- Native Select (native-select, molecule, stable): Select HTML nativo com estilo Improve.
+  Exports: NativeSelect, NativeSelectProps
+  States: default, hover, focus, disabled
+  Accessibility: Exija label associada ao select nativo.
+- Input Group (input-group, molecule, stable): Composer com afixos ao redor de inputs.
+  Exports: InputGroup, InputGroupProps
+  States: focus-within
+  Accessibility: Afixos decorativos não substituem o nome acessível do campo.
+- Input OTP (input-otp, molecule, stable): Entrada por slots para códigos de verificação.
+  Exports: InputOTP, InputOTPProps
+  States: default, focus, disabled
+  Accessibility: Agrupe slots com label e suporte colar/backspace.
+- Table (table, molecule, stable): Primitivos de tabela para composição com DataTable.
+  Exports: Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption, TableProps, TableHeaderProps, TableBodyProps, TableFooterProps, TableRowProps, TableHeadProps, TableCellProps, TableCaptionProps
+  States: none
+  Accessibility: Use caption e cabeçalhos de coluna semânticos.
+- Dropdown Menu (dropdown-menu, molecule, stable): Menu de ações a partir de um gatilho.
+  Exports: DropdownMenu, DropdownMenuProps
+  States: open, closed, highlighted, disabled
+  Accessibility: Menus precisam ser operáveis por teclado.
+- Alert Dialog (alert-dialog, molecule, stable): Diálogo de confirmação com ênfase destrutiva opcional.
+  Exports: AlertDialog, AlertDialogProps
+  States: open, closed
+  Accessibility: Descreva a consequência antes da confirmação destrutiva.
+- Calendar (calendar, molecule, stable): Grade mensal para seleção avulsa de data.
+  Exports: Calendar, CalendarProps
+  States: selected, today
+  Accessibility: Navegação por teclado entre dias e rótulo do mês.
+- Drawer (drawer, molecule, stable): Painel modal lateral ou inferior/superior.
+  Exports: Drawer, DrawerProps
+  States: open, closed
+  Accessibility: Foco preso no painel e fechamento por Escape.
+- Attachment (attachment, molecule, stable): Lista de anexos com metadados e remoção.
+  Exports: Attachment, AttachmentProps, AttachmentFile
+  States: default
+  Accessibility: Cada remoção precisa de nome acessível com o arquivo.
+- Carousel (carousel, molecule, stable): Carrossel de slides com navegação por teclado.
+  Exports: Carousel, CarouselProps
+  States: active
+  Accessibility: Controles anterior/próximo e anúncio do slide atual.
+- Navigation Menu (navigation-menu, organism, stable): Menu de navegação horizontal desacoplado do header.
+  Exports: NavigationMenu, NavigationMenuProps
+  States: current
+  Accessibility: Marque o item atual com aria-current.
+- Questionnaire (questionnaire, molecule, stable): Fluxo guiado de perguntas com progresso.
+  Exports: Questionnaire, QuestionnaireProps, QuestionnaireStep
+  States: active, complete
+  Accessibility: Anuncie progresso e mantenha foco no passo atual.
+- Menubar (menubar, organism, stable): Barra de menus desktop com submenus.
+  Exports: Menubar, MenubarProps
+  States: open, closed
+  Accessibility: Navegação por setas entre menus e itens.
+- Bubble (bubble, organism, stable): Bolha de mensagem humana ou de agente.
+  Exports: Bubble, BubbleProps, BubbleRole
+  States: none
+  Accessibility: Identifique o autor quando houver múltiplos interlocutores.
+- Message (message, organism, stable): Mensagem genérica de conversa com autor.
+  Exports: Message, MessageProps
+  States: streaming
+  Accessibility: Indique streaming de forma não disruptiva para leitores de tela.
+- Message Scroller (message-scroller, organism, stable): Viewport de conversa com stick-to-bottom.
+  Exports: MessageScroller, MessageScrollerProps
+  States: none
+  Accessibility: Região rolável com nome acessível quando isolada.
 
 ## Recipes
 - Landing page (landing-page): Apresentar uma oferta consultiva com clareza, prova e uma chamada principal.

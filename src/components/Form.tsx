@@ -11,7 +11,7 @@ import type {
 import { Check, ChevronDown } from 'lucide-react';
 import {
   Checkbox as CheckboxPrimitive,
-  RadioGroup,
+  RadioGroup as RadioGroupPrimitive,
   Select as SelectPrimitive,
   Switch as SwitchPrimitive,
 } from 'radix-ui';
@@ -176,26 +176,26 @@ export function RadioSet({
   label,
   options,
   ...props
-}: React.ComponentPropsWithoutRef<typeof RadioGroup.Root> & { label: string; options: RadioOption[] }) {
+}: React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> & { label: string; options: RadioOption[] }) {
   const groupId = useId();
   return (
     <fieldset style={{ border: 0, margin: 0, padding: 0 }}>
       <legend className="ibs-field__label" style={{ marginBottom: 'var(--ibs-space-3)' }}>
         {label}
       </legend>
-      <RadioGroup.Root {...props} style={{ display: 'grid', gap: 'var(--ibs-space-3)' }}>
+      <RadioGroupPrimitive.Root {...props} style={{ display: 'grid', gap: 'var(--ibs-space-3)' }}>
         {options.map((option) => {
           const id = `${groupId}-${option.value}`;
           return (
             <label className="ibs-choice-row" htmlFor={id} key={option.value}>
-              <RadioGroup.Item className="ibs-radio" id={id} value={option.value}>
-                <RadioGroup.Indicator className="ibs-radio__indicator" />
-              </RadioGroup.Item>
+              <RadioGroupPrimitive.Item className="ibs-radio" id={id} value={option.value}>
+                <RadioGroupPrimitive.Indicator className="ibs-radio__indicator" />
+              </RadioGroupPrimitive.Item>
               <span>{option.label}</span>
             </label>
           );
         })}
-      </RadioGroup.Root>
+      </RadioGroupPrimitive.Root>
     </fieldset>
   );
 }
@@ -223,3 +223,8 @@ export type SelectProps = React.ComponentPropsWithoutRef<typeof Select>;
 export type CheckboxProps = Parameters<typeof Checkbox>[0];
 export type RadioSetProps = Parameters<typeof RadioSet>[0];
 export type SwitchProps = Parameters<typeof Switch>[0];
+
+export const Field = FormField;
+export type FieldProps = FormFieldProps;
+export const RadioGroup = RadioSet;
+export type RadioGroupProps = RadioSetProps;

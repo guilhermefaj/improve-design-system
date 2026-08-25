@@ -24,7 +24,7 @@ describe('shared showcase registry', () => {
     );
     expect(byStatus.beta).toEqual(['agent-handoff', 'trace-viewer']);
     expect(byStatus.experimental).toEqual(['generated-ui-boundary', 'mcp-app-frame']);
-    expect(byStatus.stable).toHaveLength(60);
+    expect(byStatus.stable).toHaveLength(83);
   });
 
   it('uses the manifest version and exposes both generated themes', () => {

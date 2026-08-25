@@ -302,7 +302,7 @@
   justify-content: flex-end;
   gap: var(--ibs-space-2);
 }
-.showcase-component-list span {
+.showcase-component-list a {
   padding: var(--ibs-space-1) var(--ibs-space-2);
   border: 1px solid var(--ibs-color-border);
   border-radius: var(--ibs-radius-pill);
@@ -310,6 +310,71 @@
   color: var(--ibs-color-text-muted);
   font-family: var(--ibs-font-mono);
   font-size: 0.68rem;
+  text-decoration: none;
+}
+.showcase-component-list a:hover {
+  color: var(--ibs-color-secondary);
+  border-color: var(--ibs-color-secondary-soft);
+}
+.showcase-component-list a.is-planned {
+  opacity: 0.65;
+}
+.showcase-az {
+  background: var(--ibs-color-surface);
+}
+.showcase-az__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--ibs-space-3);
+}
+.showcase-az__list li {
+  display: grid;
+  gap: var(--ibs-space-2);
+  padding: var(--ibs-space-4);
+  border: 1px solid var(--ibs-color-border);
+  border-radius: var(--ibs-radius-lg);
+  background: var(--ibs-color-canvas);
+}
+.showcase-az__list a {
+  display: grid;
+  gap: var(--ibs-space-1);
+  color: inherit;
+  text-decoration: none;
+}
+.showcase-az__name {
+  font-weight: var(--ibs-font-weight-semibold);
+  color: var(--ibs-color-text);
+}
+.showcase-az__meta {
+  color: var(--ibs-color-text-muted);
+  font-size: var(--ibs-text-sm);
+  line-height: 1.4;
+}
+.showcase-az__badge {
+  justify-self: start;
+  padding: var(--ibs-space-1) var(--ibs-space-2);
+  border-radius: var(--ibs-radius-pill);
+  background: var(--ibs-color-surface-raised);
+  color: var(--ibs-color-text-muted);
+  font-family: var(--ibs-font-mono);
+  font-size: 0.68rem;
+}
+.showcase-az__badge--planned {
+  background: var(--ibs-neutral-100, var(--ibs-color-surface));
+  color: var(--ibs-color-text-subtle);
+}
+.showcase-az__badge--alias {
+  color: var(--ibs-color-secondary);
+}
+.showcase-az__badge--improve {
+  border: 1px solid var(--ibs-color-brand-soft, var(--ibs-color-border));
+  color: var(--ibs-color-brand);
+}
+.showcase-panel {
+  scroll-margin-top: calc(var(--ibs-layout-header-height) + var(--ibs-space-6));
 }
 .showcase-empty {
   padding: var(--ibs-space-20);
