@@ -2,7 +2,7 @@
   "$schema": "./schemas/design-system-manifest.schema.json",
   "schemaVersion": 3,
   "name": "Improve Design System",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source": {
     "repository": "https://github.com/guilhermefaj/improve-design-system",
     "distribution": "github-source-owned",
