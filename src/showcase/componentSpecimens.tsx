@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
+import { useState, type ComponentType, type ReactNode } from 'react';
 import {
   Accordion,
   ActionMenu,
@@ -131,10 +131,13 @@ import {
   ArrowRight,
   Bold,
   Building2,
+  Columns3,
   Command,
   Filter,
   FolderKanban,
   Home,
+  LayoutGrid,
+  LayoutList,
   Plus,
   Settings,
   Users,
@@ -154,11 +157,11 @@ function meta(id: string): ManifestComponent {
   return entry;
 }
 
-function panel(id: string, content: ReactNode) {
+function panel(id: string, content: ReactNode, density: 'hug' | 'bounded' | 'fill' = 'fill') {
   const entry = meta(id);
   return (
     <SpecimenPanel id={id} title={entry.name} description={entry.description}>
-      {content}
+      <div className={`showcase-demo--${density}`}>{content}</div>
     </SpecimenPanel>
   );
 }
@@ -225,6 +228,226 @@ const customerColumns: DataGridColumn<Customer>[] = [
   { id: 'status', header: 'Status', cell: (row) => <Badge tone="success">{row.status}</Badge> },
 ];
 
+function LogoSpecimen() {
+  const Logo = ImproveLogo as ComponentType<{
+    variant?: 'duo' | 'brand' | 'mono' | 'inverse';
+  }>;
+  return panel(
+    'logo',
+    <Cluster>
+      <Logo variant="duo" />
+      <Logo variant="brand" />
+      <Logo variant="mono" />
+      <div
+        style={{
+          padding: 'var(--ibs-space-4)',
+          borderRadius: 'var(--ibs-radius-md)',
+          background: '#1d1d1f',
+        }}
+      >
+        <Logo variant="inverse" />
+      </div>
+    </Cluster>,
+    'hug',
+  );
+}
+
+function SegmentedControlSpecimen() {
+  const [value, setValue] = useState('month');
+  return panel(
+    'segmented-control',
+    <SegmentedControl
+      label="Período"
+      value={value}
+      onValueChange={setValue}
+      items={[
+        { value: 'week', label: 'Semana' },
+        { value: 'month', label: 'Mês' },
+        { value: 'year', label: 'Ano' },
+      ]}
+    />,
+    'hug',
+  );
+}
+
+function SearchInputSpecimen() {
+  const [value, setValue] = useState('Acme');
+  return panel(
+    'search-input',
+    <SearchInput
+      aria-label="Buscar clientes"
+      placeholder="Buscar clientes"
+      value={value}
+      onChange={(event) => setValue(event.currentTarget.value)}
+      onClear={() => setValue('')}
+    />,
+    'bounded',
+  );
+}
+
+function StepperSpecimen() {
+  const [active, setActive] = useState(1);
+  return panel(
+    'stepper',
+    <Stepper
+      active={active}
+      onStepChange={setActive}
+      items={[
+        { id: 'company', label: 'Empresa' },
+        { id: 'plan', label: 'Plano', description: 'Escolha o melhor cenário' },
+        { id: 'review', label: 'Revisão' },
+      ]}
+    />,
+    'bounded',
+  );
+}
+
+function ComboboxSpecimen() {
+  const [value, setValue] = useState('growth');
+  return panel(
+    'combobox',
+    <Combobox
+      label="Plano"
+      value={value}
+      onValueChange={setValue}
+      options={[
+        { value: 'starter', label: 'Starter' },
+        { value: 'growth', label: 'Growth' },
+        { value: 'enterprise', label: 'Enterprise' },
+      ]}
+    />,
+    'bounded',
+  );
+}
+
+function FilterBarSpecimen() {
+  const [query, setQuery] = useState('');
+  return panel(
+    'filter-bar',
+    <FilterBar
+      query={query}
+      onQueryChange={setQuery}
+      filters={<Chip selected>Ativos</Chip>}
+      activeCount={1}
+      onClear={() => setQuery('')}
+    />,
+    'bounded',
+  );
+}
+
+function MultiSelectSpecimen() {
+  const [value, setValue] = useState<string[]>(['growth']);
+  return panel(
+    'multi-select',
+    <MultiSelect
+      label="Segmentos"
+      value={value}
+      onValueChange={setValue}
+      options={[
+        { value: 'starter', label: 'Starter' },
+        { value: 'growth', label: 'Growth' },
+        { value: 'enterprise', label: 'Enterprise' },
+        { value: 'public', label: 'Setor público' },
+      ]}
+    />,
+    'bounded',
+  );
+}
+
+function ToggleGroupSpecimen() {
+  const [value, setValue] = useState('list');
+  return panel(
+    'toggle-group',
+    <ToggleGroup
+      label="Visualização"
+      value={value}
+      onValueChange={setValue}
+      items={[
+        {
+          value: 'list',
+          label: (
+            <>
+              <LayoutList aria-hidden="true" /> Lista
+            </>
+          ),
+        },
+        {
+          value: 'board',
+          label: (
+            <>
+              <LayoutGrid aria-hidden="true" /> Quadro
+            </>
+          ),
+        },
+        {
+          value: 'columns',
+          label: (
+            <>
+              <Columns3 aria-hidden="true" /> Colunas
+            </>
+          ),
+        },
+      ]}
+    />,
+    'hug',
+  );
+}
+
+function InputOTPSpecimen() {
+  const [value, setValue] = useState('');
+  return panel('input-otp', <InputOTP label="Código de verificação" value={value} onValueChange={setValue} />, 'hug');
+}
+
+function SheetSpecimen() {
+  return panel(
+    'sheet',
+    <Sheet
+      trigger={<Button variant="outline">Abrir painel</Button>}
+      title="Editar conta"
+      footer={
+        <Cluster>
+          <Button variant="ghost">Cancelar</Button>
+          <Button fullWidth>Salvar alterações</Button>
+        </Cluster>
+      }
+    >
+      <Text size="sm" tone="muted">
+        Use Sheet para edição contextual com ações no rodapé, sem sair da página.
+      </Text>
+    </Sheet>,
+    'bounded',
+  );
+}
+
+function DrawerSpecimen() {
+  return panel(
+    'drawer',
+    <Cluster>
+      <Drawer
+        trigger={<Button variant="outline">Inspecionar</Button>}
+        title="Detalhes do cliente"
+        description="Inspeção lateral sem interromper o fluxo."
+        side="right"
+      >
+        <Text size="sm" tone="muted">
+          Use Drawer para inspecionar contexto auxiliar; Dialog para interrupções curtas.
+        </Text>
+      </Drawer>
+      <Drawer
+        trigger={<Button variant="outline">Painel inferior</Button>}
+        title="Resumo rápido"
+        description="Inspeção a partir da borda inferior."
+        side="bottom"
+      >
+        <Text size="sm" tone="muted">
+          O lado inferior funciona bem para prévias e detalhes secundários.
+        </Text>
+      </Drawer>
+    </Cluster>,
+    'bounded',
+  );
+}
+
 /**
  * One React component per manifest component id, each rendering exactly one
  * `SpecimenPanel` whose `id`/`title` match the manifest entry. Demos are kept
@@ -241,6 +464,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         <Button variant="outline">Saiba mais</Button>
         <Button variant="ghost">Cancelar</Button>
       </Cluster>,
+      'hug',
     ),
 
   layout: () =>
@@ -281,7 +505,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       </Stack>,
     ),
 
-  logo: () => panel('logo', <ImproveLogo />),
+  logo: LogoSpecimen,
 
   card: () =>
     panel(
@@ -344,6 +568,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
           />
         </Stack>
       </Grid>,
+      'bounded',
     ),
 
   feedback: () =>
@@ -477,6 +702,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         <AgentStatus status="awaiting_approval" />
         <AgentStatus status="succeeded" />
       </Cluster>,
+      'hug',
     ),
 
   'streaming-message': () =>
@@ -485,6 +711,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <StreamingMessage isStreaming>
         Encontrei três oportunidades recorrentes e estou organizando impacto e esforço.
       </StreamingMessage>,
+      'bounded',
     ),
 
   'tool-call-card': () =>
@@ -506,6 +733,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
           onRetry={() => undefined}
         />
       </Grid>,
+      'bounded',
     ),
 
   'approval-card': () =>
@@ -524,6 +752,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         onEdit={() => undefined}
         onReject={() => undefined}
       />,
+      'bounded',
     ),
 
   'run-timeline': () => panel('run-timeline', <RunTimeline events={agentEvents} />),
@@ -617,6 +846,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         <Kbd>Ctrl</Kbd>
         <Kbd>Enter</Kbd>
       </Cluster>,
+      'hug',
     ),
 
   'button-group': () =>
@@ -644,6 +874,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
           Automação
         </Chip>
       </Cluster>,
+      'hug',
     ),
 
   toggle: () =>
@@ -655,33 +886,20 @@ export const componentSpecimens: Record<string, ComponentType> = {
         </Toggle>
         <Toggle icon={<Filter />}>Filtros</Toggle>
       </Cluster>,
+      'hug',
     ),
 
-  'segmented-control': () =>
-    panel(
-      'segmented-control',
-      <SegmentedControl
-        label="Período"
-        value="month"
-        items={[
-          { value: 'week', label: 'Semana' },
-          { value: 'month', label: 'Mês' },
-          { value: 'year', label: 'Ano' },
-        ]}
-      />,
-    ),
+  'segmented-control': SegmentedControlSpecimen,
 
   slider: () => panel('slider', <Slider label="Automação" defaultValue={62} valueLabel={(value) => `${value}%`} />),
 
-  'search-input': () =>
-    panel(
-      'search-input',
-      <SearchInput aria-label="Buscar clientes" placeholder="Buscar clientes" defaultValue="Acme" />,
-    ),
+  'search-input': SearchInputSpecimen,
 
-  'password-input': () => panel('password-input', <PasswordInput aria-label="Senha" placeholder="Sua senha" />),
+  'password-input': () =>
+    panel('password-input', <PasswordInput aria-label="Senha" placeholder="Sua senha" />, 'bounded'),
 
-  'number-input': () => panel('number-input', <NumberInput label="Licenças" min={1} max={100} defaultValue={12} />),
+  'number-input': () =>
+    panel('number-input', <NumberInput label="Licenças" min={1} max={100} defaultValue={12} />, 'bounded'),
 
   sparkline: () =>
     panel(
@@ -690,6 +908,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         <Sparkline values={[12, 18, 15, 29, 25, 38, 44]} label="Crescimento" />
         <Sparkline tone="brand" values={[31, 25, 27, 19, 24, 16, 21]} label="Variação" />
       </Cluster>,
+      'hug',
     ),
 
   'empty-state': () =>
@@ -712,48 +931,14 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <Popover trigger={<Button variant="outline">Abrir popover</Button>} title="Contexto rápido">
         Informação complementar.
       </Popover>,
+      'hug',
     ),
 
-  sheet: () =>
-    panel(
-      'sheet',
-      <Sheet
-        trigger={<Button variant="outline">Abrir painel</Button>}
-        title="Detalhes da conta"
-        footer={<Button fullWidth>Salvar</Button>}
-      >
-        <Text size="sm" tone="muted">
-          Edição contextual sem sair da página.
-        </Text>
-      </Sheet>,
-    ),
+  sheet: SheetSpecimen,
 
-  stepper: () =>
-    panel(
-      'stepper',
-      <Stepper
-        active={1}
-        items={[
-          { id: 'company', label: 'Empresa' },
-          { id: 'plan', label: 'Plano', description: 'Escolha o melhor cenário' },
-          { id: 'review', label: 'Revisão' },
-        ]}
-      />,
-    ),
+  stepper: StepperSpecimen,
 
-  combobox: () =>
-    panel(
-      'combobox',
-      <Combobox
-        label="Plano"
-        value="growth"
-        options={[
-          { value: 'starter', label: 'Starter' },
-          { value: 'growth', label: 'Growth' },
-          { value: 'enterprise', label: 'Enterprise' },
-        ]}
-      />,
-    ),
+  combobox: ComboboxSpecimen,
 
   'command-palette': () =>
     panel(
@@ -869,11 +1054,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <DataGrid rows={customers} columns={customerColumns} getRowId={(row) => row.id} caption="Clientes" selectable />,
     ),
 
-  'filter-bar': () =>
-    panel(
-      'filter-bar',
-      <FilterBar query="" filters={<Chip selected>Ativos</Chip>} activeCount={1} onClear={() => undefined} />,
-    ),
+  'filter-bar': FilterBarSpecimen,
 
   'pricing-card': () =>
     panel(
@@ -971,6 +1152,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         <Tag tone="brand">IA aplicada</Tag>
         <Tag onRemove={() => undefined}>Operações</Tag>
       </Cluster>,
+      'hug',
     ),
 
   'description-list': () =>
@@ -1019,20 +1201,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       </Collapsible>,
     ),
 
-  'multi-select': () =>
-    panel(
-      'multi-select',
-      <MultiSelect
-        label="Segmentos"
-        value={['growth']}
-        options={[
-          { value: 'starter', label: 'Starter' },
-          { value: 'growth', label: 'Growth' },
-          { value: 'enterprise', label: 'Enterprise' },
-          { value: 'public', label: 'Setor público' },
-        ]}
-      />,
-    ),
+  'multi-select': MultiSelectSpecimen,
 
   'date-range-picker': () =>
     panel('date-range-picker', <DateRangePicker label="Período do contrato" hint="Início e término previstos." />),
@@ -1097,19 +1266,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       </Stack>,
     ),
 
-  'toggle-group': () =>
-    panel(
-      'toggle-group',
-      <ToggleGroup
-        label="Visualização"
-        value="list"
-        items={[
-          { value: 'list', label: 'Lista' },
-          { value: 'board', label: 'Quadro' },
-          { value: 'timeline', label: 'Timeline' },
-        ]}
-      />,
-    ),
+  'toggle-group': ToggleGroupSpecimen,
 
   'native-select': () =>
     panel(
@@ -1129,9 +1286,10 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <InputGroup start={<span>https://</span>} end={<span>.com</span>}>
         <Input aria-label="Domínio" placeholder="improve" />
       </InputGroup>,
+      'bounded',
     ),
 
-  'input-otp': () => panel('input-otp', <InputOTP label="Código de verificação" value="123" />),
+  'input-otp': InputOTPSpecimen,
 
   table: () =>
     panel(
@@ -1177,20 +1335,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
 
   calendar: () => panel('calendar', <Calendar label="Data da revisão" value="2026-08-25" />),
 
-  drawer: () =>
-    panel(
-      'drawer',
-      <Drawer
-        trigger={<Button variant="outline">Abrir drawer</Button>}
-        title="Detalhes do cliente"
-        description="Contexto operacional sem sair da página."
-        side="right"
-      >
-        <Text size="sm" tone="muted">
-          Use Drawer para fluxos auxiliares; Dialog para interrupções curtas.
-        </Text>
-      </Drawer>,
-    ),
+  drawer: DrawerSpecimen,
 
   attachment: () =>
     panel(
@@ -1266,6 +1411,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
           Vamos começar pela dor operacional mais cara.
         </Bubble>
       </Stack>,
+      'bounded',
     ),
 
   message: () =>
@@ -1274,6 +1420,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
       <Message author={{ name: 'Improve Agent', role: 'agent' }} streaming>
         Preparando o plano de execução…
       </Message>,
+      'bounded',
     ),
 
   'message-scroller': () =>
@@ -1284,6 +1431,7 @@ export const componentSpecimens: Record<string, ComponentType> = {
         <Message author={{ name: 'Improve Agent', role: 'agent' }}>Como posso ajudar?</Message>
         <Message author={{ name: 'Marina', role: 'human' }}>Mostre o próximo passo.</Message>
       </MessageScroller>,
+      'bounded',
     ),
 };
 
