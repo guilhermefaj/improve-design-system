@@ -93,7 +93,7 @@ packages/cli/          source-owned installer and upgrader
 packages/artifact-kit/ self-contained React starters
 ```
 
-O arquivo de marca recebido foi preservado sem alterações em `assets/brand/logo_fundo_branco.png`. `ImproveMark` e `ImproveLogo` oferecem uma assinatura responsiva em SVG para interfaces pequenas; materiais institucionais finais devem usar o arquivo oficial quando a aplicação permitir.
+O arquivo de marca oficial está em `assets/brand/` (`logo_fundo_branco.png` e variantes `logo_*_fundo_preto.png`). `ImproveMark` e `ImproveLogo` oferecem uma assinatura responsiva em SVG para interfaces pequenas; materiais institucionais finais devem usar os PNGs oficiais quando a aplicação permitir.
 
 Os tokens seguem três camadas:
 

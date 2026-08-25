@@ -90,6 +90,7 @@ export function Sidebar({
                 <li key={`${item.label}-${item.href}`}>
                   <a
                     href={item.href}
+                    aria-label={item.label}
                     aria-current={item.active ? 'page' : undefined}
                     aria-disabled={item.disabled || undefined}
                     tabIndex={item.disabled ? -1 : undefined}
