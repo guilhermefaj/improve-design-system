@@ -159,9 +159,15 @@
     box-shadow var(--ibs-duration-fast) var(--ibs-ease-standard);
 }
 
-.showcase-panel[data-active] {
+.showcase-panel:hover {
   border-color: var(--ibs-color-secondary);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ibs-color-secondary) 18%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-panel {
+    transition: none;
+  }
 }
 
 /* Legacy demo helpers still used inside some specimens */
