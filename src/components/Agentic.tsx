@@ -316,7 +316,10 @@ export function RunTimeline({
         return (
           <li key={event.id} className={`ibs-run-timeline__item ibs-run-timeline__item--${meta.tone}`}>
             <span className="ibs-run-timeline__marker">
-              <Icon aria-hidden="true" />
+              <Icon
+                aria-hidden="true"
+                className={event.status === 'running' ? 'ibs-agent-status__spinner' : undefined}
+              />
             </span>
             <div>
               <strong>{event.label ?? event.type}</strong>

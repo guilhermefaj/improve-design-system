@@ -278,7 +278,7 @@ export const designTokens = {
     "exit": "cubic-bezier(0.4, 0, 1, 1)"
   },
   "z": {
-    "dropdown": 30,
+    "dropdown": 45,
     "sticky": 40,
     "modal": 50,
     "toast": 60
@@ -738,7 +738,7 @@ export const darkDesignTokens = {
     "exit": "cubic-bezier(0.4, 0, 1, 1)"
   },
   "z": {
-    "dropdown": 30,
+    "dropdown": 45,
     "sticky": 40,
     "modal": 50,
     "toast": 60
@@ -1114,7 +1114,7 @@ export const flatTokens = {
   "ease.standard": "cubic-bezier(0.2, 0, 0, 1)",
   "ease.enter": "cubic-bezier(0.16, 1, 0.3, 1)",
   "ease.exit": "cubic-bezier(0.4, 0, 1, 1)",
-  "z.dropdown": 30,
+  "z.dropdown": 45,
   "z.sticky": 40,
   "z.modal": 50,
   "z.toast": 60,
@@ -1492,7 +1492,7 @@ export const darkFlatTokens = {
   "ease.standard": "cubic-bezier(0.2, 0, 0, 1)",
   "ease.enter": "cubic-bezier(0.16, 1, 0.3, 1)",
   "ease.exit": "cubic-bezier(0.4, 0, 1, 1)",
-  "z.dropdown": 30,
+  "z.dropdown": 45,
   "z.sticky": 40,
   "z.modal": 50,
   "z.toast": 60,
@@ -2677,9 +2677,9 @@ export const tokenCatalog = [
   {
     "path": "z.dropdown",
     "type": "number",
-    "reference": 30,
-    "light": 30,
-    "dark": 30
+    "reference": 45,
+    "light": 45,
+    "dark": 45
   },
   {
     "path": "z.sticky",

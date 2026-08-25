@@ -167,7 +167,7 @@
   },
   "z": {
     "$type": "number",
-    "dropdown": { "$value": 30 },
+    "dropdown": { "$value": 45 },
     "sticky": { "$value": 40 },
     "modal": { "$value": 50 },
     "toast": { "$value": 60 }
