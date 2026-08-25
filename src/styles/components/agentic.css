@@ -181,10 +181,10 @@
   display: grid;
   gap: var(--ibs-space-5);
   padding: var(--ibs-space-6);
-  border: 1px solid var(--ibs-approval-accent);
+  border: 1px solid var(--ibs-color-brand);
   border-radius: var(--ibs-approval-radius);
   background: var(--ibs-approval-background);
-  box-shadow: inset 0.3rem 0 var(--ibs-approval-accent);
+  box-shadow: inset 0.3rem 0 var(--ibs-color-brand);
 }
 .ibs-approval-card--low {
   --ibs-approval-accent: var(--ibs-color-risk-low);
