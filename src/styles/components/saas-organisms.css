@@ -443,7 +443,7 @@
   height: 1.15rem;
   margin-top: 0.15rem;
   border-radius: 50%;
-  background: var(--ibs-color-secondary);
+  background: var(--ibs-color-brand);
   box-shadow: 0 0 0 3px var(--ibs-color-canvas);
 }
 .ibs-activity-feed p {
