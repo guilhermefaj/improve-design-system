@@ -212,16 +212,17 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ibs-color-focus) 18%, transparent);
 }
 .ibs-combobox__control svg {
-  width: 1.05rem;
+  width: 1rem;
   color: var(--ibs-color-text-muted);
 }
 .ibs-combobox__control input {
   width: 100%;
-  min-height: var(--ibs-control-md);
+  min-height: 2rem;
   border: 0;
   outline: 0;
   background: transparent;
   color: var(--ibs-color-text);
+  line-height: 1.25;
 }
 .ibs-combobox__list {
   position: absolute;
@@ -495,12 +496,14 @@
   gap: var(--ibs-space-2);
 }
 .ibs-multiselect .ibs-tag {
-  min-height: 1.5rem;
+  min-height: 1.375rem;
   padding: 0 var(--ibs-space-1) 0 var(--ibs-space-2);
+  font-size: var(--ibs-text-xs);
+  line-height: 1.2;
 }
 .ibs-multiselect .ibs-tag__remove {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.15rem;
+  height: 1.15rem;
   margin-right: 0;
 }
 .ibs-multiselect .ibs-tag__remove svg {
@@ -508,7 +511,7 @@
   height: 0.85rem;
 }
 .ibs-multiselect .ibs-combobox__control input {
-  min-height: var(--ibs-control-sm);
+  min-height: 2rem;
 }
 .ibs-date-range {
   min-inline-size: 0;
