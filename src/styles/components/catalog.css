@@ -101,6 +101,10 @@
 }
 .ibs-toggle-group button {
   min-height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ibs-space-2);
   padding: 0 var(--ibs-space-4);
   border: 0;
   border-radius: calc(var(--ibs-radius-md) - 3px);
@@ -108,6 +112,11 @@
   color: var(--ibs-color-text);
   cursor: pointer;
   font-weight: var(--ibs-font-weight-medium);
+}
+.ibs-toggle-group button svg {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
 }
 .ibs-toggle-group button[aria-checked='true'] {
   background: var(--ibs-color-surface-raised);
