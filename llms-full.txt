@@ -9,7 +9,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Use white canvas, cream #F5F2F0 surfaces, dark gray #4F4F51 text, orange #F2703E as the primary brand action and purple #483C8F strategically.
 - Primary actions use #F2703E with bold white text by explicit brand decision; note that this pair is a documented WCAG contrast exception.
 - Use orange for primary actions and checked choice controls. Use purple for focus, navigation, links, human approval and agent-thinking states.
-- Follow Atomic Design: foundations support atoms; atoms compose molecules; molecules compose organisms. Templates and pages are not implemented in v1.1.0.
+- Group components by category (action, form, feedback, navigation, overlay, agentic, trust, saas, etc.) instead of atomic levels.
 - Prefer generous whitespace, strong editorial hierarchy, subtle borders and restrained elevation.
 - Use existing components and semantic tokens before inventing new values.
 
@@ -23,7 +23,7 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
 - Source-owned CLI: packages/cli/improve.mjs
 
 ## Components
-- Button (button, atom, stable): Ação principal, secundária ou textual com ícones opcionais.
+- Button (button, action, stable): Ação principal, secundária ou textual com ícones opcionais.
   Exports: Button, ButtonLink, IconButton, ButtonProps, ButtonLinkProps, IconButtonProps
   States: default, hover, active, focus-visible, disabled
   Accessibility: Use texto descritivo. IconButton exige label. Preserve foco visível e alvo mínimo de 44 px.
@@ -35,207 +35,207 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: Heading, Text, Eyebrow, AccentText, SupportingLabel, HeadingProps, TextProps
   States: none
   Accessibility: Não pule níveis de heading. Use um único h1 por contexto principal.
-- Improve Logo (logo, atom, stable): Marca vetorial responsiva para interfaces e Artifacts.
+- Improve Logo (logo, foundation, stable): Marca vetorial responsiva para interfaces e Artifacts.
   Exports: ImproveMark, ImproveLogo, ImproveMarkProps, ImproveLogoProps
   States: none
   Accessibility: Wordmark vinculada exige nome acessível. Marca decorativa deve ser aria-hidden.
-- Card (card, molecule, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
+- Card (card, data-display, stable): Superfície de conteúdo com corpo, rodapé e modo interativo.
   Exports: Card, CardBody, CardFooter, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps
   States: default, hover, focus-within
   Accessibility: Não transforme o card inteiro em botão quando houver múltiplas ações.
-- Data display (data-display, molecule, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
+- Data display (data-display, data-display, stable): Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs e Pagination.
   Exports: Avatar, Divider, Stat, Quote, DataTable, Breadcrumbs, Pagination, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, Separator, SeparatorProps, Breadcrumb, BreadcrumbProps
   States: responsive, current-page
   Accessibility: DataTable exige caption. Paginação expõe página atual. Avatar sem imagem anuncia o nome.
-- Form controls (form, molecule, stable): Campos, escolhas e switches com descrição e erro associados.
+- Form controls (form, form, stable): Campos, escolhas e switches com descrição e erro associados.
   Exports: FormField, Input, Textarea, Select, Checkbox, RadioSet, Switch, FormFieldProps, InputProps, TextareaProps, SelectProps, CheckboxProps, RadioSetProps, SwitchProps, Field, FieldProps, RadioGroup, RadioGroupProps
   States: default, hover, focus, invalid, disabled, checked
   Accessibility: Todo controle exige label. Erros devem usar aria-describedby e aria-invalid.
-- Feedback (feedback, molecule, stable): Badge, Alert, Skeleton, Spinner e Progress.
+- Feedback (feedback, feedback, stable): Badge, Alert, Skeleton, Spinner e Progress.
   Exports: Badge, Alert, Skeleton, Spinner, Progress, BadgeProps, AlertProps, SkeletonProps, SpinnerProps, ProgressProps
   States: loading, progress, success, warning, error
   Accessibility: Use status para atualizações não urgentes e alert somente para falhas imediatas.
-- Dialog (dialog, organism, stable): Modal acessível com título, descrição, conteúdo e ação.
+- Dialog (dialog, overlay, stable): Modal acessível com título, descrição, conteúdo e ação.
   Exports: Dialog, AccordionProps, TabsProps, DialogProps, TooltipProps, ActionMenuProps, SelectMenuProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: open, closed
   Accessibility: Título é obrigatório. O foco deve entrar, ficar contido e retornar ao gatilho.
-- Overlays and disclosure (overlays, molecule, stable): Accordion, Tabs, Tooltip e menus acessíveis.
+- Overlays and disclosure (overlays, overlay, stable): Accordion, Tabs, Tooltip e menus acessíveis.
   Exports: Accordion, Tabs, Tooltip, ActionMenu, SelectMenu, AccordionProps, TabsProps, DialogProps, TooltipProps, ActionMenuProps, SelectMenuProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: open, closed, active, highlighted, disabled
   Accessibility: Não use Tooltip para informação necessária. Menus precisam ser operáveis por teclado.
-- Navigation (navigation, organism, stable): Header e Footer institucionais.
+- Navigation (navigation, navigation, stable): Header e Footer institucionais.
   Exports: SiteHeader, Footer, NavItem, SiteHeaderProps, FooterProps, ButtonProps, IconButtonProps, ButtonLinkProps, ContainerProps, StackProps, ClusterProps, GridProps, SectionProps, ImproveMarkProps, ImproveLogoProps
   States: current-page, sticky
   Accessibility: Navegações precisam de nomes distintos. Página atual usa aria-current.
-- Marketing patterns (marketing, organism, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
+- Marketing patterns (marketing, marketing, stable): Hero, FeatureCard, EcosystemCard, ServicePanel e LogoCloud.
   Exports: Hero, FeatureCard, EcosystemCard, ServicePanel, LogoCloud, HeroProps, FeatureCardProps, EcosystemCardProps, ServicePanelProps, LogoCloudProps, ButtonProps, IconButtonProps, ButtonLinkProps, ContainerProps, StackProps, ClusterProps, GridProps, SectionProps, HeadingProps, TextProps
   States: responsive
   Accessibility: CTAs precisam ser descritivos. LogoCloud deve ter nome acessível.
-- Presentation (slides, organism, stable): Primitivas 16:9 para apresentações React.
+- Presentation (slides, presentation, stable): Primitivas 16:9 para apresentações React.
   Exports: Slide, SlideKicker, SlideTitle, SlideMetric, SlideFooter, SlideProps, SlideKickerProps, SlideTitleProps, SlideFooterProps, SlideMetricProps, ImproveMarkProps, ImproveLogoProps
   States: screen, print
   Accessibility: Mantenha ordem semântica e contraste ao exportar.
-- AgentStatus (agent-status, molecule, stable): Estado resumido e acessível de uma execução agentic.
+- AgentStatus (agent-status, agentic, stable): Estado resumido e acessível de uma execução agentic.
   Exports: AgentStatus, AgentRunStatus, AgentEvent, AgentActor, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: queued, thinking, running, awaiting_approval, paused, succeeded, failed, cancelled
   Accessibility: Anuncie somente mudanças de etapa com aria-live polite.
-- StreamingMessage (streaming-message, molecule, stable): Conteúdo progressivo sem anunciar cada token.
+- StreamingMessage (streaming-message, agentic, stable): Conteúdo progressivo sem anunciar cada token.
   Exports: StreamingMessage, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: streaming, complete
   Accessibility: Use aria-busy durante transmissão e uma atualização final em região viva.
-- ToolCallCard (tool-call-card, organism, stable): Chamada de ferramenta inspecionável com propósito, duração e resultado.
+- ToolCallCard (tool-call-card, agentic, stable): Chamada de ferramenta inspecionável com propósito, duração e resultado.
   Exports: ToolCallCard, ToolCallStatus, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: queued, running, succeeded, failed
   Accessibility: Falhas exigem descrição e ação de recuperação disponível por teclado.
-- ApprovalCard (approval-card, organism, stable): Aprovação informada para ações externas ou sensíveis.
+- ApprovalCard (approval-card, agentic, stable): Aprovação informada para ações externas ou sensíveis.
   Exports: ApprovalCard, ApprovalRisk, ApprovalScope, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: awaiting, approved, edited, rejected
   Accessibility: Título, consequência, escopo e ações devem ser explícitos. Aprovar e rejeitar precisam de rótulos inequívocos.
-- RunTimeline (run-timeline, organism, stable): Linha do tempo de eventos, atores, tentativas e falhas parciais.
+- RunTimeline (run-timeline, agentic, stable): Linha do tempo de eventos, atores, tentativas e falhas parciais.
   Exports: RunTimeline, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: current, complete, failed
   Accessibility: Use lista ordenada e datas legíveis por máquina.
-- AgentError (agent-error, molecule, stable): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
+- AgentError (agent-error, agentic, stable): Falha recuperável com contexto e ações de repetir, editar ou cancelar.
   Exports: AgentError, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: failed, retrying
   Accessibility: Use role alert apenas quando a falha exigir atenção imediata.
-- PlanSteps (plan-steps, organism, stable): Plano visível com estado por etapa.
+- PlanSteps (plan-steps, agentic, stable): Plano visível com estado por etapa.
   Exports: PlanSteps, PlanStep, PlanStepStatus, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: pending, in_progress, completed, blocked, skipped
   Accessibility: A etapa atual deve ser identificável sem depender somente de cor.
-- ArtifactCard (artifact-card, molecule, stable): Resultado versionado com tipo, autoria e ação de abertura.
+- ArtifactCard (artifact-card, trust, stable): Resultado versionado com tipo, autoria e ação de abertura.
   Exports: ArtifactCard, ArtifactPreview, ArtifactDescriptor, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: ready, loading, failed
   Accessibility: Tipo, versão e ação precisam de texto visível ou nome acessível.
-- CitationList (citation-list, molecule, stable): Fontes verificáveis associadas ao resultado.
+- CitationList (citation-list, trust, stable): Fontes verificáveis associadas ao resultado.
   Exports: CitationList, CitationItem, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: verified, unverified
   Accessibility: Links devem indicar a origem e abrir com comportamento previsível.
-- PermissionScope (permission-scope, molecule, stable): Escopo, duração e revogação de uma permissão.
+- PermissionScope (permission-scope, trust, stable): Escopo, duração e revogação de uma permissão.
   Exports: PermissionScope, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: requested, granted, revoked
   Accessibility: Escopo e duração devem ser comunicados em texto.
-- AgentHandoff (agent-handoff, organism, beta): Transferência explícita de responsabilidade e contexto.
+- AgentHandoff (agent-handoff, trust, beta): Transferência explícita de responsabilidade e contexto.
   Exports: AgentHandoff, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: requested, accepted, completed
   Accessibility: Origem, destino e motivo devem ser anunciados em texto.
-- GeneratedUIBoundary (generated-ui-boundary, organism, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
+- GeneratedUIBoundary (generated-ui-boundary, trust, experimental): Contêiner identificado para UI gerada e conteúdo incorporado.
   Exports: GeneratedUIBoundary, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: loading, ready, failed
   Accessibility: Informe origem, estado e fallback do conteúdo incorporado.
-- McpAppFrame (mcp-app-frame, organism, experimental): Shell visual para recursos interativos MCP.
+- McpAppFrame (mcp-app-frame, trust, experimental): Shell visual para recursos interativos MCP.
   Exports: McpAppFrame, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: connecting, connected, failed, disconnected
   Accessibility: Mudanças de conexão usam status moderado e fallback operável.
-- TraceViewer (trace-viewer, organism, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
+- TraceViewer (trace-viewer, trust, beta): Detalhes técnicos progressivamente revelados para suporte e auditoria.
   Exports: TraceViewer, TraceItem, ArtifactCardProps, ArtifactPreviewProps, CitationListProps, PermissionScopeProps, AgentHandoffProps, GeneratedUIBoundaryProps, McpAppFrameProps, TraceViewerProps, AgentStatusProps, StreamingMessageProps, ToolCallCardProps, ApprovalCardProps, RunTimelineProps, AgentErrorProps, PlanStepsProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: collapsed, expanded
   Accessibility: Detalhes usam summary descritivo e conteúdo selecionável.
-- Kbd (kbd, atom, stable): Representa atalhos de teclado e combinações de teclas.
+- Kbd (kbd, saas, stable): Representa atalhos de teclado e combinações de teclas.
   Exports: Kbd, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: none
   Accessibility: Use texto equivalente quando o atalho não for óbvio.
-- ButtonGroup (button-group, atom, stable): Agrupa ações relacionadas de forma solta ou anexada.
+- ButtonGroup (button-group, action, stable): Agrupa ações relacionadas de forma solta ou anexada.
   Exports: ButtonGroup, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: none
   Accessibility: O grupo usa role group; cada ação mantém nome próprio.
-- Chip (chip, atom, stable): Filtro compacto selecionável e opcionalmente removível.
+- Chip (chip, saas, stable): Filtro compacto selecionável e opcionalmente removível.
   Exports: Chip, ChipProps, KbdProps, ButtonGroupProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: hover, focus-visible, selected, disabled
   Accessibility: Seleção usa aria-pressed e remoção tem nome acessível.
-- Toggle (toggle, atom, stable): Ativa ou desativa uma opção persistente em uma barra de ferramentas.
+- Toggle (toggle, action, stable): Ativa ou desativa uma opção persistente em uma barra de ferramentas.
   Exports: Toggle, ToggleProps, KbdProps, ButtonGroupProps, ChipProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: pressed, hover, focus-visible, disabled
   Accessibility: Estado pressionado usa aria-pressed.
-- SegmentedControl (segmented-control, atom, stable): Seleciona uma opção entre poucas alternativas mutuamente exclusivas.
+- SegmentedControl (segmented-control, form, stable): Seleciona uma opção entre poucas alternativas mutuamente exclusivas.
   Exports: SegmentedControl, SegmentedControlItem, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: checked, hover, focus-visible, disabled
   Accessibility: Expõe radiogroup e radio com estado selecionado.
-- Slider (slider, atom, stable): Seleciona um valor numérico dentro de um intervalo.
+- Slider (slider, form, stable): Seleciona um valor numérico dentro de um intervalo.
   Exports: Slider, SliderProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: focus, disabled
   Accessibility: Label e valor atual permanecem visíveis.
-- SearchInput (search-input, atom, stable): Campo de busca com ícone e limpeza opcional.
+- SearchInput (search-input, form, stable): Campo de busca com ícone e limpeza opcional.
   Exports: SearchInput, SearchInputProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: empty, filled, focus, disabled
   Accessibility: Exige label visível ou aria-label.
-- PasswordInput (password-input, atom, stable): Campo de senha com alternância acessível de visibilidade.
+- PasswordInput (password-input, form, stable): Campo de senha com alternância acessível de visibilidade.
   Exports: PasswordInput, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: focus, invalid, disabled
   Accessibility: Controle anuncia mostrar ou ocultar senha.
-- NumberInput (number-input, atom, stable): Entrada numérica com incremento, decremento e limites.
+- NumberInput (number-input, form, stable): Entrada numérica com incremento, decremento e limites.
   Exports: NumberInput, NumberInputProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: minimum, maximum, disabled
   Accessibility: Botões descrevem a operação e respeitam limites.
-- Sparkline (sparkline, atom, stable): Tendência compacta em SVG para métricas.
+- Sparkline (sparkline, data-display, stable): Tendência compacta em SVG para métricas.
   Exports: Sparkline, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps
   States: none
   Accessibility: Exige descrição textual da tendência.
-- EmptyState (empty-state, molecule, stable): Estado vazio com contexto e próxima ação.
+- EmptyState (empty-state, feedback, stable): Estado vazio com contexto e próxima ação.
   Exports: EmptyState, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps, Empty, EmptyProps
   States: empty
   Accessibility: Título explica o estado e a ação descreve a recuperação.
-- Popover (popover, molecule, stable): Conteúdo contextual não modal ancorado a um gatilho.
+- Popover (popover, overlay, stable): Conteúdo contextual não modal ancorado a um gatilho.
   Exports: Popover, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: open, closed
   Accessibility: Foco e fechamento seguem o comportamento Radix.
-- Sheet (sheet, molecule, stable): Painel lateral modal para edição e inspeção contextual.
+- Sheet (sheet, overlay, stable): Painel lateral modal para edição e inspeção contextual.
   Exports: Sheet, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: open, closed
   Accessibility: Título é obrigatório; foco fica contido e retorna ao gatilho.
-- Stepper (stepper, molecule, stable): Progresso e navegação entre etapas de um fluxo.
+- Stepper (stepper, navigation, stable): Progresso e navegação entre etapas de um fluxo.
   Exports: Stepper, StepperItem, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: complete, current, upcoming
   Accessibility: Etapa atual usa aria-current step e não depende somente de cor.
-- Combobox (combobox, molecule, stable): Seleção pesquisável para listas médias e grandes.
+- Combobox (combobox, form, stable): Seleção pesquisável para listas médias e grandes.
   Exports: Combobox, ComboboxOption, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: open, closed, selected, empty, disabled
   Accessibility: Implementa combobox, listbox e option; teclado será coberto por testes de interação.
-- CommandPalette (command-palette, molecule, stable): Busca global por ações com atalhos e descrições.
+- CommandPalette (command-palette, navigation, stable): Busca global por ações com atalhos e descrições.
   Exports: CommandPalette, CommandItem, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps, Command, CommandProps
   States: open, searching, empty
   Accessibility: Busca recebe foco inicial; resultados são operáveis por teclado.
-- DatePicker (date-picker, molecule, stable): Seleção de data com trigger compacto e painel que fecha após a escolha.
+- DatePicker (date-picker, form, stable): Seleção de data com trigger compacto e painel que fecha após a escolha.
   Exports: DatePicker, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: empty, filled, invalid, disabled
   Accessibility: Label é obrigatório e o controle preserva a semântica nativa.
-- FileUpload (file-upload, molecule, stable): Upload por seletor ou drag and drop com feedback visual.
+- FileUpload (file-upload, form, stable): Upload por seletor ou drag and drop com feedback visual.
   Exports: FileUpload, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: idle, dragging, disabled
   Accessibility: O input nativo permanece disponível por teclado.
-- Toast (toast, molecule, stable): Notificação temporária controlada e acionável.
+- Toast (toast, feedback, stable): Notificação temporária controlada e acionável.
   Exports: Toast, ToastTone, EmptyStateProps, PopoverProps, SheetProps, StepperProps, ComboboxProps, CommandPaletteProps, DatePickerProps, FileUploadProps, ToastProps, ButtonProps, IconButtonProps, ButtonLinkProps, HeadingProps, TextProps
   States: visible, dismissed
   Accessibility: Falhas usam alert; demais atualizações usam status.
-- AppShell (app-shell, organism, stable): Estrutura responsiva de produto com sidebar, header e conteúdo.
+- AppShell (app-shell, saas, stable): Estrutura responsiva de produto com sidebar, header e conteúdo.
   Exports: AppShell, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: desktop, mobile
   Accessibility: Conteúdo principal usa main e mantém ordem DOM previsível.
-- Sidebar (sidebar, organism, stable): Navegação de produto recolhível com grupos, ícones e badges.
+- Sidebar (sidebar, navigation, stable): Navegação de produto recolhível com grupos, ícones e badges.
   Exports: Sidebar, SidebarTrigger, SidebarItem, SidebarGroup, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: active, hover, disabled, mobile
   Accessibility: Página atual usa aria-current e o controle anuncia expansão.
-- PageHeader (page-header, organism, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
+- PageHeader (page-header, navigation, stable): Cabeçalho de página com contexto, breadcrumbs, metadados e ações.
   Exports: PageHeader, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: responsive
   Accessibility: Use um único h1 no contexto da página.
-- MetricCard (metric-card, organism, stable): KPI com variação e tendência compacta.
+- MetricCard (metric-card, data-display, stable): KPI com variação e tendência compacta.
   Exports: MetricCard, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: positive, negative
   Accessibility: Variação inclui sinal, número e contexto em texto.
-- DataGrid (data-grid, organism, stable): Tabela genérica com ordenação, seleção e estado vazio.
+- DataGrid (data-grid, data-display, stable): Tabela genérica com ordenação, seleção e estado vazio.
   Exports: DataGrid, DataGridColumn, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: selected, sorted, empty
   Accessibility: Caption é obrigatório; ordenação usa aria-sort; seleção possui nomes acessíveis.
-- FilterBar (filter-bar, organism, stable): Busca, filtros ativos, limpeza e ações de coleção.
+- FilterBar (filter-bar, form, stable): Busca, filtros ativos, limpeza e ações de coleção.
   Exports: FilterBar, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: empty, filtered
   Accessibility: Busca exige nome e filtros ativos podem ser removidos por teclado.
-- PricingCard (pricing-card, organism, stable): Plano de assinatura com preço, benefícios e ação.
+- PricingCard (pricing-card, marketing, stable): Plano de assinatura com preço, benefícios e ação.
   Exports: PricingCard, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: hover
   Accessibility: Preço, período, benefícios e ação são comunicados em texto.
-- ActivityFeed (activity-feed, organism, stable): Histórico cronológico de eventos e atores.
+- ActivityFeed (activity-feed, data-display, stable): Histórico cronológico de eventos e atores.
   Exports: ActivityFeed, ActivityItem, AppShellProps, SidebarProps, SidebarTriggerProps, PageHeaderProps, MetricCardProps, DataGridProps, FilterBarProps, PricingCardProps, ActivityFeedProps, KbdProps, ButtonGroupProps, ChipProps, ToggleProps, SegmentedControlProps, SliderProps, SearchInputProps, PasswordInputProps, NumberInputProps, SparklineProps, ButtonProps, IconButtonProps, ButtonLinkProps, CardProps, CardBodyProps, CardFooterProps, AvatarProps, DividerProps, StatProps, QuoteProps, DataTableProps, BreadcrumbsProps, PaginationProps, HeadingProps, TextProps
   States: chronological
   Accessibility: Usa lista ordenada e time com dateTime legível por máquina.
@@ -247,35 +247,35 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: AspectRatio, AspectRatioProps
   States: none
   Accessibility: Mídia incorporada mantém texto alternativo ou título acessível.
-- Tag (tag, atom, stable): Rótulo semântico compacto, opcionalmente removível, para categorização.
+- Tag (tag, data-display, stable): Rótulo semântico compacto, opcionalmente removível, para categorização.
   Exports: Tag, TagProps
   States: none
   Accessibility: A remoção expõe um nome acessível com o rótulo da tag.
-- DescriptionList (description-list, molecule, stable): Lista de termos e definições para metadados e resumos chave-valor.
+- DescriptionList (description-list, data-display, stable): Lista de termos e definições para metadados e resumos chave-valor.
   Exports: DescriptionList, DescriptionListItem, DescriptionListProps
   States: none
   Accessibility: Use dt para o termo e dd para a definição; não substitua por tabela.
-- HoverCard (hover-card, molecule, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
+- HoverCard (hover-card, overlay, stable): Prévia contextual não modal exibida ao focar ou apontar um gatilho.
   Exports: HoverCard, HoverCardProps
   States: open, closed
   Accessibility: Não coloque informação essencial apenas no hover; garanta acesso por teclado.
-- ContextMenu (context-menu, molecule, stable): Ações contextuais acionadas por clique direito sobre um alvo.
+- ContextMenu (context-menu, overlay, stable): Ações contextuais acionadas por clique direito sobre um alvo.
   Exports: ContextMenu, ContextMenuOption, ContextMenuProps
   States: open, closed
   Accessibility: Ofereça uma alternativa acessível por teclado às ações do menu de contexto.
-- Collapsible (collapsible, molecule, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
+- Collapsible (collapsible, overlay, stable): Disclosure único que mostra ou oculta uma região de conteúdo.
   Exports: Collapsible, CollapsibleProps
   States: open, closed
   Accessibility: O gatilho comunica o estado expandido e controla a região de conteúdo.
-- MultiSelect (multi-select, molecule, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
+- MultiSelect (multi-select, form, stable): Seleção pesquisável de múltiplos valores com tags removíveis.
   Exports: MultiSelect, MultiSelectProps
   States: open, closed, selected, empty
   Accessibility: Implementa combobox e listbox multi-selecionável; cada tag removível tem nome acessível.
-- DateRangePicker (date-range-picker, molecule, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
+- DateRangePicker (date-range-picker, form, stable): Seleção de intervalo com datas de início e fim baseadas no controle nativo.
   Exports: DateRangePicker, DateRangePickerProps
   States: empty, filled, invalid, disabled
   Accessibility: Cada campo do intervalo mantém rótulo próprio de início e fim.
-- TimePicker (time-picker, molecule, stable): Seleção de horário baseada no controle nativo da plataforma.
+- TimePicker (time-picker, form, stable): Seleção de horário baseada no controle nativo da plataforma.
   Exports: TimePicker, TimePickerProps
   States: empty, filled, invalid, disabled
   Accessibility: Label é obrigatório e o controle preserva a semântica nativa de horário.
@@ -287,87 +287,87 @@ React/TypeScript design system for Improve Business. Canonical contract: design-
   Exports: Resizable, ResizableProps
   States: dragging
   Accessibility: O divisor deve ser operável por teclado e anunciar o redimensionamento.
-- Label (label, atom, stable): Rótulo acessível reutilizável para controles de formulário.
+- Label (label, form, stable): Rótulo acessível reutilizável para controles de formulário.
   Exports: Label, LabelProps
   States: none
   Accessibility: Associe o label ao controle via htmlFor ou encapsulamento.
-- Marker (marker, atom, stable): Marcador de status para listas e timelines.
+- Marker (marker, data-display, stable): Marcador de status para listas e timelines.
   Exports: Marker, MarkerProps, MarkerTone
   States: none
   Accessibility: Quando comunicar status, forneça label acessível.
-- Item (item, atom, stable): Linha reutilizável para listas, menus e seletores.
+- Item (item, navigation, stable): Linha reutilizável para listas, menus e seletores.
   Exports: Item, ItemProps
   States: selected, hover, focus-visible
   Accessibility: Itens acionáveis precisam de nome acessível e foco visível.
-- Chart (chart, atom, stable): Série simples em barra ou linha para tendências compactas.
+- Chart (chart, data-display, stable): Série simples em barra ou linha para tendências compactas.
   Exports: Chart, ChartProps
   States: none
   Accessibility: Sempre forneça aria-label descrevendo a métrica.
-- Toggle Group (toggle-group, atom, stable): Grupo de opções mutuamente exclusivas em controles compactos.
+- Toggle Group (toggle-group, form, stable): Grupo de opções mutuamente exclusivas em controles compactos.
   Exports: ToggleGroup, ToggleGroupProps, ToggleGroupItem
   States: checked, disabled
   Accessibility: Use radiogroup com opções nomeadas.
-- Native Select (native-select, molecule, stable): Select HTML nativo com estilo Improve.
+- Native Select (native-select, form, stable): Select HTML nativo com estilo Improve.
   Exports: NativeSelect, NativeSelectProps
   States: default, hover, focus, disabled
   Accessibility: Exija label associada ao select nativo.
-- Input Group (input-group, molecule, stable): Composer com afixos ao redor de inputs.
+- Input Group (input-group, form, stable): Composer com afixos ao redor de inputs.
   Exports: InputGroup, InputGroupProps
   States: focus-within
   Accessibility: Afixos decorativos não substituem o nome acessível do campo.
-- Input OTP (input-otp, molecule, stable): Entrada por slots para códigos de verificação.
+- Input OTP (input-otp, form, stable): Entrada por slots para códigos de verificação.
   Exports: InputOTP, InputOTPProps
   States: default, focus, disabled
   Accessibility: Agrupe slots com label e suporte colar/backspace.
-- Table (table, molecule, stable): Primitivos de tabela para composição com DataTable.
+- Table (table, data-display, stable): Primitivos de tabela para composição com DataTable.
   Exports: Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption, TableProps, TableHeaderProps, TableBodyProps, TableFooterProps, TableRowProps, TableHeadProps, TableCellProps, TableCaptionProps
   States: none
   Accessibility: Use caption e cabeçalhos de coluna semânticos.
-- Dropdown Menu (dropdown-menu, molecule, stable): Menu de ações a partir de um gatilho.
+- Dropdown Menu (dropdown-menu, overlay, stable): Menu de ações a partir de um gatilho.
   Exports: DropdownMenu, DropdownMenuProps
   States: open, closed, highlighted, disabled
   Accessibility: Menus precisam ser operáveis por teclado.
-- Alert Dialog (alert-dialog, molecule, stable): Diálogo de confirmação com ênfase destrutiva opcional.
+- Alert Dialog (alert-dialog, overlay, stable): Diálogo de confirmação com ênfase destrutiva opcional.
   Exports: AlertDialog, AlertDialogProps
   States: open, closed
   Accessibility: Descreva a consequência antes da confirmação destrutiva.
-- Calendar (calendar, molecule, stable): Grade mensal para seleção avulsa de data.
+- Calendar (calendar, form, stable): Grade mensal para seleção avulsa de data.
   Exports: Calendar, CalendarProps
   States: selected, today
   Accessibility: Navegação por teclado entre dias e rótulo do mês.
-- Drawer (drawer, molecule, stable): Painel modal lateral ou inferior/superior.
+- Drawer (drawer, overlay, stable): Painel modal lateral ou inferior/superior.
   Exports: Drawer, DrawerProps
   States: open, closed
   Accessibility: Foco preso no painel e fechamento por Escape.
-- Attachment (attachment, molecule, stable): Lista de anexos com metadados e remoção.
+- Attachment (attachment, form, stable): Lista de anexos com metadados e remoção.
   Exports: Attachment, AttachmentProps, AttachmentFile
   States: default
   Accessibility: Cada remoção precisa de nome acessível com o arquivo.
-- Carousel (carousel, molecule, stable): Carrossel de slides com navegação por teclado.
+- Carousel (carousel, data-display, stable): Carrossel de slides com navegação por teclado.
   Exports: Carousel, CarouselProps
   States: active
   Accessibility: Controles anterior/próximo e anúncio do slide atual.
-- Navigation Menu (navigation-menu, organism, stable): Menu de navegação horizontal desacoplado do header.
+- Navigation Menu (navigation-menu, navigation, stable): Menu de navegação horizontal desacoplado do header.
   Exports: NavigationMenu, NavigationMenuProps
   States: current
   Accessibility: Marque o item atual com aria-current.
-- Questionnaire (questionnaire, molecule, stable): Fluxo guiado de perguntas com progresso.
+- Questionnaire (questionnaire, form, stable): Fluxo guiado de perguntas com progresso.
   Exports: Questionnaire, QuestionnaireProps, QuestionnaireStep
   States: active, complete
   Accessibility: Anuncie progresso e mantenha foco no passo atual.
-- Menubar (menubar, organism, stable): Barra de menus desktop com submenus.
+- Menubar (menubar, navigation, stable): Barra de menus desktop com submenus.
   Exports: Menubar, MenubarProps
   States: open, closed
   Accessibility: Navegação por setas entre menus e itens.
-- Bubble (bubble, organism, stable): Bolha de mensagem humana ou de agente.
+- Bubble (bubble, agentic, stable): Bolha de mensagem humana ou de agente.
   Exports: Bubble, BubbleProps, BubbleRole
   States: none
   Accessibility: Identifique o autor quando houver múltiplos interlocutores.
-- Message (message, organism, stable): Mensagem genérica de conversa com autor.
+- Message (message, agentic, stable): Mensagem genérica de conversa com autor.
   Exports: Message, MessageProps
   States: streaming
   Accessibility: Indique streaming de forma não disruptiva para leitores de tela.
-- Message Scroller (message-scroller, organism, stable): Viewport de conversa com stick-to-bottom.
+- Message Scroller (message-scroller, agentic, stable): Viewport de conversa com stick-to-bottom.
   Exports: MessageScroller, MessageScrollerProps
   States: none
   Accessibility: Região rolável com nome acessível quando isolada.

@@ -22,7 +22,7 @@ function flag(name) {
 
 function positional(after = 1) {
   const values = [];
-  const valueOptions = new Set(['--target', '--recipe', '--output', '--level']);
+  const valueOptions = new Set(['--target', '--recipe', '--output', '--category']);
   for (let index = after; index < args.length; index += 1) {
     if (args[index].startsWith('--')) {
       if (valueOptions.has(args[index])) index += 1;
@@ -246,14 +246,12 @@ async function add() {
 }
 
 function list() {
-  const level = option('--level');
-  const components = level ? manifest.components.filter((item) => item.atomicLevel === level) : manifest.components;
+  const category = option('--category');
+  const components = category ? manifest.components.filter((item) => item.category === category) : manifest.components;
   if (flag('--json')) console.log(JSON.stringify(components, null, 2));
   else
     for (const item of components)
-      console.log(
-        `${item.id.padEnd(24)} ${(item.atomicLevel ?? item.category).padEnd(12)} ${item.status.padEnd(12)} ${item.description}`,
-      );
+      console.log(`${item.id.padEnd(24)} ${item.category.padEnd(14)} ${item.status.padEnd(12)} ${item.description}`);
 }
 
 function inspect() {
@@ -402,7 +400,7 @@ async function artifact() {
 
 function help() {
   console.log(
-    `Improve Design System ${manifest.version}\n\nCommands:\n  init [--all] [--target path] [--force]\n  add <component...> [--target path] [--force]\n  list [--level foundation|atom|molecule|organism] [--json]\n  inspect <component> [--json]\n  doctor [--target path]\n  diff [--target path]\n  upgrade [--target path] [--force]\n  artifact --recipe <dashboard|landing-page|agent-workspace|app|slides> [--output file]\n`,
+    `Improve Design System ${manifest.version}\n\nCommands:\n  init [--all] [--target path] [--force]\n  add <component...> [--target path] [--force]\n  list [--category action|form|feedback|navigation|overlay|agentic|trust|saas|...] [--json]\n  inspect <component> [--json]\n  doctor [--target path]\n  diff [--target path]\n  upgrade [--target path] [--force]\n  artifact --recipe <dashboard|landing-page|agent-workspace|app|slides> [--output file]\n`,
   );
 }
 

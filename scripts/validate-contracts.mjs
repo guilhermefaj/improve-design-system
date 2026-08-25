@@ -89,22 +89,11 @@ for (const name of publicRuntimeExports)
   if (!manifestExports.has(name)) throw new Error(`Public runtime export is absent from manifest: ${name}.`);
 
 const componentIds = new Set();
-const storybookLevelPrefixes = {
-  foundation: '01-foundations',
-  atom: '02-atoms',
-  molecule: '03-molecules',
-  organism: '04-organisms',
-  template: '05-templates',
-  page: '06-pages',
-};
 for (const component of manifest.components) {
   if (componentIds.has(component.id)) throw new Error(`Duplicate component id: ${component.id}`);
   componentIds.add(component.id);
   if (!component.exports.includes(component.primaryExport))
     throw new Error(`${component.id} primaryExport is not listed in exports.`);
-  const expectedStorybookId = `${storybookLevelPrefixes[component.atomicLevel]}-${component.id}--playground`;
-  if (component.storybookId !== expectedStorybookId)
-    throw new Error(`${component.id} storybookId must be ${expectedStorybookId}.`);
   const sources = await Promise.all(
     component.files.map(async (file) => {
       if (!(await exists(file))) throw new Error(`${component.id} references missing file: ${file}`);
@@ -149,19 +138,6 @@ for (const component of manifest.components) {
   for (const dependency of imports)
     if (!component.dependencies.includes(dependency))
       throw new Error(`${component.id} imports undeclared dependency: ${dependency}.`);
-
-  const storyFile = `src/stories/generated/${component.id}.stories.tsx`;
-  if (!(await exists(storyFile))) throw new Error(`${component.id} has no generated individual story.`);
-  const story = await readText(storyFile);
-  if (
-    !story.includes(component.storybookId.split('--')[0].replaceAll('-', ' ')) &&
-    !story.includes(`componentId: "${component.id}"`) &&
-    !story.includes(`componentId: '${component.id}'`)
-  )
-    throw new Error(`${component.id} story metadata is not connected.`);
-  for (const value of [...component.variants, ...component.states])
-    if (!story.includes(JSON.stringify(value)))
-      throw new Error(`${component.id} does not document ${value} in its individual story.`);
 }
 
 for (const recipe of manifest.recipes) {
@@ -177,5 +153,5 @@ for (const dependency of Object.keys(manifest.installation.dependencies))
     throw new Error(`Installation dependency is absent from root package: ${dependency}`);
 
 console.log(
-  `Validated ${manifest.components.length} components, ${manifest.recipes.length} recipes, ${manifest.tokenSets.length} token sets, API exports, stories, dependencies and version alignment.`,
+  `Validated ${manifest.components.length} components, ${manifest.recipes.length} recipes, ${manifest.tokenSets.length} token sets, API exports, dependencies and version alignment.`,
 );

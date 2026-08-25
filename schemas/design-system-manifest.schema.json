@@ -82,13 +82,11 @@
       "required": [
         "id",
         "name",
-        "atomicLevel",
         "category",
         "status",
         "files",
         "exports",
         "primaryExport",
-        "storybookId",
         "dependencies",
         "tokens",
         "variants",
@@ -100,7 +98,6 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "name": { "type": "string" },
-        "atomicLevel": { "enum": ["foundation", "atom", "molecule", "organism", "template", "page"] },
         "category": {
           "enum": [
             "foundation",
@@ -122,7 +119,6 @@
         "files": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "exports": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "primaryExport": { "type": "string", "minLength": 1 },
-        "storybookId": { "type": "string", "pattern": "^[a-z0-9-]+--[a-z0-9-]+$" },
         "dependencies": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "tokens": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "variants": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },

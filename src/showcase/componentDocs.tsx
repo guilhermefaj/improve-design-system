@@ -73,7 +73,7 @@ export function ComponentDocumentation({
   const entry = documentationById.get(componentId);
   if (!entry) throw new Error(`Unknown component documentation id: ${componentId}`);
   const Render = entry.Render;
-  const level = manifest.components.find((item) => item.id === componentId)?.atomicLevel;
+  const category = manifest.components.find((item) => item.id === componentId)?.category;
   return (
     <article
       className="showcase-component-doc"
@@ -84,7 +84,7 @@ export function ComponentDocumentation({
     >
       <header className="showcase-component-doc__header">
         <Stack gap={3}>
-          <Badge tone={entry.id.includes('agent') ? 'info' : 'brand'}>{level}</Badge>
+          <Badge tone={entry.id.includes('agent') ? 'info' : 'brand'}>{category}</Badge>
           <Heading level={1} size={2}>
             {entry.title}
           </Heading>
