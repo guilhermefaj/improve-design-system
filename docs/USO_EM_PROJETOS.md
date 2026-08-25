@@ -20,14 +20,14 @@ Analogia: o design system é a receita oficial. `init` imprime a receita na cozi
 
 Existem dois repositórios na prática:
 
-1. **O design system** (`improve-design-system`). Fábrica. Aqui vivem tokens, manifesto, specimen (`pnpm dev`) e Storybook. Mudança de marca, componente ou contrato entra **neste** repo, com teste e specimen.
+1. **O design system** (`improve-design-system`). Fábrica. Aqui vivem tokens, manifesto e specimen (`pnpm dev`). Mudança de marca, componente ou contrato entra **neste** repo, com teste e specimen.
 2. **O produto** (site da Improve, SaaS, dashboard). Recebe uma **cópia** do código em `src/improve/`. Essa cópia passa a pertencer ao produto. **Não há pacote npm** no dia a dia: não é `pnpm add @improve-business/design-system`.
 
 ```text
 improve-design-system          produto (site / SaaS)
 ─────────────────────          ─────────────────────
 tokens, manifesto, CLI   →     src/improve/          cópia pinada em v1.0.3
-specimen + Storybook           src/app, pages, features
+specimen (pnpm dev)              src/app, pages, features
                                improve.config.json   inventário + hashes
 ```
 
@@ -121,7 +121,7 @@ npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds <comando>
 | --------------------- | -------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `init`                | “Como este repo começa igual aos outros?”    | Copia stable + config + skill                                        | Ponto de partida único. Sem isso, cada produto inventa uma pasta.          |
 | `init --all`          | “Preciso das peças ainda instáveis?”         | Inclui beta/experimental                                             | Evita puxar handoff/MCP sem querer. Só use se o produto realmente precisa. |
-| `list`                | “Como se chama essa peça?”                   | Lista id, camada Atomic, status                                      | O id é `data-grid`, não `Table`. Agente e pessoa param de adivinhar.       |
+| `list`                | “Como se chama essa peça?”                   | Lista id, category, status                                           | O id é `data-grid`, não `Table`. Agente e pessoa param de adivinhar.       |
 | `inspect <id>`        | “O que esse componente aceita?”              | Props, estados, a11y, arquivos                                       | Contrato, não só o visual do specimen.                                     |
 | `add <ids>`           | “O produto cresceu. Falta uma peça.”         | Copia o componente e as dependências                                 | `approval-card` traz botão, layout, etc. Você não caça arquivos à mão.     |
 | `artifact --recipe …` | “Quero um rascunho de tela agora.”           | Gera um arquivo React autocontido                                    | Exploração. Não substitui `init` nem é código de produção.                 |
@@ -210,7 +210,6 @@ Para olhar o componente “ao vivo” **antes** de montar a tela, no **repo do D
 
 ```bash
 pnpm dev          # specimen — página geral, mais simples
-pnpm storybook    # inspeção, controles, a11y
 ```
 
 O specimen não é um site no GitHub Pages. É a galeria local.
@@ -276,6 +275,6 @@ Improve Design System — acordo do time (v1.0.3)
 6. Tema de produto = sobrescrever token semântico no CSS do app.
 7. Todo PR de UI: doctor limpo.
 8. upgrade --force só com autorização.
-9. Specimen (pnpm dev no repo do DS) é a página geral. Storybook é inspeção.
+9. Specimen (pnpm dev no repo do DS) é a página geral e o catálogo canônico.
 10. Guia completo: docs/USO_EM_PROJETOS.md no repo improve-design-system.
 ```

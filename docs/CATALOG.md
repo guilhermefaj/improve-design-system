@@ -1,20 +1,21 @@
 # Catálogo Improve · regras de índice
 
-O specimen (`pnpm dev`) expõe um índice A–Z e âncoras `#id` por primitivo. O Storybook continua gerado a partir do manifesto (`design-system.manifest.json`).
+O specimen (`pnpm dev`) é a superfície canônica: sidebar plana por `category`, stream de specimens e âncoras `#id`. O manifesto e `llms.txt` são a superfície principal para agentes.
 
 ## Fonte de verdade
 
-| Camada                       | Arquivo                                                           |
-| ---------------------------- | ----------------------------------------------------------------- |
-| Contratos / exports          | `design-system.manifest.json`                                     |
-| Índice navegável do specimen | `src/showcase/catalog.ts`                                         |
-| Specimens e grupos           | `src/showcase/registry.tsx` + `src/showcase/catalogSpecimens.tsx` |
+| Camada              | Arquivo                                                           |
+| ------------------- | ----------------------------------------------------------------- |
+| Contratos / exports | `design-system.manifest.json`                                     |
+| Índice navegável    | `src/showcase/catalog.ts`                                         |
+| Specimens           | `src/showcase/registry.tsx` + `src/showcase/catalogSpecimens.tsx` |
+| Contratos para IA   | `llms.txt` / `llms-full.txt` (gerados)                            |
 
-## Âncoras
+## Navegação
 
-- Cada entrada estável do catálogo aponta para `#${id}` no specimen.
-- Preferir `id` no `SpecimenPanel` (ou âncora `<span id="…" />` quando o primitivo vive dentro de um pacote).
-- Chips de seção são links (`<a href="#…">`), não texto estático.
+- Sidebar lista todos os componentes agrupados por `category` (form, overlay, agentic, …).
+- Clique e scroll sincronizam o item ativo (`aria-current`) com o painel em vista (`data-active`).
+- Cada contrato do manifesto tem âncora `#${id}` no stream do specimen.
 
 ## Status
 
@@ -26,30 +27,20 @@ O specimen (`pnpm dev`) expõe um índice A–Z e âncoras `#id` por primitivo. 
 
 ## Aliases canônicos
 
-| Pedido / alias   | Improve                                               |
-| ---------------- | ----------------------------------------------------- |
-| Empty            | EmptyState                                            |
-| Field            | FormField                                             |
-| Separator        | Divider                                               |
-| Command          | CommandPalette                                        |
-| Breadcrumb       | Breadcrumbs                                           |
-| Data Table       | DataTable (+ DataGrid)                                |
-| Radio Group      | RadioSet                                              |
-| Toggle Group     | ToggleGroup (SegmentedControl permanece)              |
-| Drawer           | Drawer (Sheet permanece para painel lateral clássico) |
-| Attachment       | Attachment (FileUpload permanece para envio)          |
-| Chart            | Chart (Sparkline permanece para mini-série)           |
-| Message          | Message (StreamingMessage permanece para streaming)   |
-| QuestionnaireNew | Questionnaire                                         |
-
-## Improve-only
-
-Entradas com `improveOnly: true` no índice (agentic, marketing, SaaS) convivem no A–Z com a lista compartilhada. Não precisam de espelho shadcn.
+| Pedido / alias   | Improve        |
+| ---------------- | -------------- |
+| Empty            | EmptyState     |
+| Field            | FormField      |
+| Separator        | Divider        |
+| Command          | CommandPalette |
+| Breadcrumb       | Breadcrumbs    |
+| Radio Group      | RadioSet       |
+| QuestionnaireNew | Questionnaire  |
 
 ## Ao adicionar um componente
 
 1. Implementar com tokens `--ibs-*` e exportar `Xxx` + `XxxProps`.
-2. Registrar no manifesto (`atomicLevel`, `primaryExport`, `storybookId`).
-3. Incluir o `id` em `showcaseGroups[].componentIds`.
-4. Adicionar entrada em `catalog.ts` e specimen com `#id`.
+2. Registrar no manifesto (`category`, `primaryExport`, files, tokens, a11y).
+3. Incluir o `id` em algum `showcaseGroups[].componentIds` (organização interna do stream).
+4. Garantir âncora `#id` no specimen (stream anchor ou painel).
 5. Rodar `pnpm generate` e `pnpm check`.

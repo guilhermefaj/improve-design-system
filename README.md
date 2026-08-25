@@ -2,7 +2,7 @@
 
 Sistema de design portátil e agentic-first da Improve Business. A fonte de verdade combina tokens DTCG, manifesto JSON, recipes e um catálogo de componentes legível por máquina; React/TypeScript é a implementação principal.
 
-A página geral do sistema é o specimen (`npm run dev`): uma apresentação editorial com todos os componentes, mais simples que o Storybook. O Storybook (`npm run storybook`) continua disponível para inspeção isolada, controles e auditoria. Os dois consomem o mesmo registro compartilhado de showcases.
+A página geral do sistema é o specimen (`npm run dev`): catálogo plano de componentes com sidebar, scroll-spy e âncoras `#id`. Manifesto + `llms.txt` são a superfície principal para agentes.
 
 ## Princípios
 
@@ -54,10 +54,10 @@ export function LandingPage() {
 
 Inter conduz corpo, controles e produto. `Heading` prefere Clash Display Bold quando ela é carregada pela API oficial da Fontshare e usa Space Grotesk como fallback open source e autocontido. Edu NSW ACT Cursive conduz `AccentText`; Montserrat permanece somente como compatibilidade legada.
 
-O catálogo segue Atomic Design: foundations, atoms, molecules e organisms. Templates e páginas ficam reservados para um ciclo posterior. Para filtrar o contrato legível por agentes:
+O catálogo é plano: componentes agrupados por `category` no manifesto (form, overlay, agentic, …). Para filtrar o contrato legível por agentes:
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds list --level atom --json
+npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds list --category form --json
 ```
 
 `init` cria `improve.config.json`, registra hashes e instala a skill em `.agents/skills` e `.claude/skills`. `upgrade` preserva arquivos modificados e produz um patch para revisão; somente `--force` sobrescreve customizações.
@@ -67,22 +67,21 @@ npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds list --leve
 ```bash
 npm install
 npm run dev
-npm run storybook
 npm run test
 npm run check
 ```
 
-`npm run check` valida schemas e geração, executa testes, compila o specimen, a biblioteca e o Storybook.
+`npm run check` valida schemas e geração, executa testes e compila o specimen e a biblioteca.
 
-O specimen (`src/demo`) é a página geral — visão editorial de todos os componentes, mais simples que o Storybook. O Storybook oferece inspeção isolada, controles e auditoria. Metadados vêm de `design-system.manifest.json`, tokens de `src/tokens` e exemplos visuais do registro compartilhado em `src/showcase`.
+O specimen (`src/demo`) é a página geral — sidebar plana por categoria, stream de specimens e scroll-spy cruzado. Metadados vêm de `design-system.manifest.json`, tokens de `src/tokens` e exemplos visuais do registro em `src/showcase`.
 
 ## Arquitetura
 
 ```text
 src/
 ├── components/       React components and patterns
-├── demo/             live specimen and visual documentation
-├── stories/          Storybook stories
+├── demo/             specimen catalog (flat sidebar + scroll-spy)
+├── showcase/         catalog index and specimen registry
 ├── styles/           tokens, reset and component styles
 ├── tests/            behavior and accessibility-oriented tests
 └── tokens/           DTCG 2025.10 JSON tokens
@@ -106,15 +105,9 @@ No CSS, todos os nomes têm o prefixo `--ibs-` para evitar colisões.
 
 ## Componentes incluídos
 
-| Camada Atomic | Componentes                                                                                                                                                           |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Foundations   | Tokens, `Container`, `Stack`, `Cluster`, `Grid`, `Section` e tipografia                                                                                               |
-| Atoms         | `Button`, `ButtonLink`, `IconButton`, campos, escolhas, `Badge`, `Avatar`, `Kbd`, `Chip`, `Toggle`, `SegmentedControl`, `Slider`, inputs especializados e `Sparkline` |
-| Molecules     | `Card`, `FormField`, feedback, disclosures, `EmptyState`, `Popover`, `Sheet`, `Stepper`, `Combobox`, `CommandPalette`, `DatePicker`, `FileUpload` e `Toast`           |
-| Organisms     | Marketing, navegação, componentes agentic, `AppShell`, `Sidebar`, `PageHeader`, `MetricCard`, `DataGrid`, `FilterBar`, `PricingCard` e `ActivityFeed`                 |
-| Reservado     | `template` e `page` existem no schema, mas não possuem implementação nesta versão                                                                                     |
+Catálogo plano agrupado por `category` no manifesto (foundation, action, form, feedback, data-display, navigation, overlay, saas, marketing, presentation, agentic, trust). Consulte `improve-ds list --json` ou o specimen para a lista completa.
 
-A v1.0 trata o catálogo **stable** como contrato de produto. Permanecem **beta** `AgentHandoff` e `TraceViewer`. Permanecem **experimental** `GeneratedUIBoundary` e `McpAppFrame`. Consulte o manifesto (`status`) ou `improve-ds list --json` antes de gerar UI de missão crítica em cima desses quatro.
+A v1.0+ trata o catálogo **stable** como contrato de produto. Permanecem **beta** `AgentHandoff` e `TraceViewer`. Permanecem **experimental** `GeneratedUIBoundary` e `McpAppFrame`. Consulte o manifesto (`status`) ou `improve-ds list --json` antes de gerar UI de missão crítica em cima desses quatro.
 
 ## Catálogo para agentes
 
@@ -171,7 +164,7 @@ No specimen, o tema pode ser alternado diretamente no header e a preferência é
 - Todo controle tem foco visível e tamanho-alvo mínimo de 36–44 px.
 - Dialog, Tabs, Accordion, Tooltip, menus, escolhas e switches usam primitivas Radix.
 - `prefers-reduced-motion` reduz transições e animações.
-- O Storybook executa auditoria de acessibilidade em modo de erro.
+- O specimen e os testes automatizados cobrem acessibilidade (axe) nos fluxos principais.
 
 ## Releases no GitHub
 
