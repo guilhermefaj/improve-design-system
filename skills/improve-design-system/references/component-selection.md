@@ -30,7 +30,7 @@ Consultar `docs/CATALOG.md` e `src/showcase/catalog.ts` para âncoras do specime
 
 ## Regras
 
-- Usar `variant="primary"` para ação principal. `brand` existe apenas como alias compatível.
+- Usar `variant="primary"` para ação principal.
 - Usar `Dialog` para interrupções curtas; `AlertDialog` para confirmações destrutivas; `Drawer`/`Sheet` para fluxos laterais.
 - Usar `DataTable`/`Table` para comparação exata e cards para síntese.
 - Toda ação somente com ícone deve fornecer nome acessível.

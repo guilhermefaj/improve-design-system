@@ -2,7 +2,7 @@
 
 Este guia é o material para você entender, replicar e passar ao time.
 
-A versão de referência é **v1.0.3**. Sempre pinhe a **tag**. Não use `main` como fonte de instalação: `main` muda; a tag não.
+A versão de referência é **v2.0.0**. Sempre pinhe a **tag**. Não use `main` como fonte de instalação: `main` muda; a tag não.
 
 ## Mapa em 30 segundos
 
@@ -26,7 +26,7 @@ Existem dois repositórios na prática:
 ```text
 improve-design-system          produto (site / SaaS)
 ─────────────────────          ─────────────────────
-tokens, manifesto, CLI   →     src/improve/          cópia pinada em v1.0.3
+tokens, manifesto, CLI   →     src/improve/          cópia pinada em v2.0.0
 specimen (pnpm dev)              src/app, pages, features
                                improve.config.json   inventário + hashes
 ```
@@ -47,7 +47,7 @@ Não invente estes valores numa tela isolada. Se a marca mudar, muda o DS e depo
 - Canvas branco e superfície `#F5F2F0`.
 - Inter no corpo e na UI de produto. Clash Display nos títulos quando a Fontshare estiver carregada; Space Grotesk como fallback. Edu NSW ACT Cursive só em acento raro.
 - Prefixo CSS `--ibs-*`. Use tokens semânticos (`--ibs-color-text`, `--ibs-color-action-primary`), não hex solto no JSX.
-- `variant="primary"` no botão. `variant="brand"` existe só como apelido compatível.
+- `variant="primary"` no botão para a ação principal.
 
 ### 2. Código copiado em `src/improve/` — não edite no dia a dia
 
@@ -80,7 +80,7 @@ Não altere primitivos (`#F2703E` na paleta) nem CSS interno de `src/improve/com
 - Empty states, fluxos, integração com API/agente.
 - `data-ibs-theme="dark"` onde fizer sentido.
 
-Templates e pages **não existem** no DS v1.0. A “página” do produto é sempre código do produto.
+Templates e pages **não existem** no DS v2.0. A “página” do produto é sempre código do produto.
 
 ### Se eu quiser mudar X, faço o quê?
 
@@ -114,21 +114,21 @@ O CLI não é “mais um gerador”. Cada comando responde a uma pergunta concre
 Use sempre o `-p` e aspas. No zsh, `#` começa comentário; sem `-p`, o npm procura um binário chamado `init` e falha.
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds <comando>
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds <comando>
 ```
 
-| Comando               | Pergunta que responde                        | O que faz                                                            | Por que não pular                                                          |
-| --------------------- | -------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `init`                | “Como este repo começa igual aos outros?”    | Copia stable + config + skill                                        | Ponto de partida único. Sem isso, cada produto inventa uma pasta.          |
-| `init --all`          | “Preciso das peças ainda instáveis?”         | Inclui beta/experimental                                             | Evita puxar handoff/MCP sem querer. Só use se o produto realmente precisa. |
-| `list`                | “Como se chama essa peça?”                   | Lista id, category, status                                           | O id é `data-grid`, não `Table`. Agente e pessoa param de adivinhar.       |
-| `inspect <id>`        | “O que esse componente aceita?”              | Props, estados, a11y, arquivos                                       | Contrato, não só o visual do specimen.                                     |
-| `add <ids>`           | “O produto cresceu. Falta uma peça.”         | Copia o componente e as dependências                                 | `approval-card` traz botão, layout, etc. Você não caça arquivos à mão.     |
-| `artifact --recipe …` | “Quero um rascunho de tela agora.”           | Gera um arquivo React autocontido                                    | Exploração. Não substitui `init` nem é código de produção.                 |
-| `doctor`              | “Esta cópia ainda é a v1.0.3 intacta?”       | Confere hashes, versão, dependências                                 | Ritual de PR. Se `doctor` reclama, alguém editou `src/improve`.            |
-| `diff`                | “O que foi mexido na cópia?”                 | Lista missing/modified                                               | Transparência antes de um `upgrade`.                                       |
-| `upgrade`             | “Saiu v1.1. Como puxo sem apagar o produto?” | Atualiza arquivos **não** modificados; o resto vira `.improve.patch` | Evoluir a marca sem esmagar hotfix.                                        |
-| `upgrade --force`     | “Pode jogar fora o que eu alterei na cópia?” | Sobrescreve local                                                    | Perigoso. Só com autorização explícita.                                    |
+| Comando               | Pergunta que responde                               | O que faz                                                            | Por que não pular                                                          |
+| --------------------- | --------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `init`                | “Como este repo começa igual aos outros?”           | Copia stable + config + skill                                        | Ponto de partida único. Sem isso, cada produto inventa uma pasta.          |
+| `init --all`          | “Preciso das peças ainda instáveis?”                | Inclui beta/experimental                                             | Evita puxar handoff/MCP sem querer. Só use se o produto realmente precisa. |
+| `list`                | “Como se chama essa peça?”                          | Lista id, category, status                                           | O id é `data-grid`, não `Table`. Agente e pessoa param de adivinhar.       |
+| `inspect <id>`        | “O que esse componente aceita?”                     | Props, estados, a11y, arquivos                                       | Contrato, não só o visual do specimen.                                     |
+| `add <ids>`           | “O produto cresceu. Falta uma peça.”                | Copia o componente e as dependências                                 | `approval-card` traz botão, layout, etc. Você não caça arquivos à mão.     |
+| `artifact --recipe …` | “Quero um rascunho de tela agora.”                  | Gera um arquivo React autocontido                                    | Exploração. Não substitui `init` nem é código de produção.                 |
+| `doctor`              | “Esta cópia ainda é a v2.0.0 intacta?”              | Confere hashes, versão, dependências                                 | Ritual de PR. Se `doctor` reclama, alguém editou `src/improve`.            |
+| `diff`                | “O que foi mexido na cópia?”                        | Lista missing/modified                                               | Transparência antes de um `upgrade`.                                       |
+| `upgrade`             | “Saiu versão nova. Como puxo sem apagar o produto?” | Atualiza arquivos **não** modificados; o resto vira `.improve.patch` | Evoluir a marca sem esmagar hotfix.                                        |
+| `upgrade --force`     | “Pode jogar fora o que eu alterei na cópia?”        | Sobrescreve local                                                    | Perigoso. Só com autorização explícita.                                    |
 
 Recipes do `artifact`: `landing-page`, `dashboard`, `app`, `slides`, `agent-workspace`, `artifact`.
 
@@ -195,15 +195,15 @@ pnpm create vite meu-app --template react-ts
 cd meu-app
 
 # 2. Instalar a cópia pinada na tag
-npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds init
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds init
 pnpm install
 
 # 3. Ver o catálogo e puxar o que a primeira entrega precisa
-npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds list
-npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds add app-shell sidebar page-header
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds list
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds add app-shell sidebar page-header
 
 # 4. Conferir a instalação
-npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds doctor
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds doctor
 ```
 
 Para olhar o componente “ao vivo” **antes** de montar a tela, no **repo do DS**:
@@ -214,17 +214,17 @@ pnpm dev          # specimen — página geral, mais simples
 
 O specimen não é um site no GitHub Pages. É a galeria local.
 
-Quando o DS lançar v1.1:
+Quando o DS lançar uma nova versão:
 
 ```bash
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds upgrade
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds upgrade
 # se aparecer .improve.patch: ler, decidir, só então --force
-npx -p "github:guilhermefaj/improve-design-system#v1.1.0" improve-ds doctor
+npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds doctor
 ```
 
-## Superfície v1.0.3 (status)
+## Superfície v2.0.0 (status)
 
-- **Stable (60):** use em produto.
+- **Stable (83):** use em produto.
 - **Beta:** `AgentHandoff`, `TraceViewer` — API pode evoluir; avise no PR.
 - **Experimental:** `GeneratedUIBoundary`, `McpAppFrame` — só prova de conceito.
 - **Fora de escopo:** template e page.
@@ -244,7 +244,7 @@ Se a tarefa for “site da Improve”, recipe `landing-page`. Se for SaaS, `app`
 ## Checklist para o time
 
 - [ ] Produto criado (Vite ou Next) com `package.json`
-- [ ] `improve-ds init` na tag **v1.0.3** (comando com `-p` e aspas)
+- [ ] `improve-ds init` na tag **v2.0.0** (comando com `-p` e aspas)
 - [ ] `pnpm install` (ou npm/yarn) depois do init
 - [ ] `add` só dos organismos que a primeira entrega precisa
 - [ ] `doctor` limpo
@@ -264,11 +264,11 @@ Faça a mudança **no design system** (não no produto) se:
 ## Folha para passar ao time (copie e ajuste)
 
 ```text
-Improve Design System — acordo do time (v1.0.3)
+Improve Design System — acordo do time (v2.0.0)
 
-1. Pinamos a tag v1.0.3. Ninguém instala a partir de main.
+1. Pinamos a tag v2.0.0. Ninguém instala a partir de main.
 2. Comando padrão:
-   npx -p "github:guilhermefaj/improve-design-system#v1.0.3" improve-ds <comando>
+   npx -p "github:guilhermefaj/improve-design-system#v2.0.0" improve-ds <comando>
 3. src/improve/ é cópia. Não editamos no dia a dia.
 4. Páginas, copy e composição são do produto.
 5. Cor de marca e Button.tsx mudam no repo do DS, depois upgrade.

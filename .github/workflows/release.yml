@@ -66,7 +66,7 @@ jobs:
         run: |
           mkdir release-assets
           cp design-system.manifest.json llms.txt llms-full.txt release-assets/
-          cp docs/MIGRATION_V0.5.md docs/MIGRATION_V0.6.md docs/MIGRATION_V1.0.md release-assets/
+          cp docs/MIGRATION_V0.5.md docs/MIGRATION_V0.6.md docs/MIGRATION_V1.0.md docs/MIGRATION_V2.0.md release-assets/
           tar -czf release-assets/improve-design-system-skill.tar.gz skills/improve-design-system
           tar -czf release-assets/improve-artifact-starters.tar.gz packages/artifact-kit/starters recipes
       - name: Create GitHub Release
