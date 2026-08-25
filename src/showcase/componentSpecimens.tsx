@@ -229,15 +229,12 @@ const customerColumns: DataGridColumn<Customer>[] = [
 ];
 
 function LogoSpecimen() {
-  const Logo = ImproveLogo as ComponentType<{
-    variant?: 'duo' | 'brand' | 'mono' | 'inverse';
-  }>;
   return panel(
     'logo',
     <Cluster>
-      <Logo variant="duo" />
-      <Logo variant="brand" />
-      <Logo variant="mono" />
+      <ImproveLogo variant="duo" />
+      <ImproveLogo variant="brand" />
+      <ImproveLogo variant="mono" />
       <div
         style={{
           padding: 'var(--ibs-space-4)',
@@ -245,7 +242,7 @@ function LogoSpecimen() {
           background: '#1d1d1f',
         }}
       >
-        <Logo variant="inverse" />
+        <ImproveLogo variant="inverse" />
       </div>
     </Cluster>,
     'hug',

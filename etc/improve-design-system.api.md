@@ -2539,7 +2539,11 @@ export function ImproveLogo(input: ImproveLogoProps): JSX.Element;
 export type ImproveLogoProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
     compact?: boolean;
     href?: string;
+    variant?: ImproveLogoVariant;
 };
+
+// @public (undocumented)
+export type ImproveLogoVariant = 'brand' | 'duo' | 'mono' | 'inverse';
 
 // @public (undocumented)
 export function ImproveMark(input: ImproveMarkProps): JSX.Element;
@@ -2547,6 +2551,7 @@ export function ImproveMark(input: ImproveMarkProps): JSX.Element;
 // @public (undocumented)
 export type ImproveMarkProps = HTMLAttributes<SVGSVGElement> & {
     size?: number;
+    variant?: ImproveLogoVariant;
 };
 
 // @public (undocumented)

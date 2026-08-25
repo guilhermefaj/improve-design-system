@@ -151,6 +151,20 @@
   gap: var(--ibs-space-4);
 }
 
+.showcase-demo--hug {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.showcase-demo--bounded {
+  width: 100%;
+  max-width: 42rem;
+}
+
+.showcase-demo--fill {
+  width: 100%;
+}
+
 .showcase-panel {
   width: 100%;
   scroll-margin-top: var(--ibs-space-6);
